@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package RoleService;
+option go_package = "service/RoleService;RoleService";
+
+import public "google/protobuf/timestamp.proto";
+
+message Page {
+  int64 pageNumber = 1;
+  int64 pageSize = 2;
+}
+
+message OpRoleResp {
+  int64 result = 1;
+}
+
+message CreateRoleReq {
+  string role = 1;     
+  string roleName = 2;    
+  string roleStatus = 3;
+  string platFormType = 4;
+  repeated string permissions = 5;
+}
+
+message DeleteRoleReq {
+  string role = 1; 
+}
+
+message ListRolesReq {
+  string role = 1;      
+  string RoleStatus = 2;
+  string platFormType = 3;
+  Page page=4;
+}
+
+message ListRolesResp {
+  int64 total = 1;
+  Page page = 2;
+  repeated ListRolesVo list = 3;
+}
+
+message ListRolesVo {
+  string role = 1;     
+  string roleName = 2;    
+  string roleStatus = 3;
+  string platFormType = 4;
+}
+
+message GetRolePermissionsReq {
+  string role = 1;     
+  string PermissionType = 2; 
+  string platFormType = 3;
+  Page page = 4;
+}
+
+message GetRolePermissionsResp {
+  int64 total = 1;
+  Page page = 2;
+  repeated GetRolePermissionsVo list = 3;
+}
+
+message GetRolePermissionsVo {
+  string permission = 1;     
+  string permissionUrl = 2;    
+  string permissionType = 3;
+  string permissionDescription = 4;
+  string platFormType = 5;
+  int64 layer = 6;
+  int64 parentId = 7;
+  int64 permissionId = 8;
+}
+
+message UpdateRoleReq {
+  string role = 1;    
+  string roleName = 2;       
+  string roleStatus = 3;
+  string platFormType = 4;
+  repeated string permissions = 5;
+}
+
+message UpdateRoleStatusReq {
+  string role = 1;     
+  string roleStatus = 2;
+}
+
+service RoleService {
+  rpc CreateRole(CreateRoleReq) returns (OpRoleResp);
+  rpc DeleteRole(DeleteRoleReq) returns (OpRoleResp);
+  rpc ListRoles(ListRolesReq) returns (ListRolesResp);
+  rpc GetRolePermissions(GetRolePermissionsReq) returns (GetRolePermissionsResp);
+  rpc UpdateRole(UpdateRoleReq) returns (OpRoleResp);
+  rpc UpdateRoleStatus(UpdateRoleStatusReq) returns (OpRoleResp);
+}
