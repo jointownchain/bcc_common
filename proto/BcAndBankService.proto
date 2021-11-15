@@ -61,6 +61,9 @@ service BcAndBankService {
 
   // 根据 txID 查询 链上交易, 返回 解密后的 json.Marshal 字符串
   rpc BcQueryByTxID(QueryTxIDReq) returns (QueryTxIDRsp);
+  
+  // 建设单位上链
+  rpc BcUploadConstructions(UploadChainConstructions) returns (BcResponses);
 
 }
 
@@ -331,6 +334,21 @@ message UploadChainShipmentOrder {
 
 message UploadChainShipmentOrders {
   repeated UploadChainShipmentOrder uploadChainShipmentOrder = 1;
+}
+
+
+message UploadChainConstructions {
+  repeated UploadChainConstruction uploadChainConstruction = 1;
+}
+
+
+message UploadChainConstruction {
+  UploadChainType uploadChainType = 1;
+  string constructionCode = 2;
+  string constructionName = 3;
+  string constructionType = 5;
+  string managerName = 6;
+  string managerPhone = 7;
 }
 
 

@@ -2687,6 +2687,18 @@ service ManagerService {
   //合同测试数据
   rpc SaveTenderContractInfo(TenderContractInfoReq) returns(TenderContractInfoResp);
   
+  
+   //建设单位相关
+  rpc ListConstrction(ListMiReq) returns(ListMiResp);
+  rpc CommonConstrction(CommonMIReq) returns(CommonMIResp);
+  rpc CommonConstrctionInfo(CommonMIInfoReq) returns(CommonMIInfoResp);
+  rpc CreateOneConstruction(CreateOneConstructionReq) returns(CreateOneConstructionResp);
+  rpc UpdateConstruction(UpdateConstructionReq) returns(UpdateConstructionResp);
+//  rpc UploadMiLogoUrl(UploadMiLogoUrlReq) returns(UploadMiLogoUrlResp);
+ // rpc GetMixCodeById(GetMICodeReq) returns(GetMICodeResp);
+ rpc GetConstructionCodeById(GetConstructionCodeReq) returns(GetConstructionCodeResp);
+
+  
 
 }
 
@@ -3285,4 +3297,62 @@ message GetCompanyInfoResp {
   string province = 6;
   string city = 7;
   string zone = 8;
+}
+
+
+
+
+//创建建设单位信息(主体信息)
+message CreateOneConstructionReq {
+  string  constructionName = 1;
+  string  constructionCode = 2;
+  string  constructionType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  int64   managerId = 9;
+  string InfoHash = 10;
+  
+}
+
+message CreateOneConstructionResp {
+  int64 result = 1;
+}
+
+
+message GetConstructionCodeReq {
+  int64 constructionId = 1;
+  int64   managerId = 2;
+}
+
+message GetConstructionCodeResp {
+  int64 constructionId = 1;
+  string constructionCode = 2;
+  string constructionName = 3;
+  string constructionType = 4;
+  string managerName = 5;
+  string managerPhone = 6;
+  string province = 7;
+  string city = 8;
+  string zone = 9;
+}
+
+//更新医疗机构信息
+message UpdateConstructionReq {
+  int64   constructionId = 1;
+  string  constructionName = 2;
+  string constructionType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  int64   managerId = 9;
+  string InfoHash = 10;
+}
+
+message UpdateConstructionResp {
+  int64 result = 1;
 }
