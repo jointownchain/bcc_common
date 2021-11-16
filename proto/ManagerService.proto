@@ -2689,14 +2689,28 @@ service ManagerService {
   
   
    //建设单位相关
-  rpc ListConstrction(ListMiReq) returns(ListMiResp);
-  rpc CommonConstrction(CommonMIReq) returns(CommonMIResp);
+  rpc ListConstrction(ListConstructionReq) returns(ListConstructionResp);
+  rpc CommonConstrction(CommonConstructionReq) returns(CommonConstructionResp);
+  //查各自的信息
   rpc CommonConstrctionInfo(CommonMIInfoReq) returns(CommonMIInfoResp);
   rpc CreateOneConstruction(CreateOneConstructionReq) returns(CreateOneConstructionResp);
   rpc UpdateConstruction(UpdateConstructionReq) returns(UpdateConstructionResp);
 //  rpc UploadMiLogoUrl(UploadMiLogoUrlReq) returns(UploadMiLogoUrlResp);
  // rpc GetMixCodeById(GetMICodeReq) returns(GetMICodeResp);
- rpc GetConstructionCodeById(GetConstructionCodeReq) returns(GetConstructionCodeResp);
+  rpc GetConstructionCodeById(GetConstructionCodeReq) returns(GetConstructionCodeResp);
+  rpc CreateOneCBSG(CreateOneCBSGReq) returns(CreateOneCBSGResp);
+ 
+ 
+  //施工单位相关
+  rpc ListBuildInfo(ListBuildInfoReq) returns(ListBuildInfoResp);
+  //rpc CommonConstrction(CommonMIReq) returns(CommonMIResp);
+  //查各自的信息
+  rpc CommonBuildInfo(CommonMIInfoReq) returns(CommonMIInfoResp);
+  rpc CreateOneBuildInfo(CreateOneBuildInfoReq) returns(CreateOneBuildInfoResp);
+  rpc UpdateBuildInfo(UpdateBuildInfoReq) returns(UpdateBuildInfoResp);
+//  rpc UploadMiLogoUrl(UploadMiLogoUrlReq) returns(UploadMiLogoUrlResp);
+
+ rpc GetBuildInfoCodeById(GetBuildInfoCodeReq) returns(GetBuildInfoCodeResp);
 
   
 
@@ -2859,6 +2873,19 @@ service HashService {
   rpc GetShipmentOrderHash(GetShipmentOrderHashReq) returns (GetShipmentOrderHashResp);
   rpc GetShipmentPayHash(GetShipmentPayHashReq) returns (GetShipmentPayHashResp);
   rpc GetShipmentFactoringHash(GetShipmentFactoringHashReq) returns (GetShipmentFactoringHashResp);
+  
+  
+  
+  //建设单位hash
+  rpc GetconstructionHash(GetConstructionHashReq) returns (GetConstructionHashResp);
+  
+  //施工单位hash
+  rpc GetBuildHash(GetBuildHashReq) returns (GetBuildHashResp);
+  
+
+  
+
+  
 }
 
 //============排名服务==================================
@@ -3339,7 +3366,7 @@ message GetConstructionCodeResp {
   string zone = 9;
 }
 
-//更新医疗机构信息
+//更新建设单位信息
 message UpdateConstructionReq {
   int64   constructionId = 1;
   string  constructionName = 2;
@@ -3356,3 +3383,210 @@ message UpdateConstructionReq {
 message UpdateConstructionResp {
   int64 result = 1;
 }
+
+//建设单位列表
+message ListConstructionReq {
+  string  constructionCode = 1;
+  string  constructionName = 2;
+  string  validStatus = 3;
+  Page page = 4;
+  int64 managerId = 5;
+}
+
+message ListConstructionResp {
+  repeated ListConstructionVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+
+message ListConstructionVo {
+  int64   constructionId = 1;
+  string  constructionCode = 2;
+  string  constructionName = 3;
+  string  constructionType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  hashInfo = 10;
+  google.protobuf.Timestamp  createdAt = 11;
+  string  logoUrl = 12;
+}
+
+//建设单位HASH
+message GetConstructionHashReq {
+  int64 managerId = 1;
+  repeated int64 constructionIds = 2;
+}
+message GetConstructionHashResp {
+  repeated ConstructionChainHash list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ConstructionChainHash{
+  int64 constructionId = 1;
+  string infoHash = 2;
+  google.protobuf.Timestamp infoUploadAt = 3;
+}
+
+//建设单位详情
+message CommonConstructionReq {
+  int64  constructionId = 1;
+  int64 managerId = 5;
+}
+
+message CommonConstructionResp {
+  int64   constructionId = 1;
+  string  constructionCode = 2;
+  string  constructionName = 3;
+  string  constructionType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  hashInfo = 10;
+  google.protobuf.Timestamp  createdAt = 11;
+  string  logoUrl = 12;
+}
+
+
+
+
+
+//创建施工单位信息(主体信息)
+message CreateOneBuildInfoReq {
+  string  buildName = 1;
+  string  buildCode = 2;
+  string  buildType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  int64   managerId = 9;
+  string InfoHash = 10;
+  
+}
+
+message CreateOneBuildInfoResp {
+  int64 result = 1;
+}
+
+
+message GetBuildInfoCodeReq {
+  int64 buildId = 1;
+  int64   managerId = 2;
+}
+
+message GetBuildInfoCodeResp {
+  int64 buildId = 1;
+  string buildCode = 2;
+  string buildName = 3;
+  string buildType = 4;
+  string managerName = 5;
+  string managerPhone = 6;
+  string province = 7;
+  string city = 8;
+  string zone = 9;
+}
+
+//更新施工单位信息
+message UpdateBuildInfoReq {
+  int64   buildId = 1;
+  string  buildName = 2;
+  string buildType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  int64   managerId = 9;
+  string InfoHash = 10;
+}
+
+message UpdateBuildInfoResp {
+  int64 result = 1;
+}
+
+
+
+//施工单位列表
+message ListBuildInfoReq {
+  string  buildCode = 1;
+  string  buildName = 2;
+  string  validStatus = 3;
+  Page page = 4;
+  int64 managerId = 5;
+}
+
+message ListBuildInfoResp {
+  repeated ListBuildInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+
+message ListBuildInfoVo {
+  int64   buildId = 1;
+  string  buildCode = 2;
+  string  buildName = 3;
+  string  buildType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  hashInfo = 10;
+  google.protobuf.Timestamp  createdAt = 11;
+  string  logoUrl = 12;
+}
+
+
+
+//施工单位HASH
+message GetBuildHashReq {
+  int64 managerId = 1;
+  repeated int64 constructionIds = 2;
+}
+message GetBuildHashResp {
+  repeated BuildChainHash list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message BuildChainHash{
+  int64 buildId = 1;
+  string infoHash = 2;
+  google.protobuf.Timestamp infoUploadAt = 3;
+}
+
+
+
+//创建四端基本信息信息(主体信息)
+message CreateOneCBSGReq {
+  string  name = 1;
+  string  code = 2;
+  string  type = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  int64   managerId = 9;
+  string InfoHash = 10;
+  
+}
+
+message CreateOneCBSGResp {
+  int64 result = 1;
+}
+
+
