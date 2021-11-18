@@ -62,8 +62,13 @@ service BcAndBankService {
   // 根据 txID 查询 链上交易, 返回 解密后的 json.Marshal 字符串
   rpc BcQueryByTxID(QueryTxIDReq) returns (QueryTxIDRsp);
   
-  // 建设单位上链
-  rpc BcUploadConstructions(UploadChainConstructions) returns (BcResponses);
+  // 组织单位上链
+  rpc BcUploadOrganizations(UploadChainOrganizations) returns (BcResponses);
+  
+  // 流程申请上链
+  rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
+  //流程审批上链
+  rpc BcUploadProcessApprove(UploadChainProcessApproves) returns (BcResponses);
 
 }
 
@@ -337,18 +342,71 @@ message UploadChainShipmentOrders {
 }
 
 
-message UploadChainConstructions {
-  repeated UploadChainConstruction uploadChainConstruction = 1;
+message UploadChainOrganizations {
+  repeated UploadChainOrganization uploadChainOrganization = 1;
 }
 
 
-message UploadChainConstruction {
+message UploadChainOrganization {
   UploadChainType uploadChainType = 1;
-  string constructionCode = 2;
-  string constructionName = 3;
-  string constructionType = 5;
-  string managerName = 6;
-  string managerPhone = 7;
+  string code = 2;
+  string name = 3;
+  string type = 4;
+  string managerName = 5;
+  string managerPhone = 6;
+  string province = 7;
+  string city = 8;
+  string zone = 9;
+  string memo = 10;
 }
 
+
+
+message UploadChainProcessApplies {
+   repeated UploadChainProcessApply uploadChainProcessApply = 1;
+}
+
+message UploadChainProcessApply {
+  UploadChainType uploadChainType = 1;
+  string projectName = 2;
+  string constructionName = 3;
+  string govermentName = 4;
+  string phaseName = 5;
+  string processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64 isParallel = 8;
+  int64 estimatedApprovalDays = 9;
+  repeated DocumentInfoApply uploadDocumnet = 10;
+}
+message DocumentInfoApply {
+  string fileName = 1;
+  string uploadUrl = 2;
+
+}
+
+message UploadChainProcessApproves {
+   repeated UploadChainProcessApprove uploadChainProcessApprove = 1;
+}
+
+message UploadChainProcessApprove {
+  UploadChainType uploadChainType = 1;
+  string projectName = 2;
+  string constructionName = 3;
+  string govermentName = 4;
+  string phaseName = 5;
+  string processName = 6;
+  int64 isParallel = 7;
+  int64 estimatedApprovalDays = 8;
+  google.protobuf.Timestamp applyDate = 9;
+  google.protobuf.Timestamp approveAt = 10;
+  string approveDesc = 11;
+  repeated DocumentInfoApply uploadDocumnetApply = 12;
+  repeated DocumentInfoApprove uploadDocumnetApprove = 13;
+}
+
+message DocumentInfoApprove {
+  string fileName = 1;
+  string uploadUrl = 2;
+
+}
 

@@ -2687,32 +2687,56 @@ service ManagerService {
   //合同测试数据
   rpc SaveTenderContractInfo(TenderContractInfoReq) returns(TenderContractInfoResp);
   
-  
-   //建设单位相关
-  rpc ListConstrction(ListConstructionReq) returns(ListConstructionResp);
-  rpc CommonConstrction(CommonConstructionReq) returns(CommonConstructionResp);
-  //查各自的信息
-  rpc CommonConstrctionInfo(CommonMIInfoReq) returns(CommonMIInfoResp);
+  //建设单位
+  rpc ListConstruction(ListConstructionReq) returns(ListConstructionResp);
+  rpc CommonConstruction(CommonConstructionReq) returns(CommonConstructionResp);
+  rpc GetConstructionInfo(GetConstructionInfoReq) returns(GetConstructionInfoResp);
   rpc CreateOneConstruction(CreateOneConstructionReq) returns(CreateOneConstructionResp);
-  rpc UpdateConstruction(UpdateConstructionReq) returns(UpdateConstructionResp);
-//  rpc UploadMiLogoUrl(UploadMiLogoUrlReq) returns(UploadMiLogoUrlResp);
- // rpc GetMixCodeById(GetMICodeReq) returns(GetMICodeResp);
-  rpc GetConstructionCodeById(GetConstructionCodeReq) returns(GetConstructionCodeResp);
-  rpc CreateOneCBSG(CreateOneCBSGReq) returns(CreateOneCBSGResp);
- 
- 
-  //施工单位相关
-  rpc ListBuildInfo(ListBuildInfoReq) returns(ListBuildInfoResp);
-  //rpc CommonConstrction(CommonMIReq) returns(CommonMIResp);
-  //查各自的信息
-  rpc CommonBuildInfo(CommonMIInfoReq) returns(CommonMIInfoResp);
-  rpc CreateOneBuildInfo(CreateOneBuildInfoReq) returns(CreateOneBuildInfoResp);
-  rpc UpdateBuildInfo(UpdateBuildInfoReq) returns(UpdateBuildInfoResp);
-//  rpc UploadMiLogoUrl(UploadMiLogoUrlReq) returns(UploadMiLogoUrlResp);
+  rpc CreateHashConstruction(CreateHashConstructionReq) returns(CreateHashConstructionResp);
+  rpc UpdateOneConstruction(UpdateOneConstructionReq) returns(UpdateOneConstructionResp);
+  rpc UpdateHashConstruction(UpdateHashConstructionReq) returns(UpdateHashConstructionResp);
+  rpc UploadConstructionLogoUrl(UploadConstructionLogoUrlReq) returns(UploadConstructionLogoUrlResp);
+  rpc DeleteConstruction(DeleteConstructionReq) returns(DeleteConstructionResp);
 
- rpc GetBuildInfoCodeById(GetBuildInfoCodeReq) returns(GetBuildInfoCodeResp);
-
+  //施工单位
+  rpc ListBuild(ListBuildReq) returns(ListBuildResp);
+  rpc CommonBuild(CommonBuildReq) returns(CommonBuildResp);
+  rpc GetBuildInfo(GetBuildInfoReq) returns(GetBuildInfoResp);
+  rpc CreateOneBuild(CreateOneBuildReq) returns(CreateOneBuildResp);
+  rpc CreateHashBuild(CreateHashBuildReq) returns(CreateHashBuildResp);
+  rpc UpdateOneBuild(UpdateOneBuildReq) returns(UpdateOneBuildResp);
+  rpc UpdateHashBuild(UpdateHashBuildReq) returns(UpdateHashBuildResp);
+  rpc UploadBuildLogoUrl(UploadBuildLogoUrlReq) returns(UploadBuildLogoUrlResp);
+  rpc DeleteBuild(DeleteBuildReq) returns(DeleteBuildResp); 
   
+  //监理单位
+  rpc ListSupervisor(ListSupervisorReq) returns(ListSupervisorResp);
+  rpc CommonSupervisor(CommonSupervisorReq) returns(CommonSupervisorResp);
+  rpc GetSupervisorInfo(GetSupervisorInfoReq) returns(GetSupervisorInfoResp);
+  rpc CreateOneSupervisor(CreateOneSupervisorReq) returns(CreateOneSupervisorResp);
+  rpc CreateHashSupervisor(CreateHashSupervisorReq) returns(CreateHashSupervisorResp);
+  rpc UpdateOneSupervisor(UpdateOneSupervisorReq) returns(UpdateOneSupervisorResp);
+  rpc UpdateHashSupervisor(UpdateHashSupervisorReq) returns(UpdateHashSupervisorResp);
+  rpc UploadSupervisorLogoUrl(UploadSupervisorLogoUrlReq) returns(UploadSupervisorLogoUrlResp);
+  rpc DeleteSupervisor(DeleteSupervisorReq) returns(DeleteSupervisorResp);
+  
+  //监管单位
+  rpc ListGoverment(ListGovermentReq) returns(ListGovermentResp);
+  rpc CommonGoverment(CommonGovermentReq) returns(CommonGovermentResp);
+  rpc GetGovermentInfo(GetGovermentInfoReq) returns(GetGovermentInfoResp);
+  rpc CreateOneGoverment(CreateOneGovermentReq) returns(CreateOneGovermentResp);
+  rpc CreateHashGoverment(CreateHashGovermentReq) returns(CreateHashGovermentResp);
+  rpc UpdateOneGoverment(UpdateOneGovermentReq) returns(UpdateOneGovermentResp);
+  rpc UpdateHashGoverment(UpdateHashGovermentReq) returns(UpdateHashGovermentResp);
+  rpc UploadGovermentLogoUrl(UploadGovermentLogoUrlReq) returns(UploadGovermentLogoUrlResp);
+  rpc DeleteGoverment(DeleteGovermentReq) returns(DeleteGovermentResp);
+  
+  //流程审批相关
+  rpc ListProcess(ListProcessReq) returns(ListProcessResp);
+  rpc CommonProcess(CommonProcessReq) returns(CommonProcessResp);
+  rpc CreateOneProcess(CreateOneProcessReq) returns(CreateOneProcessResp);
+  rpc UpdateOneProcess(UpdateProcessReq) returns(UpdateProcessResp);
+  rpc GetProcessCodeById(GetProcessCodeReq) returns(GetProcessCodeResp);
 
 }
 
@@ -2875,16 +2899,10 @@ service HashService {
   rpc GetShipmentFactoringHash(GetShipmentFactoringHashReq) returns (GetShipmentFactoringHashResp);
   
   
-  
-  //建设单位hash
-  rpc GetconstructionHash(GetConstructionHashReq) returns (GetConstructionHashResp);
-  
-  //施工单位hash
+  rpc GetConstructionHash(GetConstructionHashReq) returns (GetConstructionHashResp);  
   rpc GetBuildHash(GetBuildHashReq) returns (GetBuildHashResp);
-  
-
-  
-
+  rpc GetSupervisorHash(GetSupervisorHashReq) returns (GetSupervisorHashResp);  
+  rpc GetGovermentHash(GetGovermentHashReq) returns (GetGovermentHashResp);
   
 }
 
@@ -3327,35 +3345,146 @@ message GetCompanyInfoResp {
 }
 
 
+//查询建设单位列表
+message ListConstructionReq {
+  string  constructionCode = 1;
+  string  constructionName = 2;
+  string  province = 3;
+  string  city = 4;
+  string  zone = 5;
+  string  activeStatus = 6;
+  int64 managerId = 7;
+  Page page = 8;
+  repeated int64 constructionIds = 9;
+}
 
+message ListConstructionResp {
+  repeated ConstructionVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
 
-//创建建设单位信息(主体信息)
-message CreateOneConstructionReq {
+message ConstructionVo {
+  int64   constructionId = 1;
+  string  constructionCode = 2;
+  string  constructionName = 3;
+  string  constructionType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+//查询建设单位(通用接口)
+message CommonConstructionReq {
   string  constructionName = 1;
   string  constructionCode = 2;
-  string  constructionType = 3;
+  string activeStatus = 3;
+  int64 managerId = 4;
+  Page page = 5;
+  repeated int64 constructionIds = 6;
+}
+
+message CommonConstructionResp {
+  repeated CommonConstructionVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CommonConstructionVo {
+  int64   constructionId = 1;
+  string  constructionName = 2;
+  string  constructionCode = 3;
+  string  logoUrl = 4;
+}
+
+
+//获取建设单位详情
+message GetConstructionInfoReq {
+  int64 constructionId = 1;
+  string constructionCode = 2;
+  int64 managerId = 3;
+  Page page = 4;
+}
+
+message ConstructionInfoVo {
+  int64   constructionId = 1;
+  string  constructionCode = 2;
+  string  constructionName = 3;
+  string  constructionType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+message GetConstructionInfoResp {
+  repeated ConstructionInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+//创建建设单位信息
+message CreateOneConstructionReq {
+  string constructionName = 1;
+  string constructionCode = 2;
+  string constructionType = 3;
   string managerName = 4;
   string managerPhone = 5;
   string province = 6;
   string city = 7;
   string zone = 8;
-  int64   managerId = 9;
-  string InfoHash = 10;
-  
+  string memo = 9;
+  int64   managerId = 10;
 }
 
 message CreateOneConstructionResp {
   int64 result = 1;
 }
 
-
-message GetConstructionCodeReq {
-  int64 constructionId = 1;
-  int64   managerId = 2;
+//创建并上链建设单位信息
+message CreateHashConstructionReq {
+  string constructionName = 1;
+  string constructionCode = 2;
+  string constructionType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
 }
 
-message GetConstructionCodeResp {
-  int64 constructionId = 1;
+message CreateHashConstructionResp {
+  int64 result = 1;
+}
+
+//更新建设单位信息
+message UpdateOneConstructionReq {
+  int64  constructionId = 1;
   string constructionCode = 2;
   string constructionName = 3;
   string constructionType = 4;
@@ -3364,10 +3493,16 @@ message GetConstructionCodeResp {
   string province = 7;
   string city = 8;
   string zone = 9;
+  string memo = 10;
+  int64   managerId = 11;
 }
 
-//更新建设单位信息
-message UpdateConstructionReq {
+message UpdateOneConstructionResp {
+  int64 result = 1;
+}
+
+//更新并上链建设单位信息
+message UpdateHashConstructionReq {
   int64   constructionId = 1;
   string  constructionName = 2;
   string constructionType = 3;
@@ -3376,164 +3511,75 @@ message UpdateConstructionReq {
   string province = 6;
   string city = 7;
   string zone = 8;
-  int64   managerId = 9;
+  string memo = 9;
   string InfoHash = 10;
+  int64   managerId = 11;
 }
 
-message UpdateConstructionResp {
+message UpdateHashConstructionResp {
   int64 result = 1;
 }
 
-//建设单位列表
-message ListConstructionReq {
-  string  constructionCode = 1;
-  string  constructionName = 2;
-  string  validStatus = 3;
-  Page page = 4;
-  int64 managerId = 5;
+message UploadConstructionLogoUrlReq {
+  string  logoUrl = 1;
+  int64   managerId = 2;
+
 }
 
-message ListConstructionResp {
-  repeated ListConstructionVo list = 1;
-  int64 total = 2;
-  int64 pageSize = 3;
-  int64 pageNumber = 4;
+message UploadConstructionLogoUrlResp {
+  int64 result = 1;
 }
 
-
-message ListConstructionVo {
-  int64   constructionId = 1;
-  string  constructionCode = 2;
-  string  constructionName = 3;
-  string  constructionType = 4;
-  string  managerName = 5;
-  string  managerPhone = 6;
-  string  province = 7;
-  string  city = 8;
-  string  zone = 9;
-  string  hashInfo = 10;
-  google.protobuf.Timestamp  createdAt = 11;
-  string  logoUrl = 12;
+//删除建设单位信息
+message DeleteConstructionReq {
+  int64 constructionId = 1;
+  int64 managerId = 2;
 }
 
-//建设单位HASH
+message DeleteConstructionResp {
+
+}
+
+//获取建设单位hash
 message GetConstructionHashReq {
   int64 managerId = 1;
   repeated int64 constructionIds = 2;
 }
 message GetConstructionHashResp {
-  repeated ConstructionChainHash list = 1;
+  repeated ConstructionHashVo list = 1;
   int64 total = 2;
   int64 pageSize = 3;
   int64 pageNumber = 4;
 }
 
-message ConstructionChainHash{
-  int64 constructionId = 1;
-  string infoHash = 2;
-  google.protobuf.Timestamp infoUploadAt = 3;
-}
-
-//建设单位详情
-message CommonConstructionReq {
+message ConstructionHashVo{
   int64  constructionId = 1;
-  int64 managerId = 5;
+  string constructionCode = 2;  
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
 }
 
-message CommonConstructionResp {
-  int64   constructionId = 1;
-  string  constructionCode = 2;
-  string  constructionName = 3;
-  string  constructionType = 4;
-  string  managerName = 5;
-  string  managerPhone = 6;
-  string  province = 7;
-  string  city = 8;
-  string  zone = 9;
-  string  hashInfo = 10;
-  google.protobuf.Timestamp  createdAt = 11;
-  string  logoUrl = 12;
-}
-
-
-
-
-
-//创建施工单位信息(主体信息)
-message CreateOneBuildInfoReq {
-  string  buildName = 1;
-  string  buildCode = 2;
-  string  buildType = 3;
-  string managerName = 4;
-  string managerPhone = 5;
-  string province = 6;
-  string city = 7;
-  string zone = 8;
-  int64   managerId = 9;
-  string InfoHash = 10;
-  
-}
-
-message CreateOneBuildInfoResp {
-  int64 result = 1;
-}
-
-
-message GetBuildInfoCodeReq {
-  int64 buildId = 1;
-  int64   managerId = 2;
-}
-
-message GetBuildInfoCodeResp {
-  int64 buildId = 1;
-  string buildCode = 2;
-  string buildName = 3;
-  string buildType = 4;
-  string managerName = 5;
-  string managerPhone = 6;
-  string province = 7;
-  string city = 8;
-  string zone = 9;
-}
-
-//更新施工单位信息
-message UpdateBuildInfoReq {
-  int64   buildId = 1;
-  string  buildName = 2;
-  string buildType = 3;
-  string managerName = 4;
-  string managerPhone = 5;
-  string province = 6;
-  string city = 7;
-  string zone = 8;
-  int64   managerId = 9;
-  string InfoHash = 10;
-}
-
-message UpdateBuildInfoResp {
-  int64 result = 1;
-}
-
-
-
-//施工单位列表
-message ListBuildInfoReq {
+//查询施工单位列表
+message ListBuildReq {
   string  buildCode = 1;
   string  buildName = 2;
-  string  validStatus = 3;
-  Page page = 4;
-  int64 managerId = 5;
+  string  province = 3;
+  string  city = 4;
+  string  zone = 5;
+  string  activeStatus = 6;
+  int64 managerId = 7;
+  Page page = 8;
+  repeated int64 buildIds = 9;
 }
 
-message ListBuildInfoResp {
-  repeated ListBuildInfoVo list = 1;
+message ListBuildResp {
+  repeated BuildVo list = 1;
   int64 total = 2;
   int64 pageSize = 3;
   int64 pageNumber = 4;
 }
 
-
-message ListBuildInfoVo {
+message BuildVo {
   int64   buildId = 1;
   string  buildCode = 2;
   string  buildName = 3;
@@ -3543,50 +3589,798 @@ message ListBuildInfoVo {
   string  province = 7;
   string  city = 8;
   string  zone = 9;
-  string  hashInfo = 10;
-  google.protobuf.Timestamp  createdAt = 11;
-  string  logoUrl = 12;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
 }
 
-
-
-//施工单位HASH
-message GetBuildHashReq {
-  int64 managerId = 1;
-  repeated int64 constructionIds = 2;
+//查询施工单位(通用接口)
+message CommonBuildReq {
+  string  buildName = 1;
+  string  buildCode = 2;
+  string activeStatus = 3;
+  int64 managerId = 4;
+  Page page = 5;
+  repeated int64 buildIds = 6;
 }
-message GetBuildHashResp {
-  repeated BuildChainHash list = 1;
+
+message CommonBuildResp {
+  repeated CommonBuildVo list = 1;
   int64 total = 2;
   int64 pageSize = 3;
   int64 pageNumber = 4;
 }
 
-message BuildChainHash{
-  int64 buildId = 1;
-  string infoHash = 2;
-  google.protobuf.Timestamp infoUploadAt = 3;
+message CommonBuildVo {
+  int64   buildId = 1;
+  string  buildName = 2;
+  string  buildCode = 3;
+  string  logoUrl = 4;
 }
 
 
+//获取施工单位详情
+message GetBuildInfoReq {
+  int64 buildId = 1;
+  string buildCode = 2;
+  int64 managerId = 3;
+  Page page = 4;
+}
 
-//创建四端基本信息信息(主体信息)
-message CreateOneCBSGReq {
-  string  name = 1;
-  string  code = 2;
-  string  type = 3;
+message BuildInfoVo {
+  int64   buildId = 1;
+  string  buildCode = 2;
+  string  buildName = 3;
+  string  buildType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+message GetBuildInfoResp {
+  repeated BuildInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+//创建施工单位信息
+message CreateOneBuildReq {
+  string buildName = 1;
+  string buildCode = 2;
+  string buildType = 3;
   string managerName = 4;
   string managerPhone = 5;
   string province = 6;
   string city = 7;
   string zone = 8;
-  int64   managerId = 9;
-  string InfoHash = 10;
-  
+  string memo = 9;
+  int64   managerId = 10;
 }
 
-message CreateOneCBSGResp {
+message CreateOneBuildResp {
   int64 result = 1;
 }
 
+//创建并上链施工单位信息
+message CreateHashBuildReq {
+  string buildName = 1;
+  string buildCode = 2;
+  string buildType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
+}
 
+message CreateHashBuildResp {
+  int64 result = 1;
+}
+
+//更新施工单位信息
+message UpdateOneBuildReq {
+  int64  buildId = 1;
+  string buildCode = 2;
+  string buildName = 3;
+  string buildType = 4;
+  string managerName = 5;
+  string managerPhone = 6;
+  string province = 7;
+  string city = 8;
+  string zone = 9;
+  string memo = 10;
+  int64   managerId = 11;
+}
+
+message UpdateOneBuildResp {
+  int64 result = 1;
+}
+
+//更新并上链施工单位信息
+message UpdateHashBuildReq {
+  int64   buildId = 1;
+  string  buildName = 2;
+  string buildType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
+}
+
+message UpdateHashBuildResp {
+  int64 result = 1;
+}
+
+message UploadBuildLogoUrlReq {
+  string  logoUrl = 1;
+  int64   managerId = 2;
+
+}
+
+message UploadBuildLogoUrlResp {
+  int64 result = 1;
+}
+
+//删除施工单位信息
+message DeleteBuildReq {
+  int64 buildId = 1;
+  int64 managerId = 2;
+}
+
+message DeleteBuildResp {
+
+}
+
+//获取施工单位hash
+message GetBuildHashReq {
+  int64 managerId = 1;
+  repeated int64 buildIds = 2;
+}
+message GetBuildHashResp {
+  repeated BuildHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message BuildHashVo{
+  int64  buildId = 1;
+  string buildCode = 2;  
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+}
+
+//查询监理单位列表
+message ListSupervisorReq {
+  string  supervisorCode = 1;
+  string  supervisorName = 2;
+  string  province = 3;
+  string  city = 4;
+  string  zone = 5;
+  string  activeStatus = 6;
+  int64 managerId = 7;
+  Page page = 8;
+  repeated int64 supervisorIds = 9;
+}
+
+message ListSupervisorResp {
+  repeated SupervisorVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message SupervisorVo {
+  int64   supervisorId = 1;
+  string  supervisorCode = 2;
+  string  supervisorName = 3;
+  string  supervisorType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+//查询监理单位(通用接口)
+message CommonSupervisorReq {
+  string  supervisorName = 1;
+  string  supervisorCode = 2;
+  string activeStatus = 3;
+  int64 managerId = 4;
+  Page page = 5;
+  repeated int64 supervisorIds = 6;
+}
+
+message CommonSupervisorResp {
+  repeated CommonSupervisorVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CommonSupervisorVo {
+  int64   supervisorId = 1;
+  string  supervisorName = 2;
+  string  supervisorCode = 3;
+  string  logoUrl = 4;
+}
+
+
+//获取监理单位详情
+message GetSupervisorInfoReq {
+  int64 supervisorId = 1;
+  string supervisorCode = 2;
+  int64 managerId = 3;
+  Page page = 4;
+}
+
+message SupervisorInfoVo {
+  int64   supervisorId = 1;
+  string  supervisorCode = 2;
+  string  supervisorName = 3;
+  string  supervisorType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+message GetSupervisorInfoResp {
+  repeated SupervisorInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+//创建监理单位信息
+message CreateOneSupervisorReq {
+  string supervisorName = 1;
+  string supervisorCode = 2;
+  string supervisorType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  int64   managerId = 10;
+}
+
+message CreateOneSupervisorResp {
+  int64 result = 1;
+}
+
+//创建并上链监理单位信息
+message CreateHashSupervisorReq {
+  string supervisorName = 1;
+  string supervisorCode = 2;
+  string supervisorType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
+}
+
+message CreateHashSupervisorResp {
+  int64 result = 1;
+}
+
+//更新监理单位信息
+message UpdateOneSupervisorReq {
+  int64  supervisorId = 1;
+  string supervisorCode = 2;
+  string supervisorName = 3;
+  string supervisorType = 4;
+  string managerName = 5;
+  string managerPhone = 6;
+  string province = 7;
+  string city = 8;
+  string zone = 9;
+  string memo = 10;
+  int64   managerId = 11;
+}
+
+message UpdateOneSupervisorResp {
+  int64 result = 1;
+}
+
+//更新并上链监理单位信息
+message UpdateHashSupervisorReq {
+  int64   supervisorId = 1;
+  string  supervisorName = 2;
+  string supervisorType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
+}
+
+message UpdateHashSupervisorResp {
+  int64 result = 1;
+}
+
+message UploadSupervisorLogoUrlReq {
+  string  logoUrl = 1;
+  int64   managerId = 2;
+
+}
+
+message UploadSupervisorLogoUrlResp {
+  int64 result = 1;
+}
+
+//删除监理单位信息
+message DeleteSupervisorReq {
+  int64 supervisorId = 1;
+  int64 managerId = 2;
+}
+
+message DeleteSupervisorResp {
+
+}
+
+//获取监理单位hash
+message GetSupervisorHashReq {
+  int64 managerId = 1;
+  repeated int64 supervisorIds = 2;
+}
+message GetSupervisorHashResp {
+  repeated SupervisorHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message SupervisorHashVo{
+  int64  supervisorId = 1;
+  string supervisorCode = 2;  
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+}
+
+//查询监管单位列表
+message ListGovermentReq {
+  string  govermentCode = 1;
+  string  govermentName = 2;
+  string  province = 3;
+  string  city = 4;
+  string  zone = 5;
+  string  activeStatus = 6;
+  int64 managerId = 7;
+  Page page = 8;
+  repeated int64 govermentIds = 9;
+}
+
+message ListGovermentResp {
+  repeated GovermentVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GovermentVo {
+  int64   govermentId = 1;
+  string  govermentCode = 2;
+  string  govermentName = 3;
+  string  govermentType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+//查询监管单位(通用接口)
+message CommonGovermentReq {
+  string  govermentName = 1;
+  string  govermentCode = 2;
+  string activeStatus = 3;
+  int64 managerId = 4;
+  Page page = 5;
+  repeated int64 govermentIds = 6;
+}
+
+message CommonGovermentResp {
+  repeated CommonGovermentVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CommonGovermentVo {
+  int64   govermentId = 1;
+  string  govermentName = 2;
+  string  govermentCode = 3;
+  string  logoUrl = 4;
+}
+
+
+//获取监管单位详情
+message GetGovermentInfoReq {
+  int64 govermentId = 1;
+  string govermentCode = 2;
+  int64 managerId = 3;
+  Page page = 4;
+}
+
+message GovermentInfoVo {
+  int64   govermentId = 1;
+  string  govermentCode = 2;
+  string  govermentName = 3;
+  string  govermentType = 4;
+  string  managerName = 5;
+  string  managerPhone = 6;
+  string  province = 7;
+  string  city = 8;
+  string  zone = 9;
+  string  activeStatus = 10;
+  string  logoUrl = 11;
+  string  memo = 12;
+  int64   createdBy = 13;
+  google.protobuf.Timestamp  createdAt = 14;
+  int64   updatedBy = 15;
+  google.protobuf.Timestamp  updatedAt = 16; 
+  string  hashInfo = 17;
+}
+
+message GetGovermentInfoResp {
+  repeated GovermentInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+//创建监管单位信息
+message CreateOneGovermentReq {
+  string govermentName = 1;
+  string govermentCode = 2;
+  string govermentType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  int64   managerId = 10;
+}
+
+message CreateOneGovermentResp {
+  int64 result = 1;
+}
+
+//创建并上链监管单位信息
+message CreateHashGovermentReq {
+  string govermentName = 1;
+  string govermentCode = 2;
+  string govermentType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
+}
+
+message CreateHashGovermentResp {
+  int64 result = 1;
+}
+
+//更新监管单位信息
+message UpdateOneGovermentReq {
+  int64  govermentId = 1;
+  string govermentCode = 2;
+  string govermentName = 3;
+  string govermentType = 4;
+  string managerName = 5;
+  string managerPhone = 6;
+  string province = 7;
+  string city = 8;
+  string zone = 9;
+  string memo = 10;
+  int64   managerId = 11;
+}
+
+message UpdateOneGovermentResp {
+  int64 result = 1;
+}
+
+//更新并上链监管单位信息
+message UpdateHashGovermentReq {
+  int64   govermentId = 1;
+  string  govermentName = 2;
+  string govermentType = 3;
+  string managerName = 4;
+  string managerPhone = 5;
+  string province = 6;
+  string city = 7;
+  string zone = 8;
+  string memo = 9;
+  string InfoHash = 10;
+  int64   managerId = 11;
+}
+
+message UpdateHashGovermentResp {
+  int64 result = 1;
+}
+
+message UploadGovermentLogoUrlReq {
+  string  logoUrl = 1;
+  int64   managerId = 2;
+
+}
+
+message UploadGovermentLogoUrlResp {
+  int64 result = 1;
+}
+
+//删除监管单位信息
+message DeleteGovermentReq {
+  int64 govermentId = 1;
+  int64 managerId = 2;
+}
+
+message DeleteGovermentResp {
+
+}
+
+//获取监管单位hash
+message GetGovermentHashReq {
+  int64 managerId = 1;
+  repeated int64 govermentIds = 2;
+}
+message GetGovermentHashResp {
+  repeated GovermentHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GovermentHashVo{
+  int64  govermentId = 1;
+  string govermentCode = 2;  
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+}
+
+//创建申请流程信息(主体信息)
+message CreateOneProcessReq {
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+  int64   managerId = 19;
+  string InfoHash = 20;
+ repeated DocumentInfoApply uploadDocumnetApply = 21;
+  
+}
+message DocumentInfoApply {
+  string businessType = 1;
+  string fileName = 2;
+  string uploadUrl = 3;
+
+}
+
+message CreateOneProcessResp {
+  int64 result = 1;
+}
+
+message GetProcessCodeReq {
+  int64 processId = 1;
+  int64   managerId = 2;
+}
+
+message GetProcessCodeResp {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId  = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+}
+
+//更新流程审批信息
+message UpdateProcessReq {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId  = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+  string InfoHash = 19;
+  repeated DocumentInfoApply uploadDocumnetApply = 20;
+  int64   managerId = 21;
+}
+
+message UpdateProcessResp {
+  int64 result = 1;
+}
+
+//流程审批列表
+message ListProcessReq {
+  string  GovermentName = 1;
+  string  processName = 2;
+  string  processStatus = 3;
+  Page page = 4;
+  int64 managerId = 5;
+  google.protobuf.Timestamp applyStartAt = 7;
+  google.protobuf.Timestamp applyEndAt = 8;
+  google.protobuf.Timestamp approveStartAt = 9;
+  google.protobuf.Timestamp approveEndAt = 10;
+  
+}
+
+message ListProcessResp {
+  repeated ListProcessVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ListProcessVo {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId  = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+}
+
+//流程审批信息列表HASH
+message GetProcessHashReq {
+  int64 managerId = 1;
+  repeated int64 processIds = 2;
+}
+message GetProcessHashResp {
+  repeated ProcessChainHash list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ProcessChainHash{
+  int64 processId = 1;
+  string infoHash = 2;
+  google.protobuf.Timestamp infoUploadAt = 3;
+  string ApplyHash = 4;
+  string ApproveHash = 5;
+  google.protobuf.Timestamp applyUploadAt = 6;
+  google.protobuf.Timestamp approveUploadAt = 7;
+	  
+}
+
+//流程审批详情
+message CommonProcessReq {
+  int64  processId = 1;
+  int64 managerId = 2;
+  int64 govermentId = 3;
+}
+
+message CommonProcessResp {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+}
