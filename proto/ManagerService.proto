@@ -1910,7 +1910,7 @@ message DashboardShipmentVo {
 }
 
 message GetDashboardShipmentListResp {
-  repeated DashboardShipmentVo list  = 1;
+  repeated DashboardShipmentVo list = 1;
   int64 total = 2;
   int64 pageSize = 3;
   int64 pageNumber = 4;
@@ -1954,7 +1954,7 @@ message DashboardStockVo {
 }
 
 message GetDashboardStockListResp {
-  repeated DashboardStockVo list  = 1;
+  repeated DashboardStockVo list = 1;
   int64 total = 2;
   int64 pageSize = 3;
   int64 pageNumber = 4;
@@ -3456,7 +3456,7 @@ message CreateOneConstructionReq {
   string city = 7;
   string zone = 8;
   string memo = 9;
-  int64   managerId = 10;
+  int64  managerId = 10;
 }
 
 message CreateOneConstructionResp {
@@ -4230,7 +4230,6 @@ message DocumentInfoApply {
   string businessType = 1;
   string fileName = 2;
   string uploadUrl = 3;
-
 }
 
 message CreateOneProcessResp {
@@ -4383,4 +4382,81 @@ message CommonProcessResp {
   string approveDesc = 16;
   string preProcessIds = 17;
   string activeStatus = 18;
+}
+
+//项目管理
+	
+message ProjectReq {
+  int64  managerId = 1;
+  int64  projectId = 2;
+  string projectCode = 3;
+  string projectName = 4;
+  google.protobuf.Timestamp startAt = 5;
+  google.protobuf.Timestamp endAt = 6;
+  int64  buildingArea = 7;
+  int64  engineeringCost = 8;
+  string projectAddress = 9;
+  string formType = 10;
+  string projectLeader = 11;
+  string contactMobile = 12;
+  string contactAddress = 13;
+  string constructionName = 14;
+  string designName = 15;
+  string buildName = 16;
+  string supervisorName = 17;
+  string activeStatus = 18;
+  string projectDescription = 19;
+  string memo = 20;
+  Page   page = 21;
+}
+
+message ProjectVo {
+  int64  projectId = 1;
+  string projectCode = 2;
+  string projectName = 3;
+  google.protobuf.Timestamp startAt = 4;
+  google.protobuf.Timestamp endAt = 5;
+  int64  buildingArea = 6;
+  int64  engineeringCost = 7;
+  string projectAddress = 8;
+  string formType = 9;
+  string projectLeader = 10;
+  string contactMobile = 11;
+  string contactAddress = 12;
+  string constructionName = 13;
+  string designName = 14;
+  string buildName = 15;
+  string supervisorName = 16;
+  string activeStatus = 17;
+  string projectDescription = 18;
+  string memo = 19;
+  int64  createdBy = 20;
+  string createdByName = 21;
+  google.protobuf.Timestamp createdAt = 22;
+  int64  updatedBy = 23;
+  string updatedByName = 24;
+  google.protobuf.Timestamp updatedAt = 25;
+}
+
+message ProjectResp {
+  ProjectVo project = 1;
+}
+
+message ProjectsResp {
+  repeated ProjectVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message OpProjectResp {
+  int64 result = 1;
+}
+
+service BccManagerService {
+  //合同相关
+  rpc CreateProject(ProjectReq) returns(OpProjectResp);
+  rpc UpdateProject(ProjectReq) returns(OpProjectResp);
+  rpc ShowProject(ProjectReq) returns(ProjectResp);
+  rpc ListProjects(ProjectReq) returns(ProjectsResp);
 }
