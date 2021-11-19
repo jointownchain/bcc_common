@@ -2737,6 +2737,7 @@ service ManagerService {
   rpc CreateOneProcess(CreateOneProcessReq) returns(CreateOneProcessResp);
   rpc UpdateOneProcess(UpdateProcessReq) returns(UpdateProcessResp);
   rpc GetProcessCodeById(GetProcessCodeReq) returns(GetProcessCodeResp);
+  rpc UpdateOneProcessApprove(UpdateProcessApproveReq) returns(UpdateProcessResp);
 
 }
 
@@ -2903,6 +2904,7 @@ service HashService {
   rpc GetBuildHash(GetBuildHashReq) returns (GetBuildHashResp);
   rpc GetSupervisorHash(GetSupervisorHashReq) returns (GetSupervisorHashResp);  
   rpc GetGovermentHash(GetGovermentHashReq) returns (GetGovermentHashResp);
+  rpc GetProcessHash(GetProcessHashReq) returns (GetProcessHashResp);
   
 }
 
@@ -4333,28 +4335,6 @@ message ListProcessVo {
   string activeStatus = 18;
 }
 
-//流程审批信息列表HASH
-message GetProcessHashReq {
-  int64 managerId = 1;
-  repeated int64 processIds = 2;
-}
-message GetProcessHashResp {
-  repeated ProcessChainHash list = 1;
-  int64 total = 2;
-  int64 pageSize = 3;
-  int64 pageNumber = 4;
-}
-
-message ProcessChainHash{
-  int64 processId = 1;
-  string infoHash = 2;
-  google.protobuf.Timestamp infoUploadAt = 3;
-  string ApplyHash = 4;
-  string ApproveHash = 5;
-  google.protobuf.Timestamp applyUploadAt = 6;
-  google.protobuf.Timestamp approveUploadAt = 7;
-	  
-}
 
 //流程审批详情
 message CommonProcessReq {
@@ -4459,4 +4439,56 @@ service BccManagerService {
   rpc UpdateProject(ProjectReq) returns(OpProjectResp);
   rpc ShowProject(ProjectReq) returns(ProjectResp);
   rpc ListProjects(ProjectReq) returns(ProjectsResp);
+}
+
+//获取流程HASH
+message GetProcessHashReq {
+  int64 managerId = 1;
+  repeated int64 processIds = 2;
+}
+message GetProcessHashResp {
+  repeated ProcessHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ProcessHashVo{
+  int64  processId = 1;
+  string applyHash = 2;  
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string approveHash = 5;
+   google.protobuf.Timestamp approve_upload_at = 6;
+}
+
+//GOV审批流程审批信息
+message UpdateProcessApproveReq {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId  = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+  string InfoHash = 19;
+  repeated DocumentInfoApprove uploadDocumentApprove = 20;
+  int64   managerId = 21;
+}
+
+message DocumentInfoApprove {
+  string businessType = 1;
+  string fileName = 2;
+  string uploadUrl = 3;
 }
