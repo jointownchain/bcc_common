@@ -64,6 +64,8 @@ service BcAndBankService {
   
   // 组织单位上链
   rpc BcUploadOrganizations(UploadChainOrganizations) returns (BcResponses);
+  // 项目信息上链
+  rpc BcUploadProjects(UploadChainProjects) returns (BcResponses);
   
   // 流程申请上链
   rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
@@ -360,7 +362,37 @@ message UploadChainOrganization {
   string memo = 10;
 }
 
+message UploadDocumentInfo {
+  string fileName = 1;
+  string uploadUrl = 2;
+}
 
+message UploadChainProjects {
+  repeated UploadChainProject UploadChainProject = 1;
+}
+
+message UploadChainProject {
+  UploadChainType uploadChainType = 1;
+  string projectCode = 2;
+  string projectName = 3;
+  google.protobuf.Timestamp startAt = 4;
+  google.protobuf.Timestamp endAt = 5;
+  int64  buildingArea = 6;
+  int64  engineeringCost = 7;
+  string projectAddress = 8;
+  string formType = 9;
+  string projectLeader = 10;
+  string contactMobile = 11;
+  string contactAddress = 12;
+  string constructionName = 13;
+  string designName = 14;
+  string buildName = 15;
+  string supervisorName = 16;
+  string activeStatus = 17;
+  string projectDescription = 18;
+  string memo = 19;
+  repeated UploadDocumentInfo uploadDocumnet = 20;
+}
 
 message UploadChainProcessApplies {
    repeated UploadChainProcessApply uploadChainProcessApply = 1;
