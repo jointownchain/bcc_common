@@ -11,240 +11,6 @@ message Page {
   int64 pageSize = 2;
 }
 
-
-//根据招采单号查询合同信息
-message GetContractInfoReq {
-  int64  shipmentPlanId = 1;
-  int64 managerId = 2;
-}
-
-message GetContractInfoResp {
-  int64  contractId = 1;
-  string  contractNo = 2;
-}
-
-//查询当前合同汇总
-message CountContractReq {
-  int64  mibId = 1;
-  int64 managerId = 2;
-}
-
-message CountContractResp {
-  int64  countContract = 1;
-  int64  countMoney = 2;
-}
-
-//合同详情
-message ContractDetailReq {
-  int64 contractId = 1;
-  int64 managerId = 2;
-
-}
-
-message ContractDetailResp {
-  repeated ContractDetailVo list = 1;
-}
-
-message ContractDetailVo {
-  string  manufacturer = 1;
-  string  miName = 2;
-  string  medicineAmount = 3;
-  string  allMoney = 4;
-  string  medicineReceive = 5;
-}
-
-//合同列表
-message ContractListReq {
-  string  medicineName = 1;
-  string  TenderCompany = 2;
-  google.protobuf.Timestamp  StartAt = 3;
-  google.protobuf.Timestamp   EndAt = 4;
-  string  companyName = 5;
-  int64  tagId = 6;
-  string  contractNo = 7;
-  string  contractStatus = 8;
-  Page page = 9;
-  int64 managerId = 10;
-  string  medicineCode = 11;
-  //备用
-  string companyCode = 12;
-  int64  companyId = 13;
-  int64  miId = 14;
-}
-
-message ContractListResp {
-  repeated ContractListVo list = 1;
-  int64 total = 2;
-  int64 pageSize = 3;
-  int64 pageNumber = 4;
-}
-
-message ContractListVo {
-  int64   contractId = 1;
-  string  contractNo = 2;
-  string  medicineName = 3;
-  string  medicineCode = 4;
-  string  tagName = 5;
-  string  medicineSpecification = 6;
-  string  tenderCompany = 7;
-  string  companyName = 8;
-  int64  medicinePrice = 9;
-  int64  totalAmount = 10;
-  int64  totalMoney = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
-  google.protobuf.Timestamp createdAt = 14;
-  string hashInfo = 15;
-  string activeStatus = 16;
-  int64  medicineId = 17;
-  int64  companyId = 18;
-  int64  contractMiAmount = 19;
-  int64  contractMiReceive = 20;
-  string  manufacturer = 21;
-}
-//根据药品id 配送企业id 起始时间 查询合同列表
-message UpCheckContractReq {
-  repeated  CheckContractParam reqs = 1;
-  int64 managerId = 2;
-}
-
-message CheckContractParam {
-  int64  medicineId = 1;
-  int64  companyId = 2;
-  google.protobuf.Timestamp startAt = 3;
-  google.protobuf.Timestamp endAt = 4;
-}
-
-message CheckContractListResp {
-  repeated ContractListVo list = 1;
-}
-
-//子合同列表
-message ContractMiListReq {
-  int64  contractId = 1;
-  int64  contractMiId = 2;
-  int64 managerId = 4;
-}
-
-message ContractMiListResp {
-  repeated ContractMiListVo list = 1;
-}
-
-message ContractMiListVo {
-  int64   miContractId = 1;
-  string  medicineName = 2;
-  string  medicineCode = 3;
-  string  miName = 4;
-  int64  medicinePrice = 5;
-  int64  medicineAmount = 6;
-  int64  medicineAmountMoney = 7;
-  string  hashInfo = 8;
-  google.protobuf.Timestamp infoUploadAt = 9;
-  string  medicineSpecification = 10;
-  string  contractMd5 = 11;
-  string  contractUrl = 12;
-  string  activeStatus = 13;
-  string  manufacturer = 14;
-  int64  medicineReceive = 15;
-  int64  miId = 16;
-}
-//子合同补录
-message CreateOneContractMIReq {
-  int64  miId = 1;
-  int64  contractId = 2;
-  int64  medicineAmount = 3;
-  int64 managerId = 4;
-}
-
-message CreateOneContractMIResp {
-  int64  result = 1;
-}
-//子合同更新
-message UpdateOneContractMIReq {
-  int64  contractMiId = 1;
-  int64  miId = 2;
-  int64  medicineAmount = 3;
-  int64 managerId = 4;
-}
-
-message UpdateOneContractMIResp {
-  int64  result = 1;
-}
-//主合同更新
-message UpdateOneContractReq {
-  int64  contractId = 1;
-  int64  medicineId = 2;
-  int64  medicinePrice = 3;
-  google.protobuf.Timestamp startAt = 4;
-  google.protobuf.Timestamp endAt = 5;
-  int64 managerId = 6;
-  int64 companyId = 7;
-  string tenderCompany = 8;
-}
-
-message UpdateOneContractResp {
-  int64  result = 1;
-}
-//主合同批量更新和新增
-message BatchOperateContractReq {
-  repeated BatchOperateContract updateParam = 1;
-  repeated BatchOperateContract createParam = 2;
-  int64 managerId = 3;
-}
-
-message BatchOperateContractResp {
-  int64  result = 1;
-}
-
-message BatchOperateContract {
-  int64  contractId = 1;
-  int64  medicineId = 2;
-  int64  medicinePrice = 3;
-  google.protobuf.Timestamp startAt = 4;
-  google.protobuf.Timestamp endAt = 5;
-  int64 managerId = 6;
-  int64 companyId = 7;
-  string tenderCompany = 8;
-}
-
-//主合同更新状态
-message UpdateContractActiveReq {
-  int64  contractId = 1;
-  string  activeStatus = 2;
-  int64 managerId = 3;
-}
-
-message UpdateContractActiveResp {
-  int64  result = 1;
-}
-//刷新合同
-message RefreshOneContractReq {
-  int64 contractId = 1;
-  string contractNo = 2;
-  int64 managerId = 3;
-}
-
-message RefreshOneContractResp {
-  int64 result = 1;
-}
-//删除主合同
-message DeleteOneContractReq {
-  int64  contractId = 1;
-  int64 managerId = 2;
-}
-
-message DeleteOneContractResp {
-  int64  result = 1;
-}
-//删除子合同
-message DeleteOneContractMiReq {
-  int64  contractMiId = 1;
-  int64 managerId = 2;
-}
-
-message DeleteOneContractMiResp {
-  int64  result = 1;
-}
 //药品列表
 message MedicineListReq {
   string  medicineName = 1;
@@ -2545,24 +2311,7 @@ message CreateBankAccountResp {
 }
 
 service ManagerService {
-  //合同相关
-  rpc ListContract(ContractListReq) returns(ContractListResp);
-  rpc ListMiContract(ContractMiListReq) returns(ContractMiListResp);
-  rpc CreateOneContractMI(CreateOneContractMIReq) returns(CreateOneContractMIResp);
-  rpc UpdateOneContractMI(UpdateOneContractMIReq) returns(UpdateOneContractMIResp);
-  rpc UpdateOneContract(UpdateOneContractReq) returns(UpdateOneContractResp);
-  rpc RefreshOneContract(RefreshOneContractReq) returns(RefreshOneContractResp);
-  rpc BatchOperateContract(BatchOperateContractReq) returns(BatchOperateContractResp);
-  rpc UpdateContractActive(UpdateContractActiveReq) returns(UpdateContractActiveResp);
-  rpc DeleteOneContract(DeleteOneContractReq) returns(DeleteOneContractResp);
-  rpc DeleteOneContractMi(DeleteOneContractMiReq) returns(DeleteOneContractMiResp);
-  rpc GetContractInfo(GetContractInfoReq) returns(GetContractInfoResp);
-  rpc CountContract(CountContractReq) returns(CountContractResp);
-  //合同重置
-  rpc ResetContract(ResetContractReq) returns(ResetContractResp);
-  //暂未使用
-  rpc ContractDetail(ContractDetailReq) returns(ContractDetailResp);
-  rpc CheckContractList(UpCheckContractReq) returns(CheckContractListResp);
+
   //药品相关
   rpc ListMedicine(MedicineListReq) returns(MedicineListResp);
   rpc MedicineListForQuery(MedicineListForQueryReq) returns(MedicineListForQueryResp);
@@ -2735,9 +2484,26 @@ service ManagerService {
   rpc ListProcess(ListProcessReq) returns(ListProcessResp);
   rpc CommonProcess(CommonProcessReq) returns(CommonProcessResp);
   rpc CreateOneProcess(CreateOneProcessReq) returns(CreateOneProcessResp);
+  rpc CreateHashProcess(CreateHashProcessReq) returns(CreateHashProcessResp);
   rpc UpdateOneProcess(UpdateProcessReq) returns(UpdateProcessResp);
+  rpc UpdateHashProcess(UpdateHashProcessReq) returns(UpdateHashProcessResp);
   rpc GetProcessCodeById(GetProcessCodeReq) returns(GetProcessCodeResp);
   rpc UpdateOneProcessApprove(UpdateProcessApproveReq) returns(UpdateProcessResp);
+  rpc DeleteProcess(DeleteProcessReq) returns(DeleteProcessResp);
+  rpc UpdateProcessSort(UpdateProcessSortReq) returns(UpdateProcessSortResp);
+  rpc GetProcessInfo(GetProcessInfoReq) returns(GetProcessInfoResp);
+  //合同信息相关
+  rpc ListContract(ListContractReq) returns(ListContractResp);
+  rpc GetOneContract(GetOneContractReq) returns(GetOneContractResp);
+  rpc CreateOneContract(CreateOneContractReq) returns(CreateOneContractResp);
+  rpc UpdateOneContract(UpdateOneContractReq) returns(UpdateOneContractResp);
+  rpc CreateContractHash(CreateContractHashReq) returns(CreateContractHashResp);
+  rpc UpdateContractHash(UpdateContractHashReq) returns(UpdateContractHashResp);
+  rpc DeleteOneContract(DeleteOneContractReq) returns(DeleteOneContractResp);
+  
+  
+  
+  
 
 }
 
@@ -2905,7 +2671,7 @@ service HashService {
   rpc GetSupervisorHash(GetSupervisorHashReq) returns (GetSupervisorHashResp);  
   rpc GetGovermentHash(GetGovermentHashReq) returns (GetGovermentHashResp);
   rpc GetProcessHash(GetProcessHashReq) returns (GetProcessHashResp);
-  rpc GetProjectHash(GetProjectHashReq) returns (GetProjectHashResp);
+  rpc ListContractHash(ListContractHashReq) returns (ListContractHashResp);
   
 }
 
@@ -4225,8 +3991,7 @@ message CreateOneProcessReq {
   string preProcessIds = 17;
   string activeStatus = 18;
   int64   managerId = 19;
-  string InfoHash = 20;
- repeated DocumentInfoApply uploadDocumnetApply = 21;
+ repeated DocumentInfoApply uploadDocumnetApply = 20;
   
 }
 message DocumentInfoApply {
@@ -4265,8 +4030,66 @@ message GetProcessCodeResp {
   string activeStatus = 18;
 }
 
+
+message CreateHashProcessReq {
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+  int64   managerId = 19;
+  string InfoHash = 20;
+ repeated DocumentInfoApply uploadDocumnetApply = 21;
+  
+}
+message CreateHashProcessResp {
+  int64 result = 1;
+}
+
+
+
 //更新流程审批信息
 message UpdateProcessReq {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId  = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+  repeated DocumentInfoApply uploadDocumnetApply = 19;
+  int64   managerId = 20;
+}
+
+message UpdateProcessResp {
+  int64 result = 1;
+}
+
+message UpdateHashProcessReq {
   int64 id = 1;
   int64  projectId = 2;
   int64  constructionId = 3;
@@ -4290,7 +4113,28 @@ message UpdateProcessReq {
   int64   managerId = 21;
 }
 
-message UpdateProcessResp {
+message UpdateHashProcessResp {
+  int64 result = 1;
+}
+
+//删除流程信息
+message DeleteProcessReq {
+  int64 processId = 1;
+  int64 managerId = 2;
+}
+
+message DeleteProcessResp {
+
+}
+
+//更新流顺序信息
+message UpdateProcessSortReq {
+  int64 id = 1;
+  int64  sortFlag = 2;
+  int64   managerId = 3;
+}
+
+message UpdateProcessSortResp {
   int64 result = 1;
 }
 
@@ -4305,6 +4149,7 @@ message ListProcessReq {
   google.protobuf.Timestamp applyEndAt = 8;
   google.protobuf.Timestamp approveStartAt = 9;
   google.protobuf.Timestamp approveEndAt = 10;
+ int64 organizationId = 11;
   
 }
 
@@ -4388,8 +4233,7 @@ message ProjectReq {
   string activeStatus = 18;
   string projectDescription = 19;
   string memo = 20;
-  repeated UploadDocumentInfo uploadDocument = 21;
-  Page   page = 22;
+  Page   page = 21;
 }
 
 message ProjectVo {
@@ -4420,6 +4264,10 @@ message ProjectVo {
   google.protobuf.Timestamp updatedAt = 25;
 }
 
+message ProjectResp {
+  ProjectVo project = 1;
+}
+
 message ProjectsResp {
   repeated ProjectVo list = 1;
   int64 total = 2;
@@ -4431,90 +4279,12 @@ message OpProjectResp {
   int64 result = 1;
 }
 
-message CreateProjectHashReq {
-  string projectCode = 1;
-  string projectName = 2;
-  google.protobuf.Timestamp startAt = 3;
-  google.protobuf.Timestamp endAt = 4;
-  int64  buildingArea = 5;
-  int64  engineeringCost = 6;
-  string projectAddress = 7;
-  string formType = 8;
-  string projectLeader = 9;
-  string contactMobile = 10;
-  string contactAddress = 11;
-  string constructionName = 12;
-  string designName = 13;
-  string buildName = 14;
-  string supervisorName = 15;
-  string activeStatus = 16;
-  string projectDescription = 17;
-  string memo = 18;
-  repeated UploadDocumentInfo uploadDocument = 19;
-  string InfoHash = 20;
-  int64  managerId = 21;
-}
-
-message UploadDocumentInfo {
-  string fileName = 1;
-  string uploadUrl = 2;
-}
-
-message UpdateProjectHashReq { 
-  string projectId = 1;
-  string projectCode = 2;
-  string projectName = 3;
-  google.protobuf.Timestamp startAt = 4;
-  google.protobuf.Timestamp endAt = 5;
-  int64  buildingArea = 6;
-  int64  engineeringCost = 7;
-  string projectAddress = 8;
-  string formType = 9;
-  string projectLeader = 10;
-  string contactMobile = 11;
-  string contactAddress = 12;
-  string constructionName = 13;
-  string designName = 14;
-  string buildName = 15;
-  string supervisorName = 16;
-  string activeStatus = 17;
-  string projectDescription = 18;
-  string memo = 19;
-  repeated UploadDocumentInfo uploadDocument = 20;
-  string InfoHash = 21;
-  int64  managerId = 22;
-}
-
-message GetProjectHashReq {
-  int64 managerId = 1;
-  repeated int64 projectIds = 2;
-}
-
-message ProjectHashVo{
-  int64  projectId = 1;
-  string projectCode = 2;  
-  string infoHash = 3;
-  google.protobuf.Timestamp infoUploadAt = 4;
-}
-
-message GetProjectHashResp {
-  repeated ProjectHashVo list = 1;
-  int64 total = 2;
-  int64 pageSize = 3;
-  int64 pageNumber = 4;
-}
-
 service BccManagerService {
   //合同相关
-  rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
-  rpc UpdateOneProject(ProjectReq) returns(OpProjectResp);
-  rpc DeleteOneProject(ProjectReq) returns(OpProjectResp);
-  
-  rpc GetOneProject(ProjectReq) returns(ProjectsResp);
-  rpc ListProject(ProjectReq) returns(ProjectsResp);
-  
-  rpc CreateProjectHash(CreateProjectHashReq) returns(OpProjectResp);
-  rpc UpdateProjectHash(UpdateProjectHashReq) returns(OpProjectResp);
+  rpc CreateProject(ProjectReq) returns(OpProjectResp);
+  rpc UpdateProject(ProjectReq) returns(OpProjectResp);
+  rpc ShowProject(ProjectReq) returns(ProjectResp);
+  rpc ListProjects(ProjectReq) returns(ProjectsResp);
 }
 
 //获取流程HASH
@@ -4568,3 +4338,247 @@ message DocumentInfoApprove {
   string fileName = 2;
   string uploadUrl = 3;
 }
+
+//获取流程信息详情
+message GetProcessInfoReq {
+  int64 processId = 1;
+  int64 managerId = 2;
+  Page page = 3;
+}
+
+message ProcessInfoVo {
+  int64 id = 1;
+  int64  projectId = 2;
+  int64  constructionId = 3;
+  int64  govermentId = 4;
+  int64  projectPhaseId = 5;
+  string  processName = 6;
+  google.protobuf.Timestamp applyDate = 7;
+  int64  estimatedApprovalDays = 8;
+  int64  sortFlag = 9;
+  int64  isParallel = 10;
+  string processStatus = 11;
+  string memo = 12;
+  google.protobuf.Timestamp approveDeadline = 13;
+  google.protobuf.Timestamp approveDeadlineWarn = 14;
+  google.protobuf.Timestamp approveAt = 15;
+  string approveDesc = 16;
+  string preProcessIds = 17;
+  string activeStatus = 18;
+ string InfoHash = 19;
+}
+
+message GetProcessInfoResp {
+  repeated ProcessInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+//合同信息message
+message ListContractReq {
+  string  contractType = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  int64  projectId = 4;
+  string  serviceCode = 5;
+  Page page = 6;
+  int64 managerId = 7;
+  google.protobuf.Timestamp startAt = 8;
+  google.protobuf.Timestamp endAt = 9;
+ int64 organizationId = 10;
+  
+}
+
+message ListContractResp {
+  repeated ListContractVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ListContractVo {
+  int64 id = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  string  ContractType = 4;
+  int64   projectId  = 5;
+  string  constructionCode = 6;
+  string serviceCode = 7;
+  string  thirdCode = 8;
+  int64  contractAmount = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  google.protobuf.Timestamp startAt = 12;
+  google.protobuf.Timestamp endAt = 13;
+}
+
+
+
+message GetOneContractReq {
+  int64 contractId = 1;
+  int64 managerId = 2;
+  Page page = 3;
+}
+
+message GetOneContractResp {
+  repeated ContractInfoVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ContractInfoVo {
+  int64 id = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  string  ContractType = 4;
+  int64   projectId  = 5;
+  string  constructionCode = 6;
+  string serviceCode = 7;
+  string  thirdCode = 8;
+  int64  contractAmount = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  google.protobuf.Timestamp startAt = 12;
+  google.protobuf.Timestamp endAt = 13;
+}
+
+
+message CreateOneContractReq {
+  int64 id = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  string  ContractType = 4;
+  int64   projectId  = 5;
+  string  constructionCode = 6;
+  string serviceCode = 7;
+  string  thirdCode = 8;
+  int64  contractAmount = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  google.protobuf.Timestamp startAt = 12;
+  google.protobuf.Timestamp endAt = 13;
+  int64   CreatedBy  = 14;
+  int64   UpdatedBy  = 15;
+  google.protobuf.Timestamp UpdatedAt = 16;
+  google.protobuf.Timestamp CreatedAt = 17;
+  int64   managerId = 18;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 19;
+  
+  
+}
+message DocumentInfoContract {
+  string businessType = 1;
+  string fileName = 2;
+  string uploadUrl = 3;
+}
+
+message CreateOneContractResp {
+  int64 result = 1;
+}
+
+message UpdateOneContractReq {
+  int64 id = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  string  ContractType = 4;
+  int64   projectId  = 5;
+  string  constructionCode = 6;
+  string serviceCode = 7;
+  string  thirdCode = 8;
+  int64  contractAmount = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  google.protobuf.Timestamp startAt = 12;
+  google.protobuf.Timestamp endAt = 13;
+  int64   UpdatedBy  = 14;
+  google.protobuf.Timestamp UpdatedAt = 15;
+  int64   managerId = 16;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 17;
+}
+
+message UpdateOneContractResp {
+  int64 result = 1;
+}
+
+
+message CreateContractHashReq {
+  int64 id = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  string  ContractType = 4;
+  int64   projectId  = 5;
+  string  constructionCode = 6;
+  string serviceCode = 7;
+  string  thirdCode = 8;
+  int64  contractAmount = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  google.protobuf.Timestamp startAt = 12;
+  google.protobuf.Timestamp endAt = 13;
+  int64   CreatedBy  = 14;
+  int64   UpdatedBy  = 15;
+  google.protobuf.Timestamp UpdatedAt = 16;
+  google.protobuf.Timestamp CreatedAt = 17;
+  int64   managerId = 18;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 19;
+  string InfoHash = 20;
+  
+}
+message CreateContractHashResp {
+  int64 result = 1;
+}
+
+message UpdateContractHashReq {
+  int64 id = 1;
+  string  contractCode = 2;
+  string  contractName = 3;
+  string  ContractType = 4;
+  int64   projectId  = 5;
+  string  constructionCode = 6;
+  string serviceCode = 7;
+  string  thirdCode = 8;
+  int64  contractAmount = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  google.protobuf.Timestamp startAt = 12;
+  google.protobuf.Timestamp endAt = 13;
+  int64   UpdatedBy  = 14;
+  google.protobuf.Timestamp UpdatedAt = 15;
+  int64   managerId = 16;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 17;
+  string InfoHash = 18;
+}
+
+message UpdateContractHashResp {
+  int64 result = 1;
+}
+
+
+message DeleteOneContractReq {
+  int64 contractId = 1;
+  int64 managerId = 2;
+}
+
+message DeleteOneContractResp {
+
+}
+
+message ListContractHashReq {
+  int64 managerId = 1;
+  repeated int64 contractIds = 2;
+}
+message ListContractHashResp {
+  repeated ListContractHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ListContractHashVo{
+  int64  contractIds = 1; 
+  string infoHash = 2;
+  google.protobuf.Timestamp infoUploadAt = 3;
+}
+
