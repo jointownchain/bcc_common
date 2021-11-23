@@ -2671,6 +2671,7 @@ service HashService {
   rpc GetSupervisorHash(GetSupervisorHashReq) returns (GetSupervisorHashResp);  
   rpc GetGovermentHash(GetGovermentHashReq) returns (GetGovermentHashResp);
   rpc GetProcessHash(GetProcessHashReq) returns (GetProcessHashResp);
+  rpc GetProjectHash(GetProjectHashReq) returns (GetProjectHashResp);
   rpc ListContractHash(ListContractHashReq) returns (ListContractHashResp);
   
 }
@@ -4233,7 +4234,8 @@ message ProjectReq {
   string activeStatus = 18;
   string projectDescription = 19;
   string memo = 20;
-  Page   page = 21;
+  repeated UploadDocumentInfo uploadDocument = 21;
+  Page   page = 22;
 }
 
 message ProjectVo {
@@ -4264,10 +4266,6 @@ message ProjectVo {
   google.protobuf.Timestamp updatedAt = 25;
 }
 
-message ProjectResp {
-  ProjectVo project = 1;
-}
-
 message ProjectsResp {
   repeated ProjectVo list = 1;
   int64 total = 2;
@@ -4279,12 +4277,90 @@ message OpProjectResp {
   int64 result = 1;
 }
 
+message CreateProjectHashReq {
+  string projectCode = 1;
+  string projectName = 2;
+  google.protobuf.Timestamp startAt = 3;
+  google.protobuf.Timestamp endAt = 4;
+  int64  buildingArea = 5;
+  int64  engineeringCost = 6;
+  string projectAddress = 7;
+  string formType = 8;
+  string projectLeader = 9;
+  string contactMobile = 10;
+  string contactAddress = 11;
+  string constructionName = 12;
+  string designName = 13;
+  string buildName = 14;
+  string supervisorName = 15;
+  string activeStatus = 16;
+  string projectDescription = 17;
+  string memo = 18;
+  repeated UploadDocumentInfo uploadDocument = 19;
+  string InfoHash = 20;
+  int64  managerId = 21;
+}
+
+message UploadDocumentInfo {
+  string fileName = 1;
+  string uploadUrl = 2;
+}
+
+message UpdateProjectHashReq { 
+  string projectId = 1;
+  string projectCode = 2;
+  string projectName = 3;
+  google.protobuf.Timestamp startAt = 4;
+  google.protobuf.Timestamp endAt = 5;
+  int64  buildingArea = 6;
+  int64  engineeringCost = 7;
+  string projectAddress = 8;
+  string formType = 9;
+  string projectLeader = 10;
+  string contactMobile = 11;
+  string contactAddress = 12;
+  string constructionName = 13;
+  string designName = 14;
+  string buildName = 15;
+  string supervisorName = 16;
+  string activeStatus = 17;
+  string projectDescription = 18;
+  string memo = 19;
+  repeated UploadDocumentInfo uploadDocument = 20;
+  string InfoHash = 21;
+  int64  managerId = 22;
+}
+
+message GetProjectHashReq {
+  int64 managerId = 1;
+  repeated int64 projectIds = 2;
+}
+
+message ProjectHashVo{
+  int64  projectId = 1;
+  string projectCode = 2;  
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+}
+
+message GetProjectHashResp {
+  repeated ProjectHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
 service BccManagerService {
   //合同相关
-  rpc CreateProject(ProjectReq) returns(OpProjectResp);
-  rpc UpdateProject(ProjectReq) returns(OpProjectResp);
-  rpc ShowProject(ProjectReq) returns(ProjectResp);
-  rpc ListProjects(ProjectReq) returns(ProjectsResp);
+  rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
+  rpc UpdateOneProject(ProjectReq) returns(OpProjectResp);
+  rpc DeleteOneProject(ProjectReq) returns(OpProjectResp);
+  
+  rpc GetOneProject(ProjectReq) returns(ProjectsResp);
+  rpc ListProject(ProjectReq) returns(ProjectsResp);
+  
+  rpc CreateProjectHash(CreateProjectHashReq) returns(OpProjectResp);
+  rpc UpdateProjectHash(UpdateProjectHashReq) returns(OpProjectResp);
 }
 
 //获取流程HASH
