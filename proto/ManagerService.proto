@@ -4420,10 +4420,6 @@ message ProjectVo {
   google.protobuf.Timestamp updatedAt = 25;
 }
 
-message ProjectResp {
-  ProjectVo project = 1;
-}
-
 message ProjectsResp {
   repeated ProjectVo list = 1;
   int64 total = 2;
@@ -4512,7 +4508,9 @@ service BccManagerService {
   //合同相关
   rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
   rpc UpdateOneProject(ProjectReq) returns(OpProjectResp);
-  rpc CommonProject(ProjectReq) returns(ProjectResp);
+  rpc DeleteOneProject(ProjectReq) returns(OpProjectResp);
+  
+  rpc GetOneProject(ProjectReq) returns(ProjectsResp);
   rpc ListProject(ProjectReq) returns(ProjectsResp);
   
   rpc CreateProjectHash(CreateProjectHashReq) returns(OpProjectResp);
