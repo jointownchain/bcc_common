@@ -2503,6 +2503,12 @@ service ManagerService {
   
   rpc CommonProjectPhase(CommonProjectPhaseReq) returns(CommonProjectPhaseResp);
   
+  rpc GetBuildInfoCodeById(GetBuildInfoCodeByIdReq) returns(GetBuildInfoCodeByIdResp);
+  rpc GGetSupervisorCodeById(GetSupervisorCodeByIdReq) returns(GetSupervisorCodeByIdResp);
+  rpc GetGetGovermentCodeById(GetGovermentCodeByIdReq) returns(GetGovermentCodeByIdResp);
+  
+  
+  
   
   
   
@@ -4716,4 +4722,39 @@ message CommonProjectPhaseVo {
   string  phaseDesc = 3;
   int64  approvalDays = 4;
 }
+
+//三端产code
+message GetBuildInfoCodeByIdReq {
+  int64  buildId = 1;
+  int64 managerId = 2;
+}
+
+message GetBuildInfoCodeByIdResp {
+  string buildName = 1;
+  string buildCode = 2;
+  string buildType = 3;
+}
+
+message GetGovermentCodeByIdReq {
+  int64  govermentId = 1;
+  int64 managerId = 2;
+}
+
+message GetGovermentCodeByIdResp {
+  string govermentCode = 1;
+  string govermentName = 2;
+  string govermentType = 3;
+}
+
+message GetSupervisorCodeByIdReq {
+  int64  supervisorId = 1;
+  int64 managerId = 2;
+}
+
+message GetSupervisorCodeByIdResp {
+  string supervisorCode = 1;
+  string supervisorName = 2;
+  string supervisorType = 3;
+}
+
 
