@@ -2501,6 +2501,8 @@ service ManagerService {
   rpc UpdateContractHash(UpdateContractHashReq) returns(UpdateContractHashResp);
   rpc DeleteOneContract(DeleteOneContractReq) returns(DeleteOneContractResp);
   
+  rpc CommonProjectPhase(CommonProjectPhaseReq) returns(CommonProjectPhaseResp);
+  
   
   
   
@@ -4361,6 +4363,7 @@ service BccManagerService {
   
   rpc CreateProjectHash(CreateProjectHashReq) returns(OpProjectResp);
   rpc UpdateProjectHash(UpdateProjectHashReq) returns(OpProjectResp);
+  rpc CommonProject(CommonProjectReq) returns(CommonProjectResp);
 }
 
 //获取流程HASH
@@ -4668,4 +4671,49 @@ message DocumentInfo {
   int64 businessId = 4;
 }
 
+
+//查询项目信息(通用接口)
+message CommonProjectReq {
+  string  projectName = 1;
+  string  projectCode = 2;
+  string activeStatus = 3;
+  int64 managerId = 4;
+  Page page = 5;
+  repeated int64 projectIds = 6;
+}
+
+message CommonProjectResp {
+  repeated CommonProjectVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CommonProjectVo {
+  int64   projectId = 1;
+  string  projectName = 2;
+  string  projectCode = 3;
+}
+
+
+//查询项目阶段信息(通用接口)
+message CommonProjectPhaseReq {
+  string  phaseName = 1;
+  int64 managerId = 2;
+  Page page = 3;
+}
+
+message CommonProjectPhaseResp {
+  repeated CommonProjectPhaseVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CommonProjectPhaseVo {
+  int64   projectPhaseId = 1;
+  string  phaseName = 2;
+  string  phaseDesc = 3;
+  int64  approvalDays = 4;
+}
 
