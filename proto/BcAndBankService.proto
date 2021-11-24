@@ -71,6 +71,8 @@ service BcAndBankService {
   rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
   //流程审批上链
   rpc BcUploadProcessApprove(UploadChainProcessApproves) returns (BcResponses);
+  //合同上链
+  rpc BcUploadContractBdb(UploadChainContractInfos) returns (BcResponses);
 
 }
 
@@ -437,6 +439,28 @@ message UploadChainProcessApprove {
 }
 
 message DocumentInfoApprove {
+  string fileName = 1;
+  string uploadUrl = 2;
+
+}
+
+message UploadChainContractInfos {
+   repeated UploadChaincontractInfo uploadChaincontractInfo = 1;
+}
+
+message UploadChaincontractInfo {
+  UploadChainType uploadChainType = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  string projectName = 5;
+  string constructionCode = 6;
+  int64 contractAmount = 7;
+  google.protobuf.Timestamp start_at = 8;
+  google.protobuf.Timestamp end_at = 9;
+  repeated DocumentInfo uploadDocumnet = 10;
+}
+message DocumentInfo {
   string fileName = 1;
   string uploadUrl = 2;
 

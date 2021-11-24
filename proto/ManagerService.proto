@@ -4442,6 +4442,8 @@ message ProcessInfoVo {
   string preProcessIds = 17;
   string activeStatus = 18;
  string InfoHash = 19;
+ repeated DocumentInfo documentInfoApply = 20;
+ repeated DocumentInfo documentInfoApprove = 21;
 }
 
 message GetProcessInfoResp {
@@ -4518,6 +4520,7 @@ message ContractInfoVo {
   string memo = 11;
   google.protobuf.Timestamp startAt = 12;
   google.protobuf.Timestamp endAt = 13;
+  repeated DocumentInfo documentInfo = 14;
 }
 
 
@@ -4657,4 +4660,12 @@ message ListContractHashVo{
   string infoHash = 2;
   google.protobuf.Timestamp infoUploadAt = 3;
 }
+
+message DocumentInfo {
+  string businessType = 1;
+  string fileName = 2;
+  string uploadUrl = 3;
+  int64 businessId = 4;
+}
+
 
