@@ -4188,6 +4188,11 @@ message ListProcessVo {
   string approveDesc = 16;
   string preProcessIds = 17;
   string activeStatus = 18;
+  string projectPhaseName = 19;
+  string projectPhaseDesc = 20;
+  int64  projectPhaseApprovalDays = 21;
+  string constructionName = 22;
+  string govermentName = 23;
 }
 
 
