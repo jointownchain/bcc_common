@@ -4472,6 +4472,12 @@ message ProcessInfoVo {
  string InfoHash = 19;
  repeated DocumentInfo documentInfoApply = 20;
  repeated DocumentInfo documentInfoApprove = 21;
+ string projectPhaseName = 22;
+ string projectPhaseDesc = 23;
+ int64  projectPhaseApprovalDays = 24;
+ string constructionName = 25;
+ string govermentName = 26;
+ string projectName = 27;
 }
 
 message GetProcessInfoResp {
