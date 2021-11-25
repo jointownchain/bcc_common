@@ -4193,6 +4193,7 @@ message ListProcessVo {
   int64  projectPhaseApprovalDays = 21;
   string constructionName = 22;
   string govermentName = 23;
+  string projectName = 24;
 }
 
 
