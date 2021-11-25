@@ -4001,6 +4001,8 @@ message CreateOneProcessReq {
   string activeStatus = 18;
   int64   managerId = 19;
  repeated DocumentInfoApply uploadDocumnetApply = 20;
+  string processCode = 21;
+ 
   
 }
 message DocumentInfoApply {
@@ -4037,6 +4039,7 @@ message GetProcessCodeResp {
   string approveDesc = 16;
   string preProcessIds = 17;
   string activeStatus = 18;
+  string processCode = 19;
 }
 
 
@@ -4062,6 +4065,7 @@ message CreateHashProcessReq {
   int64   managerId = 19;
   string InfoHash = 20;
  repeated DocumentInfoApply uploadDocumnetApply = 21;
+ string processCode = 22;
   
 }
 message CreateHashProcessResp {
@@ -4496,7 +4500,7 @@ message ListContractVo {
   string  contractName = 3;
   string  ContractType = 4;
   int64   projectId  = 5;
-  string  constructionCode = 6;
+  int64  constructionId = 6;
   string serviceCode = 7;
   string  thirdCode = 8;
   int64  contractAmount = 9;
@@ -4527,7 +4531,7 @@ message ContractInfoVo {
   string  contractName = 3;
   string  ContractType = 4;
   int64   projectId  = 5;
-  string  constructionCode = 6;
+  int64  constructionId = 6;
   string serviceCode = 7;
   string  thirdCode = 8;
   int64  contractAmount = 9;
@@ -4545,7 +4549,7 @@ message CreateOneContractReq {
   string  contractName = 3;
   string  ContractType = 4;
   int64   projectId  = 5;
-  string  constructionCode = 6;
+  int64  constructionId = 6;
   string serviceCode = 7;
   string  thirdCode = 8;
   int64  contractAmount = 9;
@@ -4578,7 +4582,7 @@ message UpdateOneContractReq {
   string  contractName = 3;
   string  ContractType = 4;
   int64   projectId  = 5;
-  string  constructionCode = 6;
+  int64  constructionId = 6;
   string serviceCode = 7;
   string  thirdCode = 8;
   int64  contractAmount = 9;
@@ -4603,7 +4607,7 @@ message CreateContractHashReq {
   string  contractName = 3;
   string  ContractType = 4;
   int64   projectId  = 5;
-  string  constructionCode = 6;
+  int64  constructionId = 6;
   string serviceCode = 7;
   string  thirdCode = 8;
   int64  contractAmount = 9;
@@ -4630,7 +4634,7 @@ message UpdateContractHashReq {
   string  contractName = 3;
   string  ContractType = 4;
   int64   projectId  = 5;
-  string  constructionCode = 6;
+  int64  constructionId = 6;
   string serviceCode = 7;
   string  thirdCode = 8;
   int64  contractAmount = 9;
