@@ -2508,19 +2508,48 @@ service ManagerService {
   rpc GetGetGovermentCodeById(GetGovermentCodeByIdReq) returns(GetGovermentCodeByIdResp);
   
   //开票信息
-	rpc ListInvoice(ListContractReq) returns(ListContractResp);
-	rpc GetOneInvoice(GetOneInvoiceReq) returns(GetOneInvoiceResp);
-	rpc CreateOneInvoice(CreateOneInvoiceReq) returns(CreateOneInvoiceResp);
-	rpc UpdateOneInvoice(UpdateOneInvoiceReq) returns(UpdateOneInvoiceResp);
-	rpc CreateInvoiceHash(CreateInvoiceHashReq) returns(CreateInvoiceHashResp);
-	rpc UpdateInvoiceHash(UpdateInvoiceHashReq) returns(UpdateInvoiceHashResp);
-	rpc DeleteOneInvoice(DeleteOneInvoiceReq) returns(DeleteOneInvoiceResp);
+  rpc ListInvoice(ListContractReq) returns(ListContractResp);
+  rpc GetOneInvoice(GetOneInvoiceReq) returns(GetOneInvoiceResp);
+  rpc CreateOneInvoice(CreateOneInvoiceReq) returns(CreateOneInvoiceResp);
+  rpc UpdateOneInvoice(UpdateOneInvoiceReq) returns(UpdateOneInvoiceResp);
+  rpc CreateInvoiceHash(CreateInvoiceHashReq) returns(CreateInvoiceHashResp);
+  rpc UpdateInvoiceHash(UpdateInvoiceHashReq) returns(UpdateInvoiceHashResp);
+  rpc DeleteOneInvoice(DeleteOneInvoiceReq) returns(DeleteOneInvoiceResp);
   
+ 
+  //项目相关
+  rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
+  rpc UpdateOneProject(ProjectReq) returns(OpProjectResp);
+  rpc DeleteOneProject(ProjectReq) returns(OpProjectResp);
   
+  rpc GetOneProject(ProjectReq) returns(ProjectsResp);
+  rpc ListProject(ProjectReq) returns(ProjectsResp);
   
+  rpc CreateProjectHash(CreateProjectHashReq) returns(OpProjectResp);
+  rpc UpdateProjectHash(UpdateProjectHashReq) returns(OpProjectResp);
+  rpc CommonProject(CommonProjectReq) returns(CommonProjectResp); 
+ 
+  //进度计划相关
+  rpc CreateOneProgressPlan(ProgressPlanReq) returns(OpProgressResp);
+  rpc UpdateOneProgressPlan(ProgressPlanReq) returns(OpProgressResp);
+  rpc DeleteOneProgressPlan(ProgressPlanReq) returns(OpProgressResp);
   
+  rpc GetOneProgressPlan(ProgressPlanReq) returns(ProgressPlansResp);
+  rpc ListProgressPlan(ProgressPlanReq) returns(ProgressPlansResp);
   
-
+  rpc CreateProgressPlanHash(CreateProgressPlanHashReq) returns(OpProgressResp);
+  rpc UpdateProgressPlanHash(UpdateProgressPlanHashReq) returns(OpProgressResp);
+  
+  //实际进度相关
+  rpc CreateOneProgressActual(ProgressActualReq) returns(OpProgressResp);
+  rpc UpdateOneProgressActual(ProgressActualReq) returns(OpProgressResp);
+  rpc DeleteOneProgressActual(ProgressActualReq) returns(OpProgressResp);
+  
+  rpc GetOneProgressActual(ProgressActualReq) returns(ProgressActualsResp);
+  rpc ListProgressActual(ProgressActualReq) returns(ProgressActualsResp);
+  
+  rpc CreateProgressActualHash(CreateProgressActualHashReq) returns(OpProgressResp);
+  rpc UpdateProgressActualHash(UpdateProgressActualHashReq) returns(OpProgressResp);
 }
 
 message StockSyncReq{
@@ -4019,10 +4048,9 @@ message CreateOneProcessReq {
   int64   managerId = 19;
  repeated DocumentInfoApply uploadDocumnetApply = 20;
   string processCode = 21;
-  int64  applyBy = 22;
- 
-  
+  int64  applyBy = 22;  
 }
+
 message DocumentInfoApply {
   string businessType = 1;
   string fileName = 2;
@@ -4082,11 +4110,11 @@ message CreateHashProcessReq {
   string activeStatus = 18;
   int64   managerId = 19;
   string InfoHash = 20;
- repeated DocumentInfoApply uploadDocumnetApply = 21;
- string processCode = 22;
- int64  applyBy = 23;
-  
+  repeated DocumentInfoApply uploadDocumnetApply = 21;
+  string processCode = 22;
+  int64  applyBy = 23;
 }
+
 message CreateHashProcessResp {
   int64 result = 1;
 }
@@ -4390,19 +4418,219 @@ message GetProjectHashResp {
   int64 pageNumber = 4;
 }
 
-service BccManagerService {
-  //合同相关
-  rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
-  rpc UpdateOneProject(ProjectReq) returns(OpProjectResp);
-  rpc DeleteOneProject(ProjectReq) returns(OpProjectResp);
-  
-  rpc GetOneProject(ProjectReq) returns(ProjectsResp);
-  rpc ListProject(ProjectReq) returns(ProjectsResp);
-  
-  rpc CreateProjectHash(CreateProjectHashReq) returns(OpProjectResp);
-  rpc UpdateProjectHash(UpdateProjectHashReq) returns(OpProjectResp);
-  rpc CommonProject(CommonProjectReq) returns(CommonProjectResp);
+
+//进度计划管理
+	
+
+message ProgressPlanReq {
+  int64  managerId = 1;
+  int64  ProgressPlanId = 2;
+  string progressPlanCode = 3;
+  int64  projectId = 4;
+  int64  buildId = 5;
+  string planName = 6;
+  google.protobuf.Timestamp startAt = 7;
+  google.protobuf.Timestamp endAt = 8;
+  string planPerson = 9;
+  string milestoneStatus = 10;
+  google.protobuf.Timestamp actualDate = 11;
+  int64  actualPercent = 12;
+  string activeStatus = 13;
+  string memo = 14;
+  repeated UploadDocumentInfo uploadDocument = 15;
+  Page   page = 16;
 }
+
+message ProgressPlanVo {  
+  int64  progressPlanId = 1;
+  string progressPlanCode = 2;
+  int64  projectId = 3;
+  int64  buildId = 4;
+  string planName = 5;
+  google.protobuf.Timestamp startAt = 6;
+  google.protobuf.Timestamp endAt = 7;
+  string planPerson = 8;
+  string milestoneStatus = 9;
+  google.protobuf.Timestamp actualDate = 10;
+  int64  actualPercent = 11;
+  string activeStatus = 12;
+  string memo = 13;
+  int64  createdBy = 14;
+  string createdByName = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  string updatedByName = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+}
+
+message ProgressPlansResp {
+  repeated ProgressPlanVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message OpProgressResp {
+  int64 result = 1;
+}
+
+message CreateProgressPlanHashReq {
+  int64  progressPlanid = 1;
+  string progressPlanCode = 2;
+  int64  projectId = 3;
+  int64  buildId = 4;
+  string planName = 5;
+  google.protobuf.Timestamp startAt = 6;
+  google.protobuf.Timestamp endAt = 7;
+  string planPerson = 8;
+  string milestoneStatus = 9;
+  google.protobuf.Timestamp actualDate = 10;
+  int64  actualPercent = 11;
+  string activeStatus = 12;
+  string memo = 13;
+  repeated UploadDocumentInfo uploadDocument = 14;
+  string infoHash = 15;
+  int64  managerId = 16;
+}
+
+message UpdateProgressPlanHashReq { 
+  int64  progressPlanid = 1;
+  string progressPlanCode = 2;
+  int64  projectId = 3;
+  int64  buildId = 4;
+  string planName = 5;
+  google.protobuf.Timestamp startAt = 6;
+  google.protobuf.Timestamp endAt = 7;
+  string planPerson = 8;
+  string milestoneStatus = 9;
+  google.protobuf.Timestamp actualDate = 10;
+  int64  actualPercent = 11;
+  string activeStatus = 12;
+  string memo = 13;
+  repeated UploadDocumentInfo uploadDocument = 14;
+  string infoHash = 15;
+  int64  managerId = 16;
+}
+
+message GetProgressPlanHashReq {
+  int64 managerId = 1;
+  repeated int64 progressPlanIds = 2;
+}
+
+message ProgressPlanHashVo{
+  int64  progressPlanId = 1;
+  string progressPlanCode = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+}
+
+message GetProgressPlanHashResp {
+  repeated ProgressPlanHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+
+//实际进度管理
+	
+message ProgressActualReq {
+  int64  managerId = 1;
+  int64  progressActualId = 2;
+  string progressActualCode = 3;
+  int64  projectId = 4;
+  int64  progressPlanId = 5;
+  int64  buildId = 6;
+  string autualName = 7;
+  google.protobuf.Timestamp actualDate = 8;
+  int64  actualPercent = 9;
+  string actualPerson = 10;
+  string activeStatus = 11;
+  string memo = 12;
+  repeated UploadDocumentInfo uploadDocument = 13;
+  Page   page = 14;
+}
+
+message ProgressActualVo {
+  int64  progressActualId = 1;
+  string progressActualCode = 2;
+  int64  projectId = 3;
+  int64  progressPlanId = 4;
+  int64  buildId = 5;
+  string autualName = 6;
+  google.protobuf.Timestamp actualDate = 7;
+  int64  actualPercent = 8;
+  string actualPerson = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  int64  createdBy = 12;
+  string createdByName = 13;
+  google.protobuf.Timestamp createdAt = 14;
+  int64  updatedBy = 15;
+  string updatedByName = 16;
+  google.protobuf.Timestamp updatedAt = 17;
+}
+
+message ProgressActualsResp {
+  repeated ProgressActualVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CreateProgressActualHashReq {
+  int64  progressActualId = 1;
+  string progressActualCode = 2;
+  int64  projectId = 3;
+  int64  progressPlanId = 4;
+  int64  buildId = 5;
+  string autualName = 6;
+  google.protobuf.Timestamp actualDate = 7;
+  int64  actualPercent = 8;
+  string actualPerson = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  repeated UploadDocumentInfo uploadDocument = 12;
+  string infoHash = 13;
+  int64  managerId = 14;
+}
+
+message UpdateProgressActualHashReq { 
+  int64  progressActualId = 1;
+  string progressActualCode = 2;
+  int64  projectId = 3;
+  int64  progressPlanId = 4;
+  int64  buildId = 5;
+  string autualName = 6;
+  google.protobuf.Timestamp actualDate = 7;
+  int64  actualPercent = 8;
+  string actualPerson = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  repeated UploadDocumentInfo uploadDocument = 12;
+  string infoHash = 13;
+  int64  managerId = 14;
+}
+
+message GetProgressActualHashReq {
+  int64 managerId = 1;
+  repeated int64 progressActualIds = 2;
+}
+
+message ProgressActualHashVo{
+  int64  progressActualId = 1;
+  string progressActualCode = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+}
+
+message GetProgressActualHashResp {
+  repeated ProgressActualHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
 
 //获取流程HASH
 message GetProcessHashReq {
@@ -4422,7 +4650,7 @@ message ProcessHashVo{
   string infoHash = 3;
   google.protobuf.Timestamp infoUploadAt = 4;
   string approveHash = 5;
-   google.protobuf.Timestamp approve_upload_at = 6;
+  google.protobuf.Timestamp approve_upload_at = 6;
 }
 
 //GOV审批流程审批信息

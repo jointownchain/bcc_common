@@ -66,6 +66,10 @@ service BcAndBankService {
   rpc BcUploadOrganizations(UploadChainOrganizations) returns (BcResponses);
   // 项目信息上链
   rpc BcUploadProjects(UploadChainProjects) returns (BcResponses);
+  // 进度计划上链
+  rpc BcUploadProgressPlans(UploadChainProgressPlans) returns (BcResponses);
+  // 实际进度上链
+  rpc BcUploadProgressActuals(UploadChainProgressActuals) returns (BcResponses);
   
   // 流程申请上链
   rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
@@ -394,6 +398,47 @@ message UploadChainProject {
   string projectDescription = 18;
   string memo = 19;
   repeated UploadDocumentInfo uploadDocumnet = 20;
+}
+
+message UploadChainProgressPlans {
+  repeated UploadChainProgressPlan UploadChainProgressPlan = 1;
+}
+
+message UploadChainProgressPlan {
+  UploadChainType uploadChainType = 1;
+  string progressPlanCode = 2;
+  int64  projectId = 3;
+  int64  buildId = 4;
+  string planName = 5;
+  google.protobuf.Timestamp startAt = 6;
+  google.protobuf.Timestamp endAt = 7;
+  string planPerson = 8;
+  string milestoneStatus = 9;
+  google.protobuf.Timestamp actualDate = 10;
+  int64  actualPercent = 11;
+  string activeStatus = 12;
+  string memo = 13;
+  repeated UploadDocumentInfo uploadDocumnet = 14;
+}
+
+
+message UploadChainProgressActuals {
+  repeated UploadChainProgressActual UploadChainProgressActual = 1;
+}
+
+message UploadChainProgressActual {
+  UploadChainType uploadChainType = 1;
+  string progressActualCode = 2;
+  int64  projectId = 3;
+  int64  progressPlanId = 4;
+  int64  buildId = 5;
+  string autualName = 6;
+  google.protobuf.Timestamp actualDate = 7;
+  int64  actualPercent = 8;
+  string actualPerson = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  repeated UploadDocumentInfo uploadDocumnet = 12;
 }
 
 message UploadChainProcessApplies {
