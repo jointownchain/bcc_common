@@ -2720,6 +2720,15 @@ service DashboardService {
   rpc GetDashboardShipmentList(GetDashboardShipmentListReq) returns (GetDashboardShipmentListResp);
   rpc GetDashboardMedicineRank(GetDashboardMedicineRankReq) returns (GetDashboardMedicineRankResp);
   rpc GetDashboardStockList(GetDashboardStockListReq) returns (GetDashboardStockListResp);
+  
+  //
+  rpc GetDashboardProject(GetDashboardProjectReq) returns (GetDashboardProjectResp);
+  rpc CountDashboardWorkmanAttendanceStatistics(CountDashboardWorkmanAttendanceStatisticsReq) returns (CountDashboardWorkmanAttendanceStatisticsResp);
+  rpc CountDashboardWorkmanEpidemicStatistics(CountDashboardWorkmanEpidemicStatisticsReq) returns (CountDashboardWorkmanEpidemicStatisticsResp);
+  rpc CountDashboardProcessCompletionPercent(CountDashboardProcessCompletionPercentReq) returns (CountDashboardProcessCompletionPercentResp);
+  rpc ListDashboardSafetyInspection(ListDashboardSafetyInspectionReq) returns (ListDashboardSafetyInspectionResp);
+  rpc ReportDashboardInvoiceYear(ReportDashboardInvoiceYearReq) returns (ReportDashboardInvoiceYearResp);
+  rpc ReportDashboardRankMaterialYear(ReportDashboardRankMaterialYearReq) returns (ReportDashboardRankMaterialYearResp);
 }
 
 
@@ -4010,6 +4019,7 @@ message CreateOneProcessReq {
   int64   managerId = 19;
  repeated DocumentInfoApply uploadDocumnetApply = 20;
   string processCode = 21;
+  int64  applyBy = 22;
  
   
 }
@@ -4074,6 +4084,7 @@ message CreateHashProcessReq {
   string InfoHash = 20;
  repeated DocumentInfoApply uploadDocumnetApply = 21;
  string processCode = 22;
+ int64  applyBy = 23;
   
 }
 message CreateHashProcessResp {
@@ -4104,6 +4115,7 @@ message UpdateProcessReq {
   string activeStatus = 18;
   repeated DocumentInfoApply uploadDocumnetApply = 19;
   int64   managerId = 20;
+  int64  applyBy = 21;
 }
 
 message UpdateProcessResp {
@@ -4132,6 +4144,7 @@ message UpdateHashProcessReq {
   string InfoHash = 19;
   repeated DocumentInfoApply uploadDocumnetApply = 20;
   int64   managerId = 21;
+  int64   applyBy = 22;
 }
 
 message UpdateHashProcessResp {
@@ -4435,6 +4448,7 @@ message UpdateProcessApproveReq {
   string InfoHash = 19;
   repeated DocumentInfoApprove uploadDocumentApprove = 20;
   int64   managerId = 21;
+  int64   approveBy = 22;
 }
 
 message DocumentInfoApprove {
@@ -5105,3 +5119,172 @@ message UpdateInvoiceHashResp {
   int64 result = 1;
 }
 
+message GetDashboardProjectReq {
+  int64 managerId = 1;
+  repeated int64 projectIds = 2;
+}
+
+message DashboardProjectVo {
+  int64  projectId = 1;
+  string projectCode = 2;
+  string projectName = 3;
+  google.protobuf.Timestamp startAt = 4;
+  google.protobuf.Timestamp endAt = 5;
+  int64  buildingArea = 6;
+  int64  engineeringCost = 7;
+  string projectAddress = 8;
+  string formType = 9;
+  string projectLeader = 10;
+  string contactMobile = 11;
+  string contactAddress = 12;
+  string constructionName = 13;
+  string designName = 14;
+  string buildName = 15;
+  string supervisorName = 16;
+  string activeStatus = 17;
+  string projectDescription = 18;
+  string memo = 19;
+  int64  projectDuration = 20;
+  float longitude = 21;
+  float latitude = 22;
+}
+
+message GetDashboardProjectResp {
+  repeated DashboardProjectVo list = 1;
+}
+
+message CountDashboardWorkmanAttendanceStatisticsReq {
+  google.protobuf.Timestamp startAt = 1;
+  google.protobuf.Timestamp endAt = 2;
+  int64  managerId = 3;
+  int64  projectId = 4;
+}
+
+message DashboardWorkmanAttendanceStatisticsVo {
+  google.protobuf.Timestamp uploadDate = 1;
+  int64 totalWorker = 2;
+  int64 totalManager = 3;
+  int64 totalAttendance = 4;
+}
+
+message CountDashboardWorkmanAttendanceStatisticsResp {
+  repeated DashboardWorkmanAttendanceStatisticsVo list = 1;
+  int64 totalWorkman = 2;
+}
+
+
+message CountDashboardWorkmanEpidemicStatisticsReq {
+  google.protobuf.Timestamp startAt = 1;
+  google.protobuf.Timestamp endAt = 2;
+  int64 managerId = 3;
+  int64  projectId = 4;
+}
+
+message DashboardWorkmanEpidemicStatisticsVo {
+  google.protobuf.Timestamp uploadDate = 1;
+  int64 totalNotWearMask = 2;
+  int64 totalAbnormalTemperature = 3;
+  int64 totalAbnormalHealthCode = 4;
+  int64 totalAbnormalTravelCode = 5;
+  int64 totalAbnormal = 6;
+}
+
+message CountDashboardWorkmanEpidemicStatisticsResp {
+  repeated DashboardWorkmanEpidemicStatisticsVo list = 1;
+}
+
+message CountDashboardProcessCompletionPercentReq {
+  google.protobuf.Timestamp startAt = 1;
+  google.protobuf.Timestamp endAt = 2;
+  int64 managerId = 3;
+  int64  projectId = 4;
+}
+
+message DashboardProcessCompletionPercentVo {
+  int64 phaseId = 1;
+  string phaseName = 2;
+  string phaseDesc = 3;
+  int64 approvalDays = 4;
+  float completionPercent = 5;
+}
+
+message CountDashboardProcessCompletionPercentResp {
+  repeated DashboardProcessCompletionPercentVo list = 1;
+}
+
+message ListDashboardSafetyInspectionReq {
+  google.protobuf.Timestamp startAt = 1;
+  google.protobuf.Timestamp endAt = 2;
+  int64 managerId = 3;
+  int64  projectId = 4;
+  Page page = 5;
+}
+
+message DashboardSafetyInspectionVo {
+  int64  id = 1;
+  string safetyInspectionCode = 2;
+  google.protobuf.Timestamp inspectionDate = 3;
+  string safetyInspector = 4;
+  string inspectionArea = 5;
+  string inspectionSituation = 6;
+  string inspectionHandle = 7;
+  string safetyStatus = 8;
+  string safetyStatusDesc = 9;
+}
+
+message ListDashboardSafetyInspectionResp {
+  repeated DashboardSafetyInspectionVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message ReportDashboardInvoiceYearReq {
+  int64 yearOffset = 1;
+  int64 managerId = 2;
+  int64 projectId = 3;
+}
+
+message DashboardReceivedInvoiceVo {
+  int64  year = 1;
+  int64  month = 2;
+  int64  totalAmoumt = 3;
+}
+
+message DashboardPaidInvoiceVo {
+  int64  year = 1;
+  int64  month = 2;
+  int64  totalAmoumt = 3;
+}
+
+message ReportDashboardInvoiceYearResp {
+  repeated DashboardReceivedInvoiceVo listReceived = 1;
+  repeated DashboardPaidInvoiceVo listPaid = 2;
+}
+
+message ReportDashboardRankMaterialYearReq {
+  int64 yearOffset = 1;
+  int64 rankCount = 2;
+  int64 managerId = 3;
+  int64 projectId = 4;
+}
+
+message DashboardRankMaterialYearVo {
+  int64  rank = 1;
+  int64  meterialId = 2;
+  string  meterialName = 3;
+  string  materialUnit = 4;  
+  int64  totalYearQuantity = 5;
+  repeated DashboardRankMaterialMonthVo list = 6;
+}
+
+message DashboardRankMaterialMonthVo {
+  int64  year = 1;
+  int64  month = 2;
+  int64  meterialId = 3;
+  int64  totalMonthQuantity = 4;
+}
+
+message ReportDashboardRankMaterialYearResp {
+  repeated DashboardRankMaterialYearVo list = 1;
+}
