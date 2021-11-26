@@ -5240,7 +5240,7 @@ message ListDashboardSafetyInspectionResp {
 }
 
 message ReportDashboardInvoiceYearReq {
-  int64 yearOffset = 1;
+  int64 year = 1;
   int64 managerId = 2;
   int64 projectId = 3;
 }
@@ -5263,7 +5263,7 @@ message ReportDashboardInvoiceYearResp {
 }
 
 message ReportDashboardRankMaterialYearReq {
-  int64 yearOffset = 1;
+  int64 year = 1;
   int64 rankCount = 2;
   int64 managerId = 3;
   int64 projectId = 4;
