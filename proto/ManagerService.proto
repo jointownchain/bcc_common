@@ -4541,7 +4541,7 @@ message ProgressActualReq {
   int64  projectId = 4;
   int64  progressPlanId = 5;
   int64  buildId = 6;
-  string autualName = 7;
+  string actualName = 7;
   google.protobuf.Timestamp actualDate = 8;
   int64  actualPercent = 9;
   string actualPerson = 10;
@@ -4557,7 +4557,7 @@ message ProgressActualVo {
   int64  projectId = 3;
   int64  progressPlanId = 4;
   int64  buildId = 5;
-  string autualName = 6;
+  string actualName = 6;
   google.protobuf.Timestamp actualDate = 7;
   int64  actualPercent = 8;
   string actualPerson = 9;
@@ -4584,7 +4584,7 @@ message CreateProgressActualHashReq {
   int64  projectId = 3;
   int64  progressPlanId = 4;
   int64  buildId = 5;
-  string autualName = 6;
+  string actualName = 6;
   google.protobuf.Timestamp actualDate = 7;
   int64  actualPercent = 8;
   string actualPerson = 9;
@@ -4601,7 +4601,7 @@ message UpdateProgressActualHashReq {
   int64  projectId = 3;
   int64  progressPlanId = 4;
   int64  buildId = 5;
-  string autualName = 6;
+  string actualName = 6;
   google.protobuf.Timestamp actualDate = 7;
   int64  actualPercent = 8;
   string actualPerson = 9;
