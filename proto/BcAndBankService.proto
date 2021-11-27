@@ -71,6 +71,11 @@ service BcAndBankService {
   // 实际进度上链
   rpc BcUploadProgressActuals(UploadChainProgressActuals) returns (BcResponses);
   
+  // 质量巡检信息上链
+  rpc BcUploadQualityInspections(UploadChainQualityInspections) returns (BcResponses); 
+  // 质量巡检整改信息上链
+  rpc BcUploadQualityReactifies(UploadChainQualityReactifies) returns (BcResponses);  
+  
   // 流程申请上链
   rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
   //流程审批上链
@@ -421,7 +426,6 @@ message UploadChainProgressPlan {
   repeated UploadDocumentInfo uploadDocumnet = 14;
 }
 
-
 message UploadChainProgressActuals {
   repeated UploadChainProgressActual UploadChainProgressActual = 1;
 }
@@ -439,6 +443,68 @@ message UploadChainProgressActual {
   string activeStatus = 10;
   string memo = 11;
   repeated UploadDocumentInfo uploadDocumnet = 12;
+}
+
+
+// 质量巡检
+
+message UploadChainQualityInspections {
+  repeated UploadChainQualityInspection UploadChainQualityInspection = 1;
+}
+
+message UploadChainQualityInspection {
+  UploadChainType uploadChainType = 1;
+  string qualityInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string qualityInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionResult = 12;
+  int64  inspectionBy = 13;
+  google.protobuf.Timestamp inspectionAt = 14;
+  string qualityStatus = 15;
+  string assignedPerson = 16;
+  google.protobuf.Timestamp assignedDate = 17;
+  string assignedDesc = 18;
+  int64  duration = 19;
+  string memo = 20;
+  repeated UploadDocumentInfo uploadDocumnet = 21;
+}
+
+message UploadChainQualityReactifies{
+  repeated UploadChainReactify UploadChainReactify = 1;
+}
+
+message UploadChainReactify {
+  UploadChainType uploadChainType = 1;
+  string qualityInspectionCode = 2;
+  string qualityStatus = 3;
+  google.protobuf.Timestamp rectifyDeadline = 4;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 5;
+  google.protobuf.Timestamp rectifyDate = 6;
+  string rectifyPerson = 7;
+  string rectifyDesc = 8;
+  repeated UploadDocumentInfo uploadDocumnet = 9;
+}
+
+message UploadChainReviews {
+  repeated UploadChainReview UploadChainReview = 1;
+}
+
+message UploadChainReview {
+  UploadChainType uploadChainType = 1;
+  string qualityInspectionCode = 2;
+  string qualityStatus = 3;
+  google.protobuf.Timestamp reviewDate = 4;
+  string reviewPerson = 5;
+  string reviewDesc = 6;
+  int64  reviewBy = 7;
+  repeated UploadDocumentInfo uploadDocumnet = 8;
 }
 
 message UploadChainProcessApplies {

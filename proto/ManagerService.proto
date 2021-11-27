@@ -2516,7 +2516,6 @@ service ManagerService {
   rpc UpdateInvoiceHash(UpdateInvoiceHashReq) returns(UpdateInvoiceHashResp);
   rpc DeleteOneInvoice(DeleteOneInvoiceReq) returns(DeleteOneInvoiceResp);
   
- 
   //项目相关
   rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
   rpc UpdateOneProject(ProjectReq) returns(OpProjectResp);
@@ -2550,6 +2549,23 @@ service ManagerService {
   
   rpc CreateProgressActualHash(CreateProgressActualHashReq) returns(OpProgressResp);
   rpc UpdateProgressActualHash(UpdateProgressActualHashReq) returns(OpProgressResp);
+  
+  //质量巡检相关
+  rpc CreateOneQualityInspection(QualityInspectionReq) returns(OpQualityResp);
+  rpc UpdateOneQualityInspection(QualityInspectionReq) returns(OpQualityResp);
+  rpc DeleteOneQualityInspection(QualityInspectionReq) returns(OpQualityResp);
+  
+  rpc GetOneQualityInspection(QualityInspectionReq) returns(QualityInspectionsResp);
+  rpc ListQualityInspection(QualityInspectionReq) returns(QualityInspectionsResp);
+  
+  rpc CreateQualityInspectionHash(CreateQualityInspectionHashReq) returns(OpQualityResp);
+  rpc UpdateQualityInspectionHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
+  
+  rpc UpdateOneQualityReactify(QualityInspectionReq) returns(OpQualityResp);
+  rpc UpdateQualityReactifyHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
+  
+  rpc UpdateOneQualityReview(QualityInspectionReq) returns(OpQualityResp);
+  rpc UpdateQualityReviewHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
 }
 
 message StockSyncReq{
@@ -4279,31 +4295,36 @@ message CommonProcessResp {
   string activeStatus = 18;
 }
 
-//项目管理
-	
+message UploadDocumentInfo {
+  string fileName = 1;
+  string uploadUrl = 2;
+}
+
+//项目管理	
+
 message ProjectReq {
-  int64  managerId = 1;
-  int64  projectId = 2;
-  string projectCode = 3;
-  string projectName = 4;
-  google.protobuf.Timestamp startAt = 5;
-  google.protobuf.Timestamp endAt = 6;
-  int64  buildingArea = 7;
-  int64  engineeringCost = 8;
-  string projectAddress = 9;
-  string formType = 10;
-  string projectLeader = 11;
-  string contactMobile = 12;
-  string contactAddress = 13;
-  string constructionName = 14;
-  string designName = 15;
-  string buildName = 16;
-  string supervisorName = 17;
-  string activeStatus = 18;
-  string projectDescription = 19;
-  string memo = 20;
-  repeated UploadDocumentInfo uploadDocument = 21;
-  Page   page = 22;
+  int64  projectId = 1;
+  string projectCode = 2;
+  string projectName = 3;
+  google.protobuf.Timestamp startAt = 4;
+  google.protobuf.Timestamp endAt = 5;
+  int64  buildingArea = 6;
+  int64  engineeringCost = 7;
+  string projectAddress = 8;
+  string formType = 9;
+  string projectLeader = 10;
+  string contactMobile = 11;
+  string contactAddress = 12;
+  string constructionName = 13;
+  string designName = 14;
+  string buildName = 15;
+  string supervisorName = 16;
+  string activeStatus = 17;
+  string projectDescription = 18;
+  string memo = 19;
+  repeated UploadDocumentInfo uploadDocument = 20;
+  Page   page = 21;
+  int64  managerId = 22;
 }
 
 message ProjectVo {
@@ -4369,11 +4390,6 @@ message CreateProjectHashReq {
   int64  managerId = 21;
 }
 
-message UploadDocumentInfo {
-  string fileName = 1;
-  string uploadUrl = 2;
-}
-
 message UpdateProjectHashReq { 
   string projectId = 1;
   string projectCode = 2;
@@ -4421,24 +4437,23 @@ message GetProjectHashResp {
 
 //进度计划管理
 	
-
 message ProgressPlanReq {
-  int64  managerId = 1;
-  int64  ProgressPlanId = 2;
-  string progressPlanCode = 3;
-  int64  projectId = 4;
-  int64  buildId = 5;
-  string planName = 6;
-  google.protobuf.Timestamp startAt = 7;
-  google.protobuf.Timestamp endAt = 8;
-  string planPerson = 9;
-  string milestoneStatus = 10;
-  google.protobuf.Timestamp actualDate = 11;
-  int64  actualPercent = 12;
-  string activeStatus = 13;
-  string memo = 14;
-  repeated UploadDocumentInfo uploadDocument = 15;
-  Page   page = 16;
+  int64  ProgressPlanId = 1;
+  string progressPlanCode = 2;
+  int64  projectId = 3;
+  int64  buildId = 4;
+  string planName = 5;
+  google.protobuf.Timestamp startAt = 6;
+  google.protobuf.Timestamp endAt = 7;
+  string planPerson = 8;
+  string milestoneStatus = 9;
+  google.protobuf.Timestamp actualDate = 10;
+  int64  actualPercent = 11;
+  string activeStatus = 12;
+  string memo = 13;
+  repeated UploadDocumentInfo uploadDocument = 14;
+  Page   page = 15;
+  int64  managerId = 16;
 }
 
 message ProgressPlanVo {  
@@ -4533,22 +4548,22 @@ message GetProgressPlanHashResp {
 
 
 //实际进度管理
-	
+
 message ProgressActualReq {
-  int64  managerId = 1;
-  int64  progressActualId = 2;
-  string progressActualCode = 3;
-  int64  projectId = 4;
-  int64  progressPlanId = 5;
-  int64  buildId = 6;
-  string actualName = 7;
-  google.protobuf.Timestamp actualDate = 8;
-  int64  actualPercent = 9;
-  string actualPerson = 10;
-  string activeStatus = 11;
-  string memo = 12;
-  repeated UploadDocumentInfo uploadDocument = 13;
-  Page   page = 14;
+  int64  progressActualId = 1;
+  string progressActualCode = 2;
+  int64  projectId = 3;
+  int64  progressPlanId = 4;
+  int64  buildId = 5;
+  string actualName = 6;
+  google.protobuf.Timestamp actualDate = 7;
+  int64  actualPercent = 8;
+  string actualPerson = 9;
+  string activeStatus = 10;
+  string memo = 11;
+  repeated UploadDocumentInfo uploadDocument = 12;
+  Page   page = 13;
+  int64  managerId = 14;
 }
 
 message ProgressActualVo {
@@ -4626,6 +4641,204 @@ message ProgressActualHashVo{
 
 message GetProgressActualHashResp {
   repeated ProgressActualHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+//质量巡检
+
+message OpQualityResp {
+  int64 result = 1;
+}
+
+message QualityInspectionReq {
+  int64  qualityInspectionId = 1;
+  string qualityInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string qualityInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionResult = 12;
+  int64  inspectionBy = 13;
+  google.protobuf.Timestamp inspectionAt = 14;
+  string qualityStatus = 15;
+  string assignedPerson = 16;
+  google.protobuf.Timestamp assignedDate = 17;
+  string assignedDesc = 18;
+  int64  duration = 19;
+  google.protobuf.Timestamp rectifyDeadline = 20;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 21;
+  google.protobuf.Timestamp rectifyDate = 22;
+  string rectifyPerson = 23;
+  string rectifyDesc = 24;
+  int64  rectifyBy = 25;
+  google.protobuf.Timestamp rectifyAt = 26;
+  google.protobuf.Timestamp reviewDate = 27;
+  string reviewPerson = 28;
+  string reviewDesc = 29;
+  int64  reviewBy = 30;
+  google.protobuf.Timestamp reviewAt = 31;
+  string mainQualityInspectionCode = 32;
+  string activeStatus = 33;
+  string memo = 34;
+  repeated UploadDocumentInfo uploadDocument = 35;
+  Page   page = 36;
+  int64  managerId = 37;
+}
+
+message QualityInspectionVo {
+  int64  qualityInspectionId = 1;
+  string qualityInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string qualityInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionResult = 12;
+  int64  inspectionBy = 13;
+  google.protobuf.Timestamp inspectionAt = 14;
+  string qualityStatus = 15;
+  string assignedPerson = 16;
+  google.protobuf.Timestamp assignedDate = 17;
+  string assignedDesc = 18;
+  int64  duration = 19;
+  google.protobuf.Timestamp rectifyDeadline = 20;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 21;
+  google.protobuf.Timestamp rectifyDate = 22;
+  string rectifyPerson = 23;
+  string rectifyDesc = 24;
+  int64  rectifyBy = 25;
+  google.protobuf.Timestamp rectifyAt = 26;
+  google.protobuf.Timestamp reviewDate = 27;
+  string reviewPerson = 28;
+  string reviewDesc = 29;
+  int64  reviewBy = 30;
+  google.protobuf.Timestamp reviewAt = 31;
+  string mainQualityInspectionCode = 32;
+  string activeStatus = 33;
+  string memo = 34;
+  int64  createdBy = 35;
+  google.protobuf.Timestamp createdAt = 36;
+  int64  updatedBy = 37;
+  google.protobuf.Timestamp updatedAt = 38;
+}
+
+message QualityInspectionsResp {
+  repeated QualityInspectionVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message CreateQualityInspectionHashReq {
+  string qualityInspectionCode = 1;
+  int64  projectId = 2;
+  int64  fromOrganizationId = 3;
+  string fromPlatFormType = 4;
+  int64  toOrganizationId = 5;
+  string toPlatFormType = 6;
+  string qualityInspector = 7;
+  google.protobuf.Timestamp inspectionDate = 8;
+  string inspectionArea = 9;
+  string inspectionSituation = 10;
+  string inspectionResult = 11;
+  int64  inspectionBy = 12;
+  google.protobuf.Timestamp inspectionAt = 13;
+  string qualityStatus = 14;
+  string assignedPerson = 15;
+  google.protobuf.Timestamp assignedDate = 16;
+  string assignedDesc = 17;
+  int64  duration = 18;
+  google.protobuf.Timestamp rectifyDeadline = 19;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 20;
+  google.protobuf.Timestamp rectifyDate = 21;
+  string rectifyPerson = 22;
+  string rectifyDesc = 23;
+  int64  rectifyBy = 24;
+  google.protobuf.Timestamp rectifyAt = 25;
+  google.protobuf.Timestamp reviewDate = 26;
+  string reviewPerson = 27;
+  string reviewDesc = 28;
+  int64  reviewBy = 29;
+  google.protobuf.Timestamp reviewAt = 30;
+  string mainQualityInspectionCode = 31;
+  string activeStatus = 32;
+  string memo = 33;
+  repeated UploadDocumentInfo uploadDocument = 34;
+  string InfoHash = 35;
+  int64  managerId = 36;
+}
+
+message UpdateQualityInspectionHashReq { 
+  int64  qualityInspectionId = 1;
+  string qualityInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string qualityInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionResult = 12;
+  int64  inspectionBy = 13;
+  google.protobuf.Timestamp inspectionAt = 14;
+  string qualityStatus = 15;
+  string assignedPerson = 16;
+  google.protobuf.Timestamp assignedDate = 17;
+  string assignedDesc = 18;
+  int64  duration = 19;
+  google.protobuf.Timestamp rectifyDeadline = 20;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 21;
+  google.protobuf.Timestamp rectifyDate = 22;
+  string rectifyPerson = 23;
+  string rectifyDesc = 24;
+  int64  rectifyBy = 25;
+  google.protobuf.Timestamp rectifyAt = 26;
+  google.protobuf.Timestamp reviewDate = 27;
+  string reviewPerson = 28;
+  string reviewDesc = 29;
+  int64  reviewBy = 30;
+  google.protobuf.Timestamp reviewAt = 31;
+  string mainQualityInspectionCode = 32;
+  string activeStatus = 33;
+  string memo = 34;
+  repeated UploadDocumentInfo uploadDocument = 35;
+  string InfoHash = 36;
+  int64  managerId = 37;
+}
+
+message GetQualityInspectionHashReq {
+  int64 managerId = 1;
+  repeated int64 qualityInspectionIds = 2;
+}
+
+message QualityInspectionHashVo{
+  int64  qualityInspectionId = 1;
+  string qualityInspectionCode = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string inspectionHash = 5;
+  google.protobuf.Timestamp inspectionUploadAt = 6;
+  string rectifyHash = 7;
+  google.protobuf.Timestamp rectifyUploadAt = 8;
+  string reviewHash = 9;
+  google.protobuf.Timestamp reviewUploadAt = 10;
+}
+
+message GetQualityInspectionHashResp {
+  repeated QualityInspectionHashVo list = 1;
   int64 total = 2;
   int64 pageSize = 3;
   int64 pageNumber = 4;
