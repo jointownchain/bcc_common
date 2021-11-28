@@ -2508,7 +2508,7 @@ service ManagerService {
   rpc GetGetGovermentCodeById(GetGovermentCodeByIdReq) returns(GetGovermentCodeByIdResp);
   
   //开票信息
-  rpc ListInvoice(ListContractReq) returns(ListContractResp);
+  rpc ListInvoice(ListInvoiceReq) returns(ListInvoiceResp);
   rpc GetOneInvoice(GetOneInvoiceReq) returns(GetOneInvoiceResp);
   rpc CreateOneInvoice(CreateOneInvoiceReq) returns(CreateOneInvoiceResp);
   rpc UpdateOneInvoice(UpdateOneInvoiceReq) returns(UpdateOneInvoiceResp);
@@ -4948,13 +4948,13 @@ message ListContractReq {
   string  contractCode = 2;
   string  contractName = 3;
   int64  projectId = 4;
-  string  serviceCode = 5;
-  Page page = 6;
-  int64 managerId = 7;
+  int64  constructionId = 5;
+  string  toPlatFormType = 6;
+  int64  toOrganizationId = 7;
   google.protobuf.Timestamp startAt = 8;
   google.protobuf.Timestamp endAt = 9;
- int64 organizationId = 10;
-  
+  Page page = 10;
+  int64 managerId = 11;
 }
 
 message ListContractResp {
@@ -4965,19 +4965,27 @@ message ListContractResp {
 }
 
 message ListContractVo {
-  int64 id = 1;
-  string  contractCode = 2;
-  string  contractName = 3;
-  string  ContractType = 4;
-  int64   projectId  = 5;
+  int64  id = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  int64  projectId = 5;
   int64  constructionId = 6;
-  string serviceCode = 7;
-  string  thirdCode = 8;
-  int64  contractAmount = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string thirdCode = 9;
+  int64  contractAmount = 10;
+  google.protobuf.Timestamp startAt = 11;
+  google.protobuf.Timestamp endAt = 12;
+  string memo = 13;
+  string activeStatus = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  string projectName = 19;
+  string toOrganizationName = 20;
+  string infoHash = 21;
 }
 
 
@@ -4996,45 +5004,52 @@ message GetOneContractResp {
 }
 
 message ContractInfoVo {
-  int64 id = 1;
-  string  contractCode = 2;
-  string  contractName = 3;
-  string  ContractType = 4;
-  int64   projectId  = 5;
+  int64  id = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  int64  projectId = 5;
   int64  constructionId = 6;
-  string serviceCode = 7;
-  string  thirdCode = 8;
-  int64  contractAmount = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
-  repeated DocumentInfo documentInfo = 14;
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string thirdCode = 9;
+  int64  contractAmount = 10;
+  google.protobuf.Timestamp startAt = 11;
+  google.protobuf.Timestamp endAt = 12;
+  string memo = 13;
+  string activeStatus = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  string projectName = 19;
+  string toOrganizationName = 20;
+  repeated DocumentInfo documentInfo = 21;
+  string infoHash = 22;
 }
 
 
 message CreateOneContractReq {
-  int64 id = 1;
-  string  contractCode = 2;
-  string  contractName = 3;
-  string  ContractType = 4;
-  int64   projectId  = 5;
+  int64  id = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  int64  projectId = 5;
   int64  constructionId = 6;
-  string serviceCode = 7;
-  string  thirdCode = 8;
-  int64  contractAmount = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
-  int64   CreatedBy  = 14;
-  int64   UpdatedBy  = 15;
-  google.protobuf.Timestamp UpdatedAt = 16;
-  google.protobuf.Timestamp CreatedAt = 17;
-  int64   managerId = 18;
-  repeated DocumentInfoContract uploadDocumentInfoContract = 19;
-  
-  
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string thirdCode = 9;
+  int64  contractAmount = 10;
+  google.protobuf.Timestamp startAt = 11;
+  google.protobuf.Timestamp endAt = 12;
+  string memo = 13;
+  string activeStatus = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  int64   managerId = 19;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 20;
 }
 message DocumentInfoContract {
   string businessType = 1;
@@ -5047,82 +5062,83 @@ message CreateOneContractResp {
 }
 
 message UpdateOneContractReq {
-  int64 id = 1;
-  string  contractCode = 2;
-  string  contractName = 3;
-  string  ContractType = 4;
-  int64   projectId  = 5;
+  int64  id = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  int64  projectId = 5;
   int64  constructionId = 6;
-  string serviceCode = 7;
-  string  thirdCode = 8;
-  int64  contractAmount = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
-  int64   UpdatedBy  = 14;
-  google.protobuf.Timestamp UpdatedAt = 15;
-  int64   managerId = 16;
-  repeated DocumentInfoContract uploadDocumentInfoContract = 17;
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string thirdCode = 9;
+  int64  contractAmount = 10;
+  google.protobuf.Timestamp startAt = 11;
+  google.protobuf.Timestamp endAt = 12;
+  string memo = 13;
+  string activeStatus = 14;
+  int64  updatedBy = 15;
+  google.protobuf.Timestamp updatedAt = 16;
+  int64   managerId = 17;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 18;
 }
 
 message UpdateOneContractResp {
   int64 result = 1;
 }
 
-
 message CreateContractHashReq {
-  int64 id = 1;
-  string  contractCode = 2;
-  string  contractName = 3;
-  string  ContractType = 4;
-  int64   projectId  = 5;
+  int64  id = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  int64  projectId = 5;
   int64  constructionId = 6;
-  string serviceCode = 7;
-  string  thirdCode = 8;
-  int64  contractAmount = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
-  int64   CreatedBy  = 14;
-  int64   UpdatedBy  = 15;
-  google.protobuf.Timestamp UpdatedAt = 16;
-  google.protobuf.Timestamp CreatedAt = 17;
-  int64   managerId = 18;
-  repeated DocumentInfoContract uploadDocumentInfoContract = 19;
-  string InfoHash = 20;
-  
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string thirdCode = 9;
+  int64  contractAmount = 10;
+  google.protobuf.Timestamp startAt = 11;
+  google.protobuf.Timestamp endAt = 12;
+  string memo = 13;
+  string activeStatus = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  int64   managerId = 19;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 20;
+  string infoHash = 21;
 }
+
 message CreateContractHashResp {
   int64 result = 1;
 }
 
 message UpdateContractHashReq {
-  int64 id = 1;
-  string  contractCode = 2;
-  string  contractName = 3;
-  string  ContractType = 4;
-  int64   projectId  = 5;
+  int64  id = 1;
+  string contractCode = 2;
+  string contractName = 3;
+  string contractType = 4;
+  int64  projectId = 5;
   int64  constructionId = 6;
-  string serviceCode = 7;
-  string  thirdCode = 8;
-  int64  contractAmount = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  google.protobuf.Timestamp startAt = 12;
-  google.protobuf.Timestamp endAt = 13;
-  int64   UpdatedBy  = 14;
-  google.protobuf.Timestamp UpdatedAt = 15;
-  int64   managerId = 16;
-  repeated DocumentInfoContract uploadDocumentInfoContract = 17;
-  string InfoHash = 18;
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string thirdCode = 9;
+  int64  contractAmount = 10;
+  google.protobuf.Timestamp startAt = 11;
+  google.protobuf.Timestamp endAt = 12;
+  string memo = 13;
+  string activeStatus = 14;
+  int64  updatedBy = 15;
+  google.protobuf.Timestamp updatedAt = 16;
+  int64   managerId = 17;
+  repeated DocumentInfoContract uploadDocumentInfoContract = 18;
+  string infoHash = 19;
 }
 
 message UpdateContractHashResp {
   int64 result = 1;
 }
-
 
 message DeleteOneContractReq {
   int64 contractId = 1;
@@ -5145,9 +5161,10 @@ message ListContractHashResp {
 }
 
 message ListContractHashVo{
-  int64  contractIds = 1; 
-  string infoHash = 2;
-  google.protobuf.Timestamp infoUploadAt = 3;
+  int64  contractId = 1; 
+  string contractCode = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
 }
 
 message DocumentInfo {
@@ -5156,7 +5173,6 @@ message DocumentInfo {
   string uploadUrl = 3;
   int64 businessId = 4;
 }
-
 
 //查询项目信息(通用接口)
 message CommonProjectReq {
@@ -5240,83 +5256,78 @@ message GetSupervisorCodeByIdResp {
 
 //发票信息
 message CreateInvoiceHashReq {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64     constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   CreatedBy  = 29;
-int64   UpdatedBy  = 30;
-google.protobuf.Timestamp UpdatedAt = 31;
-google.protobuf.Timestamp CreatedAt = 32;
-int64   managerId = 33;
-string InfoHash = 34;
-
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  createdBy = 30;
+  google.protobuf.Timestamp createdAt = 31;
+  int64   managerId = 32;
+  string InfoHash = 33;
 }
 
 message CreateInvoiceHashResp {
   int64 result = 1;
 }
 
-
 message CreateOneInvoiceReq {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64     constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   CreatedBy  = 29;
-int64   UpdatedBy  = 30;
-google.protobuf.Timestamp UpdatedAt = 31;
-google.protobuf.Timestamp CreatedAt = 32;
-int64   managerId = 33;
-
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  createdBy = 30;
+  google.protobuf.Timestamp createdAt = 31;
+  int64   managerId = 32;
 }
 
 message CreateOneInvoiceResp {
@@ -5324,37 +5335,39 @@ message CreateOneInvoiceResp {
 }
 
 message UpdateInvoiceHasReq {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64     constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   UpdatedBy  = 29;
-int64   managerId = 30;
-string InfoHash = 31;
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  updatedBy = 30;
+  google.protobuf.Timestamp updatedAt = 31;
+  int64  managerId = 32;
+  string infoHash = 33;
 }
 
 message UpdateInvoiceHasResp {
@@ -5362,36 +5375,38 @@ message UpdateInvoiceHasResp {
 }
 
 message UpdateOneInvoiceReq {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64     constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   UpdatedBy  = 29;
-int64   managerId = 30;
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  updatedBy = 30;
+  google.protobuf.Timestamp updatedAt = 31;
+  int64  managerId = 32;
 }
 
 message UpdateOneInvoiceResp {
@@ -5401,6 +5416,7 @@ message UpdateOneInvoiceResp {
 message GetOneInvoiceReq {
   int64 invoiceId = 1; 
   Page page = 2;
+  int64  managerId = 3;
 }
 
 message GetOneInvoiceResp {
@@ -5411,58 +5427,74 @@ message GetOneInvoiceResp {
 }
 
 message InvoiceInfoVo {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64      constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   CreatedBy  = 29;
-int64   UpdatedBy  = 30;
-google.protobuf.Timestamp UpdatedAt = 31;
-google.protobuf.Timestamp CreatedAt = 32;
-int64   managerId = 33;
-string      projectName   = 34; 
-string      contractName  = 35; 
-string     constructionName  = 36;  
-string     invoicingUnitName  = 37;  
- 
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  createdBy = 30;
+  google.protobuf.Timestamp createdAt = 31;
+  int64  updatedBy = 32;
+  google.protobuf.Timestamp updatedAt = 33;
+  string projectName   = 34; 
+  string contractName  = 35; 
+  string constructionName  = 36;  
+  string fromOrganizationName  = 37; 
+  UploadChainInvoice uploadChainInvoice  = 38;  
+  int64  managerId = 39;
 }
 
+message UploadChainInvoice {
+  int64  id = 1;
+  int64  invoiceId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string invoiceHash = 5;
+  google.protobuf.Timestamp invoiceUploadAt = 6;
+  string receiveHash = 7;
+  google.protobuf.Timestamp receiveUploadAt = 8;
+  string payHash = 9;
+  google.protobuf.Timestamp payUploadAt = 10;
+  string msg = 11;
+  google.protobuf.Timestamp createdAt = 12;
+  google.protobuf.Timestamp updatedAt = 13;
+}
 
 message ListInvoiceReq {
-
-  int64 invoiceId = 1;
-  int64      contractId  = 2; 
-  string     invoiceNo    = 3;
-  int64  constructionId  = 4;
+  int64      contractId  = 1; 
+  string     invoiceNo    = 2;
+  int64 fromOrganizationId = 3;
+  string fromPlatFormType = 4;
+  int64  constructionId  = 5;
   string  invoiceStatus    = 6;  
-  Page page = 7;
-  google.protobuf.Timestamp startInvoicdDate = 8;
-  google.protobuf.Timestamp endInvoicdDate = 9;
-  
+  google.protobuf.Timestamp startInvoicdDate = 7;
+  google.protobuf.Timestamp endInvoicdDate = 8;
+  int64  managerId = 9;
+  Page page = 10;
 }
 
 message ListInvoiceResp {
@@ -5473,43 +5505,44 @@ message ListInvoiceResp {
 }
 
 message ListInvoiceVo {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64      constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   CreatedBy  = 29;
-int64   UpdatedBy  = 30;
-google.protobuf.Timestamp UpdatedAt = 31;
-google.protobuf.Timestamp CreatedAt = 32;
-int64   managerId = 33;
-string      projectName   = 34; 
-string      contractName  = 35; 
-string     constructionName  = 36;  
-string     invoicingUnitName  = 37;  
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  createdBy = 30;
+  google.protobuf.Timestamp createdAt = 31;
+  int64  updatedBy = 32;
+  google.protobuf.Timestamp updatedAt = 33;
+  string projectName   = 34; 
+  string contractName  = 35; 
+  string constructionName  = 36;  
+  string fromOrganizationName  = 37; 
+  int64  managerId = 38;
 }
 
 message DeleteOneInvoiceReq {
@@ -5521,42 +5554,73 @@ message DeleteOneInvoiceResp {
 
 }
 
-
 message UpdateInvoiceHashReq {
-int64      id   = 1;                  
-int64      projectId   = 2;          
-int64      contractId  = 3;          
-string     invoicingUnitCode                = 4;         
-int64     constructionId                = 5;           
-string     invoiceType  = 6;         
-string     invoiceNo    = 7;         
-string     invoiceCode  = 8;         
-string     invoiceMd5     = 9;       
-string     invoiceFilename  = 10;     
-string     invoiceUrl     = 11;       
-int64      invoiceAmoumt   = 12;     
-int64      invoiceTax     = 13;       
-string     invoiceCheckCode  = 14;    
-google.protobuf.Timestamp  invoicdDate     = 15;      
-string     invoiceStatus    = 16;     
-string     invoiceDesc    = 17;      
-int64      invoiceBy     = 18;        
-google.protobuf.Timestamp  invoiceAt    = 19;        
-string     receiveDesc  = 20;         
-int64      receiveBy     = 21;      
-google.protobuf.Timestamp  receiveAt   = 22;          
-string     payDesc     = 23;          
-int64      payBy         = 24;       
-google.protobuf.Timestamp  payAt       = 25;          
-string     paymentVoucherFilename  = 26;
-string     paymentVoucherUrl     = 27; 
-string     memo                = 28;   
-int64   UpdatedBy  = 29;
-int64   managerId = 30;
-string InfoHash = 31;
+  int64  id = 1;
+  int64  projectId = 2;
+  int64  contractId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  constructionId = 6;
+  string invoiceType = 7;
+  string invoiceNo = 8;
+  string invoiceCode = 9;
+  string invoiceMd5 = 10;
+  string invoiceFilename = 11;
+  string invoiceUrl = 12;
+  int64  invoiceAmoumt = 13;
+  int64  invoiceTax = 14;
+  string invoiceCheckCode = 15;
+  google.protobuf.Timestamp invoicdDate = 16;
+  string invoiceStatus = 17;
+  string invoiceDesc = 18;
+  int64  invoiceBy = 19;
+  google.protobuf.Timestamp invoiceAt = 20;
+  string receiveDesc = 21;
+  int64  receiveBy = 22;
+  google.protobuf.Timestamp receiveAt = 23;
+  string payDesc = 24;
+  int64  payBy = 25;
+  google.protobuf.Timestamp payAt = 26;
+  string paymentVoucherFilename = 27;
+  string paymentVoucherUrl = 28;
+  string memo = 29;
+  int64  updatedBy = 30;
+  google.protobuf.Timestamp updatedAt = 31;
+  int64  managerId = 32;
+  string infoHash = 33;
 }
 
 message UpdateInvoiceHashResp {
+  int64 result = 1;
+}
+
+message ReceiveInvoiceHashReq {
+  int64  id = 1;
+  string receiveDesc = 2;
+  int64  receiveBy = 3;
+  google.protobuf.Timestamp receiveAt = 4;
+  string invoiceStatus = 5;
+  int64  managerId = 6;
+  string infoHash = 7;
+}
+
+message ReceiveInvoiceHashResp {
+  int64 result = 1;
+}
+
+message PayInvoiceHashReq {
+  int64  id = 1;
+  string payDesc = 2;
+  int64  payBy = 3;
+  google.protobuf.Timestamp payAt = 4;
+  string paymentVoucherFilename = 5;
+  string paymentVoucherUrl = 6;
+  string invoiceStatus = 7;
+  int64  managerId = 8;
+  string infoHash = 9;
+}
+
+message PayInvoiceHashResp {
   int64 result = 1;
 }
 
