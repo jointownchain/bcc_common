@@ -25,7 +25,9 @@ service BcAndBankService {
   // 质量巡检信息上链
   rpc BcUploadQualityInspections(UploadChainQualityInspections) returns (BcResponses); 
   // 质量巡检整改信息上链
-  rpc BcUploadQualityReactifies(UploadChainQualityReactifies) returns (BcResponses);  
+  rpc BcUploadQualityRectifies(UploadChainQualityRectifies) returns (BcResponses);  
+  // 质量巡检复检信息上链
+  rpc BcUploadQualityReviews(UploadChainQualityReviews) returns (BcResponses);  
   
   // 流程申请上链
   rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
@@ -192,11 +194,11 @@ message UploadChainQualityInspection {
   repeated UploadDocumentInfo uploadDocumnet = 21;
 }
 
-message UploadChainQualityReactifies{
-  repeated UploadChainReactify UploadChainReactify = 1;
+message UploadChainQualityRectifies{
+  repeated UploadChainQualityRectify UploadChainQualityRectify = 1;
 }
 
-message UploadChainReactify {
+message UploadChainQualityRectify {
   UploadChainType uploadChainType = 1;
   string qualityInspectionCode = 2;
   string qualityStatus = 3;
@@ -208,11 +210,11 @@ message UploadChainReactify {
   repeated UploadDocumentInfo uploadDocumnet = 9;
 }
 
-message UploadChainReviews {
-  repeated UploadChainReview UploadChainReview = 1;
+message UploadChainQualityReviews {
+  repeated UploadChainQualityReview UploadChainQualityReview = 1;
 }
 
-message UploadChainReview {
+message UploadChainQualityReview {
   UploadChainType uploadChainType = 1;
   string qualityInspectionCode = 2;
   string qualityStatus = 3;

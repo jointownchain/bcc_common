@@ -2561,8 +2561,8 @@ service ManagerService {
   rpc CreateQualityInspectionHash(CreateQualityInspectionHashReq) returns(OpQualityResp);
   rpc UpdateQualityInspectionHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
   
-  rpc UpdateOneQualityReactify(QualityInspectionReq) returns(OpQualityResp);
-  rpc UpdateQualityReactifyHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
+  rpc UpdateOneQualityRectify(QualityInspectionReq) returns(OpQualityResp);
+  rpc UpdateQualityRectifyHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
   
   rpc UpdateOneQualityReview(QualityInspectionReq) returns(OpQualityResp);
   rpc UpdateQualityReviewHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
@@ -4815,8 +4815,11 @@ message UpdateQualityInspectionHashReq {
   string activeStatus = 33;
   string memo = 34;
   repeated UploadDocumentInfo uploadDocument = 35;
-  string InfoHash = 36;
-  int64  managerId = 37;
+  string infoHash = 36;
+  string inspectionHash = 37;
+  string rectifyHash = 38;
+  string reviewHash = 39;
+  int64  managerId = 40;
 }
 
 message GetQualityInspectionHashReq {
