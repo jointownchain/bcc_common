@@ -142,349 +142,6 @@ func (x *QueryTxIDRsp) GetCreateAt() *timestamppb.Timestamp {
 	return nil
 }
 
-type BcAndBankPayOrderActionRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	PayOrder    []*UploadChainPayOrder `protobuf:"bytes,1,rep,name=payOrder,proto3" json:"payOrder"`
-	BankRequest *BankRequest           `protobuf:"bytes,2,opt,name=bankRequest,proto3" json:"bankRequest"`
-	Debug       bool                   `protobuf:"varint,3,opt,name=debug,proto3" json:"debug"`
-}
-
-func (x *BcAndBankPayOrderActionRequest) Reset() {
-	*x = BcAndBankPayOrderActionRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BcAndBankPayOrderActionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BcAndBankPayOrderActionRequest) ProtoMessage() {}
-
-func (x *BcAndBankPayOrderActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BcAndBankPayOrderActionRequest.ProtoReflect.Descriptor instead.
-func (*BcAndBankPayOrderActionRequest) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *BcAndBankPayOrderActionRequest) GetPayOrder() []*UploadChainPayOrder {
-	if x != nil {
-		return x.PayOrder
-	}
-	return nil
-}
-
-func (x *BcAndBankPayOrderActionRequest) GetBankRequest() *BankRequest {
-	if x != nil {
-		return x.BankRequest
-	}
-	return nil
-}
-
-func (x *BcAndBankPayOrderActionRequest) GetDebug() bool {
-	if x != nil {
-		return x.Debug
-	}
-	return false
-}
-
-type BcAndBankFactoringActionRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	FactoringOrder *UploadChainFactoringOrder `protobuf:"bytes,1,opt,name=factoringOrder,proto3" json:"factoringOrder"`
-	BankRequest    *BankRequest               `protobuf:"bytes,2,opt,name=bankRequest,proto3" json:"bankRequest"`
-}
-
-func (x *BcAndBankFactoringActionRequest) Reset() {
-	*x = BcAndBankFactoringActionRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BcAndBankFactoringActionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BcAndBankFactoringActionRequest) ProtoMessage() {}
-
-func (x *BcAndBankFactoringActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BcAndBankFactoringActionRequest.ProtoReflect.Descriptor instead.
-func (*BcAndBankFactoringActionRequest) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *BcAndBankFactoringActionRequest) GetFactoringOrder() *UploadChainFactoringOrder {
-	if x != nil {
-		return x.FactoringOrder
-	}
-	return nil
-}
-
-func (x *BcAndBankFactoringActionRequest) GetBankRequest() *BankRequest {
-	if x != nil {
-		return x.BankRequest
-	}
-	return nil
-}
-
-type BcAndBankFactoringRepayActionRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Repay       *UploadChainFactoringOrder `protobuf:"bytes,1,opt,name=repay,proto3" json:"repay"`
-	BankRequest *BankRequest               `protobuf:"bytes,2,opt,name=bankRequest,proto3" json:"bankRequest"`
-}
-
-func (x *BcAndBankFactoringRepayActionRequest) Reset() {
-	*x = BcAndBankFactoringRepayActionRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BcAndBankFactoringRepayActionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BcAndBankFactoringRepayActionRequest) ProtoMessage() {}
-
-func (x *BcAndBankFactoringRepayActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BcAndBankFactoringRepayActionRequest.ProtoReflect.Descriptor instead.
-func (*BcAndBankFactoringRepayActionRequest) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *BcAndBankFactoringRepayActionRequest) GetRepay() *UploadChainFactoringOrder {
-	if x != nil {
-		return x.Repay
-	}
-	return nil
-}
-
-func (x *BcAndBankFactoringRepayActionRequest) GetBankRequest() *BankRequest {
-	if x != nil {
-		return x.BankRequest
-	}
-	return nil
-}
-
-type BcAndBankActionResp struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	BcResponse   []*BcResponse `protobuf:"bytes,1,rep,name=bcResponse,proto3" json:"bcResponse"`     // string hash
-	BankResponse *BankResponse `protobuf:"bytes,2,opt,name=bankResponse,proto3" json:"bankResponse"` // xml marshal
-}
-
-func (x *BcAndBankActionResp) Reset() {
-	*x = BcAndBankActionResp{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BcAndBankActionResp) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BcAndBankActionResp) ProtoMessage() {}
-
-func (x *BcAndBankActionResp) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BcAndBankActionResp.ProtoReflect.Descriptor instead.
-func (*BcAndBankActionResp) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *BcAndBankActionResp) GetBcResponse() []*BcResponse {
-	if x != nil {
-		return x.BcResponse
-	}
-	return nil
-}
-
-func (x *BcAndBankActionResp) GetBankResponse() *BankResponse {
-	if x != nil {
-		return x.BankResponse
-	}
-	return nil
-}
-
-// 银行相关参数
-// 银行参数基于 XML, 对应的 struct 中有很多标签和无用字段, 使用 xml.Marshal 传 string
-type BankRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// 请求体 xml.marshal
-	Body string `protobuf:"bytes,1,opt,name=body,proto3" json:"body"`
-	// 请求方法 <- 按照 bankSDK 内定义的 constant opts 来
-	Function string `protobuf:"bytes,2,opt,name=function,proto3" json:"function"`
-	SkipBank bool   `protobuf:"varint,3,opt,name=skipBank,proto3" json:"skipBank"`
-}
-
-func (x *BankRequest) Reset() {
-	*x = BankRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BankRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BankRequest) ProtoMessage() {}
-
-func (x *BankRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BankRequest.ProtoReflect.Descriptor instead.
-func (*BankRequest) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *BankRequest) GetBody() string {
-	if x != nil {
-		return x.Body
-	}
-	return ""
-}
-
-func (x *BankRequest) GetFunction() string {
-	if x != nil {
-		return x.Function
-	}
-	return ""
-}
-
-func (x *BankRequest) GetSkipBank() bool {
-	if x != nil {
-		return x.SkipBank
-	}
-	return false
-}
-
-// 通用银行信息返回(返回对应结构体 xml marshal)
-type BankResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Body string `protobuf:"bytes,1,opt,name=body,proto3" json:"body"`
-}
-
-func (x *BankResponse) Reset() {
-	*x = BankResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BankResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BankResponse) ProtoMessage() {}
-
-func (x *BankResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BankResponse.ProtoReflect.Descriptor instead.
-func (*BankResponse) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *BankResponse) GetBody() string {
-	if x != nil {
-		return x.Body
-	}
-	return ""
-}
-
 // 通用单个上链信息返回(hash)
 type BcResponse struct {
 	state         protoimpl.MessageState
@@ -497,7 +154,7 @@ type BcResponse struct {
 func (x *BcResponse) Reset() {
 	*x = BcResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[8]
+		mi := &file_BcAndBankService_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -510,7 +167,7 @@ func (x *BcResponse) String() string {
 func (*BcResponse) ProtoMessage() {}
 
 func (x *BcResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[8]
+	mi := &file_BcAndBankService_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -523,7 +180,7 @@ func (x *BcResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BcResponse.ProtoReflect.Descriptor instead.
 func (*BcResponse) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{8}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *BcResponse) GetHash() string {
@@ -545,7 +202,7 @@ type BcResponses struct {
 func (x *BcResponses) Reset() {
 	*x = BcResponses{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[9]
+		mi := &file_BcAndBankService_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -558,7 +215,7 @@ func (x *BcResponses) String() string {
 func (*BcResponses) ProtoMessage() {}
 
 func (x *BcResponses) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[9]
+	mi := &file_BcAndBankService_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -571,7 +228,7 @@ func (x *BcResponses) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BcResponses.ProtoReflect.Descriptor instead.
 func (*BcResponses) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{9}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *BcResponses) GetHash() []string {
@@ -579,152 +236,6 @@ func (x *BcResponses) GetHash() []string {
 		return x.Hash
 	}
 	return nil
-}
-
-// 通用聚合返回(hash, 银行)
-type CommonResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	BankRsp *BankResponse `protobuf:"bytes,1,opt,name=bankRsp,proto3" json:"bankRsp"`
-	// 可能会返回多个 hash
-	BcRsp []*BcResponse `protobuf:"bytes,2,rep,name=bcRsp,proto3" json:"bcRsp"`
-}
-
-func (x *CommonResponse) Reset() {
-	*x = CommonResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[10]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *CommonResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CommonResponse) ProtoMessage() {}
-
-func (x *CommonResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[10]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CommonResponse.ProtoReflect.Descriptor instead.
-func (*CommonResponse) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *CommonResponse) GetBankRsp() *BankResponse {
-	if x != nil {
-		return x.BankRsp
-	}
-	return nil
-}
-
-func (x *CommonResponse) GetBcRsp() []*BcResponse {
-	if x != nil {
-		return x.BcRsp
-	}
-	return nil
-}
-
-// dto/UploadChain.go generated
-// base -------------- start
-type BankAccount struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	CardNo      string `protobuf:"bytes,1,opt,name=cardNo,proto3" json:"cardNo"`
-	AccountType string `protobuf:"bytes,2,opt,name=accountType,proto3" json:"accountType"`
-	Bank        string `protobuf:"bytes,3,opt,name=bank,proto3" json:"bank"`
-	Toibkn      string `protobuf:"bytes,4,opt,name=toibkn,proto3" json:"toibkn"`
-	CardOwner   string `protobuf:"bytes,5,opt,name=cardOwner,proto3" json:"cardOwner"`
-	ValidStatus string `protobuf:"bytes,6,opt,name=validStatus,proto3" json:"validStatus"`
-}
-
-func (x *BankAccount) Reset() {
-	*x = BankAccount{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[11]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *BankAccount) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BankAccount) ProtoMessage() {}
-
-func (x *BankAccount) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[11]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BankAccount.ProtoReflect.Descriptor instead.
-func (*BankAccount) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *BankAccount) GetCardNo() string {
-	if x != nil {
-		return x.CardNo
-	}
-	return ""
-}
-
-func (x *BankAccount) GetAccountType() string {
-	if x != nil {
-		return x.AccountType
-	}
-	return ""
-}
-
-func (x *BankAccount) GetBank() string {
-	if x != nil {
-		return x.Bank
-	}
-	return ""
-}
-
-func (x *BankAccount) GetToibkn() string {
-	if x != nil {
-		return x.Toibkn
-	}
-	return ""
-}
-
-func (x *BankAccount) GetCardOwner() string {
-	if x != nil {
-		return x.CardOwner
-	}
-	return ""
-}
-
-func (x *BankAccount) GetValidStatus() string {
-	if x != nil {
-		return x.ValidStatus
-	}
-	return ""
 }
 
 type UploadChainType struct {
@@ -743,7 +254,7 @@ type UploadChainType struct {
 func (x *UploadChainType) Reset() {
 	*x = UploadChainType{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[12]
+		mi := &file_BcAndBankService_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -756,7 +267,7 @@ func (x *UploadChainType) String() string {
 func (*UploadChainType) ProtoMessage() {}
 
 func (x *UploadChainType) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[12]
+	mi := &file_BcAndBankService_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -769,7 +280,7 @@ func (x *UploadChainType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainType.ProtoReflect.Descriptor instead.
 func (*UploadChainType) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{12}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UploadChainType) GetLastHash() string {
@@ -814,1793 +325,6 @@ func (x *UploadChainType) GetUploaderAccount() string {
 	return ""
 }
 
-type PayOrder struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	ShipmentNo string `protobuf:"bytes,1,opt,name=shipmentNo,proto3" json:"shipmentNo"`
-}
-
-func (x *PayOrder) Reset() {
-	*x = PayOrder{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[13]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *PayOrder) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PayOrder) ProtoMessage() {}
-
-func (x *PayOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[13]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PayOrder.ProtoReflect.Descriptor instead.
-func (*PayOrder) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *PayOrder) GetShipmentNo() string {
-	if x != nil {
-		return x.ShipmentNo
-	}
-	return ""
-}
-
-type UploadChainCompany struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	CompanyName     string                 `protobuf:"bytes,2,opt,name=companyName,proto3" json:"companyName"`
-	CompanyCode     string                 `protobuf:"bytes,3,opt,name=companyCode,proto3" json:"companyCode"`
-	ManagerName     string                 `protobuf:"bytes,4,opt,name=managerName,proto3" json:"managerName"`
-	ManagerPhone    string                 `protobuf:"bytes,5,opt,name=managerPhone,proto3" json:"managerPhone"`
-	MibCode         string                 `protobuf:"bytes,6,opt,name=mibCode,proto3" json:"mibCode"`
-	CreditAmount    int64                  `protobuf:"varint,7,opt,name=creditAmount,proto3" json:"creditAmount"`
-	StartAt         *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=startAt,proto3" json:"startAt"`
-	EndAt           *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=endAt,proto3" json:"endAt"`
-	BankAccount     *BankAccount           `protobuf:"bytes,10,opt,name=bankAccount,proto3" json:"bankAccount"`
-}
-
-func (x *UploadChainCompany) Reset() {
-	*x = UploadChainCompany{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[14]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainCompany) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainCompany) ProtoMessage() {}
-
-func (x *UploadChainCompany) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[14]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainCompany.ProtoReflect.Descriptor instead.
-func (*UploadChainCompany) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *UploadChainCompany) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainCompany) GetCompanyName() string {
-	if x != nil {
-		return x.CompanyName
-	}
-	return ""
-}
-
-func (x *UploadChainCompany) GetCompanyCode() string {
-	if x != nil {
-		return x.CompanyCode
-	}
-	return ""
-}
-
-func (x *UploadChainCompany) GetManagerName() string {
-	if x != nil {
-		return x.ManagerName
-	}
-	return ""
-}
-
-func (x *UploadChainCompany) GetManagerPhone() string {
-	if x != nil {
-		return x.ManagerPhone
-	}
-	return ""
-}
-
-func (x *UploadChainCompany) GetMibCode() string {
-	if x != nil {
-		return x.MibCode
-	}
-	return ""
-}
-
-func (x *UploadChainCompany) GetCreditAmount() int64 {
-	if x != nil {
-		return x.CreditAmount
-	}
-	return 0
-}
-
-func (x *UploadChainCompany) GetStartAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.StartAt
-	}
-	return nil
-}
-
-func (x *UploadChainCompany) GetEndAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.EndAt
-	}
-	return nil
-}
-
-func (x *UploadChainCompany) GetBankAccount() *BankAccount {
-	if x != nil {
-		return x.BankAccount
-	}
-	return nil
-}
-
-type UploadChainCompanies struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainCompany []*UploadChainCompany `protobuf:"bytes,1,rep,name=uploadChainCompany,proto3" json:"uploadChainCompany"`
-}
-
-func (x *UploadChainCompanies) Reset() {
-	*x = UploadChainCompanies{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[15]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainCompanies) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainCompanies) ProtoMessage() {}
-
-func (x *UploadChainCompanies) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[15]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainCompanies.ProtoReflect.Descriptor instead.
-func (*UploadChainCompanies) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *UploadChainCompanies) GetUploadChainCompany() []*UploadChainCompany {
-	if x != nil {
-		return x.UploadChainCompany
-	}
-	return nil
-}
-
-type UploadChainConfig struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	Key             string                 `protobuf:"bytes,2,opt,name=key,proto3" json:"key"`
-	TypeOne         string                 `protobuf:"bytes,3,opt,name=typeOne,proto3" json:"typeOne"`
-	TypeTwo         string                 `protobuf:"bytes,4,opt,name=typeTwo,proto3" json:"typeTwo"`
-	TypeThree       string                 `protobuf:"bytes,5,opt,name=typeThree,proto3" json:"typeThree"`
-	Value           string                 `protobuf:"bytes,6,opt,name=value,proto3" json:"value"`
-	StartAt         *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=startAt,proto3" json:"startAt"`
-	EndAt           *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=endAt,proto3" json:"endAt"`
-	Explain         string                 `protobuf:"bytes,9,opt,name=explain,proto3" json:"explain"`
-}
-
-func (x *UploadChainConfig) Reset() {
-	*x = UploadChainConfig{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[16]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainConfig) ProtoMessage() {}
-
-func (x *UploadChainConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[16]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainConfig.ProtoReflect.Descriptor instead.
-func (*UploadChainConfig) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *UploadChainConfig) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainConfig) GetKey() string {
-	if x != nil {
-		return x.Key
-	}
-	return ""
-}
-
-func (x *UploadChainConfig) GetTypeOne() string {
-	if x != nil {
-		return x.TypeOne
-	}
-	return ""
-}
-
-func (x *UploadChainConfig) GetTypeTwo() string {
-	if x != nil {
-		return x.TypeTwo
-	}
-	return ""
-}
-
-func (x *UploadChainConfig) GetTypeThree() string {
-	if x != nil {
-		return x.TypeThree
-	}
-	return ""
-}
-
-func (x *UploadChainConfig) GetValue() string {
-	if x != nil {
-		return x.Value
-	}
-	return ""
-}
-
-func (x *UploadChainConfig) GetStartAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.StartAt
-	}
-	return nil
-}
-
-func (x *UploadChainConfig) GetEndAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.EndAt
-	}
-	return nil
-}
-
-func (x *UploadChainConfig) GetExplain() string {
-	if x != nil {
-		return x.Explain
-	}
-	return ""
-}
-
-type UploadChainConfigs struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainConfig []*UploadChainConfig `protobuf:"bytes,1,rep,name=uploadChainConfig,proto3" json:"uploadChainConfig"`
-}
-
-func (x *UploadChainConfigs) Reset() {
-	*x = UploadChainConfigs{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[17]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainConfigs) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainConfigs) ProtoMessage() {}
-
-func (x *UploadChainConfigs) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[17]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainConfigs.ProtoReflect.Descriptor instead.
-func (*UploadChainConfigs) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *UploadChainConfigs) GetUploadChainConfig() []*UploadChainConfig {
-	if x != nil {
-		return x.UploadChainConfig
-	}
-	return nil
-}
-
-type UploadChainContract struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	ContractNo      string                 `protobuf:"bytes,2,opt,name=contractNo,proto3" json:"contractNo"`
-	TenderCompany   string                 `protobuf:"bytes,3,opt,name=tenderCompany,proto3" json:"tenderCompany"`
-	MedicineCode    string                 `protobuf:"bytes,4,opt,name=medicineCode,proto3" json:"medicineCode"`
-	MedicinePCode   string                 `protobuf:"bytes,5,opt,name=medicinePCode,proto3" json:"medicinePCode"`
-	CompanyCode     string                 `protobuf:"bytes,6,opt,name=companyCode,proto3" json:"companyCode"`
-	MibCode         string                 `protobuf:"bytes,7,opt,name=mibCode,proto3" json:"mibCode"`
-	MedicinePrice   int64                  `protobuf:"varint,8,opt,name=medicinePrice,proto3" json:"medicinePrice"`
-	TotalAmount     int64                  `protobuf:"varint,9,opt,name=totalAmount,proto3" json:"totalAmount"`
-	StartAt         *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=startAt,proto3" json:"startAt"`
-	EndAt           *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=endAt,proto3" json:"endAt"`
-}
-
-func (x *UploadChainContract) Reset() {
-	*x = UploadChainContract{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[18]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainContract) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainContract) ProtoMessage() {}
-
-func (x *UploadChainContract) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[18]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainContract.ProtoReflect.Descriptor instead.
-func (*UploadChainContract) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *UploadChainContract) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainContract) GetContractNo() string {
-	if x != nil {
-		return x.ContractNo
-	}
-	return ""
-}
-
-func (x *UploadChainContract) GetTenderCompany() string {
-	if x != nil {
-		return x.TenderCompany
-	}
-	return ""
-}
-
-func (x *UploadChainContract) GetMedicineCode() string {
-	if x != nil {
-		return x.MedicineCode
-	}
-	return ""
-}
-
-func (x *UploadChainContract) GetMedicinePCode() string {
-	if x != nil {
-		return x.MedicinePCode
-	}
-	return ""
-}
-
-func (x *UploadChainContract) GetCompanyCode() string {
-	if x != nil {
-		return x.CompanyCode
-	}
-	return ""
-}
-
-func (x *UploadChainContract) GetMibCode() string {
-	if x != nil {
-		return x.MibCode
-	}
-	return ""
-}
-
-func (x *UploadChainContract) GetMedicinePrice() int64 {
-	if x != nil {
-		return x.MedicinePrice
-	}
-	return 0
-}
-
-func (x *UploadChainContract) GetTotalAmount() int64 {
-	if x != nil {
-		return x.TotalAmount
-	}
-	return 0
-}
-
-func (x *UploadChainContract) GetStartAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.StartAt
-	}
-	return nil
-}
-
-func (x *UploadChainContract) GetEndAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.EndAt
-	}
-	return nil
-}
-
-type UploadChainContracts struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainContract []*UploadChainContract `protobuf:"bytes,1,rep,name=uploadChainContract,proto3" json:"uploadChainContract"`
-}
-
-func (x *UploadChainContracts) Reset() {
-	*x = UploadChainContracts{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[19]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainContracts) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainContracts) ProtoMessage() {}
-
-func (x *UploadChainContracts) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[19]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainContracts.ProtoReflect.Descriptor instead.
-func (*UploadChainContracts) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *UploadChainContracts) GetUploadChainContract() []*UploadChainContract {
-	if x != nil {
-		return x.UploadChainContract
-	}
-	return nil
-}
-
-type UploadChainContractMi struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	ContractNo      string           `protobuf:"bytes,2,opt,name=contractNo,proto3" json:"contractNo"`
-	MiCode          string           `protobuf:"bytes,3,opt,name=miCode,proto3" json:"miCode"`
-	MedicineAmount  int64            `protobuf:"varint,4,opt,name=medicineAmount,proto3" json:"medicineAmount"`
-	ContractMd5     string           `protobuf:"bytes,5,opt,name=contractMd5,proto3" json:"contractMd5"`
-	ContractUrl     string           `protobuf:"bytes,6,opt,name=contractUrl,proto3" json:"contractUrl"`
-}
-
-func (x *UploadChainContractMi) Reset() {
-	*x = UploadChainContractMi{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[20]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainContractMi) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainContractMi) ProtoMessage() {}
-
-func (x *UploadChainContractMi) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[20]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainContractMi.ProtoReflect.Descriptor instead.
-func (*UploadChainContractMi) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *UploadChainContractMi) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainContractMi) GetContractNo() string {
-	if x != nil {
-		return x.ContractNo
-	}
-	return ""
-}
-
-func (x *UploadChainContractMi) GetMiCode() string {
-	if x != nil {
-		return x.MiCode
-	}
-	return ""
-}
-
-func (x *UploadChainContractMi) GetMedicineAmount() int64 {
-	if x != nil {
-		return x.MedicineAmount
-	}
-	return 0
-}
-
-func (x *UploadChainContractMi) GetContractMd5() string {
-	if x != nil {
-		return x.ContractMd5
-	}
-	return ""
-}
-
-func (x *UploadChainContractMi) GetContractUrl() string {
-	if x != nil {
-		return x.ContractUrl
-	}
-	return ""
-}
-
-type UploadChainContractMis struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainContractMi []*UploadChainContractMi `protobuf:"bytes,1,rep,name=uploadChainContractMi,proto3" json:"uploadChainContractMi"`
-}
-
-func (x *UploadChainContractMis) Reset() {
-	*x = UploadChainContractMis{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[21]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainContractMis) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainContractMis) ProtoMessage() {}
-
-func (x *UploadChainContractMis) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[21]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainContractMis.ProtoReflect.Descriptor instead.
-func (*UploadChainContractMis) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *UploadChainContractMis) GetUploadChainContractMi() []*UploadChainContractMi {
-	if x != nil {
-		return x.UploadChainContractMi
-	}
-	return nil
-}
-
-type UploadChainFactoringOrder struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType    *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	PayOrders          []*PayOrder            `protobuf:"bytes,2,rep,name=payOrders,proto3" json:"payOrders"`
-	CompanyCode        string                 `protobuf:"bytes,3,opt,name=companyCode,proto3" json:"companyCode"`
-	FactoringMoney     int64                  `protobuf:"varint,4,opt,name=factoringMoney,proto3" json:"factoringMoney"`
-	FactoringOrderNo   string                 `protobuf:"bytes,5,opt,name=factoringOrderNo,proto3" json:"factoringOrderNo"`
-	ApplyDate          *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=applyDate,proto3" json:"applyDate"`
-	ApplyAt            *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=applyAt,proto3" json:"applyAt"`
-	RefundDate         *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=refundDate,proto3" json:"refundDate"`
-	FactoringBankNo    string                 `protobuf:"bytes,9,opt,name=factoringBankNo,proto3" json:"factoringBankNo"`
-	ActualReceiveMoney int64                  `protobuf:"varint,10,opt,name=actualReceiveMoney,proto3" json:"actualReceiveMoney"`
-	FactoringStatus    string                 `protobuf:"bytes,11,opt,name=factoringStatus,proto3" json:"factoringStatus"`
-	RefundAt           *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=refundAt,proto3" json:"refundAt"`
-	RefundStatus       string                 `protobuf:"bytes,13,opt,name=refundStatus,proto3" json:"refundStatus"`
-}
-
-func (x *UploadChainFactoringOrder) Reset() {
-	*x = UploadChainFactoringOrder{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[22]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainFactoringOrder) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainFactoringOrder) ProtoMessage() {}
-
-func (x *UploadChainFactoringOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[22]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainFactoringOrder.ProtoReflect.Descriptor instead.
-func (*UploadChainFactoringOrder) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *UploadChainFactoringOrder) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainFactoringOrder) GetPayOrders() []*PayOrder {
-	if x != nil {
-		return x.PayOrders
-	}
-	return nil
-}
-
-func (x *UploadChainFactoringOrder) GetCompanyCode() string {
-	if x != nil {
-		return x.CompanyCode
-	}
-	return ""
-}
-
-func (x *UploadChainFactoringOrder) GetFactoringMoney() int64 {
-	if x != nil {
-		return x.FactoringMoney
-	}
-	return 0
-}
-
-func (x *UploadChainFactoringOrder) GetFactoringOrderNo() string {
-	if x != nil {
-		return x.FactoringOrderNo
-	}
-	return ""
-}
-
-func (x *UploadChainFactoringOrder) GetApplyDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ApplyDate
-	}
-	return nil
-}
-
-func (x *UploadChainFactoringOrder) GetApplyAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ApplyAt
-	}
-	return nil
-}
-
-func (x *UploadChainFactoringOrder) GetRefundDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.RefundDate
-	}
-	return nil
-}
-
-func (x *UploadChainFactoringOrder) GetFactoringBankNo() string {
-	if x != nil {
-		return x.FactoringBankNo
-	}
-	return ""
-}
-
-func (x *UploadChainFactoringOrder) GetActualReceiveMoney() int64 {
-	if x != nil {
-		return x.ActualReceiveMoney
-	}
-	return 0
-}
-
-func (x *UploadChainFactoringOrder) GetFactoringStatus() string {
-	if x != nil {
-		return x.FactoringStatus
-	}
-	return ""
-}
-
-func (x *UploadChainFactoringOrder) GetRefundAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.RefundAt
-	}
-	return nil
-}
-
-func (x *UploadChainFactoringOrder) GetRefundStatus() string {
-	if x != nil {
-		return x.RefundStatus
-	}
-	return ""
-}
-
-type UploadChainFactoringOrders struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainFactoringOrder []*UploadChainFactoringOrder `protobuf:"bytes,1,rep,name=uploadChainFactoringOrder,proto3" json:"uploadChainFactoringOrder"`
-}
-
-func (x *UploadChainFactoringOrders) Reset() {
-	*x = UploadChainFactoringOrders{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[23]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainFactoringOrders) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainFactoringOrders) ProtoMessage() {}
-
-func (x *UploadChainFactoringOrders) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[23]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainFactoringOrders.ProtoReflect.Descriptor instead.
-func (*UploadChainFactoringOrders) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *UploadChainFactoringOrders) GetUploadChainFactoringOrder() []*UploadChainFactoringOrder {
-	if x != nil {
-		return x.UploadChainFactoringOrder
-	}
-	return nil
-}
-
-type UploadChainMedicine struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType       *UploadChainType `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	MedicineName          string           `protobuf:"bytes,2,opt,name=medicineName,proto3" json:"medicineName"`
-	MedicineCode          string           `protobuf:"bytes,3,opt,name=medicineCode,proto3" json:"medicineCode"`
-	MedicinePCode         string           `protobuf:"bytes,4,opt,name=medicinePCode,proto3" json:"medicinePCode"`
-	MedicineSpecification string           `protobuf:"bytes,5,opt,name=medicineSpecification,proto3" json:"medicineSpecification"`
-	MedicineForm          string           `protobuf:"bytes,6,opt,name=medicineForm,proto3" json:"medicineForm"`
-	MedicinePackage       string           `protobuf:"bytes,7,opt,name=medicinePackage,proto3" json:"medicinePackage"`
-	MedicineUnit          string           `protobuf:"bytes,8,opt,name=medicineUnit,proto3" json:"medicineUnit"`
-	CalculateRate         int64            `protobuf:"varint,9,opt,name=calculateRate,proto3" json:"calculateRate"`
-	Manufacturer          string           `protobuf:"bytes,10,opt,name=manufacturer,proto3" json:"manufacturer"`
-}
-
-func (x *UploadChainMedicine) Reset() {
-	*x = UploadChainMedicine{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[24]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainMedicine) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainMedicine) ProtoMessage() {}
-
-func (x *UploadChainMedicine) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[24]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainMedicine.ProtoReflect.Descriptor instead.
-func (*UploadChainMedicine) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *UploadChainMedicine) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainMedicine) GetMedicineName() string {
-	if x != nil {
-		return x.MedicineName
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetMedicineCode() string {
-	if x != nil {
-		return x.MedicineCode
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetMedicinePCode() string {
-	if x != nil {
-		return x.MedicinePCode
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetMedicineSpecification() string {
-	if x != nil {
-		return x.MedicineSpecification
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetMedicineForm() string {
-	if x != nil {
-		return x.MedicineForm
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetMedicinePackage() string {
-	if x != nil {
-		return x.MedicinePackage
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetMedicineUnit() string {
-	if x != nil {
-		return x.MedicineUnit
-	}
-	return ""
-}
-
-func (x *UploadChainMedicine) GetCalculateRate() int64 {
-	if x != nil {
-		return x.CalculateRate
-	}
-	return 0
-}
-
-func (x *UploadChainMedicine) GetManufacturer() string {
-	if x != nil {
-		return x.Manufacturer
-	}
-	return ""
-}
-
-type UploadChainMedicines struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainMedicine []*UploadChainMedicine `protobuf:"bytes,1,rep,name=uploadChainMedicine,proto3" json:"uploadChainMedicine"`
-}
-
-func (x *UploadChainMedicines) Reset() {
-	*x = UploadChainMedicines{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[25]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainMedicines) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainMedicines) ProtoMessage() {}
-
-func (x *UploadChainMedicines) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[25]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainMedicines.ProtoReflect.Descriptor instead.
-func (*UploadChainMedicines) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *UploadChainMedicines) GetUploadChainMedicine() []*UploadChainMedicine {
-	if x != nil {
-		return x.UploadChainMedicine
-	}
-	return nil
-}
-
-type UploadChainMi struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	MibCode         string           `protobuf:"bytes,2,opt,name=mibCode,proto3" json:"mibCode"`
-	MiName          string           `protobuf:"bytes,3,opt,name=miName,proto3" json:"miName"`
-	MiCode          string           `protobuf:"bytes,4,opt,name=miCode,proto3" json:"miCode"`
-	MiType          string           `protobuf:"bytes,5,opt,name=miType,proto3" json:"miType"`
-	ManagerName     string           `protobuf:"bytes,6,opt,name=managerName,proto3" json:"managerName"`
-	ManagerPhone    string           `protobuf:"bytes,7,opt,name=managerPhone,proto3" json:"managerPhone"`
-	LimitBalance    int64            `protobuf:"varint,8,opt,name=limitBalance,proto3" json:"limitBalance"`
-	SpecialAccount  *BankAccount     `protobuf:"bytes,9,opt,name=specialAccount,proto3" json:"specialAccount"`
-	NormalAccount   *BankAccount     `protobuf:"bytes,10,opt,name=normalAccount,proto3" json:"normalAccount"`
-}
-
-func (x *UploadChainMi) Reset() {
-	*x = UploadChainMi{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[26]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainMi) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainMi) ProtoMessage() {}
-
-func (x *UploadChainMi) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[26]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainMi.ProtoReflect.Descriptor instead.
-func (*UploadChainMi) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *UploadChainMi) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainMi) GetMibCode() string {
-	if x != nil {
-		return x.MibCode
-	}
-	return ""
-}
-
-func (x *UploadChainMi) GetMiName() string {
-	if x != nil {
-		return x.MiName
-	}
-	return ""
-}
-
-func (x *UploadChainMi) GetMiCode() string {
-	if x != nil {
-		return x.MiCode
-	}
-	return ""
-}
-
-func (x *UploadChainMi) GetMiType() string {
-	if x != nil {
-		return x.MiType
-	}
-	return ""
-}
-
-func (x *UploadChainMi) GetManagerName() string {
-	if x != nil {
-		return x.ManagerName
-	}
-	return ""
-}
-
-func (x *UploadChainMi) GetManagerPhone() string {
-	if x != nil {
-		return x.ManagerPhone
-	}
-	return ""
-}
-
-func (x *UploadChainMi) GetLimitBalance() int64 {
-	if x != nil {
-		return x.LimitBalance
-	}
-	return 0
-}
-
-func (x *UploadChainMi) GetSpecialAccount() *BankAccount {
-	if x != nil {
-		return x.SpecialAccount
-	}
-	return nil
-}
-
-func (x *UploadChainMi) GetNormalAccount() *BankAccount {
-	if x != nil {
-		return x.NormalAccount
-	}
-	return nil
-}
-
-type UploadChainMis struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainMi []*UploadChainMi `protobuf:"bytes,1,rep,name=uploadChainMi,proto3" json:"uploadChainMi"`
-}
-
-func (x *UploadChainMis) Reset() {
-	*x = UploadChainMis{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[27]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainMis) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainMis) ProtoMessage() {}
-
-func (x *UploadChainMis) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[27]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainMis.ProtoReflect.Descriptor instead.
-func (*UploadChainMis) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *UploadChainMis) GetUploadChainMi() []*UploadChainMi {
-	if x != nil {
-		return x.UploadChainMi
-	}
-	return nil
-}
-
-type UploadChainPayOrder struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	ShipmentNo      string                 `protobuf:"bytes,2,opt,name=shipmentNo,proto3" json:"shipmentNo"`
-	OrderAmount     int64                  `protobuf:"varint,3,opt,name=orderAmount,proto3" json:"orderAmount"`
-	MiCode          string                 `protobuf:"bytes,4,opt,name=miCode,proto3" json:"miCode"`
-	CompanyCode     string                 `protobuf:"bytes,5,opt,name=companyCode,proto3" json:"companyCode"`
-	OutTradeNo      string                 `protobuf:"bytes,6,opt,name=outTradeNo,proto3" json:"outTradeNo"`
-	PayType         string                 `protobuf:"bytes,7,opt,name=payType,proto3" json:"payType"`
-	PayAt           *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=payAt,proto3" json:"payAt"`
-	PayStatus       string                 `protobuf:"bytes,9,opt,name=payStatus,proto3" json:"payStatus"`
-	FactoringStatus string                 `protobuf:"bytes,10,opt,name=factoringStatus,proto3" json:"factoringStatus"`
-}
-
-func (x *UploadChainPayOrder) Reset() {
-	*x = UploadChainPayOrder{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[28]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainPayOrder) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainPayOrder) ProtoMessage() {}
-
-func (x *UploadChainPayOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[28]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainPayOrder.ProtoReflect.Descriptor instead.
-func (*UploadChainPayOrder) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *UploadChainPayOrder) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainPayOrder) GetShipmentNo() string {
-	if x != nil {
-		return x.ShipmentNo
-	}
-	return ""
-}
-
-func (x *UploadChainPayOrder) GetOrderAmount() int64 {
-	if x != nil {
-		return x.OrderAmount
-	}
-	return 0
-}
-
-func (x *UploadChainPayOrder) GetMiCode() string {
-	if x != nil {
-		return x.MiCode
-	}
-	return ""
-}
-
-func (x *UploadChainPayOrder) GetCompanyCode() string {
-	if x != nil {
-		return x.CompanyCode
-	}
-	return ""
-}
-
-func (x *UploadChainPayOrder) GetOutTradeNo() string {
-	if x != nil {
-		return x.OutTradeNo
-	}
-	return ""
-}
-
-func (x *UploadChainPayOrder) GetPayType() string {
-	if x != nil {
-		return x.PayType
-	}
-	return ""
-}
-
-func (x *UploadChainPayOrder) GetPayAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.PayAt
-	}
-	return nil
-}
-
-func (x *UploadChainPayOrder) GetPayStatus() string {
-	if x != nil {
-		return x.PayStatus
-	}
-	return ""
-}
-
-func (x *UploadChainPayOrder) GetFactoringStatus() string {
-	if x != nil {
-		return x.FactoringStatus
-	}
-	return ""
-}
-
-type UploadChainPayOrders struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainPayOrder []*UploadChainPayOrder `protobuf:"bytes,1,rep,name=uploadChainPayOrder,proto3" json:"uploadChainPayOrder"`
-}
-
-func (x *UploadChainPayOrders) Reset() {
-	*x = UploadChainPayOrders{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[29]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainPayOrders) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainPayOrders) ProtoMessage() {}
-
-func (x *UploadChainPayOrders) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[29]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainPayOrders.ProtoReflect.Descriptor instead.
-func (*UploadChainPayOrders) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *UploadChainPayOrders) GetUploadChainPayOrder() []*UploadChainPayOrder {
-	if x != nil {
-		return x.UploadChainPayOrder
-	}
-	return nil
-}
-
-type UploadChainShipment struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	TpOrderNo       string                 `protobuf:"bytes,2,opt,name=tpOrderNo,proto3" json:"tpOrderNo"`
-	OrderNo         string                 `protobuf:"bytes,3,opt,name=orderNo,proto3" json:"orderNo"`
-	TpCode          string                 `protobuf:"bytes,4,opt,name=tpCode,proto3" json:"tpCode"`
-	MibCode         string                 `protobuf:"bytes,5,opt,name=mibCode,proto3" json:"mibCode"`
-	ShipmentAmount  int64                  `protobuf:"varint,6,opt,name=shipmentAmount,proto3" json:"shipmentAmount"`
-	OrderAmount     int64                  `protobuf:"varint,7,opt,name=orderAmount,proto3" json:"orderAmount"`
-	ContractNo      string                 `protobuf:"bytes,8,opt,name=contractNo,proto3" json:"contractNo"`
-	MiCode          string                 `protobuf:"bytes,9,opt,name=miCode,proto3" json:"miCode"`
-	MedicineCode    string                 `protobuf:"bytes,10,opt,name=medicineCode,proto3" json:"medicineCode"`
-	MedicinePCode   string                 `protobuf:"bytes,11,opt,name=medicinePCode,proto3" json:"medicinePCode"`
-	CompanyCode     string                 `protobuf:"bytes,12,opt,name=companyCode,proto3" json:"companyCode"`
-	SyncAt          *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=syncAt,proto3" json:"syncAt"`
-}
-
-func (x *UploadChainShipment) Reset() {
-	*x = UploadChainShipment{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[30]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainShipment) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainShipment) ProtoMessage() {}
-
-func (x *UploadChainShipment) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[30]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainShipment.ProtoReflect.Descriptor instead.
-func (*UploadChainShipment) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *UploadChainShipment) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainShipment) GetTpOrderNo() string {
-	if x != nil {
-		return x.TpOrderNo
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetOrderNo() string {
-	if x != nil {
-		return x.OrderNo
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetTpCode() string {
-	if x != nil {
-		return x.TpCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetMibCode() string {
-	if x != nil {
-		return x.MibCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetShipmentAmount() int64 {
-	if x != nil {
-		return x.ShipmentAmount
-	}
-	return 0
-}
-
-func (x *UploadChainShipment) GetOrderAmount() int64 {
-	if x != nil {
-		return x.OrderAmount
-	}
-	return 0
-}
-
-func (x *UploadChainShipment) GetContractNo() string {
-	if x != nil {
-		return x.ContractNo
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetMiCode() string {
-	if x != nil {
-		return x.MiCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetMedicineCode() string {
-	if x != nil {
-		return x.MedicineCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetMedicinePCode() string {
-	if x != nil {
-		return x.MedicinePCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetCompanyCode() string {
-	if x != nil {
-		return x.CompanyCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipment) GetSyncAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.SyncAt
-	}
-	return nil
-}
-
-type UploadChainShipments struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainShipment []*UploadChainShipment `protobuf:"bytes,1,rep,name=uploadChainShipment,proto3" json:"uploadChainShipment"`
-}
-
-func (x *UploadChainShipments) Reset() {
-	*x = UploadChainShipments{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[31]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainShipments) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainShipments) ProtoMessage() {}
-
-func (x *UploadChainShipments) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[31]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainShipments.ProtoReflect.Descriptor instead.
-func (*UploadChainShipments) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *UploadChainShipments) GetUploadChainShipment() []*UploadChainShipment {
-	if x != nil {
-		return x.UploadChainShipment
-	}
-	return nil
-}
-
-type UploadChainShipmentOrder struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainType  *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	Plans            []*UploadChainShipment `protobuf:"bytes,2,rep,name=plans,proto3" json:"plans"`
-	ShipmentNo       string                 `protobuf:"bytes,3,opt,name=shipmentNo,proto3" json:"shipmentNo"`
-	InvoiceMd5       string                 `protobuf:"bytes,4,opt,name=invoiceMd5,proto3" json:"invoiceMd5"`
-	InvoiceUrl       string                 `protobuf:"bytes,5,opt,name=invoiceUrl,proto3" json:"invoiceUrl"`
-	InvoiceType      string                 `protobuf:"bytes,6,opt,name=invoiceType,proto3" json:"invoiceType"`
-	InvoiceTotal     int64                  `protobuf:"varint,7,opt,name=invoiceTotal,proto3" json:"invoiceTotal"`
-	InvoiceTax       int64                  `protobuf:"varint,8,opt,name=invoiceTax,proto3" json:"invoiceTax"`
-	InvoiceCheckCode string                 `protobuf:"bytes,9,opt,name=invoiceCheckCode,proto3" json:"invoiceCheckCode"`
-	InvoiceNo        string                 `protobuf:"bytes,10,opt,name=invoiceNo,proto3" json:"invoiceNo"`
-	InvoiceCode      string                 `protobuf:"bytes,11,opt,name=invoiceCode,proto3" json:"invoiceCode"`
-	InvoiceDate      *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=invoiceDate,proto3" json:"invoiceDate"`
-	SendOutAt        *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=sendOutAt,proto3" json:"sendOutAt"`
-	ShipmentCode     string                 `protobuf:"bytes,14,opt,name=shipmentCode,proto3" json:"shipmentCode"`
-	ShipmentCompany  string                 `protobuf:"bytes,15,opt,name=shipmentCompany,proto3" json:"shipmentCompany"`
-	ShipmentStatus   string                 `protobuf:"bytes,16,opt,name=shipmentStatus,proto3" json:"shipmentStatus"`
-	ReceiveAt        *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=receiveAt,proto3" json:"receiveAt"`
-	ConfirmAt        *timestamppb.Timestamp `protobuf:"bytes,18,opt,name=confirmAt,proto3" json:"confirmAt"`
-}
-
-func (x *UploadChainShipmentOrder) Reset() {
-	*x = UploadChainShipmentOrder{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[32]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainShipmentOrder) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainShipmentOrder) ProtoMessage() {}
-
-func (x *UploadChainShipmentOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[32]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainShipmentOrder.ProtoReflect.Descriptor instead.
-func (*UploadChainShipmentOrder) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *UploadChainShipmentOrder) GetUploadChainType() *UploadChainType {
-	if x != nil {
-		return x.UploadChainType
-	}
-	return nil
-}
-
-func (x *UploadChainShipmentOrder) GetPlans() []*UploadChainShipment {
-	if x != nil {
-		return x.Plans
-	}
-	return nil
-}
-
-func (x *UploadChainShipmentOrder) GetShipmentNo() string {
-	if x != nil {
-		return x.ShipmentNo
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceMd5() string {
-	if x != nil {
-		return x.InvoiceMd5
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceUrl() string {
-	if x != nil {
-		return x.InvoiceUrl
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceType() string {
-	if x != nil {
-		return x.InvoiceType
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceTotal() int64 {
-	if x != nil {
-		return x.InvoiceTotal
-	}
-	return 0
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceTax() int64 {
-	if x != nil {
-		return x.InvoiceTax
-	}
-	return 0
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceCheckCode() string {
-	if x != nil {
-		return x.InvoiceCheckCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceNo() string {
-	if x != nil {
-		return x.InvoiceNo
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceCode() string {
-	if x != nil {
-		return x.InvoiceCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetInvoiceDate() *timestamppb.Timestamp {
-	if x != nil {
-		return x.InvoiceDate
-	}
-	return nil
-}
-
-func (x *UploadChainShipmentOrder) GetSendOutAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.SendOutAt
-	}
-	return nil
-}
-
-func (x *UploadChainShipmentOrder) GetShipmentCode() string {
-	if x != nil {
-		return x.ShipmentCode
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetShipmentCompany() string {
-	if x != nil {
-		return x.ShipmentCompany
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetShipmentStatus() string {
-	if x != nil {
-		return x.ShipmentStatus
-	}
-	return ""
-}
-
-func (x *UploadChainShipmentOrder) GetReceiveAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ReceiveAt
-	}
-	return nil
-}
-
-func (x *UploadChainShipmentOrder) GetConfirmAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ConfirmAt
-	}
-	return nil
-}
-
-type UploadChainShipmentOrders struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	UploadChainShipmentOrder []*UploadChainShipmentOrder `protobuf:"bytes,1,rep,name=uploadChainShipmentOrder,proto3" json:"uploadChainShipmentOrder"`
-}
-
-func (x *UploadChainShipmentOrders) Reset() {
-	*x = UploadChainShipmentOrders{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[33]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *UploadChainShipmentOrders) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UploadChainShipmentOrders) ProtoMessage() {}
-
-func (x *UploadChainShipmentOrders) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[33]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UploadChainShipmentOrders.ProtoReflect.Descriptor instead.
-func (*UploadChainShipmentOrders) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *UploadChainShipmentOrders) GetUploadChainShipmentOrder() []*UploadChainShipmentOrder {
-	if x != nil {
-		return x.UploadChainShipmentOrder
-	}
-	return nil
-}
-
 type UploadChainOrganizations struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2612,7 +336,7 @@ type UploadChainOrganizations struct {
 func (x *UploadChainOrganizations) Reset() {
 	*x = UploadChainOrganizations{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[34]
+		mi := &file_BcAndBankService_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2625,7 +349,7 @@ func (x *UploadChainOrganizations) String() string {
 func (*UploadChainOrganizations) ProtoMessage() {}
 
 func (x *UploadChainOrganizations) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[34]
+	mi := &file_BcAndBankService_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2638,7 +362,7 @@ func (x *UploadChainOrganizations) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainOrganizations.ProtoReflect.Descriptor instead.
 func (*UploadChainOrganizations) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{34}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *UploadChainOrganizations) GetUploadChainOrganization() []*UploadChainOrganization {
@@ -2668,7 +392,7 @@ type UploadChainOrganization struct {
 func (x *UploadChainOrganization) Reset() {
 	*x = UploadChainOrganization{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[35]
+		mi := &file_BcAndBankService_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2681,7 +405,7 @@ func (x *UploadChainOrganization) String() string {
 func (*UploadChainOrganization) ProtoMessage() {}
 
 func (x *UploadChainOrganization) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[35]
+	mi := &file_BcAndBankService_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2694,7 +418,7 @@ func (x *UploadChainOrganization) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainOrganization.ProtoReflect.Descriptor instead.
 func (*UploadChainOrganization) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{35}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *UploadChainOrganization) GetUploadChainType() *UploadChainType {
@@ -2779,7 +503,7 @@ type UploadDocumentInfo struct {
 func (x *UploadDocumentInfo) Reset() {
 	*x = UploadDocumentInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[36]
+		mi := &file_BcAndBankService_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2792,7 +516,7 @@ func (x *UploadDocumentInfo) String() string {
 func (*UploadDocumentInfo) ProtoMessage() {}
 
 func (x *UploadDocumentInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[36]
+	mi := &file_BcAndBankService_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2805,7 +529,7 @@ func (x *UploadDocumentInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadDocumentInfo.ProtoReflect.Descriptor instead.
 func (*UploadDocumentInfo) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{36}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UploadDocumentInfo) GetFileName() string {
@@ -2833,7 +557,7 @@ type UploadChainProjects struct {
 func (x *UploadChainProjects) Reset() {
 	*x = UploadChainProjects{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[37]
+		mi := &file_BcAndBankService_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2846,7 +570,7 @@ func (x *UploadChainProjects) String() string {
 func (*UploadChainProjects) ProtoMessage() {}
 
 func (x *UploadChainProjects) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[37]
+	mi := &file_BcAndBankService_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2859,7 +583,7 @@ func (x *UploadChainProjects) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProjects.ProtoReflect.Descriptor instead.
 func (*UploadChainProjects) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{37}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UploadChainProjects) GetUploadChainProject() []*UploadChainProject {
@@ -2899,7 +623,7 @@ type UploadChainProject struct {
 func (x *UploadChainProject) Reset() {
 	*x = UploadChainProject{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[38]
+		mi := &file_BcAndBankService_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2912,7 +636,7 @@ func (x *UploadChainProject) String() string {
 func (*UploadChainProject) ProtoMessage() {}
 
 func (x *UploadChainProject) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[38]
+	mi := &file_BcAndBankService_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2925,7 +649,7 @@ func (x *UploadChainProject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProject.ProtoReflect.Descriptor instead.
 func (*UploadChainProject) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{38}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UploadChainProject) GetUploadChainType() *UploadChainType {
@@ -3079,7 +803,7 @@ type UploadChainProgressPlans struct {
 func (x *UploadChainProgressPlans) Reset() {
 	*x = UploadChainProgressPlans{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[39]
+		mi := &file_BcAndBankService_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3092,7 +816,7 @@ func (x *UploadChainProgressPlans) String() string {
 func (*UploadChainProgressPlans) ProtoMessage() {}
 
 func (x *UploadChainProgressPlans) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[39]
+	mi := &file_BcAndBankService_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3105,7 +829,7 @@ func (x *UploadChainProgressPlans) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProgressPlans.ProtoReflect.Descriptor instead.
 func (*UploadChainProgressPlans) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{39}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *UploadChainProgressPlans) GetUploadChainProgressPlan() []*UploadChainProgressPlan {
@@ -3139,7 +863,7 @@ type UploadChainProgressPlan struct {
 func (x *UploadChainProgressPlan) Reset() {
 	*x = UploadChainProgressPlan{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[40]
+		mi := &file_BcAndBankService_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3152,7 +876,7 @@ func (x *UploadChainProgressPlan) String() string {
 func (*UploadChainProgressPlan) ProtoMessage() {}
 
 func (x *UploadChainProgressPlan) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[40]
+	mi := &file_BcAndBankService_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3165,7 +889,7 @@ func (x *UploadChainProgressPlan) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProgressPlan.ProtoReflect.Descriptor instead.
 func (*UploadChainProgressPlan) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{40}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *UploadChainProgressPlan) GetUploadChainType() *UploadChainType {
@@ -3277,7 +1001,7 @@ type UploadChainProgressActuals struct {
 func (x *UploadChainProgressActuals) Reset() {
 	*x = UploadChainProgressActuals{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[41]
+		mi := &file_BcAndBankService_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3290,7 +1014,7 @@ func (x *UploadChainProgressActuals) String() string {
 func (*UploadChainProgressActuals) ProtoMessage() {}
 
 func (x *UploadChainProgressActuals) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[41]
+	mi := &file_BcAndBankService_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3303,7 +1027,7 @@ func (x *UploadChainProgressActuals) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProgressActuals.ProtoReflect.Descriptor instead.
 func (*UploadChainProgressActuals) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{41}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UploadChainProgressActuals) GetUploadChainProgressActual() []*UploadChainProgressActual {
@@ -3335,7 +1059,7 @@ type UploadChainProgressActual struct {
 func (x *UploadChainProgressActual) Reset() {
 	*x = UploadChainProgressActual{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[42]
+		mi := &file_BcAndBankService_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3348,7 +1072,7 @@ func (x *UploadChainProgressActual) String() string {
 func (*UploadChainProgressActual) ProtoMessage() {}
 
 func (x *UploadChainProgressActual) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[42]
+	mi := &file_BcAndBankService_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3361,7 +1085,7 @@ func (x *UploadChainProgressActual) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProgressActual.ProtoReflect.Descriptor instead.
 func (*UploadChainProgressActual) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{42}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UploadChainProgressActual) GetUploadChainType() *UploadChainType {
@@ -3459,7 +1183,7 @@ type UploadChainQualityInspections struct {
 func (x *UploadChainQualityInspections) Reset() {
 	*x = UploadChainQualityInspections{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[43]
+		mi := &file_BcAndBankService_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3472,7 +1196,7 @@ func (x *UploadChainQualityInspections) String() string {
 func (*UploadChainQualityInspections) ProtoMessage() {}
 
 func (x *UploadChainQualityInspections) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[43]
+	mi := &file_BcAndBankService_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3485,7 +1209,7 @@ func (x *UploadChainQualityInspections) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainQualityInspections.ProtoReflect.Descriptor instead.
 func (*UploadChainQualityInspections) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{43}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *UploadChainQualityInspections) GetUploadChainQualityInspection() []*UploadChainQualityInspection {
@@ -3526,7 +1250,7 @@ type UploadChainQualityInspection struct {
 func (x *UploadChainQualityInspection) Reset() {
 	*x = UploadChainQualityInspection{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[44]
+		mi := &file_BcAndBankService_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3539,7 +1263,7 @@ func (x *UploadChainQualityInspection) String() string {
 func (*UploadChainQualityInspection) ProtoMessage() {}
 
 func (x *UploadChainQualityInspection) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[44]
+	mi := &file_BcAndBankService_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3552,7 +1276,7 @@ func (x *UploadChainQualityInspection) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainQualityInspection.ProtoReflect.Descriptor instead.
 func (*UploadChainQualityInspection) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{44}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *UploadChainQualityInspection) GetUploadChainType() *UploadChainType {
@@ -3713,7 +1437,7 @@ type UploadChainQualityReactifies struct {
 func (x *UploadChainQualityReactifies) Reset() {
 	*x = UploadChainQualityReactifies{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[45]
+		mi := &file_BcAndBankService_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3726,7 +1450,7 @@ func (x *UploadChainQualityReactifies) String() string {
 func (*UploadChainQualityReactifies) ProtoMessage() {}
 
 func (x *UploadChainQualityReactifies) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[45]
+	mi := &file_BcAndBankService_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3739,7 +1463,7 @@ func (x *UploadChainQualityReactifies) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainQualityReactifies.ProtoReflect.Descriptor instead.
 func (*UploadChainQualityReactifies) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{45}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *UploadChainQualityReactifies) GetUploadChainReactify() []*UploadChainReactify {
@@ -3768,7 +1492,7 @@ type UploadChainReactify struct {
 func (x *UploadChainReactify) Reset() {
 	*x = UploadChainReactify{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[46]
+		mi := &file_BcAndBankService_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3781,7 +1505,7 @@ func (x *UploadChainReactify) String() string {
 func (*UploadChainReactify) ProtoMessage() {}
 
 func (x *UploadChainReactify) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[46]
+	mi := &file_BcAndBankService_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3794,7 +1518,7 @@ func (x *UploadChainReactify) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainReactify.ProtoReflect.Descriptor instead.
 func (*UploadChainReactify) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{46}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *UploadChainReactify) GetUploadChainType() *UploadChainType {
@@ -3871,7 +1595,7 @@ type UploadChainReviews struct {
 func (x *UploadChainReviews) Reset() {
 	*x = UploadChainReviews{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[47]
+		mi := &file_BcAndBankService_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3884,7 +1608,7 @@ func (x *UploadChainReviews) String() string {
 func (*UploadChainReviews) ProtoMessage() {}
 
 func (x *UploadChainReviews) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[47]
+	mi := &file_BcAndBankService_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3897,7 +1621,7 @@ func (x *UploadChainReviews) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainReviews.ProtoReflect.Descriptor instead.
 func (*UploadChainReviews) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{47}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *UploadChainReviews) GetUploadChainReview() []*UploadChainReview {
@@ -3925,7 +1649,7 @@ type UploadChainReview struct {
 func (x *UploadChainReview) Reset() {
 	*x = UploadChainReview{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[48]
+		mi := &file_BcAndBankService_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3938,7 +1662,7 @@ func (x *UploadChainReview) String() string {
 func (*UploadChainReview) ProtoMessage() {}
 
 func (x *UploadChainReview) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[48]
+	mi := &file_BcAndBankService_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3951,7 +1675,7 @@ func (x *UploadChainReview) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainReview.ProtoReflect.Descriptor instead.
 func (*UploadChainReview) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{48}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *UploadChainReview) GetUploadChainType() *UploadChainType {
@@ -4021,7 +1745,7 @@ type UploadChainProcessApplies struct {
 func (x *UploadChainProcessApplies) Reset() {
 	*x = UploadChainProcessApplies{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[49]
+		mi := &file_BcAndBankService_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4034,7 +1758,7 @@ func (x *UploadChainProcessApplies) String() string {
 func (*UploadChainProcessApplies) ProtoMessage() {}
 
 func (x *UploadChainProcessApplies) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[49]
+	mi := &file_BcAndBankService_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4047,7 +1771,7 @@ func (x *UploadChainProcessApplies) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProcessApplies.ProtoReflect.Descriptor instead.
 func (*UploadChainProcessApplies) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{49}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *UploadChainProcessApplies) GetUploadChainProcessApply() []*UploadChainProcessApply {
@@ -4077,7 +1801,7 @@ type UploadChainProcessApply struct {
 func (x *UploadChainProcessApply) Reset() {
 	*x = UploadChainProcessApply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[50]
+		mi := &file_BcAndBankService_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4090,7 +1814,7 @@ func (x *UploadChainProcessApply) String() string {
 func (*UploadChainProcessApply) ProtoMessage() {}
 
 func (x *UploadChainProcessApply) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[50]
+	mi := &file_BcAndBankService_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4103,7 +1827,7 @@ func (x *UploadChainProcessApply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProcessApply.ProtoReflect.Descriptor instead.
 func (*UploadChainProcessApply) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{50}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *UploadChainProcessApply) GetUploadChainType() *UploadChainType {
@@ -4188,7 +1912,7 @@ type DocumentInfoApply struct {
 func (x *DocumentInfoApply) Reset() {
 	*x = DocumentInfoApply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[51]
+		mi := &file_BcAndBankService_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4201,7 +1925,7 @@ func (x *DocumentInfoApply) String() string {
 func (*DocumentInfoApply) ProtoMessage() {}
 
 func (x *DocumentInfoApply) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[51]
+	mi := &file_BcAndBankService_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4214,7 +1938,7 @@ func (x *DocumentInfoApply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DocumentInfoApply.ProtoReflect.Descriptor instead.
 func (*DocumentInfoApply) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{51}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *DocumentInfoApply) GetFileName() string {
@@ -4242,7 +1966,7 @@ type UploadChainProcessApproves struct {
 func (x *UploadChainProcessApproves) Reset() {
 	*x = UploadChainProcessApproves{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[52]
+		mi := &file_BcAndBankService_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4255,7 +1979,7 @@ func (x *UploadChainProcessApproves) String() string {
 func (*UploadChainProcessApproves) ProtoMessage() {}
 
 func (x *UploadChainProcessApproves) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[52]
+	mi := &file_BcAndBankService_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4268,7 +1992,7 @@ func (x *UploadChainProcessApproves) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProcessApproves.ProtoReflect.Descriptor instead.
 func (*UploadChainProcessApproves) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{52}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *UploadChainProcessApproves) GetUploadChainProcessApprove() []*UploadChainProcessApprove {
@@ -4301,7 +2025,7 @@ type UploadChainProcessApprove struct {
 func (x *UploadChainProcessApprove) Reset() {
 	*x = UploadChainProcessApprove{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[53]
+		mi := &file_BcAndBankService_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4314,7 +2038,7 @@ func (x *UploadChainProcessApprove) String() string {
 func (*UploadChainProcessApprove) ProtoMessage() {}
 
 func (x *UploadChainProcessApprove) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[53]
+	mi := &file_BcAndBankService_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4327,7 +2051,7 @@ func (x *UploadChainProcessApprove) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadChainProcessApprove.ProtoReflect.Descriptor instead.
 func (*UploadChainProcessApprove) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{53}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UploadChainProcessApprove) GetUploadChainType() *UploadChainType {
@@ -4433,7 +2157,7 @@ type DocumentInfoApprove struct {
 func (x *DocumentInfoApprove) Reset() {
 	*x = DocumentInfoApprove{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[54]
+		mi := &file_BcAndBankService_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4446,7 +2170,7 @@ func (x *DocumentInfoApprove) String() string {
 func (*DocumentInfoApprove) ProtoMessage() {}
 
 func (x *DocumentInfoApprove) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[54]
+	mi := &file_BcAndBankService_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4459,7 +2183,7 @@ func (x *DocumentInfoApprove) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DocumentInfoApprove.ProtoReflect.Descriptor instead.
 func (*DocumentInfoApprove) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{54}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *DocumentInfoApprove) GetFileName() string {
@@ -4476,31 +2200,31 @@ func (x *DocumentInfoApprove) GetUploadUrl() string {
 	return ""
 }
 
-type UploadChainContractInfos struct {
+type UploadChainContracts struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UploadChaincontractInfo []*UploadChaincontractInfo `protobuf:"bytes,1,rep,name=uploadChaincontractInfo,proto3" json:"uploadChaincontractInfo"`
+	UploadChaincontract []*UploadChaincontract `protobuf:"bytes,1,rep,name=uploadChaincontract,proto3" json:"uploadChaincontract"`
 }
 
-func (x *UploadChainContractInfos) Reset() {
-	*x = UploadChainContractInfos{}
+func (x *UploadChainContracts) Reset() {
+	*x = UploadChainContracts{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[55]
+		mi := &file_BcAndBankService_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *UploadChainContractInfos) String() string {
+func (x *UploadChainContracts) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UploadChainContractInfos) ProtoMessage() {}
+func (*UploadChainContracts) ProtoMessage() {}
 
-func (x *UploadChainContractInfos) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[55]
+func (x *UploadChainContracts) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4511,52 +2235,54 @@ func (x *UploadChainContractInfos) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UploadChainContractInfos.ProtoReflect.Descriptor instead.
-func (*UploadChainContractInfos) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{55}
+// Deprecated: Use UploadChainContracts.ProtoReflect.Descriptor instead.
+func (*UploadChainContracts) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{26}
 }
 
-func (x *UploadChainContractInfos) GetUploadChaincontractInfo() []*UploadChaincontractInfo {
+func (x *UploadChainContracts) GetUploadChaincontract() []*UploadChaincontract {
 	if x != nil {
-		return x.UploadChaincontractInfo
+		return x.UploadChaincontract
 	}
 	return nil
 }
 
-type UploadChaincontractInfo struct {
+type UploadChaincontract struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UploadChainType  *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
-	ContractCode     string                 `protobuf:"bytes,2,opt,name=contractCode,proto3" json:"contractCode"`
-	ContractName     string                 `protobuf:"bytes,3,opt,name=contractName,proto3" json:"contractName"`
-	ContractType     string                 `protobuf:"bytes,4,opt,name=contractType,proto3" json:"contractType"`
-	ProjectName      string                 `protobuf:"bytes,5,opt,name=projectName,proto3" json:"projectName"`
-	ConstructionCode string                 `protobuf:"bytes,6,opt,name=constructionCode,proto3" json:"constructionCode"`
-	ContractAmount   int64                  `protobuf:"varint,7,opt,name=contractAmount,proto3" json:"contractAmount"`
-	StartAt          *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=start_at,json=startAt,proto3" json:"start_at"`
-	EndAt            *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=end_at,json=endAt,proto3" json:"end_at"`
-	UploadDocumnet   []*DocumentInfo        `protobuf:"bytes,10,rep,name=uploadDocumnet,proto3" json:"uploadDocumnet"`
+	UploadChainType    *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
+	ContractCode       string                 `protobuf:"bytes,2,opt,name=contractCode,proto3" json:"contractCode"`
+	ContractName       string                 `protobuf:"bytes,3,opt,name=contractName,proto3" json:"contractName"`
+	ContractType       string                 `protobuf:"bytes,4,opt,name=contractType,proto3" json:"contractType"`
+	ProjectName        string                 `protobuf:"bytes,5,opt,name=projectName,proto3" json:"projectName"`
+	ConstructionName   string                 `protobuf:"bytes,6,opt,name=constructionName,proto3" json:"constructionName"`
+	ToOrganizationName string                 `protobuf:"bytes,7,opt,name=toOrganizationName,proto3" json:"toOrganizationName"`
+	ContractAmount     int64                  `protobuf:"varint,8,opt,name=contractAmount,proto3" json:"contractAmount"`
+	StartAt            *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=start_at,json=startAt,proto3" json:"start_at"`
+	EndAt              *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=end_at,json=endAt,proto3" json:"end_at"`
+	Memo               string                 `protobuf:"bytes,11,opt,name=memo,proto3" json:"memo"`
+	UploadDocumnet     []*DocumentInfo        `protobuf:"bytes,12,rep,name=uploadDocumnet,proto3" json:"uploadDocumnet"`
 }
 
-func (x *UploadChaincontractInfo) Reset() {
-	*x = UploadChaincontractInfo{}
+func (x *UploadChaincontract) Reset() {
+	*x = UploadChaincontract{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[56]
+		mi := &file_BcAndBankService_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
 }
 
-func (x *UploadChaincontractInfo) String() string {
+func (x *UploadChaincontract) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UploadChaincontractInfo) ProtoMessage() {}
+func (*UploadChaincontract) ProtoMessage() {}
 
-func (x *UploadChaincontractInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[56]
+func (x *UploadChaincontract) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4567,75 +2293,89 @@ func (x *UploadChaincontractInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UploadChaincontractInfo.ProtoReflect.Descriptor instead.
-func (*UploadChaincontractInfo) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{56}
+// Deprecated: Use UploadChaincontract.ProtoReflect.Descriptor instead.
+func (*UploadChaincontract) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *UploadChaincontractInfo) GetUploadChainType() *UploadChainType {
+func (x *UploadChaincontract) GetUploadChainType() *UploadChainType {
 	if x != nil {
 		return x.UploadChainType
 	}
 	return nil
 }
 
-func (x *UploadChaincontractInfo) GetContractCode() string {
+func (x *UploadChaincontract) GetContractCode() string {
 	if x != nil {
 		return x.ContractCode
 	}
 	return ""
 }
 
-func (x *UploadChaincontractInfo) GetContractName() string {
+func (x *UploadChaincontract) GetContractName() string {
 	if x != nil {
 		return x.ContractName
 	}
 	return ""
 }
 
-func (x *UploadChaincontractInfo) GetContractType() string {
+func (x *UploadChaincontract) GetContractType() string {
 	if x != nil {
 		return x.ContractType
 	}
 	return ""
 }
 
-func (x *UploadChaincontractInfo) GetProjectName() string {
+func (x *UploadChaincontract) GetProjectName() string {
 	if x != nil {
 		return x.ProjectName
 	}
 	return ""
 }
 
-func (x *UploadChaincontractInfo) GetConstructionCode() string {
+func (x *UploadChaincontract) GetConstructionName() string {
 	if x != nil {
-		return x.ConstructionCode
+		return x.ConstructionName
 	}
 	return ""
 }
 
-func (x *UploadChaincontractInfo) GetContractAmount() int64 {
+func (x *UploadChaincontract) GetToOrganizationName() string {
+	if x != nil {
+		return x.ToOrganizationName
+	}
+	return ""
+}
+
+func (x *UploadChaincontract) GetContractAmount() int64 {
 	if x != nil {
 		return x.ContractAmount
 	}
 	return 0
 }
 
-func (x *UploadChaincontractInfo) GetStartAt() *timestamppb.Timestamp {
+func (x *UploadChaincontract) GetStartAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.StartAt
 	}
 	return nil
 }
 
-func (x *UploadChaincontractInfo) GetEndAt() *timestamppb.Timestamp {
+func (x *UploadChaincontract) GetEndAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.EndAt
 	}
 	return nil
 }
 
-func (x *UploadChaincontractInfo) GetUploadDocumnet() []*DocumentInfo {
+func (x *UploadChaincontract) GetMemo() string {
+	if x != nil {
+		return x.Memo
+	}
+	return ""
+}
+
+func (x *UploadChaincontract) GetUploadDocumnet() []*DocumentInfo {
 	if x != nil {
 		return x.UploadDocumnet
 	}
@@ -4654,7 +2394,7 @@ type DocumentInfo struct {
 func (x *DocumentInfo) Reset() {
 	*x = DocumentInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_BcAndBankService_proto_msgTypes[57]
+		mi := &file_BcAndBankService_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4667,7 +2407,7 @@ func (x *DocumentInfo) String() string {
 func (*DocumentInfo) ProtoMessage() {}
 
 func (x *DocumentInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_BcAndBankService_proto_msgTypes[57]
+	mi := &file_BcAndBankService_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4680,7 +2420,7 @@ func (x *DocumentInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DocumentInfo.ProtoReflect.Descriptor instead.
 func (*DocumentInfo) Descriptor() ([]byte, []int) {
-	return file_BcAndBankService_proto_rawDescGZIP(), []int{57}
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *DocumentInfo) GetFileName() string {
@@ -4693,6 +2433,736 @@ func (x *DocumentInfo) GetFileName() string {
 func (x *DocumentInfo) GetUploadUrl() string {
 	if x != nil {
 		return x.UploadUrl
+	}
+	return ""
+}
+
+type UploadChainInvoices struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UploadChainInvoice []*UploadChainInvoice `protobuf:"bytes,1,rep,name=uploadChainInvoice,proto3" json:"uploadChainInvoice"`
+}
+
+func (x *UploadChainInvoices) Reset() {
+	*x = UploadChainInvoices{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_BcAndBankService_proto_msgTypes[29]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UploadChainInvoices) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UploadChainInvoices) ProtoMessage() {}
+
+func (x *UploadChainInvoices) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[29]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UploadChainInvoices.ProtoReflect.Descriptor instead.
+func (*UploadChainInvoices) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *UploadChainInvoices) GetUploadChainInvoice() []*UploadChainInvoice {
+	if x != nil {
+		return x.UploadChainInvoice
+	}
+	return nil
+}
+
+type UploadChainInvoice struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UploadChainType      *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
+	ProjectName          string                 `protobuf:"bytes,2,opt,name=projectName,proto3" json:"projectName"`
+	ContractId           string                 `protobuf:"bytes,3,opt,name=contractId,proto3" json:"contractId"`
+	FromOrganizationName string                 `protobuf:"bytes,4,opt,name=fromOrganizationName,proto3" json:"fromOrganizationName"`
+	ConstructionName     string                 `protobuf:"bytes,5,opt,name=constructionName,proto3" json:"constructionName"`
+	InvoiceTypeDesc      string                 `protobuf:"bytes,6,opt,name=invoiceTypeDesc,proto3" json:"invoiceTypeDesc"`
+	InvoiceNo            string                 `protobuf:"bytes,7,opt,name=invoiceNo,proto3" json:"invoiceNo"`
+	InvoiceCode          string                 `protobuf:"bytes,8,opt,name=invoiceCode,proto3" json:"invoiceCode"`
+	InvoiceMd5           string                 `protobuf:"bytes,9,opt,name=invoiceMd5,proto3" json:"invoiceMd5"`
+	InvoiceFilename      string                 `protobuf:"bytes,10,opt,name=invoiceFilename,proto3" json:"invoiceFilename"`
+	InvoiceUrl           string                 `protobuf:"bytes,11,opt,name=invoiceUrl,proto3" json:"invoiceUrl"`
+	InvoiceAmoumt        int64                  `protobuf:"varint,12,opt,name=invoiceAmoumt,proto3" json:"invoiceAmoumt"`
+	InvoiceTax           int64                  `protobuf:"varint,13,opt,name=invoiceTax,proto3" json:"invoiceTax"`
+	InvoiceCheckCode     string                 `protobuf:"bytes,14,opt,name=invoiceCheckCode,proto3" json:"invoiceCheckCode"`
+	InvoicdDate          *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=invoicdDate,proto3" json:"invoicdDate"`
+	InvoiceDesc          string                 `protobuf:"bytes,16,opt,name=invoiceDesc,proto3" json:"invoiceDesc"`
+	Memo                 string                 `protobuf:"bytes,17,opt,name=memo,proto3" json:"memo"`
+}
+
+func (x *UploadChainInvoice) Reset() {
+	*x = UploadChainInvoice{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_BcAndBankService_proto_msgTypes[30]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UploadChainInvoice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UploadChainInvoice) ProtoMessage() {}
+
+func (x *UploadChainInvoice) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[30]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UploadChainInvoice.ProtoReflect.Descriptor instead.
+func (*UploadChainInvoice) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *UploadChainInvoice) GetUploadChainType() *UploadChainType {
+	if x != nil {
+		return x.UploadChainType
+	}
+	return nil
+}
+
+func (x *UploadChainInvoice) GetProjectName() string {
+	if x != nil {
+		return x.ProjectName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetContractId() string {
+	if x != nil {
+		return x.ContractId
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetFromOrganizationName() string {
+	if x != nil {
+		return x.FromOrganizationName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetConstructionName() string {
+	if x != nil {
+		return x.ConstructionName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceTypeDesc() string {
+	if x != nil {
+		return x.InvoiceTypeDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceNo() string {
+	if x != nil {
+		return x.InvoiceNo
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceCode() string {
+	if x != nil {
+		return x.InvoiceCode
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceMd5() string {
+	if x != nil {
+		return x.InvoiceMd5
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceFilename() string {
+	if x != nil {
+		return x.InvoiceFilename
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceUrl() string {
+	if x != nil {
+		return x.InvoiceUrl
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoiceAmoumt() int64 {
+	if x != nil {
+		return x.InvoiceAmoumt
+	}
+	return 0
+}
+
+func (x *UploadChainInvoice) GetInvoiceTax() int64 {
+	if x != nil {
+		return x.InvoiceTax
+	}
+	return 0
+}
+
+func (x *UploadChainInvoice) GetInvoiceCheckCode() string {
+	if x != nil {
+		return x.InvoiceCheckCode
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetInvoicdDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.InvoicdDate
+	}
+	return nil
+}
+
+func (x *UploadChainInvoice) GetInvoiceDesc() string {
+	if x != nil {
+		return x.InvoiceDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoice) GetMemo() string {
+	if x != nil {
+		return x.Memo
+	}
+	return ""
+}
+
+type UploadChainInvoiceReceiveds struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UploadChainInvoiceReceived []*UploadChainInvoiceReceived `protobuf:"bytes,1,rep,name=uploadChainInvoiceReceived,proto3" json:"uploadChainInvoiceReceived"`
+}
+
+func (x *UploadChainInvoiceReceiveds) Reset() {
+	*x = UploadChainInvoiceReceiveds{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_BcAndBankService_proto_msgTypes[31]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UploadChainInvoiceReceiveds) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UploadChainInvoiceReceiveds) ProtoMessage() {}
+
+func (x *UploadChainInvoiceReceiveds) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[31]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UploadChainInvoiceReceiveds.ProtoReflect.Descriptor instead.
+func (*UploadChainInvoiceReceiveds) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *UploadChainInvoiceReceiveds) GetUploadChainInvoiceReceived() []*UploadChainInvoiceReceived {
+	if x != nil {
+		return x.UploadChainInvoiceReceived
+	}
+	return nil
+}
+
+type UploadChainInvoiceReceived struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UploadChainType      *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
+	ProjectName          string                 `protobuf:"bytes,2,opt,name=projectName,proto3" json:"projectName"`
+	ContractId           string                 `protobuf:"bytes,3,opt,name=contractId,proto3" json:"contractId"`
+	FromOrganizationName string                 `protobuf:"bytes,4,opt,name=fromOrganizationName,proto3" json:"fromOrganizationName"`
+	ConstructionName     string                 `protobuf:"bytes,5,opt,name=constructionName,proto3" json:"constructionName"`
+	InvoiceTypeDesc      string                 `protobuf:"bytes,6,opt,name=invoiceTypeDesc,proto3" json:"invoiceTypeDesc"`
+	InvoiceNo            string                 `protobuf:"bytes,7,opt,name=invoiceNo,proto3" json:"invoiceNo"`
+	InvoiceCode          string                 `protobuf:"bytes,8,opt,name=invoiceCode,proto3" json:"invoiceCode"`
+	InvoiceMd5           string                 `protobuf:"bytes,9,opt,name=invoiceMd5,proto3" json:"invoiceMd5"`
+	InvoiceFilename      string                 `protobuf:"bytes,10,opt,name=invoiceFilename,proto3" json:"invoiceFilename"`
+	InvoiceUrl           string                 `protobuf:"bytes,11,opt,name=invoiceUrl,proto3" json:"invoiceUrl"`
+	InvoiceAmoumt        int64                  `protobuf:"varint,12,opt,name=invoiceAmoumt,proto3" json:"invoiceAmoumt"`
+	InvoiceTax           int64                  `protobuf:"varint,13,opt,name=invoiceTax,proto3" json:"invoiceTax"`
+	InvoiceCheckCode     string                 `protobuf:"bytes,14,opt,name=invoiceCheckCode,proto3" json:"invoiceCheckCode"`
+	InvoicdDate          *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=invoicdDate,proto3" json:"invoicdDate"`
+	InvoiceDesc          string                 `protobuf:"bytes,16,opt,name=invoiceDesc,proto3" json:"invoiceDesc"`
+	Memo                 string                 `protobuf:"bytes,17,opt,name=memo,proto3" json:"memo"`
+	ReceiveDesc          string                 `protobuf:"bytes,18,opt,name=receiveDesc,proto3" json:"receiveDesc"`
+	ReceiveName          int64                  `protobuf:"varint,19,opt,name=receiveName,proto3" json:"receiveName"`
+	ReceiveAt            *timestamppb.Timestamp `protobuf:"bytes,20,opt,name=receiveAt,proto3" json:"receiveAt"`
+}
+
+func (x *UploadChainInvoiceReceived) Reset() {
+	*x = UploadChainInvoiceReceived{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_BcAndBankService_proto_msgTypes[32]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UploadChainInvoiceReceived) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UploadChainInvoiceReceived) ProtoMessage() {}
+
+func (x *UploadChainInvoiceReceived) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[32]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UploadChainInvoiceReceived.ProtoReflect.Descriptor instead.
+func (*UploadChainInvoiceReceived) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *UploadChainInvoiceReceived) GetUploadChainType() *UploadChainType {
+	if x != nil {
+		return x.UploadChainType
+	}
+	return nil
+}
+
+func (x *UploadChainInvoiceReceived) GetProjectName() string {
+	if x != nil {
+		return x.ProjectName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetContractId() string {
+	if x != nil {
+		return x.ContractId
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetFromOrganizationName() string {
+	if x != nil {
+		return x.FromOrganizationName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetConstructionName() string {
+	if x != nil {
+		return x.ConstructionName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceTypeDesc() string {
+	if x != nil {
+		return x.InvoiceTypeDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceNo() string {
+	if x != nil {
+		return x.InvoiceNo
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceCode() string {
+	if x != nil {
+		return x.InvoiceCode
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceMd5() string {
+	if x != nil {
+		return x.InvoiceMd5
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceFilename() string {
+	if x != nil {
+		return x.InvoiceFilename
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceUrl() string {
+	if x != nil {
+		return x.InvoiceUrl
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceAmoumt() int64 {
+	if x != nil {
+		return x.InvoiceAmoumt
+	}
+	return 0
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceTax() int64 {
+	if x != nil {
+		return x.InvoiceTax
+	}
+	return 0
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceCheckCode() string {
+	if x != nil {
+		return x.InvoiceCheckCode
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoicdDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.InvoicdDate
+	}
+	return nil
+}
+
+func (x *UploadChainInvoiceReceived) GetInvoiceDesc() string {
+	if x != nil {
+		return x.InvoiceDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetMemo() string {
+	if x != nil {
+		return x.Memo
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetReceiveDesc() string {
+	if x != nil {
+		return x.ReceiveDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoiceReceived) GetReceiveName() int64 {
+	if x != nil {
+		return x.ReceiveName
+	}
+	return 0
+}
+
+func (x *UploadChainInvoiceReceived) GetReceiveAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ReceiveAt
+	}
+	return nil
+}
+
+type UploadChainInvoicePaids struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UploadChainInvoicePaid []*UploadChainInvoicePaid `protobuf:"bytes,1,rep,name=uploadChainInvoicePaid,proto3" json:"uploadChainInvoicePaid"`
+}
+
+func (x *UploadChainInvoicePaids) Reset() {
+	*x = UploadChainInvoicePaids{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_BcAndBankService_proto_msgTypes[33]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UploadChainInvoicePaids) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UploadChainInvoicePaids) ProtoMessage() {}
+
+func (x *UploadChainInvoicePaids) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[33]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UploadChainInvoicePaids.ProtoReflect.Descriptor instead.
+func (*UploadChainInvoicePaids) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *UploadChainInvoicePaids) GetUploadChainInvoicePaid() []*UploadChainInvoicePaid {
+	if x != nil {
+		return x.UploadChainInvoicePaid
+	}
+	return nil
+}
+
+type UploadChainInvoicePaid struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UploadChainType        *UploadChainType       `protobuf:"bytes,1,opt,name=uploadChainType,proto3" json:"uploadChainType"`
+	ProjectName            string                 `protobuf:"bytes,2,opt,name=projectName,proto3" json:"projectName"`
+	ContractId             string                 `protobuf:"bytes,3,opt,name=contractId,proto3" json:"contractId"`
+	FromOrganizationName   string                 `protobuf:"bytes,4,opt,name=fromOrganizationName,proto3" json:"fromOrganizationName"`
+	ConstructionName       string                 `protobuf:"bytes,5,opt,name=constructionName,proto3" json:"constructionName"`
+	InvoiceTypeDesc        string                 `protobuf:"bytes,6,opt,name=invoiceTypeDesc,proto3" json:"invoiceTypeDesc"`
+	InvoiceNo              string                 `protobuf:"bytes,7,opt,name=invoiceNo,proto3" json:"invoiceNo"`
+	InvoiceCode            string                 `protobuf:"bytes,8,opt,name=invoiceCode,proto3" json:"invoiceCode"`
+	InvoiceMd5             string                 `protobuf:"bytes,9,opt,name=invoiceMd5,proto3" json:"invoiceMd5"`
+	InvoiceFilename        string                 `protobuf:"bytes,10,opt,name=invoiceFilename,proto3" json:"invoiceFilename"`
+	InvoiceUrl             string                 `protobuf:"bytes,11,opt,name=invoiceUrl,proto3" json:"invoiceUrl"`
+	InvoiceAmoumt          int64                  `protobuf:"varint,12,opt,name=invoiceAmoumt,proto3" json:"invoiceAmoumt"`
+	InvoiceTax             int64                  `protobuf:"varint,13,opt,name=invoiceTax,proto3" json:"invoiceTax"`
+	InvoiceCheckCode       string                 `protobuf:"bytes,14,opt,name=invoiceCheckCode,proto3" json:"invoiceCheckCode"`
+	InvoicdDate            *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=invoicdDate,proto3" json:"invoicdDate"`
+	InvoiceDesc            string                 `protobuf:"bytes,16,opt,name=invoiceDesc,proto3" json:"invoiceDesc"`
+	Memo                   string                 `protobuf:"bytes,17,opt,name=memo,proto3" json:"memo"`
+	PayDesc                string                 `protobuf:"bytes,18,opt,name=payDesc,proto3" json:"payDesc"`
+	PayBy                  int64                  `protobuf:"varint,19,opt,name=payBy,proto3" json:"payBy"`
+	PayAt                  *timestamppb.Timestamp `protobuf:"bytes,20,opt,name=payAt,proto3" json:"payAt"`
+	PaymentVoucherFilename string                 `protobuf:"bytes,21,opt,name=paymentVoucherFilename,proto3" json:"paymentVoucherFilename"`
+	PaymentVoucherUrl      string                 `protobuf:"bytes,22,opt,name=paymentVoucherUrl,proto3" json:"paymentVoucherUrl"`
+}
+
+func (x *UploadChainInvoicePaid) Reset() {
+	*x = UploadChainInvoicePaid{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_BcAndBankService_proto_msgTypes[34]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UploadChainInvoicePaid) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UploadChainInvoicePaid) ProtoMessage() {}
+
+func (x *UploadChainInvoicePaid) ProtoReflect() protoreflect.Message {
+	mi := &file_BcAndBankService_proto_msgTypes[34]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UploadChainInvoicePaid.ProtoReflect.Descriptor instead.
+func (*UploadChainInvoicePaid) Descriptor() ([]byte, []int) {
+	return file_BcAndBankService_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *UploadChainInvoicePaid) GetUploadChainType() *UploadChainType {
+	if x != nil {
+		return x.UploadChainType
+	}
+	return nil
+}
+
+func (x *UploadChainInvoicePaid) GetProjectName() string {
+	if x != nil {
+		return x.ProjectName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetContractId() string {
+	if x != nil {
+		return x.ContractId
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetFromOrganizationName() string {
+	if x != nil {
+		return x.FromOrganizationName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetConstructionName() string {
+	if x != nil {
+		return x.ConstructionName
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceTypeDesc() string {
+	if x != nil {
+		return x.InvoiceTypeDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceNo() string {
+	if x != nil {
+		return x.InvoiceNo
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceCode() string {
+	if x != nil {
+		return x.InvoiceCode
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceMd5() string {
+	if x != nil {
+		return x.InvoiceMd5
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceFilename() string {
+	if x != nil {
+		return x.InvoiceFilename
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceUrl() string {
+	if x != nil {
+		return x.InvoiceUrl
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceAmoumt() int64 {
+	if x != nil {
+		return x.InvoiceAmoumt
+	}
+	return 0
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceTax() int64 {
+	if x != nil {
+		return x.InvoiceTax
+	}
+	return 0
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceCheckCode() string {
+	if x != nil {
+		return x.InvoiceCheckCode
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetInvoicdDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.InvoicdDate
+	}
+	return nil
+}
+
+func (x *UploadChainInvoicePaid) GetInvoiceDesc() string {
+	if x != nil {
+		return x.InvoiceDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetMemo() string {
+	if x != nil {
+		return x.Memo
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetPayDesc() string {
+	if x != nil {
+		return x.PayDesc
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetPayBy() int64 {
+	if x != nil {
+		return x.PayBy
+	}
+	return 0
+}
+
+func (x *UploadChainInvoicePaid) GetPayAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.PayAt
+	}
+	return nil
+}
+
+func (x *UploadChainInvoicePaid) GetPaymentVoucherFilename() string {
+	if x != nil {
+		return x.PaymentVoucherFilename
+	}
+	return ""
+}
+
+func (x *UploadChainInvoicePaid) GetPaymentVoucherUrl() string {
+	if x != nil {
+		return x.PaymentVoucherUrl
 	}
 	return ""
 }
@@ -4713,476 +3183,26 @@ var file_BcAndBankService_proto_rawDesc = []byte{
 	0x52, 0x73, 0x74, 0x12, 0x36, 0x0a, 0x08, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x74, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
-	0x70, 0x52, 0x08, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x74, 0x22, 0xba, 0x01, 0x0a, 0x1e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x41,
-	0x0a, 0x08, 0x70, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50,
-	0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x08, 0x70, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x12, 0x3f, 0x0a, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x64, 0x65, 0x62, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x08, 0x52, 0x05, 0x64, 0x65, 0x62, 0x75, 0x67, 0x22, 0xb7, 0x01, 0x0a, 0x1f, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x41,
-	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x53, 0x0a, 0x0e,
-	0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x52, 0x0e, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x12, 0x3f, 0x0a, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x22, 0xaa, 0x01, 0x0a, 0x24, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
-	0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x70, 0x61, 0x79, 0x41, 0x63,
-	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x41, 0x0a, 0x05, 0x72,
-	0x65, 0x70, 0x61, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69,
-	0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x05, 0x72, 0x65, 0x70, 0x61, 0x79, 0x12, 0x3f,
-	0x0a, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x52, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
-	0x97, 0x01, 0x0a, 0x13, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x41, 0x63, 0x74,
-	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x12, 0x3c, 0x0a, 0x0a, 0x62, 0x63, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x42, 0x63,
-	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42,
-	0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x62, 0x63, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x42, 0x0a, 0x0c, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x42, 0x63,
-	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42,
-	0x61, 0x6e, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0c, 0x62, 0x61, 0x6e,
-	0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x59, 0x0a, 0x0b, 0x42, 0x61, 0x6e,
-	0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x12, 0x1a, 0x0a, 0x08,
-	0x66, 0x75, 0x6e, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08,
-	0x66, 0x75, 0x6e, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1a, 0x0a, 0x08, 0x73, 0x6b, 0x69, 0x70,
-	0x42, 0x61, 0x6e, 0x6b, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x08, 0x73, 0x6b, 0x69, 0x70,
-	0x42, 0x61, 0x6e, 0x6b, 0x22, 0x22, 0x0a, 0x0c, 0x42, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x22, 0x20, 0x0a, 0x0a, 0x42, 0x63, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x22, 0x21, 0x0a, 0x0b, 0x42, 0x63,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73,
-	0x68, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x22, 0x7e, 0x0a,
-	0x0e, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x38, 0x0a, 0x07, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x73, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x1e, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x52, 0x07, 0x62, 0x61, 0x6e, 0x6b, 0x52, 0x73, 0x70, 0x12, 0x32, 0x0a, 0x05, 0x62, 0x63, 0x52,
-	0x73, 0x70, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
-	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x05, 0x62, 0x63, 0x52, 0x73, 0x70, 0x22, 0xb3, 0x01,
-	0x0a, 0x0b, 0x42, 0x61, 0x6e, 0x6b, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x16, 0x0a,
-	0x06, 0x63, 0x61, 0x72, 0x64, 0x4e, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63,
-	0x61, 0x72, 0x64, 0x4e, 0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x54, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x63, 0x63, 0x6f,
-	0x75, 0x6e, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x61, 0x6e, 0x6b, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x61, 0x6e, 0x6b, 0x12, 0x16, 0x0a, 0x06, 0x74,
-	0x6f, 0x69, 0x62, 0x6b, 0x6e, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x74, 0x6f, 0x69,
-	0x62, 0x6b, 0x6e, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x61, 0x72, 0x64, 0x4f, 0x77, 0x6e, 0x65, 0x72,
-	0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x61, 0x72, 0x64, 0x4f, 0x77, 0x6e, 0x65,
-	0x72, 0x12, 0x20, 0x0a, 0x0b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x53, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x22, 0xeb, 0x01, 0x0a, 0x0f, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x6c, 0x61, 0x73, 0x74, 0x48,
-	0x61, 0x73, 0x68, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6c, 0x61, 0x73, 0x74, 0x48,
-	0x61, 0x73, 0x68, 0x12, 0x1e, 0x0a, 0x0a, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4e, 0x6f, 0x64,
-	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4e,
-	0x6f, 0x64, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x4e,
-	0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x75, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x75, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x75,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x75,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18,
-	0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x52,
-	0x6f, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x28, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x65, 0x72, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e,
-	0x74, 0x22, 0x2a, 0x0a, 0x08, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x1e, 0x0a,
-	0x0a, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4e, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x0a, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4e, 0x6f, 0x22, 0xd2, 0x03,
-	0x0a, 0x12, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6d,
-	0x70, 0x61, 0x6e, 0x79, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65,
-	0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70,
-	0x65, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x4e, 0x61, 0x6d, 0x65,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x4e,
-	0x61, 0x6d, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x43, 0x6f,
-	0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e,
-	0x79, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x72,
-	0x4e, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6d, 0x61, 0x6e, 0x61,
-	0x67, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x61, 0x6e, 0x61, 0x67,
-	0x65, 0x72, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6d,
-	0x61, 0x6e, 0x61, 0x67, 0x65, 0x72, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d,
-	0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x69,
-	0x62, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x63, 0x72, 0x65, 0x64, 0x69, 0x74, 0x41,
-	0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x63, 0x72, 0x65,
-	0x64, 0x69, 0x74, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x34, 0x0a, 0x07, 0x73, 0x74, 0x61,
-	0x72, 0x74, 0x41, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d,
-	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x07, 0x73, 0x74, 0x61, 0x72, 0x74, 0x41, 0x74, 0x12,
-	0x30, 0x0a, 0x05, 0x65, 0x6e, 0x64, 0x41, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a,
-	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
-	0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x05, 0x65, 0x6e, 0x64, 0x41,
-	0x74, 0x12, 0x3f, 0x0a, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x18, 0x0a, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b, 0x41, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0b, 0x62, 0x61, 0x6e, 0x6b, 0x41, 0x63, 0x63, 0x6f, 0x75,
-	0x6e, 0x74, 0x22, 0x6c, 0x0a, 0x14, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
-	0x6e, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x69, 0x65, 0x73, 0x12, 0x54, 0x0a, 0x12, 0x75, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79,
-	0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x52, 0x12, 0x75, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79,
-	0x22, 0xdc, 0x02, 0x0a, 0x11, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
-	0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79,
-	0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54,
-	0x79, 0x70, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x74, 0x79, 0x70, 0x65, 0x4f, 0x6e, 0x65,
-	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x74, 0x79, 0x70, 0x65, 0x4f, 0x6e, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x74, 0x79, 0x70, 0x65, 0x54, 0x77, 0x6f, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x74, 0x79, 0x70, 0x65, 0x54, 0x77, 0x6f, 0x12, 0x1c, 0x0a, 0x09, 0x74, 0x79, 0x70,
-	0x65, 0x54, 0x68, 0x72, 0x65, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x79,
-	0x70, 0x65, 0x54, 0x68, 0x72, 0x65, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
-	0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x34, 0x0a,
-	0x07, 0x73, 0x74, 0x61, 0x72, 0x74, 0x41, 0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a,
-	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
-	0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x07, 0x73, 0x74, 0x61, 0x72,
-	0x74, 0x41, 0x74, 0x12, 0x30, 0x0a, 0x05, 0x65, 0x6e, 0x64, 0x41, 0x74, 0x18, 0x08, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x05,
-	0x65, 0x6e, 0x64, 0x41, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x65, 0x78, 0x70, 0x6c, 0x61, 0x69, 0x6e,
-	0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x65, 0x78, 0x70, 0x6c, 0x61, 0x69, 0x6e, 0x22,
-	0x67, 0x0a, 0x12, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f,
-	0x6e, 0x66, 0x69, 0x67, 0x73, 0x12, 0x51, 0x0a, 0x11, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x23, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43,
-	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x52, 0x11, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x22, 0xde, 0x03, 0x0a, 0x13, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
-	0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54,
-	0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e,
-	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1e, 0x0a,
-	0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e, 0x6f, 0x12, 0x24, 0x0a,
-	0x0d, 0x74, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x18, 0x03,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x74, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x43, 0x6f, 0x6d, 0x70,
-	0x61, 0x6e, 0x79, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x43,
-	0x6f, 0x64, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6d, 0x65, 0x64, 0x69, 0x63,
-	0x69, 0x6e, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x24, 0x0a, 0x0d, 0x6d, 0x65, 0x64, 0x69, 0x63,
-	0x69, 0x6e, 0x65, 0x50, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d,
-	0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x20, 0x0a,
-	0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x06, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x43, 0x6f, 0x64, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x6d, 0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x6d, 0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x24, 0x0a, 0x0d, 0x6d, 0x65, 0x64,
-	0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x72, 0x69, 0x63, 0x65, 0x18, 0x08, 0x20, 0x01, 0x28, 0x03,
-	0x52, 0x0d, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x72, 0x69, 0x63, 0x65, 0x12,
-	0x20, 0x0a, 0x0b, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x09,
-	0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x6d, 0x6f, 0x75, 0x6e,
-	0x74, 0x12, 0x34, 0x0a, 0x07, 0x73, 0x74, 0x61, 0x72, 0x74, 0x41, 0x74, 0x18, 0x0a, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x07,
-	0x73, 0x74, 0x61, 0x72, 0x74, 0x41, 0x74, 0x12, 0x30, 0x0a, 0x05, 0x65, 0x6e, 0x64, 0x41, 0x74,
-	0x18, 0x0b, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61,
-	0x6d, 0x70, 0x52, 0x05, 0x65, 0x6e, 0x64, 0x41, 0x74, 0x22, 0x6f, 0x0a, 0x14, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
-	0x73, 0x12, 0x57, 0x0a, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
-	0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x25,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e,
-	0x74, 0x72, 0x61, 0x63, 0x74, 0x52, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x22, 0x88, 0x02, 0x0a, 0x15, 0x55,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61,
-	0x63, 0x74, 0x4d, 0x69, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65,
-	0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70,
-	0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e, 0x6f, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e,
-	0x6f, 0x12, 0x16, 0x0a, 0x06, 0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x06, 0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x26, 0x0a, 0x0e, 0x6d, 0x65, 0x64,
-	0x69, 0x63, 0x69, 0x6e, 0x65, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28,
-	0x03, 0x52, 0x0e, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x41, 0x6d, 0x6f, 0x75, 0x6e,
-	0x74, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x64, 0x35,
-	0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
-	0x4d, 0x64, 0x35, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x55,
-	0x72, 0x6c, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61,
-	0x63, 0x74, 0x55, 0x72, 0x6c, 0x22, 0x77, 0x0a, 0x16, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x69, 0x73, 0x12,
-	0x5d, 0x0a, 0x15, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f,
-	0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x69, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x27,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e,
-	0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x69, 0x52, 0x15, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x69, 0x22, 0xa4,
-	0x05, 0x0a, 0x19, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x46, 0x61,
-	0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x4b, 0x0a, 0x0f,
-	0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e,
-	0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x38, 0x0a, 0x09, 0x70, 0x61, 0x79,
-	0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x42,
-	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x09, 0x70, 0x61, 0x79, 0x4f, 0x72, 0x64,
-	0x65, 0x72, 0x73, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x43, 0x6f,
-	0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e,
-	0x79, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x26, 0x0a, 0x0e, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69,
-	0x6e, 0x67, 0x4d, 0x6f, 0x6e, 0x65, 0x79, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x66,
-	0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4d, 0x6f, 0x6e, 0x65, 0x79, 0x12, 0x2a, 0x0a,
-	0x10, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4e,
-	0x6f, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69,
-	0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x6f, 0x12, 0x38, 0x0a, 0x09, 0x61, 0x70, 0x70,
-	0x6c, 0x79, 0x44, 0x61, 0x74, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67,
-	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54,
-	0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x61, 0x70, 0x70, 0x6c, 0x79, 0x44,
-	0x61, 0x74, 0x65, 0x12, 0x34, 0x0a, 0x07, 0x61, 0x70, 0x70, 0x6c, 0x79, 0x41, 0x74, 0x18, 0x07,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
-	0x52, 0x07, 0x61, 0x70, 0x70, 0x6c, 0x79, 0x41, 0x74, 0x12, 0x3a, 0x0a, 0x0a, 0x72, 0x65, 0x66,
-	0x75, 0x6e, 0x64, 0x44, 0x61, 0x74, 0x65, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e,
-	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e,
-	0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a, 0x72, 0x65, 0x66, 0x75, 0x6e,
-	0x64, 0x44, 0x61, 0x74, 0x65, 0x12, 0x28, 0x0a, 0x0f, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69,
-	0x6e, 0x67, 0x42, 0x61, 0x6e, 0x6b, 0x4e, 0x6f, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f,
-	0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x42, 0x61, 0x6e, 0x6b, 0x4e, 0x6f, 0x12,
-	0x2e, 0x0a, 0x12, 0x61, 0x63, 0x74, 0x75, 0x61, 0x6c, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65,
-	0x4d, 0x6f, 0x6e, 0x65, 0x79, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x03, 0x52, 0x12, 0x61, 0x63, 0x74,
-	0x75, 0x61, 0x6c, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x4d, 0x6f, 0x6e, 0x65, 0x79, 0x12,
-	0x28, 0x0a, 0x0f, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74,
-	0x75, 0x73, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72,
-	0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x36, 0x0a, 0x08, 0x72, 0x65, 0x66,
-	0x75, 0x6e, 0x64, 0x41, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f,
-	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69,
-	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x08, 0x72, 0x65, 0x66, 0x75, 0x6e, 0x64, 0x41,
-	0x74, 0x12, 0x22, 0x0a, 0x0c, 0x72, 0x65, 0x66, 0x75, 0x6e, 0x64, 0x53, 0x74, 0x61, 0x74, 0x75,
-	0x73, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x72, 0x65, 0x66, 0x75, 0x6e, 0x64, 0x53,
-	0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x87, 0x01, 0x0a, 0x1a, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72,
-	0x64, 0x65, 0x72, 0x73, 0x12, 0x69, 0x0a, 0x19, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42,
-	0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f,
-	0x72, 0x64, 0x65, 0x72, 0x52, 0x19, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
-	0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x22,
-	0xc2, 0x03, 0x0a, 0x13, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d,
-	0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54,
-	0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
-	0x54, 0x79, 0x70, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65,
-	0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6d, 0x65, 0x64, 0x69,
-	0x63, 0x69, 0x6e, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x65, 0x64, 0x69,
-	0x63, 0x69, 0x6e, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c,
-	0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x24, 0x0a, 0x0d,
-	0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x04, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x0d, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x43, 0x6f,
-	0x64, 0x65, 0x12, 0x34, 0x0a, 0x15, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x53, 0x70,
-	0x65, 0x63, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x05, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x15, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x53, 0x70, 0x65, 0x63, 0x69,
-	0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x65, 0x64, 0x69,
-	0x63, 0x69, 0x6e, 0x65, 0x46, 0x6f, 0x72, 0x6d, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c,
-	0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x46, 0x6f, 0x72, 0x6d, 0x12, 0x28, 0x0a, 0x0f,
-	0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x61, 0x63, 0x6b, 0x61, 0x67, 0x65, 0x18,
-	0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50,
-	0x61, 0x63, 0x6b, 0x61, 0x67, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69,
-	0x6e, 0x65, 0x55, 0x6e, 0x69, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6d, 0x65,
-	0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x55, 0x6e, 0x69, 0x74, 0x12, 0x24, 0x0a, 0x0d, 0x63, 0x61,
-	0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x61, 0x74, 0x65, 0x18, 0x09, 0x20, 0x01, 0x28,
-	0x03, 0x52, 0x0d, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x61, 0x74, 0x65,
-	0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x61, 0x6e, 0x75, 0x66, 0x61, 0x63, 0x74, 0x75, 0x72, 0x65, 0x72,
-	0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6d, 0x61, 0x6e, 0x75, 0x66, 0x61, 0x63, 0x74,
-	0x75, 0x72, 0x65, 0x72, 0x22, 0x6f, 0x0a, 0x14, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x4d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x73, 0x12, 0x57, 0x0a, 0x13,
-	0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x65, 0x64, 0x69, 0x63,
-	0x69, 0x6e, 0x65, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e,
-	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65,
-	0x52, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x65, 0x64,
-	0x69, 0x63, 0x69, 0x6e, 0x65, 0x22, 0xb4, 0x03, 0x0a, 0x0d, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x69, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54,
-	0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
-	0x54, 0x79, 0x70, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x16,
-	0x0a, 0x06, 0x6d, 0x69, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x6d, 0x69, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65,
-	0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x16,
-	0x0a, 0x06, 0x6d, 0x69, 0x54, 0x79, 0x70, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x6d, 0x69, 0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65,
-	0x72, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x6d, 0x61, 0x6e,
-	0x61, 0x67, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x6d, 0x61, 0x6e, 0x61,
-	0x67, 0x65, 0x72, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c,
-	0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x72, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x12, 0x22, 0x0a, 0x0c,
-	0x6c, 0x69, 0x6d, 0x69, 0x74, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x18, 0x08, 0x20, 0x01,
-	0x28, 0x03, 0x52, 0x0c, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65,
-	0x12, 0x45, 0x0a, 0x0e, 0x73, 0x70, 0x65, 0x63, 0x69, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75,
-	0x6e, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
-	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b,
-	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0e, 0x73, 0x70, 0x65, 0x63, 0x69, 0x61, 0x6c,
-	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x43, 0x0a, 0x0d, 0x6e, 0x6f, 0x72, 0x6d, 0x61,
-	0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x42, 0x61, 0x6e, 0x6b, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x0d, 0x6e,
-	0x6f, 0x72, 0x6d, 0x61, 0x6c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x57, 0x0a, 0x0e,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x69, 0x73, 0x12, 0x45,
-	0x0a, 0x0d, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x69, 0x18,
-	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e,
-	0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x68, 0x61, 0x69, 0x6e, 0x4d, 0x69, 0x52, 0x0d, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x4d, 0x69, 0x22, 0x92, 0x03, 0x0a, 0x13, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x4b, 0x0a,
-	0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x73, 0x68,
-	0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4e, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a,
-	0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4e, 0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x6f, 0x72,
-	0x64, 0x65, 0x72, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52,
-	0x0b, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x16, 0x0a, 0x06,
-	0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6d, 0x69,
-	0x43, 0x6f, 0x64, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x43,
-	0x6f, 0x64, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61,
-	0x6e, 0x79, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x6f, 0x75, 0x74, 0x54, 0x72, 0x61,
-	0x64, 0x65, 0x4e, 0x6f, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x6f, 0x75, 0x74, 0x54,
-	0x72, 0x61, 0x64, 0x65, 0x4e, 0x6f, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x61, 0x79, 0x54, 0x79, 0x70,
-	0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x61, 0x79, 0x54, 0x79, 0x70, 0x65,
-	0x12, 0x30, 0x0a, 0x05, 0x70, 0x61, 0x79, 0x41, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x05, 0x70, 0x61, 0x79,
-	0x41, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x70, 0x61, 0x79, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
-	0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x61, 0x79, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
-	0x12, 0x28, 0x0a, 0x0f, 0x66, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61,
-	0x74, 0x75, 0x73, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x66, 0x61, 0x63, 0x74, 0x6f,
-	0x72, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x6f, 0x0a, 0x14, 0x55, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x73, 0x12, 0x57, 0x0a, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
-	0x6e, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x61,
-	0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x52, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x22, 0xee, 0x03, 0x0a, 0x13,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d,
-	0x65, 0x6e, 0x74, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42,
-	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52,
-	0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65,
-	0x12, 0x1c, 0x0a, 0x09, 0x74, 0x70, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x6f, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x70, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x6f, 0x12, 0x18,
-	0x0a, 0x07, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x6f, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x07, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x4e, 0x6f, 0x12, 0x16, 0x0a, 0x06, 0x74, 0x70, 0x43, 0x6f,
-	0x64, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x74, 0x70, 0x43, 0x6f, 0x64, 0x65,
-	0x12, 0x18, 0x0a, 0x07, 0x6d, 0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x07, 0x6d, 0x69, 0x62, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x26, 0x0a, 0x0e, 0x73, 0x68,
-	0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x06, 0x20, 0x01,
-	0x28, 0x03, 0x52, 0x0e, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x41, 0x6d, 0x6f, 0x75,
-	0x6e, 0x74, 0x12, 0x20, 0x0a, 0x0b, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x41, 0x6d, 0x6f, 0x75, 0x6e,
-	0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x41, 0x6d,
-	0x6f, 0x75, 0x6e, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
-	0x4e, 0x6f, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61,
-	0x63, 0x74, 0x4e, 0x6f, 0x12, 0x16, 0x0a, 0x06, 0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x09,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x6d, 0x69, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x22, 0x0a, 0x0c,
-	0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x0a, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x0c, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x43, 0x6f, 0x64, 0x65,
-	0x12, 0x24, 0x0a, 0x0d, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x50, 0x43, 0x6f, 0x64,
-	0x65, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x6d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e,
-	0x65, 0x50, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e,
-	0x79, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d,
-	0x70, 0x61, 0x6e, 0x79, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x32, 0x0a, 0x06, 0x73, 0x79, 0x6e, 0x63,
-	0x41, 0x74, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
-	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73,
-	0x74, 0x61, 0x6d, 0x70, 0x52, 0x06, 0x73, 0x79, 0x6e, 0x63, 0x41, 0x74, 0x22, 0x6f, 0x0a, 0x14,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d,
-	0x65, 0x6e, 0x74, 0x73, 0x12, 0x57, 0x0a, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28,
-	0x0b, 0x32, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
-	0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x22, 0xb8, 0x06,
-	0x0a, 0x18, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69,
-	0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x3b, 0x0a, 0x05, 0x70, 0x6c, 0x61, 0x6e, 0x73,
-	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x05, 0x70,
-	0x6c, 0x61, 0x6e, 0x73, 0x12, 0x1e, 0x0a, 0x0a, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74,
-	0x4e, 0x6f, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65,
-	0x6e, 0x74, 0x4e, 0x6f, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x4d,
-	0x64, 0x35, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
-	0x65, 0x4d, 0x64, 0x35, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x55,
-	0x72, 0x6c, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
-	0x65, 0x55, 0x72, 0x6c, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54,
-	0x79, 0x70, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69,
-	0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
-	0x65, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x18, 0x07, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0c, 0x69, 0x6e,
-	0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x6f, 0x74, 0x61, 0x6c, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e,
-	0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x61, 0x78, 0x18, 0x08, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a,
-	0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x61, 0x78, 0x12, 0x2a, 0x0a, 0x10, 0x69, 0x6e,
-	0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x09,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x68, 0x65,
-	0x63, 0x6b, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
-	0x65, 0x4e, 0x6f, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x69, 0x6e, 0x76, 0x6f, 0x69,
-	0x63, 0x65, 0x4e, 0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43,
-	0x6f, 0x64, 0x65, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69,
-	0x63, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x3c, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
-	0x65, 0x44, 0x61, 0x74, 0x65, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f,
-	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69,
-	0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
-	0x44, 0x61, 0x74, 0x65, 0x12, 0x38, 0x0a, 0x09, 0x73, 0x65, 0x6e, 0x64, 0x4f, 0x75, 0x74, 0x41,
-	0x74, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74,
-	0x61, 0x6d, 0x70, 0x52, 0x09, 0x73, 0x65, 0x6e, 0x64, 0x4f, 0x75, 0x74, 0x41, 0x74, 0x12, 0x22,
-	0x0a, 0x0c, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x0e,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x43, 0x6f,
-	0x64, 0x65, 0x12, 0x28, 0x0a, 0x0f, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x43, 0x6f,
-	0x6d, 0x70, 0x61, 0x6e, 0x79, 0x18, 0x0f, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x73, 0x68, 0x69,
-	0x70, 0x6d, 0x65, 0x6e, 0x74, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x12, 0x26, 0x0a, 0x0e,
-	0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x10,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x0e, 0x73, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x53, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x12, 0x38, 0x0a, 0x09, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x41,
-	0x74, 0x18, 0x11, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74,
-	0x61, 0x6d, 0x70, 0x52, 0x09, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x41, 0x74, 0x12, 0x38,
-	0x0a, 0x09, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x41, 0x74, 0x18, 0x12, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x63,
-	0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x41, 0x74, 0x22, 0x83, 0x01, 0x0a, 0x19, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74,
-	0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x12, 0x66, 0x0a, 0x18, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64,
-	0x65, 0x72, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2a, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
-	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f,
-	0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4f,
-	0x72, 0x64, 0x65, 0x72, 0x52, 0x18, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
-	0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x22, 0x7f,
+	0x70, 0x52, 0x08, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x41, 0x74, 0x22, 0x20, 0x0a, 0x0a, 0x42,
+	0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x61, 0x73,
+	0x68, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68, 0x22, 0x21, 0x0a,
+	0x0b, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04,
+	0x68, 0x61, 0x73, 0x68, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61, 0x73, 0x68,
+	0x22, 0xeb, 0x01, 0x0a, 0x0f, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
+	0x54, 0x79, 0x70, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x6c, 0x61, 0x73, 0x74, 0x48, 0x61, 0x73, 0x68,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6c, 0x61, 0x73, 0x74, 0x48, 0x61, 0x73, 0x68,
+	0x12, 0x1e, 0x0a, 0x0a, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4e, 0x6f, 0x64, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4e, 0x6f, 0x64, 0x65,
+	0x12, 0x22, 0x0a, 0x0c, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72,
+	0x4e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72,
+	0x52, 0x6f, 0x6c, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x75, 0x70, 0x6c, 0x6f,
+	0x61, 0x64, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x75, 0x70, 0x6c, 0x6f,
+	0x61, 0x64, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x10, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x52, 0x6f, 0x6c, 0x65,
+	0x4e, 0x61, 0x6d, 0x65, 0x12, 0x28, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72,
+	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x75,
+	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x65, 0x72, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0x7f,
 	0x0a, 0x18, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4f, 0x72, 0x67,
 	0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x63, 0x0a, 0x17, 0x75, 0x70,
 	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a,
@@ -5618,44 +3638,47 @@ var file_BcAndBankService_proto_rawDesc = []byte{
 	0x72, 0x6f, 0x76, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65,
 	0x12, 0x1c, 0x0a, 0x09, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x55, 0x72, 0x6c, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x55, 0x72, 0x6c, 0x22, 0x7f,
-	0x0a, 0x18, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e,
-	0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x12, 0x63, 0x0a, 0x17, 0x75, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63,
-	0x74, 0x49, 0x6e, 0x66, 0x6f, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x29, 0x2e, 0x42, 0x63,
-	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61,
-	0x63, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x17, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x22,
-	0xfa, 0x03, 0x0a, 0x17, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x63,
-	0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x4b, 0x0a, 0x0f, 0x75,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
-	0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x74,
-	0x72, 0x61, 0x63, 0x74, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c,
-	0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x22, 0x0a, 0x0c,
-	0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x0c, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65,
-	0x12, 0x22, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x54, 0x79, 0x70, 0x65,
-	0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
-	0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e,
-	0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65,
-	0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72,
-	0x75, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x43, 0x6f,
-	0x64, 0x65, 0x12, 0x26, 0x0a, 0x0e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x41, 0x6d,
-	0x6f, 0x75, 0x6e, 0x74, 0x18, 0x07, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x63, 0x6f, 0x6e, 0x74,
-	0x72, 0x61, 0x63, 0x74, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x35, 0x0a, 0x08, 0x73, 0x74,
-	0x61, 0x72, 0x74, 0x5f, 0x61, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67,
-	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54,
-	0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x07, 0x73, 0x74, 0x61, 0x72, 0x74, 0x41,
-	0x74, 0x12, 0x31, 0x0a, 0x06, 0x65, 0x6e, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x05, 0x65,
-	0x6e, 0x64, 0x41, 0x74, 0x12, 0x46, 0x0a, 0x0e, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x44, 0x6f,
-	0x63, 0x75, 0x6d, 0x6e, 0x65, 0x74, 0x18, 0x0a, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x42,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x55, 0x72, 0x6c, 0x22, 0x6f,
+	0x0a, 0x14, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e,
+	0x74, 0x72, 0x61, 0x63, 0x74, 0x73, 0x12, 0x57, 0x0a, 0x13, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64,
+	0x43, 0x68, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
+	0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x52, 0x13, 0x75, 0x70, 0x6c, 0x6f,
+	0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x22,
+	0xba, 0x04, 0x0a, 0x13, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x63,
+	0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61,
+	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54,
+	0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e,
+	0x54, 0x79, 0x70, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
+	0x43, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x63, 0x6f, 0x6e, 0x74,
+	0x72, 0x61, 0x63, 0x74, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x22, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x74,
+	0x72, 0x61, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c,
+	0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x22, 0x0a, 0x0c,
+	0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x54, 0x79, 0x70, 0x65, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0c, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x54, 0x79, 0x70, 0x65,
+	0x12, 0x20, 0x0a, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18,
+	0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61,
+	0x6d, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x63, 0x6f,
+	0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2e,
+	0x0a, 0x12, 0x74, 0x6f, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x4e, 0x61, 0x6d, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x12, 0x74, 0x6f, 0x4f, 0x72,
+	0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x26,
+	0x0a, 0x0e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74,
+	0x18, 0x08, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0e, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
+	0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x35, 0x0a, 0x08, 0x73, 0x74, 0x61, 0x72, 0x74, 0x5f,
+	0x61, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
+	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73,
+	0x74, 0x61, 0x6d, 0x70, 0x52, 0x07, 0x73, 0x74, 0x61, 0x72, 0x74, 0x41, 0x74, 0x12, 0x31, 0x0a,
+	0x06, 0x65, 0x6e, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e,
+	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e,
+	0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x05, 0x65, 0x6e, 0x64, 0x41, 0x74,
+	0x12, 0x12, 0x0a, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x6d, 0x65, 0x6d, 0x6f, 0x12, 0x46, 0x0a, 0x0e, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x44, 0x6f,
+	0x63, 0x75, 0x6d, 0x6e, 0x65, 0x74, 0x18, 0x0c, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x42,
 	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
 	0x44, 0x6f, 0x63, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0e, 0x75, 0x70,
 	0x6c, 0x6f, 0x61, 0x64, 0x44, 0x6f, 0x63, 0x75, 0x6d, 0x6e, 0x65, 0x74, 0x22, 0x48, 0x0a, 0x0c,
@@ -5663,180 +3686,268 @@ var file_BcAndBankService_proto_rawDesc = []byte{
 	0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08,
 	0x66, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x75, 0x70, 0x6c, 0x6f,
 	0x61, 0x64, 0x55, 0x72, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x55, 0x72, 0x6c, 0x32, 0x99, 0x15, 0x0a, 0x10, 0x42, 0x63, 0x41, 0x6e, 0x64,
-	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x56, 0x0a, 0x0f, 0x42,
-	0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x73, 0x12, 0x24,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e,
-	0x66, 0x69, 0x67, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x73, 0x12, 0x5a, 0x0a, 0x11, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
-	0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x69, 0x65, 0x73, 0x12, 0x26, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
-	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f,
-	0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x69, 0x65, 0x73,
-	0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12,
-	0x4e, 0x0a, 0x0b, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4d, 0x69, 0x73, 0x12, 0x20,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4d, 0x69, 0x73,
-	0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12,
-	0x59, 0x0a, 0x10, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4d, 0x65, 0x64, 0x69, 0x63,
-	0x69, 0x6e, 0x65, 0x12, 0x26, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x4d, 0x65, 0x64, 0x69, 0x63, 0x69, 0x6e, 0x65, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63,
-	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42,
-	0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x5a, 0x0a, 0x11, 0x42, 0x63,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x73, 0x12,
-	0x26, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f,
-	0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42,
-	0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x5e, 0x0a, 0x13, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f,
-	0x61, 0x64, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x69, 0x73, 0x12, 0x28, 0x2e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74,
-	0x72, 0x61, 0x63, 0x74, 0x4d, 0x69, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42,
-	0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x5a, 0x0a, 0x11, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f,
-	0x61, 0x64, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x26, 0x2e, 0x42, 0x63,
-	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65,
-	0x6e, 0x74, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x73, 0x12, 0x64, 0x0a, 0x16, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x68,
-	0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x12, 0x2b, 0x2e, 0x42,
-	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d,
-	0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e,
-	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x5a, 0x0a, 0x11, 0x42, 0x63, 0x55, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x12, 0x26, 0x2e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x61, 0x79, 0x4f,
-	0x72, 0x64, 0x65, 0x72, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e,
-	0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x73, 0x12, 0x66, 0x0a, 0x17, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x12,
-	0x2c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x46, 0x61,
-	0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x1a, 0x1d, 0x2e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x72, 0x0a, 0x17,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x30, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42,
-	0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
-	0x42, 0x61, 0x6e, 0x6b, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x41, 0x63, 0x74, 0x69,
-	0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e,
-	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x12, 0x7a, 0x0a, 0x1e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x46, 0x61, 0x63,
-	0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x41, 0x63, 0x74, 0x69,
-	0x6f, 0x6e, 0x12, 0x31, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x46,
-	0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e,
-	0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x12, 0x7e, 0x0a, 0x1d,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69,
-	0x6e, 0x67, 0x52, 0x65, 0x70, 0x61, 0x79, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x36, 0x2e,
-	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72,
-	0x69, 0x6e, 0x67, 0x52, 0x65, 0x70, 0x61, 0x79, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e,
-	0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x12, 0x5f, 0x0a, 0x16,
-	0x42, 0x63, 0x46, 0x6f, 0x72, 0x63, 0x65, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x68, 0x69,
-	0x70, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x12, 0x26, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x1a, 0x1d,
-	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x69, 0x0a,
-	0x1b, 0x42, 0x63, 0x46, 0x6f, 0x72, 0x63, 0x65, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x68,
-	0x69, 0x70, 0x6d, 0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x12, 0x2b, 0x2e, 0x42,
-	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x53, 0x68, 0x69, 0x70, 0x6d,
-	0x65, 0x6e, 0x74, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e,
-	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x5f, 0x0a, 0x16, 0x42, 0x63, 0x46, 0x6f,
-	0x72, 0x63, 0x65, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65,
-	0x72, 0x73, 0x12, 0x26, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
-	0x6e, 0x50, 0x61, 0x79, 0x4f, 0x72, 0x64, 0x65, 0x72, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x65, 0x0a, 0x16, 0x42, 0x63, 0x46,
-	0x6f, 0x72, 0x63, 0x65, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72,
-	0x69, 0x6e, 0x67, 0x12, 0x2c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x46, 0x61, 0x63, 0x74, 0x6f, 0x72, 0x69, 0x6e, 0x67, 0x4f, 0x72, 0x64, 0x65, 0x72,
-	0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73,
-	0x12, 0x4f, 0x0a, 0x0d, 0x42, 0x63, 0x51, 0x75, 0x65, 0x72, 0x79, 0x42, 0x79, 0x54, 0x78, 0x49,
-	0x44, 0x12, 0x1e, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x78, 0x49, 0x44, 0x52, 0x65,
-	0x71, 0x1a, 0x1e, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x78, 0x49, 0x44, 0x52, 0x73,
-	0x70, 0x12, 0x62, 0x0a, 0x15, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4f, 0x72, 0x67,
-	0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x2a, 0x2e, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x58, 0x0a, 0x10, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x12, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e,
+	0x6f, 0x61, 0x64, 0x55, 0x72, 0x6c, 0x22, 0x6b, 0x0a, 0x13, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
+	0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x12, 0x54, 0x0a,
+	0x12, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x42, 0x63, 0x41, 0x6e,
 	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73,
-	0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12,
-	0x62, 0x0a, 0x15, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50, 0x72, 0x6f, 0x67, 0x72,
-	0x65, 0x73, 0x73, 0x50, 0x6c, 0x61, 0x6e, 0x73, 0x12, 0x2a, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
+	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52,
+	0x12, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x22, 0xbd, 0x05, 0x0a, 0x12, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
+	0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70,
+	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
+	0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
+	0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65,
+	0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x70, 0x72,
+	0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x63, 0x6f, 0x6e,
+	0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63,
+	0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x64, 0x12, 0x32, 0x0a, 0x14, 0x66, 0x72, 0x6f,
+	0x6d, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d,
+	0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x66, 0x72, 0x6f, 0x6d, 0x4f, 0x72, 0x67,
+	0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2a, 0x0a,
+	0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d,
+	0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75,
+	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x28, 0x0a, 0x0f, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x44, 0x65, 0x73, 0x63, 0x18, 0x06, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x44,
+	0x65, 0x73, 0x63, 0x12, 0x1c, 0x0a, 0x09, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x4e, 0x6f,
+	0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x4e,
+	0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x6f, 0x64, 0x65,
+	0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43,
+	0x6f, 0x64, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x4d, 0x64,
+	0x35, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
+	0x4d, 0x64, 0x35, 0x12, 0x28, 0x0a, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x46, 0x69,
+	0x6c, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x69, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x46, 0x69, 0x6c, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x1e, 0x0a,
+	0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x55, 0x72, 0x6c, 0x18, 0x0b, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x55, 0x72, 0x6c, 0x12, 0x24, 0x0a,
+	0x0d, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x41, 0x6d, 0x6f, 0x75, 0x6d, 0x74, 0x18, 0x0c,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x0d, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x41, 0x6d, 0x6f,
+	0x75, 0x6d, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x61,
+	0x78, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
+	0x54, 0x61, 0x78, 0x12, 0x2a, 0x0a, 0x10, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x0e, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x69,
+	0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x6f, 0x64, 0x65, 0x12,
+	0x3c, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x64, 0x44, 0x61, 0x74, 0x65, 0x18, 0x0f,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
+	0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x64, 0x44, 0x61, 0x74, 0x65, 0x12, 0x20, 0x0a,
+	0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x44, 0x65, 0x73, 0x63, 0x18, 0x10, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x44, 0x65, 0x73, 0x63, 0x12,
+	0x12, 0x0a, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x18, 0x11, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6d,
+	0x65, 0x6d, 0x6f, 0x22, 0x8b, 0x01, 0x0a, 0x1b, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
+	0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76,
+	0x65, 0x64, 0x73, 0x12, 0x6c, 0x0a, 0x1a, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
+	0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65,
+	0x64, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42,
+	0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61,
+	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63,
+	0x65, 0x69, 0x76, 0x65, 0x64, 0x52, 0x1a, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
+	0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65,
+	0x64, 0x22, 0xc3, 0x06, 0x0a, 0x1a, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
+	0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64,
+	0x12, 0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54,
+	0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e,
+	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
+	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70,
+	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a,
+	0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12,
+	0x1e, 0x0a, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x64, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x64, 0x12,
+	0x32, 0x0a, 0x14, 0x66, 0x72, 0x6f, 0x6d, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x66,
+	0x72, 0x6f, 0x6d, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e,
+	0x61, 0x6d, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74,
+	0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x63,
+	0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12,
+	0x28, 0x0a, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x44, 0x65,
+	0x73, 0x63, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
+	0x65, 0x54, 0x79, 0x70, 0x65, 0x44, 0x65, 0x73, 0x63, 0x12, 0x1c, 0x0a, 0x09, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x4e, 0x6f, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x69, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x4e, 0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69,
+	0x63, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x4d, 0x64, 0x35, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69,
+	0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x4d, 0x64, 0x35, 0x12, 0x28, 0x0a, 0x0f, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x46, 0x69, 0x6c, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x0a, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x46, 0x69, 0x6c, 0x65, 0x6e,
+	0x61, 0x6d, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x55, 0x72,
+	0x6c, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
+	0x55, 0x72, 0x6c, 0x12, 0x24, 0x0a, 0x0d, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x41, 0x6d,
+	0x6f, 0x75, 0x6d, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0d, 0x69, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x41, 0x6d, 0x6f, 0x75, 0x6d, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x54, 0x61, 0x78, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x69,
+	0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x61, 0x78, 0x12, 0x2a, 0x0a, 0x10, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x0e, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x10, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x68, 0x65, 0x63,
+	0x6b, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x3c, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x64,
+	0x44, 0x61, 0x74, 0x65, 0x18, 0x0f, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d,
+	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x64, 0x44,
+	0x61, 0x74, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x44, 0x65,
+	0x73, 0x63, 0x18, 0x10, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
+	0x65, 0x44, 0x65, 0x73, 0x63, 0x12, 0x12, 0x0a, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x18, 0x11, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x72, 0x65, 0x63,
+	0x65, 0x69, 0x76, 0x65, 0x44, 0x65, 0x73, 0x63, 0x18, 0x12, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b,
+	0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x44, 0x65, 0x73, 0x63, 0x12, 0x20, 0x0a, 0x0b, 0x72,
+	0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x13, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x0b, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x38, 0x0a,
+	0x09, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x41, 0x74, 0x18, 0x14, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x09, 0x72, 0x65,
+	0x63, 0x65, 0x69, 0x76, 0x65, 0x41, 0x74, 0x22, 0x7b, 0x0a, 0x17, 0x55, 0x70, 0x6c, 0x6f, 0x61,
+	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x50, 0x61, 0x69,
+	0x64, 0x73, 0x12, 0x60, 0x0a, 0x16, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
+	0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x50, 0x61, 0x69, 0x64, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x28, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
+	0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x50, 0x61, 0x69, 0x64, 0x52, 0x16, 0x75, 0x70,
+	0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
+	0x50, 0x61, 0x69, 0x64, 0x22, 0x89, 0x07, 0x0a, 0x16, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43,
+	0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x50, 0x61, 0x69, 0x64, 0x12,
+	0x4b, 0x0a, 0x0f, 0x75, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79,
+	0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
 	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f,
-	0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f, 0x67, 0x72, 0x65, 0x73, 0x73, 0x50,
-	0x6c, 0x61, 0x6e, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x73, 0x12, 0x66, 0x0a, 0x17, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50,
-	0x72, 0x6f, 0x67, 0x72, 0x65, 0x73, 0x73, 0x41, 0x63, 0x74, 0x75, 0x61, 0x6c, 0x73, 0x12, 0x2c,
+	0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x52, 0x0f, 0x75, 0x70, 0x6c,
+	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x12, 0x20, 0x0a, 0x0b,
+	0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0b, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1e,
+	0x0a, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x64, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x64, 0x12, 0x32,
+	0x0a, 0x14, 0x66, 0x72, 0x6f, 0x6d, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x66, 0x72,
+	0x6f, 0x6d, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61,
+	0x6d, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69,
+	0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x63, 0x6f,
+	0x6e, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x28,
+	0x0a, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x44, 0x65, 0x73,
+	0x63, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
+	0x54, 0x79, 0x70, 0x65, 0x44, 0x65, 0x73, 0x63, 0x12, 0x1c, 0x0a, 0x09, 0x69, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x4e, 0x6f, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x4e, 0x6f, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63,
+	0x65, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x4d, 0x64, 0x35, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x4d, 0x64, 0x35, 0x12, 0x28, 0x0a, 0x0f, 0x69, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x46, 0x69, 0x6c, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x0a, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0f, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x46, 0x69, 0x6c, 0x65, 0x6e, 0x61,
+	0x6d, 0x65, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x55, 0x72, 0x6c,
+	0x18, 0x0b, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x55,
+	0x72, 0x6c, 0x12, 0x24, 0x0a, 0x0d, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x41, 0x6d, 0x6f,
+	0x75, 0x6d, 0x74, 0x18, 0x0c, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0d, 0x69, 0x6e, 0x76, 0x6f, 0x69,
+	0x63, 0x65, 0x41, 0x6d, 0x6f, 0x75, 0x6d, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x69, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x54, 0x61, 0x78, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x69, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x54, 0x61, 0x78, 0x12, 0x2a, 0x0a, 0x10, 0x69, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x0e, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x10, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x43, 0x68, 0x65, 0x63, 0x6b,
+	0x43, 0x6f, 0x64, 0x65, 0x12, 0x3c, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x64, 0x44,
+	0x61, 0x74, 0x65, 0x18, 0x0f, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67,
+	0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65,
+	0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x64, 0x44, 0x61,
+	0x74, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x44, 0x65, 0x73,
+	0x63, 0x18, 0x10, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
+	0x44, 0x65, 0x73, 0x63, 0x12, 0x12, 0x0a, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x18, 0x11, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x6d, 0x65, 0x6d, 0x6f, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x61, 0x79, 0x44,
+	0x65, 0x73, 0x63, 0x18, 0x12, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x61, 0x79, 0x44, 0x65,
+	0x73, 0x63, 0x12, 0x14, 0x0a, 0x05, 0x70, 0x61, 0x79, 0x42, 0x79, 0x18, 0x13, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x05, 0x70, 0x61, 0x79, 0x42, 0x79, 0x12, 0x30, 0x0a, 0x05, 0x70, 0x61, 0x79, 0x41,
+	0x74, 0x18, 0x14, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74,
+	0x61, 0x6d, 0x70, 0x52, 0x05, 0x70, 0x61, 0x79, 0x41, 0x74, 0x12, 0x36, 0x0a, 0x16, 0x70, 0x61,
+	0x79, 0x6d, 0x65, 0x6e, 0x74, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x46, 0x69, 0x6c, 0x65,
+	0x6e, 0x61, 0x6d, 0x65, 0x18, 0x15, 0x20, 0x01, 0x28, 0x09, 0x52, 0x16, 0x70, 0x61, 0x79, 0x6d,
+	0x65, 0x6e, 0x74, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x46, 0x69, 0x6c, 0x65, 0x6e, 0x61,
+	0x6d, 0x65, 0x12, 0x2c, 0x0a, 0x11, 0x70, 0x61, 0x79, 0x6d, 0x65, 0x6e, 0x74, 0x56, 0x6f, 0x75,
+	0x63, 0x68, 0x65, 0x72, 0x55, 0x72, 0x6c, 0x18, 0x16, 0x20, 0x01, 0x28, 0x09, 0x52, 0x11, 0x70,
+	0x61, 0x79, 0x6d, 0x65, 0x6e, 0x74, 0x56, 0x6f, 0x75, 0x63, 0x68, 0x65, 0x72, 0x55, 0x72, 0x6c,
+	0x32, 0x90, 0x0a, 0x0a, 0x10, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4f, 0x0a, 0x0d, 0x42, 0x63, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x42, 0x79, 0x54, 0x78, 0x49, 0x44, 0x12, 0x1e, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
+	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54,
+	0x78, 0x49, 0x44, 0x52, 0x65, 0x71, 0x1a, 0x1e, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
+	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54,
+	0x78, 0x49, 0x44, 0x52, 0x73, 0x70, 0x12, 0x62, 0x0a, 0x15, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f,
+	0x61, 0x64, 0x4f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12,
+	0x2a, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x4f, 0x72,
+	0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63,
+	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42,
+	0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x58, 0x0a, 0x10, 0x42, 0x63,
+	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x12, 0x25,
 	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
 	0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f,
-	0x67, 0x72, 0x65, 0x73, 0x73, 0x41, 0x63, 0x74, 0x75, 0x61, 0x6c, 0x73, 0x1a, 0x1d, 0x2e, 0x42,
-	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
-	0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x6c, 0x0a, 0x1a, 0x42,
-	0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x49, 0x6e,
-	0x73, 0x70, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x2f, 0x2e, 0x42, 0x63, 0x41, 0x6e,
-	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
-	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x49,
-	0x6e, 0x73, 0x70, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x6a, 0x0a, 0x19, 0x42, 0x63, 0x55,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x61, 0x63,
-	0x74, 0x69, 0x66, 0x69, 0x65, 0x73, 0x12, 0x2e, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x43, 0x68, 0x61, 0x69, 0x6e, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x52, 0x65, 0x61, 0x63,
-	0x74, 0x69, 0x66, 0x69, 0x65, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
-	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x62, 0x0a, 0x14, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x6c, 0x79, 0x12, 0x2b, 0x2e,
+	0x6a, 0x65, 0x63, 0x74, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e,
+	0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x73, 0x12, 0x62, 0x0a, 0x15, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
+	0x50, 0x72, 0x6f, 0x67, 0x72, 0x65, 0x73, 0x73, 0x50, 0x6c, 0x61, 0x6e, 0x73, 0x12, 0x2a, 0x2e,
 	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f, 0x63,
-	0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x6c, 0x69, 0x65, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41,
-	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x65, 0x0a, 0x16, 0x42, 0x63, 0x55,
-	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x72,
-	0x6f, 0x76, 0x65, 0x12, 0x2c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
+	0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f, 0x67,
+	0x72, 0x65, 0x73, 0x73, 0x50, 0x6c, 0x61, 0x6e, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e,
+	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x66, 0x0a, 0x17, 0x42, 0x63, 0x55, 0x70,
+	0x6c, 0x6f, 0x61, 0x64, 0x50, 0x72, 0x6f, 0x67, 0x72, 0x65, 0x73, 0x73, 0x41, 0x63, 0x74, 0x75,
+	0x61, 0x6c, 0x73, 0x12, 0x2c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
 	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
-	0x69, 0x6e, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x65,
+	0x69, 0x6e, 0x50, 0x72, 0x6f, 0x67, 0x72, 0x65, 0x73, 0x73, 0x41, 0x63, 0x74, 0x75, 0x61, 0x6c,
 	0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72,
 	0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73,
-	0x12, 0x60, 0x0a, 0x13, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x6f, 0x6e, 0x74,
-	0x72, 0x61, 0x63, 0x74, 0x42, 0x64, 0x62, 0x12, 0x2a, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42,
-	0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61,
-	0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x49, 0x6e,
-	0x66, 0x6f, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
+	0x12, 0x6c, 0x0a, 0x1a, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x51, 0x75, 0x61, 0x6c,
+	0x69, 0x74, 0x79, 0x49, 0x6e, 0x73, 0x70, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x2f,
+	0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x51, 0x75, 0x61,
+	0x6c, 0x69, 0x74, 0x79, 0x49, 0x6e, 0x73, 0x70, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a,
+	0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x6a,
+	0x0a, 0x19, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74,
+	0x79, 0x52, 0x65, 0x61, 0x63, 0x74, 0x69, 0x66, 0x69, 0x65, 0x73, 0x12, 0x2e, 0x2e, 0x42, 0x63,
+	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55,
+	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x51, 0x75, 0x61, 0x6c, 0x69, 0x74,
+	0x79, 0x52, 0x65, 0x61, 0x63, 0x74, 0x69, 0x66, 0x69, 0x65, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63,
+	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42,
+	0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x62, 0x0a, 0x14, 0x42, 0x63,
+	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70,
+	0x6c, 0x79, 0x12, 0x2b, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69,
+	0x6e, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x6c, 0x69, 0x65, 0x73, 0x1a,
+	0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x65,
+	0x0a, 0x16, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73,
+	0x73, 0x41, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x65, 0x12, 0x2c, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64,
+	0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f,
+	0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70,
+	0x70, 0x72, 0x6f, 0x76, 0x65, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61,
+	0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x59, 0x0a, 0x10, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61,
+	0x64, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74, 0x12, 0x26, 0x2e, 0x42, 0x63, 0x41, 0x6e,
+	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
+	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x61, 0x63, 0x74,
+	0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73,
+	0x12, 0x57, 0x0a, 0x0f, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x12, 0x25, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68, 0x61,
+	0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41,
+	0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x67, 0x0a, 0x17, 0x42, 0x63, 0x55,
+	0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63, 0x65,
+	0x69, 0x76, 0x65, 0x64, 0x12, 0x2d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
+	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x68,
+	0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76,
+	0x65, 0x64, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53,
 	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x73, 0x42, 0x2b, 0x5a, 0x29, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x42, 0x63,
-	0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x3b, 0x42,
-	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x50,
-	0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x73, 0x12, 0x5f, 0x0a, 0x13, 0x42, 0x63, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x50, 0x61, 0x69, 0x64, 0x12, 0x29, 0x2e, 0x42, 0x63, 0x41, 0x6e,
+	0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x6c,
+	0x6f, 0x61, 0x64, 0x43, 0x68, 0x61, 0x69, 0x6e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x50,
+	0x61, 0x69, 0x64, 0x73, 0x1a, 0x1d, 0x2e, 0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b,
+	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x42, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x73, 0x42, 0x2b, 0x5a, 0x29, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x42,
+	0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x3b,
+	0x42, 0x63, 0x41, 0x6e, 0x64, 0x42, 0x61, 0x6e, 0x6b, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x50, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -5851,228 +3962,137 @@ func file_BcAndBankService_proto_rawDescGZIP() []byte {
 	return file_BcAndBankService_proto_rawDescData
 }
 
-var file_BcAndBankService_proto_msgTypes = make([]protoimpl.MessageInfo, 58)
+var file_BcAndBankService_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
 var file_BcAndBankService_proto_goTypes = []interface{}{
-	(*QueryTxIDReq)(nil),                         // 0: BcAndBankService.QueryTxIDReq
-	(*QueryTxIDRsp)(nil),                         // 1: BcAndBankService.QueryTxIDRsp
-	(*BcAndBankPayOrderActionRequest)(nil),       // 2: BcAndBankService.BcAndBankPayOrderActionRequest
-	(*BcAndBankFactoringActionRequest)(nil),      // 3: BcAndBankService.BcAndBankFactoringActionRequest
-	(*BcAndBankFactoringRepayActionRequest)(nil), // 4: BcAndBankService.BcAndBankFactoringRepayActionRequest
-	(*BcAndBankActionResp)(nil),                  // 5: BcAndBankService.BcAndBankActionResp
-	(*BankRequest)(nil),                          // 6: BcAndBankService.BankRequest
-	(*BankResponse)(nil),                         // 7: BcAndBankService.BankResponse
-	(*BcResponse)(nil),                           // 8: BcAndBankService.BcResponse
-	(*BcResponses)(nil),                          // 9: BcAndBankService.BcResponses
-	(*CommonResponse)(nil),                       // 10: BcAndBankService.CommonResponse
-	(*BankAccount)(nil),                          // 11: BcAndBankService.BankAccount
-	(*UploadChainType)(nil),                      // 12: BcAndBankService.UploadChainType
-	(*PayOrder)(nil),                             // 13: BcAndBankService.PayOrder
-	(*UploadChainCompany)(nil),                   // 14: BcAndBankService.UploadChainCompany
-	(*UploadChainCompanies)(nil),                 // 15: BcAndBankService.UploadChainCompanies
-	(*UploadChainConfig)(nil),                    // 16: BcAndBankService.UploadChainConfig
-	(*UploadChainConfigs)(nil),                   // 17: BcAndBankService.UploadChainConfigs
-	(*UploadChainContract)(nil),                  // 18: BcAndBankService.UploadChainContract
-	(*UploadChainContracts)(nil),                 // 19: BcAndBankService.UploadChainContracts
-	(*UploadChainContractMi)(nil),                // 20: BcAndBankService.UploadChainContractMi
-	(*UploadChainContractMis)(nil),               // 21: BcAndBankService.UploadChainContractMis
-	(*UploadChainFactoringOrder)(nil),            // 22: BcAndBankService.UploadChainFactoringOrder
-	(*UploadChainFactoringOrders)(nil),           // 23: BcAndBankService.UploadChainFactoringOrders
-	(*UploadChainMedicine)(nil),                  // 24: BcAndBankService.UploadChainMedicine
-	(*UploadChainMedicines)(nil),                 // 25: BcAndBankService.UploadChainMedicines
-	(*UploadChainMi)(nil),                        // 26: BcAndBankService.UploadChainMi
-	(*UploadChainMis)(nil),                       // 27: BcAndBankService.UploadChainMis
-	(*UploadChainPayOrder)(nil),                  // 28: BcAndBankService.UploadChainPayOrder
-	(*UploadChainPayOrders)(nil),                 // 29: BcAndBankService.UploadChainPayOrders
-	(*UploadChainShipment)(nil),                  // 30: BcAndBankService.UploadChainShipment
-	(*UploadChainShipments)(nil),                 // 31: BcAndBankService.UploadChainShipments
-	(*UploadChainShipmentOrder)(nil),             // 32: BcAndBankService.UploadChainShipmentOrder
-	(*UploadChainShipmentOrders)(nil),            // 33: BcAndBankService.UploadChainShipmentOrders
-	(*UploadChainOrganizations)(nil),             // 34: BcAndBankService.UploadChainOrganizations
-	(*UploadChainOrganization)(nil),              // 35: BcAndBankService.UploadChainOrganization
-	(*UploadDocumentInfo)(nil),                   // 36: BcAndBankService.UploadDocumentInfo
-	(*UploadChainProjects)(nil),                  // 37: BcAndBankService.UploadChainProjects
-	(*UploadChainProject)(nil),                   // 38: BcAndBankService.UploadChainProject
-	(*UploadChainProgressPlans)(nil),             // 39: BcAndBankService.UploadChainProgressPlans
-	(*UploadChainProgressPlan)(nil),              // 40: BcAndBankService.UploadChainProgressPlan
-	(*UploadChainProgressActuals)(nil),           // 41: BcAndBankService.UploadChainProgressActuals
-	(*UploadChainProgressActual)(nil),            // 42: BcAndBankService.UploadChainProgressActual
-	(*UploadChainQualityInspections)(nil),        // 43: BcAndBankService.UploadChainQualityInspections
-	(*UploadChainQualityInspection)(nil),         // 44: BcAndBankService.UploadChainQualityInspection
-	(*UploadChainQualityReactifies)(nil),         // 45: BcAndBankService.UploadChainQualityReactifies
-	(*UploadChainReactify)(nil),                  // 46: BcAndBankService.UploadChainReactify
-	(*UploadChainReviews)(nil),                   // 47: BcAndBankService.UploadChainReviews
-	(*UploadChainReview)(nil),                    // 48: BcAndBankService.UploadChainReview
-	(*UploadChainProcessApplies)(nil),            // 49: BcAndBankService.UploadChainProcessApplies
-	(*UploadChainProcessApply)(nil),              // 50: BcAndBankService.UploadChainProcessApply
-	(*DocumentInfoApply)(nil),                    // 51: BcAndBankService.DocumentInfoApply
-	(*UploadChainProcessApproves)(nil),           // 52: BcAndBankService.UploadChainProcessApproves
-	(*UploadChainProcessApprove)(nil),            // 53: BcAndBankService.UploadChainProcessApprove
-	(*DocumentInfoApprove)(nil),                  // 54: BcAndBankService.DocumentInfoApprove
-	(*UploadChainContractInfos)(nil),             // 55: BcAndBankService.UploadChainContractInfos
-	(*UploadChaincontractInfo)(nil),              // 56: BcAndBankService.UploadChaincontractInfo
-	(*DocumentInfo)(nil),                         // 57: BcAndBankService.DocumentInfo
-	(*timestamppb.Timestamp)(nil),                // 58: google.protobuf.Timestamp
+	(*QueryTxIDReq)(nil),                  // 0: BcAndBankService.QueryTxIDReq
+	(*QueryTxIDRsp)(nil),                  // 1: BcAndBankService.QueryTxIDRsp
+	(*BcResponse)(nil),                    // 2: BcAndBankService.BcResponse
+	(*BcResponses)(nil),                   // 3: BcAndBankService.BcResponses
+	(*UploadChainType)(nil),               // 4: BcAndBankService.UploadChainType
+	(*UploadChainOrganizations)(nil),      // 5: BcAndBankService.UploadChainOrganizations
+	(*UploadChainOrganization)(nil),       // 6: BcAndBankService.UploadChainOrganization
+	(*UploadDocumentInfo)(nil),            // 7: BcAndBankService.UploadDocumentInfo
+	(*UploadChainProjects)(nil),           // 8: BcAndBankService.UploadChainProjects
+	(*UploadChainProject)(nil),            // 9: BcAndBankService.UploadChainProject
+	(*UploadChainProgressPlans)(nil),      // 10: BcAndBankService.UploadChainProgressPlans
+	(*UploadChainProgressPlan)(nil),       // 11: BcAndBankService.UploadChainProgressPlan
+	(*UploadChainProgressActuals)(nil),    // 12: BcAndBankService.UploadChainProgressActuals
+	(*UploadChainProgressActual)(nil),     // 13: BcAndBankService.UploadChainProgressActual
+	(*UploadChainQualityInspections)(nil), // 14: BcAndBankService.UploadChainQualityInspections
+	(*UploadChainQualityInspection)(nil),  // 15: BcAndBankService.UploadChainQualityInspection
+	(*UploadChainQualityReactifies)(nil),  // 16: BcAndBankService.UploadChainQualityReactifies
+	(*UploadChainReactify)(nil),           // 17: BcAndBankService.UploadChainReactify
+	(*UploadChainReviews)(nil),            // 18: BcAndBankService.UploadChainReviews
+	(*UploadChainReview)(nil),             // 19: BcAndBankService.UploadChainReview
+	(*UploadChainProcessApplies)(nil),     // 20: BcAndBankService.UploadChainProcessApplies
+	(*UploadChainProcessApply)(nil),       // 21: BcAndBankService.UploadChainProcessApply
+	(*DocumentInfoApply)(nil),             // 22: BcAndBankService.DocumentInfoApply
+	(*UploadChainProcessApproves)(nil),    // 23: BcAndBankService.UploadChainProcessApproves
+	(*UploadChainProcessApprove)(nil),     // 24: BcAndBankService.UploadChainProcessApprove
+	(*DocumentInfoApprove)(nil),           // 25: BcAndBankService.DocumentInfoApprove
+	(*UploadChainContracts)(nil),          // 26: BcAndBankService.UploadChainContracts
+	(*UploadChaincontract)(nil),           // 27: BcAndBankService.UploadChaincontract
+	(*DocumentInfo)(nil),                  // 28: BcAndBankService.DocumentInfo
+	(*UploadChainInvoices)(nil),           // 29: BcAndBankService.UploadChainInvoices
+	(*UploadChainInvoice)(nil),            // 30: BcAndBankService.UploadChainInvoice
+	(*UploadChainInvoiceReceiveds)(nil),   // 31: BcAndBankService.UploadChainInvoiceReceiveds
+	(*UploadChainInvoiceReceived)(nil),    // 32: BcAndBankService.UploadChainInvoiceReceived
+	(*UploadChainInvoicePaids)(nil),       // 33: BcAndBankService.UploadChainInvoicePaids
+	(*UploadChainInvoicePaid)(nil),        // 34: BcAndBankService.UploadChainInvoicePaid
+	(*timestamppb.Timestamp)(nil),         // 35: google.protobuf.Timestamp
 }
 var file_BcAndBankService_proto_depIdxs = []int32{
-	58,  // 0: BcAndBankService.QueryTxIDRsp.CreateAt:type_name -> google.protobuf.Timestamp
-	28,  // 1: BcAndBankService.BcAndBankPayOrderActionRequest.payOrder:type_name -> BcAndBankService.UploadChainPayOrder
-	6,   // 2: BcAndBankService.BcAndBankPayOrderActionRequest.bankRequest:type_name -> BcAndBankService.BankRequest
-	22,  // 3: BcAndBankService.BcAndBankFactoringActionRequest.factoringOrder:type_name -> BcAndBankService.UploadChainFactoringOrder
-	6,   // 4: BcAndBankService.BcAndBankFactoringActionRequest.bankRequest:type_name -> BcAndBankService.BankRequest
-	22,  // 5: BcAndBankService.BcAndBankFactoringRepayActionRequest.repay:type_name -> BcAndBankService.UploadChainFactoringOrder
-	6,   // 6: BcAndBankService.BcAndBankFactoringRepayActionRequest.bankRequest:type_name -> BcAndBankService.BankRequest
-	8,   // 7: BcAndBankService.BcAndBankActionResp.bcResponse:type_name -> BcAndBankService.BcResponse
-	7,   // 8: BcAndBankService.BcAndBankActionResp.bankResponse:type_name -> BcAndBankService.BankResponse
-	7,   // 9: BcAndBankService.CommonResponse.bankRsp:type_name -> BcAndBankService.BankResponse
-	8,   // 10: BcAndBankService.CommonResponse.bcRsp:type_name -> BcAndBankService.BcResponse
-	12,  // 11: BcAndBankService.UploadChainCompany.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 12: BcAndBankService.UploadChainCompany.startAt:type_name -> google.protobuf.Timestamp
-	58,  // 13: BcAndBankService.UploadChainCompany.endAt:type_name -> google.protobuf.Timestamp
-	11,  // 14: BcAndBankService.UploadChainCompany.bankAccount:type_name -> BcAndBankService.BankAccount
-	14,  // 15: BcAndBankService.UploadChainCompanies.uploadChainCompany:type_name -> BcAndBankService.UploadChainCompany
-	12,  // 16: BcAndBankService.UploadChainConfig.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 17: BcAndBankService.UploadChainConfig.startAt:type_name -> google.protobuf.Timestamp
-	58,  // 18: BcAndBankService.UploadChainConfig.endAt:type_name -> google.protobuf.Timestamp
-	16,  // 19: BcAndBankService.UploadChainConfigs.uploadChainConfig:type_name -> BcAndBankService.UploadChainConfig
-	12,  // 20: BcAndBankService.UploadChainContract.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 21: BcAndBankService.UploadChainContract.startAt:type_name -> google.protobuf.Timestamp
-	58,  // 22: BcAndBankService.UploadChainContract.endAt:type_name -> google.protobuf.Timestamp
-	18,  // 23: BcAndBankService.UploadChainContracts.uploadChainContract:type_name -> BcAndBankService.UploadChainContract
-	12,  // 24: BcAndBankService.UploadChainContractMi.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	20,  // 25: BcAndBankService.UploadChainContractMis.uploadChainContractMi:type_name -> BcAndBankService.UploadChainContractMi
-	12,  // 26: BcAndBankService.UploadChainFactoringOrder.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	13,  // 27: BcAndBankService.UploadChainFactoringOrder.payOrders:type_name -> BcAndBankService.PayOrder
-	58,  // 28: BcAndBankService.UploadChainFactoringOrder.applyDate:type_name -> google.protobuf.Timestamp
-	58,  // 29: BcAndBankService.UploadChainFactoringOrder.applyAt:type_name -> google.protobuf.Timestamp
-	58,  // 30: BcAndBankService.UploadChainFactoringOrder.refundDate:type_name -> google.protobuf.Timestamp
-	58,  // 31: BcAndBankService.UploadChainFactoringOrder.refundAt:type_name -> google.protobuf.Timestamp
-	22,  // 32: BcAndBankService.UploadChainFactoringOrders.uploadChainFactoringOrder:type_name -> BcAndBankService.UploadChainFactoringOrder
-	12,  // 33: BcAndBankService.UploadChainMedicine.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	24,  // 34: BcAndBankService.UploadChainMedicines.uploadChainMedicine:type_name -> BcAndBankService.UploadChainMedicine
-	12,  // 35: BcAndBankService.UploadChainMi.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	11,  // 36: BcAndBankService.UploadChainMi.specialAccount:type_name -> BcAndBankService.BankAccount
-	11,  // 37: BcAndBankService.UploadChainMi.normalAccount:type_name -> BcAndBankService.BankAccount
-	26,  // 38: BcAndBankService.UploadChainMis.uploadChainMi:type_name -> BcAndBankService.UploadChainMi
-	12,  // 39: BcAndBankService.UploadChainPayOrder.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 40: BcAndBankService.UploadChainPayOrder.payAt:type_name -> google.protobuf.Timestamp
-	28,  // 41: BcAndBankService.UploadChainPayOrders.uploadChainPayOrder:type_name -> BcAndBankService.UploadChainPayOrder
-	12,  // 42: BcAndBankService.UploadChainShipment.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 43: BcAndBankService.UploadChainShipment.syncAt:type_name -> google.protobuf.Timestamp
-	30,  // 44: BcAndBankService.UploadChainShipments.uploadChainShipment:type_name -> BcAndBankService.UploadChainShipment
-	12,  // 45: BcAndBankService.UploadChainShipmentOrder.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	30,  // 46: BcAndBankService.UploadChainShipmentOrder.plans:type_name -> BcAndBankService.UploadChainShipment
-	58,  // 47: BcAndBankService.UploadChainShipmentOrder.invoiceDate:type_name -> google.protobuf.Timestamp
-	58,  // 48: BcAndBankService.UploadChainShipmentOrder.sendOutAt:type_name -> google.protobuf.Timestamp
-	58,  // 49: BcAndBankService.UploadChainShipmentOrder.receiveAt:type_name -> google.protobuf.Timestamp
-	58,  // 50: BcAndBankService.UploadChainShipmentOrder.confirmAt:type_name -> google.protobuf.Timestamp
-	32,  // 51: BcAndBankService.UploadChainShipmentOrders.uploadChainShipmentOrder:type_name -> BcAndBankService.UploadChainShipmentOrder
-	35,  // 52: BcAndBankService.UploadChainOrganizations.uploadChainOrganization:type_name -> BcAndBankService.UploadChainOrganization
-	12,  // 53: BcAndBankService.UploadChainOrganization.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	38,  // 54: BcAndBankService.UploadChainProjects.UploadChainProject:type_name -> BcAndBankService.UploadChainProject
-	12,  // 55: BcAndBankService.UploadChainProject.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 56: BcAndBankService.UploadChainProject.startAt:type_name -> google.protobuf.Timestamp
-	58,  // 57: BcAndBankService.UploadChainProject.endAt:type_name -> google.protobuf.Timestamp
-	36,  // 58: BcAndBankService.UploadChainProject.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
-	40,  // 59: BcAndBankService.UploadChainProgressPlans.UploadChainProgressPlan:type_name -> BcAndBankService.UploadChainProgressPlan
-	12,  // 60: BcAndBankService.UploadChainProgressPlan.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 61: BcAndBankService.UploadChainProgressPlan.startAt:type_name -> google.protobuf.Timestamp
-	58,  // 62: BcAndBankService.UploadChainProgressPlan.endAt:type_name -> google.protobuf.Timestamp
-	58,  // 63: BcAndBankService.UploadChainProgressPlan.actualDate:type_name -> google.protobuf.Timestamp
-	36,  // 64: BcAndBankService.UploadChainProgressPlan.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
-	42,  // 65: BcAndBankService.UploadChainProgressActuals.UploadChainProgressActual:type_name -> BcAndBankService.UploadChainProgressActual
-	12,  // 66: BcAndBankService.UploadChainProgressActual.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 67: BcAndBankService.UploadChainProgressActual.actualDate:type_name -> google.protobuf.Timestamp
-	36,  // 68: BcAndBankService.UploadChainProgressActual.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
-	44,  // 69: BcAndBankService.UploadChainQualityInspections.UploadChainQualityInspection:type_name -> BcAndBankService.UploadChainQualityInspection
-	12,  // 70: BcAndBankService.UploadChainQualityInspection.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 71: BcAndBankService.UploadChainQualityInspection.inspectionDate:type_name -> google.protobuf.Timestamp
-	58,  // 72: BcAndBankService.UploadChainQualityInspection.inspectionAt:type_name -> google.protobuf.Timestamp
-	58,  // 73: BcAndBankService.UploadChainQualityInspection.assignedDate:type_name -> google.protobuf.Timestamp
-	36,  // 74: BcAndBankService.UploadChainQualityInspection.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
-	46,  // 75: BcAndBankService.UploadChainQualityReactifies.UploadChainReactify:type_name -> BcAndBankService.UploadChainReactify
-	12,  // 76: BcAndBankService.UploadChainReactify.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 77: BcAndBankService.UploadChainReactify.rectifyDeadline:type_name -> google.protobuf.Timestamp
-	58,  // 78: BcAndBankService.UploadChainReactify.rectifyDeadlineWarn:type_name -> google.protobuf.Timestamp
-	58,  // 79: BcAndBankService.UploadChainReactify.rectifyDate:type_name -> google.protobuf.Timestamp
-	36,  // 80: BcAndBankService.UploadChainReactify.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
-	48,  // 81: BcAndBankService.UploadChainReviews.UploadChainReview:type_name -> BcAndBankService.UploadChainReview
-	12,  // 82: BcAndBankService.UploadChainReview.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 83: BcAndBankService.UploadChainReview.reviewDate:type_name -> google.protobuf.Timestamp
-	36,  // 84: BcAndBankService.UploadChainReview.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
-	50,  // 85: BcAndBankService.UploadChainProcessApplies.uploadChainProcessApply:type_name -> BcAndBankService.UploadChainProcessApply
-	12,  // 86: BcAndBankService.UploadChainProcessApply.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 87: BcAndBankService.UploadChainProcessApply.applyDate:type_name -> google.protobuf.Timestamp
-	51,  // 88: BcAndBankService.UploadChainProcessApply.uploadDocumnet:type_name -> BcAndBankService.DocumentInfoApply
-	53,  // 89: BcAndBankService.UploadChainProcessApproves.uploadChainProcessApprove:type_name -> BcAndBankService.UploadChainProcessApprove
-	12,  // 90: BcAndBankService.UploadChainProcessApprove.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 91: BcAndBankService.UploadChainProcessApprove.applyDate:type_name -> google.protobuf.Timestamp
-	58,  // 92: BcAndBankService.UploadChainProcessApprove.approveAt:type_name -> google.protobuf.Timestamp
-	51,  // 93: BcAndBankService.UploadChainProcessApprove.uploadDocumnetApply:type_name -> BcAndBankService.DocumentInfoApply
-	54,  // 94: BcAndBankService.UploadChainProcessApprove.uploadDocumnetApprove:type_name -> BcAndBankService.DocumentInfoApprove
-	56,  // 95: BcAndBankService.UploadChainContractInfos.uploadChaincontractInfo:type_name -> BcAndBankService.UploadChaincontractInfo
-	12,  // 96: BcAndBankService.UploadChaincontractInfo.uploadChainType:type_name -> BcAndBankService.UploadChainType
-	58,  // 97: BcAndBankService.UploadChaincontractInfo.start_at:type_name -> google.protobuf.Timestamp
-	58,  // 98: BcAndBankService.UploadChaincontractInfo.end_at:type_name -> google.protobuf.Timestamp
-	57,  // 99: BcAndBankService.UploadChaincontractInfo.uploadDocumnet:type_name -> BcAndBankService.DocumentInfo
-	17,  // 100: BcAndBankService.BcAndBankService.BcUploadConfigs:input_type -> BcAndBankService.UploadChainConfigs
-	15,  // 101: BcAndBankService.BcAndBankService.BcUploadCompanies:input_type -> BcAndBankService.UploadChainCompanies
-	27,  // 102: BcAndBankService.BcAndBankService.BcUploadMis:input_type -> BcAndBankService.UploadChainMis
-	25,  // 103: BcAndBankService.BcAndBankService.BcUploadMedicine:input_type -> BcAndBankService.UploadChainMedicines
-	19,  // 104: BcAndBankService.BcAndBankService.BcUploadContracts:input_type -> BcAndBankService.UploadChainContracts
-	21,  // 105: BcAndBankService.BcAndBankService.BcUploadContractMis:input_type -> BcAndBankService.UploadChainContractMis
-	31,  // 106: BcAndBankService.BcAndBankService.BcUploadShipments:input_type -> BcAndBankService.UploadChainShipments
-	33,  // 107: BcAndBankService.BcAndBankService.BcUploadShipmentOrders:input_type -> BcAndBankService.UploadChainShipmentOrders
-	29,  // 108: BcAndBankService.BcAndBankService.BcUploadPayOrders:input_type -> BcAndBankService.UploadChainPayOrders
-	23,  // 109: BcAndBankService.BcAndBankService.BcUploadFactoringOrders:input_type -> BcAndBankService.UploadChainFactoringOrders
-	2,   // 110: BcAndBankService.BcAndBankService.BcAndBankPayOrderAction:input_type -> BcAndBankService.BcAndBankPayOrderActionRequest
-	3,   // 111: BcAndBankService.BcAndBankService.BcAndBankFactoringOrdersAction:input_type -> BcAndBankService.BcAndBankFactoringActionRequest
-	4,   // 112: BcAndBankService.BcAndBankService.BcAndBankFactoringRepayAction:input_type -> BcAndBankService.BcAndBankFactoringRepayActionRequest
-	31,  // 113: BcAndBankService.BcAndBankService.BcForceUploadShipments:input_type -> BcAndBankService.UploadChainShipments
-	33,  // 114: BcAndBankService.BcAndBankService.BcForceUploadShipmentOrders:input_type -> BcAndBankService.UploadChainShipmentOrders
-	29,  // 115: BcAndBankService.BcAndBankService.BcForceUploadPayOrders:input_type -> BcAndBankService.UploadChainPayOrders
-	23,  // 116: BcAndBankService.BcAndBankService.BcForceUploadFactoring:input_type -> BcAndBankService.UploadChainFactoringOrders
-	0,   // 117: BcAndBankService.BcAndBankService.BcQueryByTxID:input_type -> BcAndBankService.QueryTxIDReq
-	34,  // 118: BcAndBankService.BcAndBankService.BcUploadOrganizations:input_type -> BcAndBankService.UploadChainOrganizations
-	37,  // 119: BcAndBankService.BcAndBankService.BcUploadProjects:input_type -> BcAndBankService.UploadChainProjects
-	39,  // 120: BcAndBankService.BcAndBankService.BcUploadProgressPlans:input_type -> BcAndBankService.UploadChainProgressPlans
-	41,  // 121: BcAndBankService.BcAndBankService.BcUploadProgressActuals:input_type -> BcAndBankService.UploadChainProgressActuals
-	43,  // 122: BcAndBankService.BcAndBankService.BcUploadQualityInspections:input_type -> BcAndBankService.UploadChainQualityInspections
-	45,  // 123: BcAndBankService.BcAndBankService.BcUploadQualityReactifies:input_type -> BcAndBankService.UploadChainQualityReactifies
-	49,  // 124: BcAndBankService.BcAndBankService.BcUploadProcessApply:input_type -> BcAndBankService.UploadChainProcessApplies
-	52,  // 125: BcAndBankService.BcAndBankService.BcUploadProcessApprove:input_type -> BcAndBankService.UploadChainProcessApproves
-	55,  // 126: BcAndBankService.BcAndBankService.BcUploadContractBdb:input_type -> BcAndBankService.UploadChainContractInfos
-	9,   // 127: BcAndBankService.BcAndBankService.BcUploadConfigs:output_type -> BcAndBankService.BcResponses
-	9,   // 128: BcAndBankService.BcAndBankService.BcUploadCompanies:output_type -> BcAndBankService.BcResponses
-	9,   // 129: BcAndBankService.BcAndBankService.BcUploadMis:output_type -> BcAndBankService.BcResponses
-	9,   // 130: BcAndBankService.BcAndBankService.BcUploadMedicine:output_type -> BcAndBankService.BcResponses
-	9,   // 131: BcAndBankService.BcAndBankService.BcUploadContracts:output_type -> BcAndBankService.BcResponses
-	9,   // 132: BcAndBankService.BcAndBankService.BcUploadContractMis:output_type -> BcAndBankService.BcResponses
-	9,   // 133: BcAndBankService.BcAndBankService.BcUploadShipments:output_type -> BcAndBankService.BcResponses
-	9,   // 134: BcAndBankService.BcAndBankService.BcUploadShipmentOrders:output_type -> BcAndBankService.BcResponses
-	9,   // 135: BcAndBankService.BcAndBankService.BcUploadPayOrders:output_type -> BcAndBankService.BcResponses
-	9,   // 136: BcAndBankService.BcAndBankService.BcUploadFactoringOrders:output_type -> BcAndBankService.BcResponses
-	5,   // 137: BcAndBankService.BcAndBankService.BcAndBankPayOrderAction:output_type -> BcAndBankService.BcAndBankActionResp
-	5,   // 138: BcAndBankService.BcAndBankService.BcAndBankFactoringOrdersAction:output_type -> BcAndBankService.BcAndBankActionResp
-	5,   // 139: BcAndBankService.BcAndBankService.BcAndBankFactoringRepayAction:output_type -> BcAndBankService.BcAndBankActionResp
-	9,   // 140: BcAndBankService.BcAndBankService.BcForceUploadShipments:output_type -> BcAndBankService.BcResponses
-	9,   // 141: BcAndBankService.BcAndBankService.BcForceUploadShipmentOrders:output_type -> BcAndBankService.BcResponses
-	9,   // 142: BcAndBankService.BcAndBankService.BcForceUploadPayOrders:output_type -> BcAndBankService.BcResponses
-	9,   // 143: BcAndBankService.BcAndBankService.BcForceUploadFactoring:output_type -> BcAndBankService.BcResponses
-	1,   // 144: BcAndBankService.BcAndBankService.BcQueryByTxID:output_type -> BcAndBankService.QueryTxIDRsp
-	9,   // 145: BcAndBankService.BcAndBankService.BcUploadOrganizations:output_type -> BcAndBankService.BcResponses
-	9,   // 146: BcAndBankService.BcAndBankService.BcUploadProjects:output_type -> BcAndBankService.BcResponses
-	9,   // 147: BcAndBankService.BcAndBankService.BcUploadProgressPlans:output_type -> BcAndBankService.BcResponses
-	9,   // 148: BcAndBankService.BcAndBankService.BcUploadProgressActuals:output_type -> BcAndBankService.BcResponses
-	9,   // 149: BcAndBankService.BcAndBankService.BcUploadQualityInspections:output_type -> BcAndBankService.BcResponses
-	9,   // 150: BcAndBankService.BcAndBankService.BcUploadQualityReactifies:output_type -> BcAndBankService.BcResponses
-	9,   // 151: BcAndBankService.BcAndBankService.BcUploadProcessApply:output_type -> BcAndBankService.BcResponses
-	9,   // 152: BcAndBankService.BcAndBankService.BcUploadProcessApprove:output_type -> BcAndBankService.BcResponses
-	9,   // 153: BcAndBankService.BcAndBankService.BcUploadContractBdb:output_type -> BcAndBankService.BcResponses
-	127, // [127:154] is the sub-list for method output_type
-	100, // [100:127] is the sub-list for method input_type
-	100, // [100:100] is the sub-list for extension type_name
-	100, // [100:100] is the sub-list for extension extendee
-	0,   // [0:100] is the sub-list for field type_name
+	35, // 0: BcAndBankService.QueryTxIDRsp.CreateAt:type_name -> google.protobuf.Timestamp
+	6,  // 1: BcAndBankService.UploadChainOrganizations.uploadChainOrganization:type_name -> BcAndBankService.UploadChainOrganization
+	4,  // 2: BcAndBankService.UploadChainOrganization.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	9,  // 3: BcAndBankService.UploadChainProjects.UploadChainProject:type_name -> BcAndBankService.UploadChainProject
+	4,  // 4: BcAndBankService.UploadChainProject.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 5: BcAndBankService.UploadChainProject.startAt:type_name -> google.protobuf.Timestamp
+	35, // 6: BcAndBankService.UploadChainProject.endAt:type_name -> google.protobuf.Timestamp
+	7,  // 7: BcAndBankService.UploadChainProject.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
+	11, // 8: BcAndBankService.UploadChainProgressPlans.UploadChainProgressPlan:type_name -> BcAndBankService.UploadChainProgressPlan
+	4,  // 9: BcAndBankService.UploadChainProgressPlan.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 10: BcAndBankService.UploadChainProgressPlan.startAt:type_name -> google.protobuf.Timestamp
+	35, // 11: BcAndBankService.UploadChainProgressPlan.endAt:type_name -> google.protobuf.Timestamp
+	35, // 12: BcAndBankService.UploadChainProgressPlan.actualDate:type_name -> google.protobuf.Timestamp
+	7,  // 13: BcAndBankService.UploadChainProgressPlan.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
+	13, // 14: BcAndBankService.UploadChainProgressActuals.UploadChainProgressActual:type_name -> BcAndBankService.UploadChainProgressActual
+	4,  // 15: BcAndBankService.UploadChainProgressActual.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 16: BcAndBankService.UploadChainProgressActual.actualDate:type_name -> google.protobuf.Timestamp
+	7,  // 17: BcAndBankService.UploadChainProgressActual.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
+	15, // 18: BcAndBankService.UploadChainQualityInspections.UploadChainQualityInspection:type_name -> BcAndBankService.UploadChainQualityInspection
+	4,  // 19: BcAndBankService.UploadChainQualityInspection.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 20: BcAndBankService.UploadChainQualityInspection.inspectionDate:type_name -> google.protobuf.Timestamp
+	35, // 21: BcAndBankService.UploadChainQualityInspection.inspectionAt:type_name -> google.protobuf.Timestamp
+	35, // 22: BcAndBankService.UploadChainQualityInspection.assignedDate:type_name -> google.protobuf.Timestamp
+	7,  // 23: BcAndBankService.UploadChainQualityInspection.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
+	17, // 24: BcAndBankService.UploadChainQualityReactifies.UploadChainReactify:type_name -> BcAndBankService.UploadChainReactify
+	4,  // 25: BcAndBankService.UploadChainReactify.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 26: BcAndBankService.UploadChainReactify.rectifyDeadline:type_name -> google.protobuf.Timestamp
+	35, // 27: BcAndBankService.UploadChainReactify.rectifyDeadlineWarn:type_name -> google.protobuf.Timestamp
+	35, // 28: BcAndBankService.UploadChainReactify.rectifyDate:type_name -> google.protobuf.Timestamp
+	7,  // 29: BcAndBankService.UploadChainReactify.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
+	19, // 30: BcAndBankService.UploadChainReviews.UploadChainReview:type_name -> BcAndBankService.UploadChainReview
+	4,  // 31: BcAndBankService.UploadChainReview.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 32: BcAndBankService.UploadChainReview.reviewDate:type_name -> google.protobuf.Timestamp
+	7,  // 33: BcAndBankService.UploadChainReview.uploadDocumnet:type_name -> BcAndBankService.UploadDocumentInfo
+	21, // 34: BcAndBankService.UploadChainProcessApplies.uploadChainProcessApply:type_name -> BcAndBankService.UploadChainProcessApply
+	4,  // 35: BcAndBankService.UploadChainProcessApply.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 36: BcAndBankService.UploadChainProcessApply.applyDate:type_name -> google.protobuf.Timestamp
+	22, // 37: BcAndBankService.UploadChainProcessApply.uploadDocumnet:type_name -> BcAndBankService.DocumentInfoApply
+	24, // 38: BcAndBankService.UploadChainProcessApproves.uploadChainProcessApprove:type_name -> BcAndBankService.UploadChainProcessApprove
+	4,  // 39: BcAndBankService.UploadChainProcessApprove.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 40: BcAndBankService.UploadChainProcessApprove.applyDate:type_name -> google.protobuf.Timestamp
+	35, // 41: BcAndBankService.UploadChainProcessApprove.approveAt:type_name -> google.protobuf.Timestamp
+	22, // 42: BcAndBankService.UploadChainProcessApprove.uploadDocumnetApply:type_name -> BcAndBankService.DocumentInfoApply
+	25, // 43: BcAndBankService.UploadChainProcessApprove.uploadDocumnetApprove:type_name -> BcAndBankService.DocumentInfoApprove
+	27, // 44: BcAndBankService.UploadChainContracts.uploadChaincontract:type_name -> BcAndBankService.UploadChaincontract
+	4,  // 45: BcAndBankService.UploadChaincontract.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 46: BcAndBankService.UploadChaincontract.start_at:type_name -> google.protobuf.Timestamp
+	35, // 47: BcAndBankService.UploadChaincontract.end_at:type_name -> google.protobuf.Timestamp
+	28, // 48: BcAndBankService.UploadChaincontract.uploadDocumnet:type_name -> BcAndBankService.DocumentInfo
+	30, // 49: BcAndBankService.UploadChainInvoices.uploadChainInvoice:type_name -> BcAndBankService.UploadChainInvoice
+	4,  // 50: BcAndBankService.UploadChainInvoice.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 51: BcAndBankService.UploadChainInvoice.invoicdDate:type_name -> google.protobuf.Timestamp
+	32, // 52: BcAndBankService.UploadChainInvoiceReceiveds.uploadChainInvoiceReceived:type_name -> BcAndBankService.UploadChainInvoiceReceived
+	4,  // 53: BcAndBankService.UploadChainInvoiceReceived.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 54: BcAndBankService.UploadChainInvoiceReceived.invoicdDate:type_name -> google.protobuf.Timestamp
+	35, // 55: BcAndBankService.UploadChainInvoiceReceived.receiveAt:type_name -> google.protobuf.Timestamp
+	34, // 56: BcAndBankService.UploadChainInvoicePaids.uploadChainInvoicePaid:type_name -> BcAndBankService.UploadChainInvoicePaid
+	4,  // 57: BcAndBankService.UploadChainInvoicePaid.uploadChainType:type_name -> BcAndBankService.UploadChainType
+	35, // 58: BcAndBankService.UploadChainInvoicePaid.invoicdDate:type_name -> google.protobuf.Timestamp
+	35, // 59: BcAndBankService.UploadChainInvoicePaid.payAt:type_name -> google.protobuf.Timestamp
+	0,  // 60: BcAndBankService.BcAndBankService.BcQueryByTxID:input_type -> BcAndBankService.QueryTxIDReq
+	5,  // 61: BcAndBankService.BcAndBankService.BcUploadOrganizations:input_type -> BcAndBankService.UploadChainOrganizations
+	8,  // 62: BcAndBankService.BcAndBankService.BcUploadProjects:input_type -> BcAndBankService.UploadChainProjects
+	10, // 63: BcAndBankService.BcAndBankService.BcUploadProgressPlans:input_type -> BcAndBankService.UploadChainProgressPlans
+	12, // 64: BcAndBankService.BcAndBankService.BcUploadProgressActuals:input_type -> BcAndBankService.UploadChainProgressActuals
+	14, // 65: BcAndBankService.BcAndBankService.BcUploadQualityInspections:input_type -> BcAndBankService.UploadChainQualityInspections
+	16, // 66: BcAndBankService.BcAndBankService.BcUploadQualityReactifies:input_type -> BcAndBankService.UploadChainQualityReactifies
+	20, // 67: BcAndBankService.BcAndBankService.BcUploadProcessApply:input_type -> BcAndBankService.UploadChainProcessApplies
+	23, // 68: BcAndBankService.BcAndBankService.BcUploadProcessApprove:input_type -> BcAndBankService.UploadChainProcessApproves
+	26, // 69: BcAndBankService.BcAndBankService.BcUploadContract:input_type -> BcAndBankService.UploadChainContracts
+	29, // 70: BcAndBankService.BcAndBankService.BcUploadInvoice:input_type -> BcAndBankService.UploadChainInvoices
+	31, // 71: BcAndBankService.BcAndBankService.BcUploadInvoiceReceived:input_type -> BcAndBankService.UploadChainInvoiceReceiveds
+	33, // 72: BcAndBankService.BcAndBankService.BcUploadInvoicePaid:input_type -> BcAndBankService.UploadChainInvoicePaids
+	1,  // 73: BcAndBankService.BcAndBankService.BcQueryByTxID:output_type -> BcAndBankService.QueryTxIDRsp
+	3,  // 74: BcAndBankService.BcAndBankService.BcUploadOrganizations:output_type -> BcAndBankService.BcResponses
+	3,  // 75: BcAndBankService.BcAndBankService.BcUploadProjects:output_type -> BcAndBankService.BcResponses
+	3,  // 76: BcAndBankService.BcAndBankService.BcUploadProgressPlans:output_type -> BcAndBankService.BcResponses
+	3,  // 77: BcAndBankService.BcAndBankService.BcUploadProgressActuals:output_type -> BcAndBankService.BcResponses
+	3,  // 78: BcAndBankService.BcAndBankService.BcUploadQualityInspections:output_type -> BcAndBankService.BcResponses
+	3,  // 79: BcAndBankService.BcAndBankService.BcUploadQualityReactifies:output_type -> BcAndBankService.BcResponses
+	3,  // 80: BcAndBankService.BcAndBankService.BcUploadProcessApply:output_type -> BcAndBankService.BcResponses
+	3,  // 81: BcAndBankService.BcAndBankService.BcUploadProcessApprove:output_type -> BcAndBankService.BcResponses
+	3,  // 82: BcAndBankService.BcAndBankService.BcUploadContract:output_type -> BcAndBankService.BcResponses
+	3,  // 83: BcAndBankService.BcAndBankService.BcUploadInvoice:output_type -> BcAndBankService.BcResponses
+	3,  // 84: BcAndBankService.BcAndBankService.BcUploadInvoiceReceived:output_type -> BcAndBankService.BcResponses
+	3,  // 85: BcAndBankService.BcAndBankService.BcUploadInvoicePaid:output_type -> BcAndBankService.BcResponses
+	73, // [73:86] is the sub-list for method output_type
+	60, // [60:73] is the sub-list for method input_type
+	60, // [60:60] is the sub-list for extension type_name
+	60, // [60:60] is the sub-list for extension extendee
+	0,  // [0:60] is the sub-list for field type_name
 }
 
 func init() { file_BcAndBankService_proto_init() }
@@ -6106,78 +4126,6 @@ func file_BcAndBankService_proto_init() {
 			}
 		}
 		file_BcAndBankService_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BcAndBankPayOrderActionRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BcAndBankFactoringActionRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BcAndBankFactoringRepayActionRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BcAndBankActionResp); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BankRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BankResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BcResponse); i {
 			case 0:
 				return &v.state
@@ -6189,7 +4137,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BcResponses); i {
 			case 0:
 				return &v.state
@@ -6201,31 +4149,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CommonResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BankAccount); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainType); i {
 			case 0:
 				return &v.state
@@ -6237,259 +4161,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PayOrder); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainCompany); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainCompanies); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainConfig); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainConfigs); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainContract); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainContracts); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainContractMi); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainContractMis); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainFactoringOrder); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainFactoringOrders); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainMedicine); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainMedicines); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainMi); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainMis); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainPayOrder); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainPayOrders); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainShipment); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainShipments); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainShipmentOrder); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainShipmentOrders); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_BcAndBankService_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainOrganizations); i {
 			case 0:
 				return &v.state
@@ -6501,7 +4173,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainOrganization); i {
 			case 0:
 				return &v.state
@@ -6513,7 +4185,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadDocumentInfo); i {
 			case 0:
 				return &v.state
@@ -6525,7 +4197,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProjects); i {
 			case 0:
 				return &v.state
@@ -6537,7 +4209,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProject); i {
 			case 0:
 				return &v.state
@@ -6549,7 +4221,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProgressPlans); i {
 			case 0:
 				return &v.state
@@ -6561,7 +4233,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProgressPlan); i {
 			case 0:
 				return &v.state
@@ -6573,7 +4245,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProgressActuals); i {
 			case 0:
 				return &v.state
@@ -6585,7 +4257,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProgressActual); i {
 			case 0:
 				return &v.state
@@ -6597,7 +4269,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainQualityInspections); i {
 			case 0:
 				return &v.state
@@ -6609,7 +4281,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainQualityInspection); i {
 			case 0:
 				return &v.state
@@ -6621,7 +4293,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[45].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainQualityReactifies); i {
 			case 0:
 				return &v.state
@@ -6633,7 +4305,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[46].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainReactify); i {
 			case 0:
 				return &v.state
@@ -6645,7 +4317,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[47].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainReviews); i {
 			case 0:
 				return &v.state
@@ -6657,7 +4329,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainReview); i {
 			case 0:
 				return &v.state
@@ -6669,7 +4341,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProcessApplies); i {
 			case 0:
 				return &v.state
@@ -6681,7 +4353,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProcessApply); i {
 			case 0:
 				return &v.state
@@ -6693,7 +4365,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DocumentInfoApply); i {
 			case 0:
 				return &v.state
@@ -6705,7 +4377,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProcessApproves); i {
 			case 0:
 				return &v.state
@@ -6717,7 +4389,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UploadChainProcessApprove); i {
 			case 0:
 				return &v.state
@@ -6729,7 +4401,7 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DocumentInfoApprove); i {
 			case 0:
 				return &v.state
@@ -6741,8 +4413,8 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[55].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChainContractInfos); i {
+		file_BcAndBankService_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainContracts); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6753,8 +4425,8 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[56].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UploadChaincontractInfo); i {
+		file_BcAndBankService_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChaincontract); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6765,8 +4437,80 @@ func file_BcAndBankService_proto_init() {
 				return nil
 			}
 		}
-		file_BcAndBankService_proto_msgTypes[57].Exporter = func(v interface{}, i int) interface{} {
+		file_BcAndBankService_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DocumentInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_BcAndBankService_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainInvoices); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_BcAndBankService_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainInvoice); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_BcAndBankService_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainInvoiceReceiveds); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_BcAndBankService_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainInvoiceReceived); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_BcAndBankService_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainInvoicePaids); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_BcAndBankService_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UploadChainInvoicePaid); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6784,7 +4528,7 @@ func file_BcAndBankService_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_BcAndBankService_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   58,
+			NumMessages:   35,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -6810,47 +4554,6 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BcAndBankServiceClient interface {
-	// --------单纯上链接口 start---------
-	// 上链 configs 信息
-	BcUploadConfigs(ctx context.Context, in *UploadChainConfigs, opts ...grpc.CallOption) (*BcResponses, error)
-	// 上链 企业信息s
-	BcUploadCompanies(ctx context.Context, in *UploadChainCompanies, opts ...grpc.CallOption) (*BcResponses, error)
-	// 医疗机构上链
-	BcUploadMis(ctx context.Context, in *UploadChainMis, opts ...grpc.CallOption) (*BcResponses, error)
-	// 药品信息上链
-	BcUploadMedicine(ctx context.Context, in *UploadChainMedicines, opts ...grpc.CallOption) (*BcResponses, error)
-	// 合同信息上链
-	BcUploadContracts(ctx context.Context, in *UploadChainContracts, opts ...grpc.CallOption) (*BcResponses, error)
-	// 子合同信息上链
-	BcUploadContractMis(ctx context.Context, in *UploadChainContractMis, opts ...grpc.CallOption) (*BcResponses, error)
-	// 配送计划上链
-	BcUploadShipments(ctx context.Context, in *UploadChainShipments, opts ...grpc.CallOption) (*BcResponses, error)
-	// 配送单上链
-	BcUploadShipmentOrders(ctx context.Context, in *UploadChainShipmentOrders, opts ...grpc.CallOption) (*BcResponses, error)
-	// 支付单上链, 确权
-	BcUploadPayOrders(ctx context.Context, in *UploadChainPayOrders, opts ...grpc.CallOption) (*BcResponses, error)
-	// 保理单上链（更新）
-	BcUploadFactoringOrders(ctx context.Context, in *UploadChainFactoringOrders, opts ...grpc.CallOption) (*BcResponses, error)
-	// --------上链 + 银行 组合接口 start---------
-	// 发起付款 一笔付款单内可以包含多笔 支付单(接收参数: 多笔 payOrder + 一个 银行请求)
-	// 查所有的支付单, 看是否符合要求
-	// 返回:: 链上数据hash集合 加 银行返回
-	BcAndBankPayOrderAction(ctx context.Context, in *BcAndBankPayOrderActionRequest, opts ...grpc.CallOption) (*BcAndBankActionResp, error)
-	// 发起保理(多笔支付单)
-	// 保理单上链, 支付单上链后才上链, 查所有的支付单: 确认 支付单 处于 待支付/失败/(私有状态 未保理) 中; 调银行
-	BcAndBankFactoringOrdersAction(ctx context.Context, in *BcAndBankFactoringActionRequest, opts ...grpc.CallOption) (*BcAndBankActionResp, error)
-	// 发起保理还款(以保理单为准)
-	// 查保理单, 处于 已保理 状态 ->
-	BcAndBankFactoringRepayAction(ctx context.Context, in *BcAndBankFactoringRepayActionRequest, opts ...grpc.CallOption) (*BcAndBankActionResp, error)
-	// --------危险动作: 强制上链接口 start---------
-	// 强制配送计划上链
-	BcForceUploadShipments(ctx context.Context, in *UploadChainShipments, opts ...grpc.CallOption) (*BcResponses, error)
-	// 强制配送单上链
-	BcForceUploadShipmentOrders(ctx context.Context, in *UploadChainShipmentOrders, opts ...grpc.CallOption) (*BcResponses, error)
-	// 强制支付单上链
-	BcForceUploadPayOrders(ctx context.Context, in *UploadChainPayOrders, opts ...grpc.CallOption) (*BcResponses, error)
-	// 强制Factoring上链
-	BcForceUploadFactoring(ctx context.Context, in *UploadChainFactoringOrders, opts ...grpc.CallOption) (*BcResponses, error)
 	// 根据 txID 查询 链上交易, 返回 解密后的 json.Marshal 字符串
 	BcQueryByTxID(ctx context.Context, in *QueryTxIDReq, opts ...grpc.CallOption) (*QueryTxIDRsp, error)
 	// 组织单位上链
@@ -6870,7 +4573,11 @@ type BcAndBankServiceClient interface {
 	//流程审批上链
 	BcUploadProcessApprove(ctx context.Context, in *UploadChainProcessApproves, opts ...grpc.CallOption) (*BcResponses, error)
 	//合同上链
-	BcUploadContractBdb(ctx context.Context, in *UploadChainContractInfos, opts ...grpc.CallOption) (*BcResponses, error)
+	BcUploadContract(ctx context.Context, in *UploadChainContracts, opts ...grpc.CallOption) (*BcResponses, error)
+	//发票上链操作
+	BcUploadInvoice(ctx context.Context, in *UploadChainInvoices, opts ...grpc.CallOption) (*BcResponses, error)
+	BcUploadInvoiceReceived(ctx context.Context, in *UploadChainInvoiceReceiveds, opts ...grpc.CallOption) (*BcResponses, error)
+	BcUploadInvoicePaid(ctx context.Context, in *UploadChainInvoicePaids, opts ...grpc.CallOption) (*BcResponses, error)
 }
 
 type bcAndBankServiceClient struct {
@@ -6879,159 +4586,6 @@ type bcAndBankServiceClient struct {
 
 func NewBcAndBankServiceClient(cc grpc.ClientConnInterface) BcAndBankServiceClient {
 	return &bcAndBankServiceClient{cc}
-}
-
-func (c *bcAndBankServiceClient) BcUploadConfigs(ctx context.Context, in *UploadChainConfigs, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadConfigs", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadCompanies(ctx context.Context, in *UploadChainCompanies, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadCompanies", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadMis(ctx context.Context, in *UploadChainMis, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadMis", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadMedicine(ctx context.Context, in *UploadChainMedicines, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadMedicine", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadContracts(ctx context.Context, in *UploadChainContracts, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadContracts", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadContractMis(ctx context.Context, in *UploadChainContractMis, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadContractMis", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadShipments(ctx context.Context, in *UploadChainShipments, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadShipments", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadShipmentOrders(ctx context.Context, in *UploadChainShipmentOrders, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadShipmentOrders", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadPayOrders(ctx context.Context, in *UploadChainPayOrders, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadPayOrders", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcUploadFactoringOrders(ctx context.Context, in *UploadChainFactoringOrders, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadFactoringOrders", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcAndBankPayOrderAction(ctx context.Context, in *BcAndBankPayOrderActionRequest, opts ...grpc.CallOption) (*BcAndBankActionResp, error) {
-	out := new(BcAndBankActionResp)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcAndBankPayOrderAction", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcAndBankFactoringOrdersAction(ctx context.Context, in *BcAndBankFactoringActionRequest, opts ...grpc.CallOption) (*BcAndBankActionResp, error) {
-	out := new(BcAndBankActionResp)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcAndBankFactoringOrdersAction", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcAndBankFactoringRepayAction(ctx context.Context, in *BcAndBankFactoringRepayActionRequest, opts ...grpc.CallOption) (*BcAndBankActionResp, error) {
-	out := new(BcAndBankActionResp)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcAndBankFactoringRepayAction", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcForceUploadShipments(ctx context.Context, in *UploadChainShipments, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcForceUploadShipments", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcForceUploadShipmentOrders(ctx context.Context, in *UploadChainShipmentOrders, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcForceUploadShipmentOrders", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcForceUploadPayOrders(ctx context.Context, in *UploadChainPayOrders, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcForceUploadPayOrders", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bcAndBankServiceClient) BcForceUploadFactoring(ctx context.Context, in *UploadChainFactoringOrders, opts ...grpc.CallOption) (*BcResponses, error) {
-	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcForceUploadFactoring", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *bcAndBankServiceClient) BcQueryByTxID(ctx context.Context, in *QueryTxIDReq, opts ...grpc.CallOption) (*QueryTxIDRsp, error) {
@@ -7115,9 +4669,36 @@ func (c *bcAndBankServiceClient) BcUploadProcessApprove(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *bcAndBankServiceClient) BcUploadContractBdb(ctx context.Context, in *UploadChainContractInfos, opts ...grpc.CallOption) (*BcResponses, error) {
+func (c *bcAndBankServiceClient) BcUploadContract(ctx context.Context, in *UploadChainContracts, opts ...grpc.CallOption) (*BcResponses, error) {
 	out := new(BcResponses)
-	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadContractBdb", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadContract", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bcAndBankServiceClient) BcUploadInvoice(ctx context.Context, in *UploadChainInvoices, opts ...grpc.CallOption) (*BcResponses, error) {
+	out := new(BcResponses)
+	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadInvoice", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bcAndBankServiceClient) BcUploadInvoiceReceived(ctx context.Context, in *UploadChainInvoiceReceiveds, opts ...grpc.CallOption) (*BcResponses, error) {
+	out := new(BcResponses)
+	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadInvoiceReceived", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bcAndBankServiceClient) BcUploadInvoicePaid(ctx context.Context, in *UploadChainInvoicePaids, opts ...grpc.CallOption) (*BcResponses, error) {
+	out := new(BcResponses)
+	err := c.cc.Invoke(ctx, "/BcAndBankService.BcAndBankService/BcUploadInvoicePaid", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -7126,47 +4707,6 @@ func (c *bcAndBankServiceClient) BcUploadContractBdb(ctx context.Context, in *Up
 
 // BcAndBankServiceServer is the server API for BcAndBankService service.
 type BcAndBankServiceServer interface {
-	// --------单纯上链接口 start---------
-	// 上链 configs 信息
-	BcUploadConfigs(context.Context, *UploadChainConfigs) (*BcResponses, error)
-	// 上链 企业信息s
-	BcUploadCompanies(context.Context, *UploadChainCompanies) (*BcResponses, error)
-	// 医疗机构上链
-	BcUploadMis(context.Context, *UploadChainMis) (*BcResponses, error)
-	// 药品信息上链
-	BcUploadMedicine(context.Context, *UploadChainMedicines) (*BcResponses, error)
-	// 合同信息上链
-	BcUploadContracts(context.Context, *UploadChainContracts) (*BcResponses, error)
-	// 子合同信息上链
-	BcUploadContractMis(context.Context, *UploadChainContractMis) (*BcResponses, error)
-	// 配送计划上链
-	BcUploadShipments(context.Context, *UploadChainShipments) (*BcResponses, error)
-	// 配送单上链
-	BcUploadShipmentOrders(context.Context, *UploadChainShipmentOrders) (*BcResponses, error)
-	// 支付单上链, 确权
-	BcUploadPayOrders(context.Context, *UploadChainPayOrders) (*BcResponses, error)
-	// 保理单上链（更新）
-	BcUploadFactoringOrders(context.Context, *UploadChainFactoringOrders) (*BcResponses, error)
-	// --------上链 + 银行 组合接口 start---------
-	// 发起付款 一笔付款单内可以包含多笔 支付单(接收参数: 多笔 payOrder + 一个 银行请求)
-	// 查所有的支付单, 看是否符合要求
-	// 返回:: 链上数据hash集合 加 银行返回
-	BcAndBankPayOrderAction(context.Context, *BcAndBankPayOrderActionRequest) (*BcAndBankActionResp, error)
-	// 发起保理(多笔支付单)
-	// 保理单上链, 支付单上链后才上链, 查所有的支付单: 确认 支付单 处于 待支付/失败/(私有状态 未保理) 中; 调银行
-	BcAndBankFactoringOrdersAction(context.Context, *BcAndBankFactoringActionRequest) (*BcAndBankActionResp, error)
-	// 发起保理还款(以保理单为准)
-	// 查保理单, 处于 已保理 状态 ->
-	BcAndBankFactoringRepayAction(context.Context, *BcAndBankFactoringRepayActionRequest) (*BcAndBankActionResp, error)
-	// --------危险动作: 强制上链接口 start---------
-	// 强制配送计划上链
-	BcForceUploadShipments(context.Context, *UploadChainShipments) (*BcResponses, error)
-	// 强制配送单上链
-	BcForceUploadShipmentOrders(context.Context, *UploadChainShipmentOrders) (*BcResponses, error)
-	// 强制支付单上链
-	BcForceUploadPayOrders(context.Context, *UploadChainPayOrders) (*BcResponses, error)
-	// 强制Factoring上链
-	BcForceUploadFactoring(context.Context, *UploadChainFactoringOrders) (*BcResponses, error)
 	// 根据 txID 查询 链上交易, 返回 解密后的 json.Marshal 字符串
 	BcQueryByTxID(context.Context, *QueryTxIDReq) (*QueryTxIDRsp, error)
 	// 组织单位上链
@@ -7186,64 +4726,17 @@ type BcAndBankServiceServer interface {
 	//流程审批上链
 	BcUploadProcessApprove(context.Context, *UploadChainProcessApproves) (*BcResponses, error)
 	//合同上链
-	BcUploadContractBdb(context.Context, *UploadChainContractInfos) (*BcResponses, error)
+	BcUploadContract(context.Context, *UploadChainContracts) (*BcResponses, error)
+	//发票上链操作
+	BcUploadInvoice(context.Context, *UploadChainInvoices) (*BcResponses, error)
+	BcUploadInvoiceReceived(context.Context, *UploadChainInvoiceReceiveds) (*BcResponses, error)
+	BcUploadInvoicePaid(context.Context, *UploadChainInvoicePaids) (*BcResponses, error)
 }
 
 // UnimplementedBcAndBankServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedBcAndBankServiceServer struct {
 }
 
-func (*UnimplementedBcAndBankServiceServer) BcUploadConfigs(context.Context, *UploadChainConfigs) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadConfigs not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadCompanies(context.Context, *UploadChainCompanies) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadCompanies not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadMis(context.Context, *UploadChainMis) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadMis not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadMedicine(context.Context, *UploadChainMedicines) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadMedicine not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadContracts(context.Context, *UploadChainContracts) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadContracts not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadContractMis(context.Context, *UploadChainContractMis) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadContractMis not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadShipments(context.Context, *UploadChainShipments) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadShipments not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadShipmentOrders(context.Context, *UploadChainShipmentOrders) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadShipmentOrders not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadPayOrders(context.Context, *UploadChainPayOrders) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadPayOrders not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcUploadFactoringOrders(context.Context, *UploadChainFactoringOrders) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadFactoringOrders not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcAndBankPayOrderAction(context.Context, *BcAndBankPayOrderActionRequest) (*BcAndBankActionResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcAndBankPayOrderAction not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcAndBankFactoringOrdersAction(context.Context, *BcAndBankFactoringActionRequest) (*BcAndBankActionResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcAndBankFactoringOrdersAction not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcAndBankFactoringRepayAction(context.Context, *BcAndBankFactoringRepayActionRequest) (*BcAndBankActionResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcAndBankFactoringRepayAction not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcForceUploadShipments(context.Context, *UploadChainShipments) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcForceUploadShipments not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcForceUploadShipmentOrders(context.Context, *UploadChainShipmentOrders) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcForceUploadShipmentOrders not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcForceUploadPayOrders(context.Context, *UploadChainPayOrders) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcForceUploadPayOrders not implemented")
-}
-func (*UnimplementedBcAndBankServiceServer) BcForceUploadFactoring(context.Context, *UploadChainFactoringOrders) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcForceUploadFactoring not implemented")
-}
 func (*UnimplementedBcAndBankServiceServer) BcQueryByTxID(context.Context, *QueryTxIDReq) (*QueryTxIDRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BcQueryByTxID not implemented")
 }
@@ -7271,318 +4764,21 @@ func (*UnimplementedBcAndBankServiceServer) BcUploadProcessApply(context.Context
 func (*UnimplementedBcAndBankServiceServer) BcUploadProcessApprove(context.Context, *UploadChainProcessApproves) (*BcResponses, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BcUploadProcessApprove not implemented")
 }
-func (*UnimplementedBcAndBankServiceServer) BcUploadContractBdb(context.Context, *UploadChainContractInfos) (*BcResponses, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BcUploadContractBdb not implemented")
+func (*UnimplementedBcAndBankServiceServer) BcUploadContract(context.Context, *UploadChainContracts) (*BcResponses, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BcUploadContract not implemented")
+}
+func (*UnimplementedBcAndBankServiceServer) BcUploadInvoice(context.Context, *UploadChainInvoices) (*BcResponses, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BcUploadInvoice not implemented")
+}
+func (*UnimplementedBcAndBankServiceServer) BcUploadInvoiceReceived(context.Context, *UploadChainInvoiceReceiveds) (*BcResponses, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BcUploadInvoiceReceived not implemented")
+}
+func (*UnimplementedBcAndBankServiceServer) BcUploadInvoicePaid(context.Context, *UploadChainInvoicePaids) (*BcResponses, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BcUploadInvoicePaid not implemented")
 }
 
 func RegisterBcAndBankServiceServer(s *grpc.Server, srv BcAndBankServiceServer) {
 	s.RegisterService(&_BcAndBankService_serviceDesc, srv)
-}
-
-func _BcAndBankService_BcUploadConfigs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainConfigs)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadConfigs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadConfigs",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadConfigs(ctx, req.(*UploadChainConfigs))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadCompanies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainCompanies)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadCompanies(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadCompanies",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadCompanies(ctx, req.(*UploadChainCompanies))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadMis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainMis)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadMis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadMis",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadMis(ctx, req.(*UploadChainMis))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadMedicine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainMedicines)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadMedicine(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadMedicine",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadMedicine(ctx, req.(*UploadChainMedicines))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadContracts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainContracts)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadContracts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadContracts",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadContracts(ctx, req.(*UploadChainContracts))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadContractMis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainContractMis)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadContractMis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadContractMis",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadContractMis(ctx, req.(*UploadChainContractMis))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadShipments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainShipments)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadShipments(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadShipments",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadShipments(ctx, req.(*UploadChainShipments))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadShipmentOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainShipmentOrders)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadShipmentOrders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadShipmentOrders",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadShipmentOrders(ctx, req.(*UploadChainShipmentOrders))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadPayOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainPayOrders)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadPayOrders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadPayOrders",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadPayOrders(ctx, req.(*UploadChainPayOrders))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcUploadFactoringOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainFactoringOrders)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadFactoringOrders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadFactoringOrders",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadFactoringOrders(ctx, req.(*UploadChainFactoringOrders))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcAndBankPayOrderAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BcAndBankPayOrderActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcAndBankPayOrderAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcAndBankPayOrderAction",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcAndBankPayOrderAction(ctx, req.(*BcAndBankPayOrderActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcAndBankFactoringOrdersAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BcAndBankFactoringActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcAndBankFactoringOrdersAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcAndBankFactoringOrdersAction",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcAndBankFactoringOrdersAction(ctx, req.(*BcAndBankFactoringActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcAndBankFactoringRepayAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BcAndBankFactoringRepayActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcAndBankFactoringRepayAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcAndBankFactoringRepayAction",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcAndBankFactoringRepayAction(ctx, req.(*BcAndBankFactoringRepayActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcForceUploadShipments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainShipments)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcForceUploadShipments(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcForceUploadShipments",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcForceUploadShipments(ctx, req.(*UploadChainShipments))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcForceUploadShipmentOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainShipmentOrders)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcForceUploadShipmentOrders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcForceUploadShipmentOrders",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcForceUploadShipmentOrders(ctx, req.(*UploadChainShipmentOrders))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcForceUploadPayOrders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainPayOrders)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcForceUploadPayOrders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcForceUploadPayOrders",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcForceUploadPayOrders(ctx, req.(*UploadChainPayOrders))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BcAndBankService_BcForceUploadFactoring_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainFactoringOrders)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcForceUploadFactoring(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcForceUploadFactoring",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcForceUploadFactoring(ctx, req.(*UploadChainFactoringOrders))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _BcAndBankService_BcQueryByTxID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -7747,20 +4943,74 @@ func _BcAndBankService_BcUploadProcessApprove_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BcAndBankService_BcUploadContractBdb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UploadChainContractInfos)
+func _BcAndBankService_BcUploadContract_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadChainContracts)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BcAndBankServiceServer).BcUploadContractBdb(ctx, in)
+		return srv.(BcAndBankServiceServer).BcUploadContract(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadContractBdb",
+		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadContract",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BcAndBankServiceServer).BcUploadContractBdb(ctx, req.(*UploadChainContractInfos))
+		return srv.(BcAndBankServiceServer).BcUploadContract(ctx, req.(*UploadChainContracts))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BcAndBankService_BcUploadInvoice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadChainInvoices)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BcAndBankServiceServer).BcUploadInvoice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadInvoice",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BcAndBankServiceServer).BcUploadInvoice(ctx, req.(*UploadChainInvoices))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BcAndBankService_BcUploadInvoiceReceived_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadChainInvoiceReceiveds)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BcAndBankServiceServer).BcUploadInvoiceReceived(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadInvoiceReceived",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BcAndBankServiceServer).BcUploadInvoiceReceived(ctx, req.(*UploadChainInvoiceReceiveds))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BcAndBankService_BcUploadInvoicePaid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadChainInvoicePaids)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BcAndBankServiceServer).BcUploadInvoicePaid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/BcAndBankService.BcAndBankService/BcUploadInvoicePaid",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BcAndBankServiceServer).BcUploadInvoicePaid(ctx, req.(*UploadChainInvoicePaids))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7769,74 +5019,6 @@ var _BcAndBankService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "BcAndBankService.BcAndBankService",
 	HandlerType: (*BcAndBankServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "BcUploadConfigs",
-			Handler:    _BcAndBankService_BcUploadConfigs_Handler,
-		},
-		{
-			MethodName: "BcUploadCompanies",
-			Handler:    _BcAndBankService_BcUploadCompanies_Handler,
-		},
-		{
-			MethodName: "BcUploadMis",
-			Handler:    _BcAndBankService_BcUploadMis_Handler,
-		},
-		{
-			MethodName: "BcUploadMedicine",
-			Handler:    _BcAndBankService_BcUploadMedicine_Handler,
-		},
-		{
-			MethodName: "BcUploadContracts",
-			Handler:    _BcAndBankService_BcUploadContracts_Handler,
-		},
-		{
-			MethodName: "BcUploadContractMis",
-			Handler:    _BcAndBankService_BcUploadContractMis_Handler,
-		},
-		{
-			MethodName: "BcUploadShipments",
-			Handler:    _BcAndBankService_BcUploadShipments_Handler,
-		},
-		{
-			MethodName: "BcUploadShipmentOrders",
-			Handler:    _BcAndBankService_BcUploadShipmentOrders_Handler,
-		},
-		{
-			MethodName: "BcUploadPayOrders",
-			Handler:    _BcAndBankService_BcUploadPayOrders_Handler,
-		},
-		{
-			MethodName: "BcUploadFactoringOrders",
-			Handler:    _BcAndBankService_BcUploadFactoringOrders_Handler,
-		},
-		{
-			MethodName: "BcAndBankPayOrderAction",
-			Handler:    _BcAndBankService_BcAndBankPayOrderAction_Handler,
-		},
-		{
-			MethodName: "BcAndBankFactoringOrdersAction",
-			Handler:    _BcAndBankService_BcAndBankFactoringOrdersAction_Handler,
-		},
-		{
-			MethodName: "BcAndBankFactoringRepayAction",
-			Handler:    _BcAndBankService_BcAndBankFactoringRepayAction_Handler,
-		},
-		{
-			MethodName: "BcForceUploadShipments",
-			Handler:    _BcAndBankService_BcForceUploadShipments_Handler,
-		},
-		{
-			MethodName: "BcForceUploadShipmentOrders",
-			Handler:    _BcAndBankService_BcForceUploadShipmentOrders_Handler,
-		},
-		{
-			MethodName: "BcForceUploadPayOrders",
-			Handler:    _BcAndBankService_BcForceUploadPayOrders_Handler,
-		},
-		{
-			MethodName: "BcForceUploadFactoring",
-			Handler:    _BcAndBankService_BcForceUploadFactoring_Handler,
-		},
 		{
 			MethodName: "BcQueryByTxID",
 			Handler:    _BcAndBankService_BcQueryByTxID_Handler,
@@ -7874,8 +5056,20 @@ var _BcAndBankService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _BcAndBankService_BcUploadProcessApprove_Handler,
 		},
 		{
-			MethodName: "BcUploadContractBdb",
-			Handler:    _BcAndBankService_BcUploadContractBdb_Handler,
+			MethodName: "BcUploadContract",
+			Handler:    _BcAndBankService_BcUploadContract_Handler,
+		},
+		{
+			MethodName: "BcUploadInvoice",
+			Handler:    _BcAndBankService_BcUploadInvoice_Handler,
+		},
+		{
+			MethodName: "BcUploadInvoiceReceived",
+			Handler:    _BcAndBankService_BcUploadInvoiceReceived_Handler,
+		},
+		{
+			MethodName: "BcUploadInvoicePaid",
+			Handler:    _BcAndBankService_BcUploadInvoicePaid_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
