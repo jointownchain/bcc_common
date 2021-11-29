@@ -304,7 +304,7 @@ message UploadChainInvoices {
 message UploadChainInvoice {
   UploadChainType uploadChainType = 1;
   string  projectName = 2;
-  string  contractId = 3;
+  int64  contractId = 3;
   string  fromOrganizationName = 4;
   string  constructionName = 5;
   string invoiceTypeDesc = 6;
@@ -328,7 +328,7 @@ message UploadChainInvoiceReceiveds {
 message UploadChainInvoiceReceived {
   UploadChainType uploadChainType = 1;
   string  projectName = 2;
-  string  contractId = 3;
+  int64  contractId = 3;
   string  fromOrganizationName = 4;
   string  constructionName = 5;
   string invoiceTypeDesc = 6;
@@ -355,7 +355,7 @@ message UploadChainInvoicePaids {
 message UploadChainInvoicePaid {
   UploadChainType uploadChainType = 1;
   string  projectName = 2;
-  string  contractId = 3;
+  int64  contractId = 3;
   string  fromOrganizationName = 4;
   string  constructionName = 5;
   string invoiceTypeDesc = 6;
