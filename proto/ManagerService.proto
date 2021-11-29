@@ -4353,6 +4353,7 @@ message ProjectVo {
   int64  updatedBy = 23;
   string updatedByName = 24;
   google.protobuf.Timestamp updatedAt = 25;
+  string hashInfo = 26;
 }
 
 message ProjectsResp {
@@ -4476,6 +4477,7 @@ message ProgressPlanVo {
   int64  updatedBy = 17;
   string updatedByName = 18;
   google.protobuf.Timestamp updatedAt = 19;
+  string hashInfo = 20;
 }
 
 message ProgressPlansResp {
@@ -4584,6 +4586,7 @@ message ProgressActualVo {
   int64  updatedBy = 15;
   string updatedByName = 16;
   google.protobuf.Timestamp updatedAt = 17;
+  string hashInfo = 18;
 }
 
 message ProgressActualsResp {
@@ -4731,6 +4734,10 @@ message QualityInspectionVo {
   google.protobuf.Timestamp createdAt = 36;
   int64  updatedBy = 37;
   google.protobuf.Timestamp updatedAt = 38;
+  string hashInfo = 39;
+  string inspectionHashInfo = 40;
+  string rectifyHashInfo = 41;
+  string reviewHashInfo = 42;
 }
 
 message QualityInspectionsResp {
