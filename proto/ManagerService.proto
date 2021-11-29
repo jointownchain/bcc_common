@@ -2515,6 +2515,8 @@ service ManagerService {
   rpc CreateInvoiceHash(CreateInvoiceHashReq) returns(CreateInvoiceHashResp);
   rpc UpdateInvoiceHash(UpdateInvoiceHashReq) returns(UpdateInvoiceHashResp);
   rpc DeleteOneInvoice(DeleteOneInvoiceReq) returns(DeleteOneInvoiceResp);
+  rpc ReceiveInvoiceHash(ReceiveInvoiceHashReq) returns(ReceiveInvoiceHashResp);
+  rpc PayInvoiceHash(PayInvoiceHashReq) returns(PayInvoiceHashResp);
   
   //项目相关
   rpc CreateOneProject(ProjectReq) returns(OpProjectResp);
@@ -5298,7 +5300,8 @@ message CreateInvoiceHashReq {
   int64  createdBy = 30;
   google.protobuf.Timestamp createdAt = 31;
   int64   managerId = 32;
-  string InfoHash = 33;
+  string infoHash = 33;
+  string activeStatus = 34;
 }
 
 message CreateInvoiceHashResp {
@@ -5338,6 +5341,7 @@ message CreateOneInvoiceReq {
   int64  createdBy = 30;
   google.protobuf.Timestamp createdAt = 31;
   int64   managerId = 32;
+  string activeStatus = 33;
 }
 
 message CreateOneInvoiceResp {
@@ -5378,6 +5382,7 @@ message UpdateInvoiceHasReq {
   google.protobuf.Timestamp updatedAt = 31;
   int64  managerId = 32;
   string infoHash = 33;
+  string activeStatus = 34;
 }
 
 message UpdateInvoiceHasResp {
@@ -5417,6 +5422,7 @@ message UpdateOneInvoiceReq {
   int64  updatedBy = 30;
   google.protobuf.Timestamp updatedAt = 31;
   int64  managerId = 32;
+  string activeStatus = 33;
 }
 
 message UpdateOneInvoiceResp {
@@ -5476,6 +5482,7 @@ message InvoiceInfoVo {
   string fromOrganizationName  = 37; 
   UploadChainInvoice uploadChainInvoice  = 38;  
   int64  managerId = 39;
+  string activeStatus = 40;
 }
 
 message UploadChainInvoice {
@@ -5553,6 +5560,7 @@ message ListInvoiceVo {
   string constructionName  = 36;  
   string fromOrganizationName  = 37; 
   int64  managerId = 38;
+  string activeStatus = 39;
 }
 
 message DeleteOneInvoiceReq {
@@ -5598,6 +5606,7 @@ message UpdateInvoiceHashReq {
   google.protobuf.Timestamp updatedAt = 31;
   int64  managerId = 32;
   string infoHash = 33;
+  string activeStatus = 34;
 }
 
 message UpdateInvoiceHashResp {
