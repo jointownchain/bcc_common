@@ -2579,8 +2579,45 @@ service ManagerService {
   rpc UpdateSafetyInspectionHash(SafetyInspectionReq) returns(OperateIntegerResp);
   rpc UpdateSafetyRectifyHash(SafetyInspectionReq) returns(OperateIntegerResp);
   rpc UpdateSafetyReviewHash(SafetyInspectionReq) returns(OperateIntegerResp);
-  rpc GetSafetyInspectionHash(GetSafetyInspectionHashReq) returns(GetSafetyInspectionHashResp);
+  rpc GetSafetyInspectionHash(SafetyInspectionIdsReq) returns(GetSafetyInspectionHashResp);
   //===SafetyInspection rpc end===
+  
+  //===SafetyLog rpc begin===
+  rpc CreateOneSafetyLog(SafetyLogReq) returns(OperateIntegerResp);
+  rpc UpdateOneSafetyLog(SafetyLogReq) returns(OperateIntegerResp);
+  rpc DeleteOneSafetyLog(SafetyLogIdsReq) returns(OperateIntegerResp);
+  rpc GetOneSafetyLog(SafetyLogIdsReq) returns(SafetyLogsResp);
+  rpc ListSafetyLog(ListSafetyLogReq) returns(SafetyLogsResp);
+  rpc CreateSafetyLogHash(SafetyLogReq) returns(OperateIntegerResp);
+  rpc UpdateSafetyLogHash(SafetyLogReq) returns(OperateIntegerResp);
+  rpc GetSafetyLogHash(SafetyLogIdsReq) returns(GetSafetyLogHashResp);
+  //===SafetyLog rpc end===
+  
+  //===Workman rpc begin===
+  rpc CreateOneWorkman(WorkmanReq) returns(OperateIntegerResp);
+  rpc UpdateOneWorkman(WorkmanReq) returns(OperateIntegerResp);
+  rpc DeleteOneWorkman(WorkmanIdsReq) returns(OperateIntegerResp);
+  rpc GetOneWorkman(WorkmanIdsReq) returns(WorkmansResp);
+  rpc ListWorkman(ListWorkmanReq) returns(WorkmansResp);
+  rpc CreateWorkmanHash(WorkmanReq) returns(OperateIntegerResp);
+  rpc UpdateWorkmanHash(WorkmanReq) returns(OperateIntegerResp);
+  rpc GetWorkmanHash(WorkmanIdsReq) returns(GetWorkmanHashResp);
+  rpc ImportWorkman(WorkmansReq) returns(OperateIntegerResp);
+  rpc BatchWorkmanHash(WorkmansReq) returns(OperateIntegerResp);
+  //===Workman rpc end===
+  
+  //===WorkmanAttendance rpc begin===
+  rpc CreateOneWorkmanAttendance(WorkmanAttendanceReq) returns(OperateIntegerResp);
+  rpc UpdateOneWorkmanAttendance(WorkmanAttendanceReq) returns(OperateIntegerResp);
+  rpc DeleteOneWorkmanAttendance(WorkmanAttendanceIdsReq) returns(OperateIntegerResp);
+  rpc GetOneWorkmanAttendance(WorkmanAttendanceIdsReq) returns(WorkmanAttendancesResp);
+  rpc ListWorkmanAttendance(ListWorkmanAttendanceReq) returns(WorkmanAttendancesResp);
+  rpc CreateWorkmanAttendanceHash(WorkmanAttendanceReq) returns(OperateIntegerResp);
+  rpc UpdateWorkmanAttendanceHash(WorkmanAttendanceReq) returns(OperateIntegerResp);
+  rpc GetWorkmanAttendanceHash(WorkmanAttendanceIdsReq) returns(GetWorkmanAttendanceHashResp);
+  rpc ImportWorkmanAttendance(WorkmanAttendancesReq) returns(OperateIntegerResp);
+  rpc BatchWorkmanAttendanceHash(WorkmanAttendancesReq) returns(OperateIntegerResp);
+  //===WorkmanAttendance rpc end===
 }
 
 message StockSyncReq{
@@ -5888,11 +5925,6 @@ message SafetyInspectionIdsReq {
   int64  managerId = 2;
 }
 
-message GetSafetyInspectionHashReq {
-  int64 managerId = 1;
-  repeated int64 safetyInspectionId = 2;
-}
-
 message ListSafetyInspectionReq {
   int64  safetyInspectionId = 1;
   string safetyInspectionCode = 2;
@@ -6023,3 +6055,347 @@ message SafetyInspectionHashVo {
 }
 
 //===SafetyInspection Proto end===
+
+
+//===SafetyLog Proto begin===
+
+message SafetyLogReq {
+  int64  safetyLogId = 1;
+  string safetyLogCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  attendanceNumber = 6;
+  string recordPerson = 7;
+  google.protobuf.Timestamp recordDate = 8;
+  string recordDept = 9;
+  string constructionArea = 10;
+  string safetySituation = 11;
+  string safetyEducation = 12;
+  string safetyMeeting = 13;
+  string activeStatus = 14;
+  string memo = 15;
+  int64  createdBy = 16;
+  google.protobuf.Timestamp createdAt = 17;
+  int64  updatedBy = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  repeated UploadDocumentInfo uploadDocument = 20;
+  string infoHash = 21;
+  int64  managerId = 22;
+}
+
+message SafetyLogIdsReq {
+  repeated int64 safetyLogIds = 1;
+  int64  managerId = 2;
+}
+
+message ListSafetyLogReq {
+  int64  safetyLogId = 1;
+  string safetyLogCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  attendanceNumber = 6;
+  string recordPerson = 7;
+  google.protobuf.Timestamp recordDate = 8;
+  string recordDept = 9;
+  string constructionArea = 10;
+  string safetySituation = 11;
+  string safetyEducation = 12;
+  string safetyMeeting = 13;
+  string activeStatus = 14;
+  string memo = 15;
+  int64  createdBy = 16;
+  google.protobuf.Timestamp createdAt = 17;
+  int64  updatedBy = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  string projectName = 20;
+  string fromOrganizationName = 21;
+  int64  managerId = 22;
+}
+
+message SafetyLogsResp {
+  repeated SafetyLogVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GetSafetyLogHashResp {
+  repeated SafetyLogHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message SafetyLogVo {
+  int64  safetyLogId = 1;
+  string safetyLogCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  attendanceNumber = 6;
+  string recordPerson = 7;
+  google.protobuf.Timestamp recordDate = 8;
+  string recordDept = 9;
+  string constructionArea = 10;
+  string safetySituation = 11;
+  string safetyEducation = 12;
+  string safetyMeeting = 13;
+  string activeStatus = 14;
+  string memo = 15;
+  int64  createdBy = 16;
+  google.protobuf.Timestamp createdAt = 17;
+  int64  updatedBy = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  string projectName = 20;
+  string fromOrganizationName = 21;
+  SafetyLogHashVo safetyLogHash = 22;
+  repeated UploadDocumentInfo uploadDocument = 23;  
+}
+
+message SafetyLogHashVo {
+  int64  id = 1;
+  int64  safetyLogId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string msg = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+
+//===SafetyLog Proto end===
+
+  
+//===Workman Proto begin===
+message WorkmansReq {
+  repeated WorkmanReq list = 1;
+  int64  managerId = 2;
+}
+
+message WorkmanReq {
+  int64  workmanId = 1;
+  string workmanCode = 2;
+  int64  projectId = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  int64  organizationId = 8;
+  string platFormType = 9;
+  string workmanType = 10;
+  string photoUrl = 11;
+  string sourceType = 12;
+  string activeStatus = 13;
+  string memo = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  repeated UploadDocumentInfo uploadDocument = 19;
+  string infoHash = 20;
+  int64  managerId = 21;
+}
+
+message WorkmanIdsReq {
+  repeated int64 workmanIds = 1;
+  int64  managerId = 2;
+}
+
+message ListWorkmanReq {
+  int64  workmanId = 1;
+  string workmanCode = 2;
+  int64  projectId = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  int64  organizationId = 8;
+  string platFormType = 9;
+  string workmanType = 10;
+  string photoUrl = 11;
+  string sourceType = 12;
+  string activeStatus = 13;
+  string memo = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  string projectName = 19;
+  string organizationName = 20;
+  int64  managerId = 21;
+}
+
+message WorkmansResp {
+  repeated WorkmanVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GetWorkmanHashResp {
+  repeated WorkmanHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message WorkmanVo {
+  int64  workmanId = 1;
+  string workmanCode = 2;
+  int64  projectId = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  int64  organizationId = 8;
+  string platFormType = 9;
+  string workmanType = 10;
+  string photoUrl = 11;
+  string sourceType = 12;
+  string activeStatus = 13;
+  string memo = 14;
+  int64  createdBy = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  google.protobuf.Timestamp updatedAt = 18;
+  string projectName = 19;
+  string organizationName = 20;
+  WorkmanHashVo workmanHash = 22;
+  repeated UploadDocumentInfo uploadDocument = 23;  
+}
+
+message WorkmanHashVo {
+  int64  id = 1;
+  int64  workmanId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string msg = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+//===Workman Proto end===
+
+//===WorkmanAttendance Proto begin===
+message WorkmanAttendancesReq {
+  repeated WorkmanAttendanceReq list = 1;
+  int64  managerId = 2;
+}
+
+message WorkmanAttendanceReq {
+  int64  workmanAttendanceId = 1;
+  string workmanAttendanceCode = 2;
+  int64  projectId = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  float temperature = 8;
+  string safetyHat = 9;
+  string wearMask = 10;
+  string healthCode = 11;
+  string travelCode = 12;
+  int64  organizationId = 13;
+  string platFormType = 14;
+  string workmanType = 15;
+  string sourceType = 16;
+  google.protobuf.Timestamp uploadDate = 17;
+  string activeStatus = 18;
+  string memo = 19;
+  int64  createdBy = 20;
+  google.protobuf.Timestamp createdAt = 21;
+  int64  updatedBy = 22;
+  google.protobuf.Timestamp updatedAt = 23;
+  repeated UploadDocumentInfo uploadDocument = 24;
+  string infoHash = 25;
+  int64  managerId = 26;
+}
+
+message WorkmanAttendanceIdsReq {
+  repeated int64 workmanAttendanceIds = 1;
+  int64  managerId = 2;
+}
+
+message ListWorkmanAttendanceReq {
+  int64  workmanAttendanceId = 1;
+  string workmanAttendanceCode = 2;
+  int64  projectId = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  float temperature = 8;
+  string safetyHat = 9;
+  string wearMask = 10;
+  string healthCode = 11;
+  string travelCode = 12;
+  int64  organizationId = 13;
+  string platFormType = 14;
+  string workmanType = 15;
+  string sourceType = 16;
+  google.protobuf.Timestamp uploadDate = 17;
+  string activeStatus = 18;
+  string memo = 19;
+  int64  createdBy = 20;
+  google.protobuf.Timestamp createdAt = 21;
+  int64  updatedBy = 22;
+  google.protobuf.Timestamp updatedAt = 23;
+  string projectName = 24;
+  string organizationName = 25;
+  int64  managerId = 26;
+}
+
+message WorkmanAttendancesResp {
+  repeated WorkmanAttendanceVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GetWorkmanAttendanceHashResp {
+  repeated WorkmanAttendanceHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message WorkmanAttendanceVo {
+  int64  workmanAttendanceId = 1;
+  string workmanAttendanceCode = 2;
+  int64  projectId = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  float temperature = 8;
+  string safetyHat = 9;
+  string wearMask = 10;
+  string healthCode = 11;
+  string travelCode = 12;
+  int64  organizationId = 13;
+  string platFormType = 14;
+  string workmanType = 15;
+  string sourceType = 16;
+  google.protobuf.Timestamp uploadDate = 17;
+  string activeStatus = 18;
+  string memo = 19;
+  int64  createdBy = 20;
+  google.protobuf.Timestamp createdAt = 21;
+  int64  updatedBy = 22;
+  google.protobuf.Timestamp updatedAt = 23;
+  string projectName = 24;
+  string organizationName = 25;
+  WorkmanAttendanceHashVo workmanHash = 26;
+  repeated UploadDocumentInfo uploadDocument = 27;  
+}
+
+message WorkmanAttendanceHashVo {
+  int64  id = 1;
+  int64  workmanAttendanceId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string msg = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+//===WorkmanAttendance Proto end===
