@@ -2568,6 +2568,19 @@ service ManagerService {
   
   rpc UpdateOneQualityReview(QualityInspectionReq) returns(OpQualityResp);
   rpc UpdateQualityReviewHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
+  
+  //===SafetyInspection rpc begin===
+  rpc CreateOneSafetyInspection(SafetyInspectionReq) returns(OperateIntegerResp);
+  rpc UpdateOneSafetyInspection(SafetyInspectionReq) returns(OperateIntegerResp);
+  rpc DeleteOneSafetyInspection(SafetyInspectionIdsReq) returns(OperateIntegerResp);
+  rpc GetOneSafetyInspection(SafetyInspectionIdsReq) returns(SafetyInspectionsResp);
+  rpc ListSafetyInspection(ListSafetyInspectionReq) returns(SafetyInspectionsResp);
+  rpc CreateSafetyInspectionHash(SafetyInspectionReq) returns(OperateIntegerResp);
+  rpc UpdateSafetyInspectionHash(SafetyInspectionReq) returns(OperateIntegerResp);
+  rpc UpdateSafetyRectifyHash(SafetyInspectionReq) returns(OperateIntegerResp);
+  rpc UpdateSafetyReviewHash(SafetyInspectionReq) returns(OperateIntegerResp);
+  rpc GetSafetyInspectionHash(GetSafetyInspectionHashReq) returns(GetSafetyInspectionHashResp);
+  //===SafetyInspection rpc end===
 }
 
 message StockSyncReq{
@@ -5508,10 +5521,18 @@ message ListInvoiceReq {
   string fromPlatFormType = 4;
   int64  constructionId  = 5;
   string  invoiceStatus    = 6;  
-  google.protobuf.Timestamp startInvoicdDate = 7;
-  google.protobuf.Timestamp endInvoicdDate = 8;
+  google.protobuf.Timestamp startInvoicedDate = 7;
+  google.protobuf.Timestamp endInvoicedDate = 8;
   int64  managerId = 9;
   Page page = 10;
+  string contractName  = 11; 
+  string invoiceType  = 12; 
+  string fromOrganizationName  = 13; 
+  string  constructionName  = 14;
+  google.protobuf.Timestamp startReceivedDate = 15;
+  google.protobuf.Timestamp endReceivedDate = 16;
+  google.protobuf.Timestamp startPaidDate = 17;
+  google.protobuf.Timestamp endPaidDate = 18;
 }
 
 message ListInvoiceResp {
@@ -5812,3 +5833,193 @@ message DashboardRankMaterialMonthVo {
 message ReportDashboardRankMaterialYearResp {
   repeated DashboardRankMaterialYearVo list = 1;
 }
+
+
+  
+//===SafetyInspection Proto begin===
+
+message SafetyInspectionReq {
+  int64  safetyInspectionId = 1;
+  string safetyInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string safetyInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionHandle = 12;
+  string inspectionResult = 13;
+  int64  inspectionBy = 14;
+  google.protobuf.Timestamp inspectionAt = 15;
+  string safetyStatus = 16;
+  string assignedPerson = 17;
+  google.protobuf.Timestamp assignedDate = 18;
+  string assignedDesc = 19;
+  int64  duration = 20;
+  google.protobuf.Timestamp rectifyDeadline = 21;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 22;
+  google.protobuf.Timestamp rectifyDate = 23;
+  string rectifyPerson = 24;
+  string rectifyDesc = 25;
+  int64  rectifyBy = 26;
+  google.protobuf.Timestamp rectifyAt = 27;
+  google.protobuf.Timestamp reviewDate = 28;
+  string reviewPerson = 29;
+  string reviewDesc = 30;
+  int64  reviewBy = 31;
+  google.protobuf.Timestamp reviewAt = 32;
+  string mainSafetyInspectionCode = 33;
+  string activeStatus = 34;
+  string memo = 35;
+  int64  createdBy = 36;
+  google.protobuf.Timestamp createdAt = 37;
+  int64  updatedBy = 38;
+  google.protobuf.Timestamp updatedAt = 39;
+  repeated UploadDocumentInfo uploadDocument = 40;
+  string infoHash = 41;
+  int64  managerId = 42;
+}
+
+message SafetyInspectionIdsReq {
+  repeated int64 safetyInspectionIds = 1;
+  int64  managerId = 2;
+}
+
+message GetSafetyInspectionHashReq {
+  int64 managerId = 1;
+  repeated int64 safetyInspectionId = 2;
+}
+
+message ListSafetyInspectionReq {
+  int64  safetyInspectionId = 1;
+  string safetyInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string safetyInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionHandle = 12;
+  string inspectionResult = 13;
+  int64  inspectionBy = 14;
+  google.protobuf.Timestamp inspectionAt = 15;
+  string safetyStatus = 16;
+  string assignedPerson = 17;
+  google.protobuf.Timestamp assignedDate = 18;
+  string assignedDesc = 19;
+  int64  duration = 20;
+  google.protobuf.Timestamp rectifyDeadline = 21;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 22;
+  google.protobuf.Timestamp rectifyDate = 23;
+  string rectifyPerson = 24;
+  string rectifyDesc = 25;
+  int64  rectifyBy = 26;
+  google.protobuf.Timestamp rectifyAt = 27;
+  google.protobuf.Timestamp reviewDate = 28;
+  string reviewPerson = 29;
+  string reviewDesc = 30;
+  int64  reviewBy = 31;
+  google.protobuf.Timestamp reviewAt = 32;
+  string mainSafetyInspectionCode = 33;
+  string activeStatus = 34;
+  string memo = 35;
+  int64  createdBy = 36;
+  google.protobuf.Timestamp createdAt = 37;
+  int64  updatedBy = 38;
+  google.protobuf.Timestamp updatedAt = 39;
+  string projectName = 40;
+  string fromOrganizationName = 41;
+  string toOrganizationName = 42;
+  int64  managerId = 43;
+}
+
+message OperateIntegerResp {
+  int64 result = 1;
+}
+
+message SafetyInspectionsResp {
+  repeated SafetyInspectionVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GetSafetyInspectionHashResp {
+  repeated SafetyInspectionHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message SafetyInspectionVo {
+  int64  safetyInspectionId = 1;
+  string safetyInspectionCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  toOrganizationId = 6;
+  string toPlatFormType = 7;
+  string safetyInspector = 8;
+  google.protobuf.Timestamp inspectionDate = 9;
+  string inspectionArea = 10;
+  string inspectionSituation = 11;
+  string inspectionHandle = 12;
+  string inspectionResult = 13;
+  int64  inspectionBy = 14;
+  google.protobuf.Timestamp inspectionAt = 15;
+  string safetyStatus = 16;
+  string assignedPerson = 17;
+  google.protobuf.Timestamp assignedDate = 18;
+  string assignedDesc = 19;
+  int64  duration = 20;
+  google.protobuf.Timestamp rectifyDeadline = 21;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 22;
+  google.protobuf.Timestamp rectifyDate = 23;
+  string rectifyPerson = 24;
+  string rectifyDesc = 25;
+  int64  rectifyBy = 26;
+  google.protobuf.Timestamp rectifyAt = 27;
+  google.protobuf.Timestamp reviewDate = 28;
+  string reviewPerson = 29;
+  string reviewDesc = 30;
+  int64  reviewBy = 31;
+  google.protobuf.Timestamp reviewAt = 32;
+  string mainSafetyInspectionCode = 33;
+  string activeStatus = 34;
+  string memo = 35;
+  int64  createdBy = 36;
+  google.protobuf.Timestamp createdAt = 37;
+  int64  updatedBy = 38;
+  google.protobuf.Timestamp updatedAt = 39;
+  string projectName = 40;
+  string fromOrganizationName = 41;
+  string toOrganizationName = 42;
+  SafetyInspectionHashVo safetyInspectionHash = 43;
+  repeated UploadDocumentInfo documentInspections = 44;
+  repeated UploadDocumentInfo documentRectifys = 45;  
+  repeated UploadDocumentInfo documentReviews = 46;    
+}
+
+message SafetyInspectionHashVo {
+  int64  id = 1;
+  int64  safetyInspectionId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string inspectionHash = 5;
+  google.protobuf.Timestamp inspectionUploadAt = 6;
+  string rectifyHash = 7;
+  google.protobuf.Timestamp rectifyUploadAt = 8;
+  string reviewHash = 9;
+  google.protobuf.Timestamp reviewUploadAt = 10;
+  string msg = 11;
+  google.protobuf.Timestamp createdAt = 12;
+  google.protobuf.Timestamp updatedAt = 13;
+}
+
+//===SafetyInspection Proto end===
