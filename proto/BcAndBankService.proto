@@ -316,7 +316,7 @@ message UploadChainInvoice {
   int64  invoiceAmoumt = 12;
   int64  invoiceTax = 13;
   string invoiceCheckCode = 14;
-  google.protobuf.Timestamp invoicdDate = 15;
+  google.protobuf.Timestamp invoicedDate = 15;
   string invoiceDesc = 16;
   string memo = 17; 
 }
@@ -340,7 +340,7 @@ message UploadChainInvoiceReceived {
   int64  invoiceAmoumt = 12;
   int64  invoiceTax = 13;
   string invoiceCheckCode = 14;
-  google.protobuf.Timestamp invoicdDate = 15;
+  google.protobuf.Timestamp invoicedDate = 15;
   string invoiceDesc = 16;
   string memo = 17; 
   string receiveDesc = 18;
@@ -367,7 +367,7 @@ message UploadChainInvoicePaid {
   int64  invoiceAmoumt = 12;
   int64  invoiceTax = 13;
   string invoiceCheckCode = 14;
-  google.protobuf.Timestamp invoicdDate = 15;
+  google.protobuf.Timestamp invoicedDate = 15;
   string invoiceDesc = 16;
   string memo = 17; 
   string payDesc = 18;
