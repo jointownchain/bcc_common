@@ -5995,6 +5995,7 @@ message ListSafetyInspectionReq {
   string fromOrganizationName = 41;
   string toOrganizationName = 42;
   int64  managerId = 43;
+  Page page = 44;
 }
 
 message OperateIntegerResp {
@@ -6138,6 +6139,7 @@ message ListSafetyLogReq {
   string projectName = 20;
   string fromOrganizationName = 21;
   int64  managerId = 22;
+  Page page = 23;
 }
 
 message SafetyLogsResp {
@@ -6250,6 +6252,7 @@ message ListWorkmanReq {
   string projectName = 19;
   string organizationName = 20;
   int64  managerId = 21;
+  Page page = 22;
 }
 
 message WorkmansResp {
@@ -6369,6 +6372,7 @@ message ListWorkmanAttendanceReq {
   string projectName = 24;
   string organizationName = 25;
   int64  managerId = 26;
+  Page page = 27;
 }
 
 message WorkmanAttendancesResp {
