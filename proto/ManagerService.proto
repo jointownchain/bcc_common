@@ -5334,7 +5334,7 @@ message CreateInvoiceHashReq {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
@@ -5375,7 +5375,7 @@ message CreateOneInvoiceReq {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
@@ -5415,7 +5415,7 @@ message UpdateInvoiceHasReq {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
@@ -5456,7 +5456,7 @@ message UpdateOneInvoiceReq {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
@@ -5509,7 +5509,7 @@ message InvoiceInfoVo {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
@@ -5596,7 +5596,7 @@ message ListInvoiceVo {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
@@ -5647,7 +5647,7 @@ message UpdateInvoiceHashReq {
   int64  invoiceAmoumt = 13;
   int64  invoiceTax = 14;
   string invoiceCheckCode = 15;
-  google.protobuf.Timestamp invoicdDate = 16;
+  google.protobuf.Timestamp invoicedDate = 16;
   string invoiceStatus = 17;
   string invoiceDesc = 18;
   int64  invoiceBy = 19;
