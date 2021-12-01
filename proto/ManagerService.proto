@@ -2565,9 +2565,13 @@ service ManagerService {
   
   rpc UpdateOneQualityRectify(QualityInspectionReq) returns(OpQualityResp);
   rpc UpdateQualityRectifyHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
+  rpc GetOneQualityRectify(QualityInspectionReq) returns(QualityInspectionsResp);
+  rpc ListQualityRectify(QualityInspectionReq) returns(QualityInspectionsResp);
   
   rpc UpdateOneQualityReview(QualityInspectionReq) returns(OpQualityResp);
   rpc UpdateQualityReviewHash(UpdateQualityInspectionHashReq) returns(OpQualityResp);
+  rpc GetOneQualityReview(QualityInspectionReq) returns(QualityInspectionsResp);
+  rpc ListQualityReview(QualityInspectionReq) returns(QualityInspectionsResp);
   
   //===SafetyInspection rpc begin===
   rpc CreateOneSafetyInspection(SafetyInspectionReq) returns(OperateIntegerResp);
@@ -4411,13 +4415,12 @@ message ProjectVo {
   string activeStatus = 17;
   string projectDescription = 18;
   string memo = 19;
-  int64  createdBy = 20;
-  string createdByName = 21;
+  repeated UploadDocumentInfo uploadDocument = 20;
+  int64  createdBy = 21;
   google.protobuf.Timestamp createdAt = 22;
   int64  updatedBy = 23;
-  string updatedByName = 24;
-  google.protobuf.Timestamp updatedAt = 25;
-  string hashInfo = 26;
+  google.protobuf.Timestamp updatedAt = 24;
+  string hashInfo = 25;
 }
 
 message ProjectsResp {
@@ -4525,23 +4528,25 @@ message ProgressPlanVo {
   int64  progressPlanId = 1;
   string progressPlanCode = 2;
   int64  projectId = 3;
-  int64  buildId = 4;
-  string planName = 5;
-  google.protobuf.Timestamp startAt = 6;
-  google.protobuf.Timestamp endAt = 7;
-  string planPerson = 8;
-  string milestoneStatus = 9;
-  google.protobuf.Timestamp actualDate = 10;
-  int64  actualPercent = 11;
-  string activeStatus = 12;
-  string memo = 13;
-  int64  createdBy = 14;
-  string createdByName = 15;
-  google.protobuf.Timestamp createdAt = 16;
-  int64  updatedBy = 17;
-  string updatedByName = 18;
-  google.protobuf.Timestamp updatedAt = 19;
-  string hashInfo = 20;
+  string projectName = 4;
+  int64  buildId = 5;
+  string planName = 6;
+  google.protobuf.Timestamp startAt = 7;
+  google.protobuf.Timestamp endAt = 8;
+  string planPerson = 9;
+  string milestoneStatus = 10;
+  google.protobuf.Timestamp actualDate = 11;
+  int64  actualPercent = 12;
+  string activeStatus = 13;
+  string memo = 14;
+  repeated UploadDocumentInfo uploadDocument = 15;
+  int64  createdBy = 16;
+  string createdByName = 17;
+  google.protobuf.Timestamp createdAt = 18;
+  int64  updatedBy = 19;
+  string updatedByName = 20;
+  google.protobuf.Timestamp updatedAt = 21;
+  string hashInfo = 22;
 }
 
 message ProgressPlansResp {
@@ -4636,21 +4641,23 @@ message ProgressActualVo {
   int64  progressActualId = 1;
   string progressActualCode = 2;
   int64  projectId = 3;
-  int64  progressPlanId = 4;
-  int64  buildId = 5;
-  string actualName = 6;
-  google.protobuf.Timestamp actualDate = 7;
-  int64  actualPercent = 8;
-  string actualPerson = 9;
-  string activeStatus = 10;
-  string memo = 11;
-  int64  createdBy = 12;
-  string createdByName = 13;
-  google.protobuf.Timestamp createdAt = 14;
-  int64  updatedBy = 15;
-  string updatedByName = 16;
-  google.protobuf.Timestamp updatedAt = 17;
-  string hashInfo = 18;
+  string projectName = 4;
+  int64  progressPlanId = 5;
+  int64  buildId = 6;
+  string actualName = 7;
+  google.protobuf.Timestamp actualDate = 8;
+  int64  actualPercent = 9;
+  string actualPerson = 10;
+  string activeStatus = 11;
+  repeated UploadDocumentInfo uploadDocument = 12;
+  string memo = 13;
+  int64  createdBy = 14;
+  string createdByName = 15;
+  google.protobuf.Timestamp createdAt = 16;
+  int64  updatedBy = 17;
+  string updatedByName = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  string hashInfo = 20;
 }
 
 message ProgressActualsResp {
@@ -4763,45 +4770,47 @@ message QualityInspectionVo {
   int64  qualityInspectionId = 1;
   string qualityInspectionCode = 2;
   int64  projectId = 3;
-  int64  fromOrganizationId = 4;
-  string fromPlatFormType = 5;
-  int64  toOrganizationId = 6;
-  string toPlatFormType = 7;
-  string qualityInspector = 8;
-  google.protobuf.Timestamp inspectionDate = 9;
-  string inspectionArea = 10;
-  string inspectionSituation = 11;
-  string inspectionResult = 12;
-  int64  inspectionBy = 13;
-  google.protobuf.Timestamp inspectionAt = 14;
-  string qualityStatus = 15;
-  string assignedPerson = 16;
-  google.protobuf.Timestamp assignedDate = 17;
-  string assignedDesc = 18;
-  int64  duration = 19;
-  google.protobuf.Timestamp rectifyDeadline = 20;
-  google.protobuf.Timestamp rectifyDeadlineWarn = 21;
-  google.protobuf.Timestamp rectifyDate = 22;
-  string rectifyPerson = 23;
-  string rectifyDesc = 24;
-  int64  rectifyBy = 25;
-  google.protobuf.Timestamp rectifyAt = 26;
-  google.protobuf.Timestamp reviewDate = 27;
-  string reviewPerson = 28;
-  string reviewDesc = 29;
-  int64  reviewBy = 30;
-  google.protobuf.Timestamp reviewAt = 31;
-  string mainQualityInspectionCode = 32;
-  string activeStatus = 33;
-  string memo = 34;
-  int64  createdBy = 35;
-  google.protobuf.Timestamp createdAt = 36;
-  int64  updatedBy = 37;
-  google.protobuf.Timestamp updatedAt = 38;
-  string hashInfo = 39;
-  string inspectionHashInfo = 40;
-  string rectifyHashInfo = 41;
-  string reviewHashInfo = 42;
+  string projectName = 4;
+  int64  fromOrganizationId = 5;
+  string fromPlatFormType = 6;
+  int64  toOrganizationId = 7;
+  string toPlatFormType = 8;
+  string qualityInspector = 9;
+  google.protobuf.Timestamp inspectionDate = 10;
+  string inspectionArea = 11;
+  string inspectionSituation = 12;
+  string inspectionResult = 13;
+  int64  inspectionBy = 14;
+  google.protobuf.Timestamp inspectionAt = 15;
+  string qualityStatus = 16;
+  string assignedPerson = 17;
+  google.protobuf.Timestamp assignedDate = 18;
+  string assignedDesc = 19;
+  int64  duration = 20;
+  google.protobuf.Timestamp rectifyDeadline = 21;
+  google.protobuf.Timestamp rectifyDeadlineWarn = 22;
+  google.protobuf.Timestamp rectifyDate = 23;
+  string rectifyPerson = 24;
+  string rectifyDesc = 25;
+  int64  rectifyBy = 26;
+  google.protobuf.Timestamp rectifyAt = 27;
+  google.protobuf.Timestamp reviewDate = 28;
+  string reviewPerson = 29;
+  string reviewDesc = 30;
+  int64  reviewBy = 31;
+  google.protobuf.Timestamp reviewAt = 32;
+  string mainQualityInspectionCode = 33;
+  string activeStatus = 34;
+  string memo = 35;
+  repeated UploadDocumentInfo uploadDocument = 36;
+  int64  createdBy = 37;
+  google.protobuf.Timestamp createdAt = 38;
+  int64  updatedBy = 39;
+  google.protobuf.Timestamp updatedAt = 40;
+  string hashInfo = 41;
+  string inspectionHashInfo = 42;
+  string rectifyHashInfo = 43;
+  string reviewHashInfo = 44;
 }
 
 message QualityInspectionsResp {
