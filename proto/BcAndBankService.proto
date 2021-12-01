@@ -40,7 +40,28 @@ service BcAndBankService {
   rpc BcUploadInvoice(UploadChainInvoices) returns (BcResponses);
   rpc BcUploadInvoiceReceived(UploadChainInvoiceReceiveds) returns (BcResponses);
   rpc BcUploadInvoicePaid(UploadChainInvoicePaids) returns (BcResponses);
+  
+  //安全巡检上链
+  //安全巡检合格上链	-SafetyInspectionQualified
+  rpc BcUploadSafetyInspectionQualified(UploadChainSafetyInspectionQualifieds) returns (BcResponses);   
+  //安全巡检不合格上链	-SafetyInspectionUnqualified
+  rpc BcUploadSafetyInspectionUnqualified(UploadChainSafetyInspectionUnqualifieds) returns (BcResponses);
+  //安全巡检整改上链	-SafetyInspectionRectified
+  rpc BcUploadSafetyInspectionRectified(UploadChainSafetyInspectionRectifieds) returns (BcResponses); 
+  //安全巡检复检上链	-SafetyInspectionReviewed
+  rpc BcUploadSafetyInspectionReviewed(UploadChainSafetyInspectionRevieweds) returns (BcResponses);  
 
+  //安全日志上链
+  rpc BcUploadSafetyLog(UploadSafetyLogs) returns (BcResponses); 
+  
+  //材料上链
+  rpc BcUploadMaterial(UploadMaterials) returns (BcResponses); 
+
+  //施工人员上链
+  rpc BcUploadWorkman(UploadWorkmans) returns (BcResponses); 
+
+  //施工人员考勤疫情信息上链
+  rpc BcUploadWorkmanAttendance(UploadWorkmanAttendances) returns (BcResponses); 
 }
 
 message QueryTxIDReq {
@@ -377,4 +398,158 @@ message UploadChainInvoicePaid {
   string paymentVoucherUrl = 22;
 }
 
+message UploadChainSafetyInspectionQualifieds {
+   repeated UploadChainSafetyInspectionQualified uploadChainSafetyQualified = 1;
+}
 
+message UploadChainSafetyInspectionQualified {
+  UploadChainType uploadChainType = 1;
+  string safetyInspectionCode = 2;
+  string projectName = 3;
+  string fromOrganizationName = 4;
+  string toOrganizationName = 5;
+  string safetyInspector = 6;
+  google.protobuf.Timestamp inspectionDate = 7;
+  string inspectionArea = 8;
+  string inspectionSituation = 9;
+  string inspectionHandle = 10;
+  string safetyStatus = 11;
+  string memo = 12;  
+  repeated DocumentInfo uploadDocumentInspection = 13;
+}
+
+message UploadChainSafetyInspectionUnqualifieds {
+   repeated UploadChainSafetyInspectionUnqualified uploadChainSafetyUnqualified = 1;
+}
+
+message UploadChainSafetyInspectionUnqualified {
+  UploadChainType uploadChainType = 1;
+  string safetyInspectionCode = 2;
+  string projectName = 3;
+  string fromOrganizationName = 4;
+  string toOrganizationName = 5;
+  string safetyInspector = 6;
+  google.protobuf.Timestamp inspectionDate = 7;
+  string inspectionArea = 8;
+  string inspectionSituation = 9;
+  string inspectionHandle = 10;
+  string safetyStatus = 11;
+  string memo = 12; 
+  string assignedPerson = 13;
+  google.protobuf.Timestamp assignedDate = 14;
+  string assignedDesc = 15;
+  int64  duration = 16;  
+  repeated DocumentInfo uploadDocumentInspection = 17;
+}
+
+message UploadChainSafetyInspectionRectifieds {
+   repeated UploadChainSafetyInspectionRectified uploadChainSafetyRectified = 1;
+}
+
+message UploadChainSafetyInspectionRectified {
+  UploadChainType uploadChainType = 1;
+  string safetyInspectionCode = 2;
+  google.protobuf.Timestamp rectifyDate = 3;
+  string rectifyPerson = 4;
+  string rectifyDesc = 5;
+  repeated DocumentInfo uploadDocumentRectify = 6;
+}
+
+message UploadChainSafetyInspectionRevieweds {
+   repeated UploadChainSafetyInspectionReviewed uploadChainSafetyReviewed = 1;
+}
+
+message UploadChainSafetyInspectionReviewed {
+  UploadChainType uploadChainType = 1;
+  string safetyInspectionCode = 2;
+  google.protobuf.Timestamp reviewDate = 3;
+  string reviewPerson = 4;
+  string reviewDesc = 5;
+  repeated DocumentInfo uploadDocumentReview = 6;
+}
+
+message UploadSafetyLogs {
+   repeated UploadSafetyLog uploadChainSafetyLog = 1;
+}
+
+message UploadSafetyLog {
+  UploadChainType uploadChainType = 1;
+  string safetyLogCode = 2;
+  string projectName = 3;
+  string fromOrganizationName = 4;
+  int64  attendanceNumber = 5;
+  string recordPerson = 6;
+  google.protobuf.Timestamp recordDate = 7;
+  string recordDept = 8;
+  string constructionArea = 9;
+  string safetySituation = 10;
+  string safetyEducation = 11;
+  string safetyMeeting = 12;
+  string memo = 13;
+  repeated DocumentInfo uploadDocument = 14;
+}
+
+message UploadMaterials {
+   repeated UploadMaterial uploadChainMaterial = 1;
+}
+
+message UploadMaterial {
+  UploadChainType uploadChainType = 1;
+  string materialCode = 2;
+  string projectName = 3;
+  string fromOrganizationName = 4;  
+  string materialName = 5;
+  string materialType = 6;
+  string materialSpecification = 7;
+  string materialUnit = 8;
+  string supplierName = 9;
+  int64  quantity = 10;
+  int64  amount = 11;
+  string receiveName = 12;
+  google.protobuf.Timestamp receiveDate = 13;
+  string memo = 14;  
+  repeated DocumentInfo uploadDocument = 15;
+}
+
+message UploadWorkmans {
+   repeated UploadWorkman uploadChainWorkman = 1;
+}
+
+message UploadWorkman {
+  UploadChainType uploadChainType = 1;
+  string workmanCode = 2;
+  string projectName = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  string  organizationName = 8;
+  string workmanType = 9;
+  string photoUrl = 10;
+  string memo = 11;
+  repeated DocumentInfo uploadDocument = 12;
+}
+
+message UploadWorkmanAttendances {
+   repeated UploadWorkmanAttendance uploadChainWorkmanAttendance = 1;
+}
+
+message UploadWorkmanAttendance {
+  UploadChainType uploadChainType = 1;
+  string workmanAttendanceCode = 2;
+  string projectName = 3;
+  string deptName = 4;
+  string fullName = 5;
+  string idCardNo = 6;
+  string mobile = 7;
+  float temperature = 8;
+  string safetyHat = 9;
+  string wearMask = 10;
+  string healthCode = 11;
+  string travelCode = 12;
+  string  organizationName = 13;
+  string workmanType = 14;
+  google.protobuf.Timestamp uploadDate = 15;
+  string memo = 16;  
+  repeated DocumentInfo uploadDocument = 17;
+}

@@ -2618,6 +2618,17 @@ service ManagerService {
   rpc ImportWorkmanAttendance(WorkmanAttendancesReq) returns(OperateIntegerResp);
   rpc BatchWorkmanAttendanceHash(WorkmanAttendancesReq) returns(OperateIntegerResp);
   //===WorkmanAttendance rpc end===
+  
+  //===Material rpc begin===
+  rpc CreateOneMaterial(MaterialReq) returns(OperateIntegerResp);
+  rpc UpdateOneMaterial(MaterialReq) returns(OperateIntegerResp);
+  rpc DeleteOneMaterial(MaterialIdsReq) returns(OperateIntegerResp);
+  rpc GetOneMaterial(MaterialIdsReq) returns(MaterialsResp);
+  rpc ListMaterial(ListMaterialReq) returns(MaterialsResp);
+  rpc CreateMaterialHash(MaterialReq) returns(OperateIntegerResp);
+  rpc UpdateMaterialHash(MaterialReq) returns(OperateIntegerResp);
+  rpc GetMaterialHash(MaterialIdsReq) returns(GetMaterialHashResp);
+  //===Material rpc end===  
 }
 
 message StockSyncReq{
@@ -6430,3 +6441,122 @@ message WorkmanAttendanceHashVo {
   google.protobuf.Timestamp updatedAt = 7;
 }
 //===WorkmanAttendance Proto end===
+
+
+  
+//===Material Proto begin===
+message MaterialReq {
+  int64  materialId = 1;
+  string materialCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  string materialName = 6;
+  string materialType = 7;
+  string materialSpecification = 8;
+  string materialUnit = 9;
+  string supplierName = 10;
+  int64  quantity = 11;
+  int64  amount = 12;
+  string receiveName = 13;
+  google.protobuf.Timestamp receiveDate = 14;
+  int64  receiveBy = 15;
+  google.protobuf.Timestamp receiveAt = 16;
+  string activeStatus = 17;
+  string memo = 18;
+  int64  createdBy = 19;
+  google.protobuf.Timestamp createdAt = 20;
+  int64  updatedBy = 21;
+  google.protobuf.Timestamp updatedAt = 22;
+  repeated UploadDocumentInfo uploadDocument = 23;
+  string infoHash = 24;
+  int64  managerId = 25;
+}
+
+message MaterialIdsReq {
+  repeated int64 materialIds = 1;
+  int64  managerId = 2;
+}
+
+message ListMaterialReq {
+  int64  materialId = 1;
+  string materialCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  string materialName = 6;
+  string materialType = 7;
+  string materialSpecification = 8;
+  string materialUnit = 9;
+  string supplierName = 10;
+  int64  quantity = 11;
+  int64  amount = 12;
+  string receiveName = 13;
+  google.protobuf.Timestamp receiveDate = 14;
+  int64  receiveBy = 15;
+  google.protobuf.Timestamp receiveAt = 16;
+  string activeStatus = 17;
+  string memo = 18;
+  int64  createdBy = 19;
+  google.protobuf.Timestamp createdAt = 20;
+  int64  updatedBy = 21;
+  google.protobuf.Timestamp updatedAt = 22;
+  string projectName = 23;
+  string fromOrganizationName = 24;
+  int64  managerId = 25;
+  Page page = 26;
+}
+
+message MaterialsResp {
+  repeated MaterialVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GetMaterialHashResp {
+  repeated MaterialHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message MaterialVo {
+  int64  materialId = 1;
+  string materialCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  string materialName = 6;
+  string materialType = 7;
+  string materialSpecification = 8;
+  string materialUnit = 9;
+  string supplierName = 10;
+  int64  quantity = 11;
+  int64  amount = 12;
+  string receiveName = 13;
+  google.protobuf.Timestamp receiveDate = 14;
+  int64  receiveBy = 15;
+  google.protobuf.Timestamp receiveAt = 16;
+  string activeStatus = 17;
+  string memo = 18;
+  int64  createdBy = 19;
+  google.protobuf.Timestamp createdAt = 20;
+  int64  updatedBy = 21;
+  google.protobuf.Timestamp updatedAt = 22;
+  string projectName = 23;
+  string fromOrganizationName = 24;
+  MaterialHashVo materialHash = 25;
+  repeated UploadDocumentInfo uploadDocument = 26;  
+}
+
+message MaterialHashVo {
+  int64  id = 1;
+  int64  materialId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string msg = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+//===Material Proto end===
