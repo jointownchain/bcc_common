@@ -5902,22 +5902,10 @@ message ListDashboardProcessReq {
   Page page = 6;
 }
 
-message ListDashboardProcessMain {
-  repeated ProcessInfoVo list = 1;
-}
-
-message ListDashboardProcessParallel {
-  repeated ProcessInfoVo list = 1;
-}
-
-message ListDashboardProcessCrossParallel {
-  repeated ProcessInfoVo list = 1;
-}
-
 message ListDashboardProcessResp {
-  repeated ListDashboardProcessMain listMain = 1;
-  repeated ListDashboardProcessParallel listParallel = 2;
-  repeated ListDashboardProcessCrossParallel listCrossParallel = 3;
+  repeated ListProcessVo listMain = 1;
+  repeated ListProcessVo listParallel = 2;
+  repeated ListProcessVo listCrossParallel = 3;
 }
 
 //===SafetyInspection Proto begin===
