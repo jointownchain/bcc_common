@@ -2826,6 +2826,7 @@ service DashboardService {
   rpc ListDashboardSafetyInspection(ListDashboardSafetyInspectionReq) returns (ListDashboardSafetyInspectionResp);
   rpc ReportDashboardInvoiceYear(ReportDashboardInvoiceYearReq) returns (ReportDashboardInvoiceYearResp);
   rpc ReportDashboardRankMaterialYear(ReportDashboardRankMaterialYearReq) returns (ReportDashboardRankMaterialYearResp);
+  rpc ListDashboardProcess(ListDashboardProcessReq) returns (ListDashboardProcessResp);
 }
 
 
@@ -5871,8 +5872,33 @@ message ReportDashboardRankMaterialYearResp {
   repeated DashboardRankMaterialYearVo list = 1;
 }
 
+message ListDashboardProcessReq {
+  google.protobuf.Timestamp startAt = 1;
+  google.protobuf.Timestamp endAt = 2;
+  int64 managerId = 3;
+  int64  projectId = 4;
+  int64 projectPhaseId = 5;
+  Page page = 6;
+}
 
-  
+message ListDashboardProcessMain {
+  repeated ProcessInfoVo list = 1;
+}
+
+message ListDashboardProcessParallel {
+  repeated ProcessInfoVo list = 1;
+}
+
+message ListDashboardProcessCrossParallel {
+  repeated ProcessInfoVo list = 1;
+}
+
+message ListDashboardProcessResp {
+  repeated ListDashboardProcessMain listMain = 1;
+  repeated ListDashboardProcessParallel listParallel = 2;
+  repeated ListDashboardProcessCrossParallel listCrossParallel = 3;
+}
+
 //===SafetyInspection Proto begin===
 
 message SafetyInspectionReq {
