@@ -4836,7 +4836,8 @@ message CreateQualityInspectionHashReq {
   string memo = 33;
   repeated UploadDocumentInfo uploadDocument = 34;
   string InfoHash = 35;
-  int64  managerId = 36;
+  string inspectionHash = 36;
+  int64  managerId = 37;
 }
 
 message UpdateQualityInspectionHashReq { 
