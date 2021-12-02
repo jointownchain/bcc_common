@@ -4366,6 +4366,8 @@ message CommonProcessResp {
 message UploadDocumentInfo {
   string fileName = 1;
   string uploadUrl = 2;
+  int64  businessId = 3;
+  string businessType = 4;
 }
 
 //项目管理	
