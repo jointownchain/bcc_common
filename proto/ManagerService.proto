@@ -2840,6 +2840,7 @@ service DashboardService {
   rpc CountDashboardProcessCompletionPercent(CountDashboardProcessCompletionPercentReq) returns (CountDashboardProcessCompletionPercentResp);
   rpc ListDashboardSafetyInspection(ListDashboardSafetyInspectionReq) returns (ListDashboardSafetyInspectionResp);
   rpc ReportDashboardInvoiceYear(ReportDashboardInvoiceYearReq) returns (ReportDashboardInvoiceYearResp);
+  rpc ReportDashboardInvoiceMonth(ReportDashboardInvoiceMonthReq) returns (ReportDashboardInvoiceMonthResp);
   rpc ReportDashboardRankMaterialYear(ReportDashboardRankMaterialYearReq) returns (ReportDashboardRankMaterialYearResp);
   rpc ListDashboardProcess(ListDashboardProcessReq) returns (ListDashboardProcessResp);
 }
@@ -5863,9 +5864,34 @@ message DashboardPaidInvoiceVo {
   int64  totalAmoumt = 3;
 }
 
+message DashboardInvoiceYearCountVo {
+  int64  year = 1;
+  int64  month = 2;
+  int64  totalReceivedAmoumt = 3;
+  int64  totalPaidAmoumt = 4;
+}
+
 message ReportDashboardInvoiceYearResp {
-  repeated DashboardReceivedInvoiceVo listReceived = 1;
-  repeated DashboardPaidInvoiceVo listPaid = 2;
+  repeated DashboardInvoiceYearCountVo list = 1;
+}
+
+message ReportDashboardInvoiceMonthReq {
+  int64 year = 1;
+  int64 month = 2;
+  int64 managerId = 3;
+  int64 projectId = 4;
+}
+
+message DashboardInvoiceMonthCountVo {
+  int64  year = 1;
+  int64  month = 2;
+  int64  day = 3;
+  int64  totalReceivedAmoumt = 4;
+  int64  totalPaidAmoumt = 5;
+}
+
+message ReportDashboardInvoiceMonthResp {
+  repeated DashboardInvoiceMonthCountVo list = 1;
 }
 
 message ReportDashboardRankMaterialYearReq {
