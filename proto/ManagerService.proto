@@ -2839,9 +2839,12 @@ service DashboardService {
   rpc CountDashboardWorkmanEpidemicStatistics(CountDashboardWorkmanEpidemicStatisticsReq) returns (CountDashboardWorkmanEpidemicStatisticsResp);
   rpc CountDashboardProcessCompletionPercent(CountDashboardProcessCompletionPercentReq) returns (CountDashboardProcessCompletionPercentResp);
   rpc ListDashboardSafetyInspection(ListDashboardSafetyInspectionReq) returns (ListDashboardSafetyInspectionResp);
-  rpc ReportDashboardInvoiceYear(ReportDashboardInvoiceYearReq) returns (ReportDashboardInvoiceYearResp);
-  rpc ReportDashboardInvoiceMonth(ReportDashboardInvoiceMonthReq) returns (ReportDashboardInvoiceMonthResp);
-  rpc ReportDashboardRankMaterialYear(ReportDashboardRankMaterialYearReq) returns (ReportDashboardRankMaterialYearResp);
+  rpc ReportDashboardInvoiceYear(ReportDashboardYearReq) returns (ReportDashboardInvoiceYearResp);
+  rpc ReportDashboardInvoiceMonth(ReportDashboardMonthReq) returns (ReportDashboardInvoiceMonthResp);
+  rpc ReportDashboardAttendanceYear(ReportDashboardYearReq) returns (ReportDashboardAttendanceYearResp);
+  rpc ReportDashboardAttendanceMonth(ReportDashboardMonthReq) returns (ReportDashboardAttendanceMonthResp);
+  rpc ReportDashboardRankMaterialYear(ReportDashboardRankYearReq) returns (ReportDashboardRankMaterialYearResp);
+  rpc ReportDashboardRankMaterialMonth(ReportDashboardRankMonthReq) returns (ReportDashboardRankMaterialMonthResp);
   rpc ListDashboardProcess(ListDashboardProcessReq) returns (ListDashboardProcessResp);
 }
 
@@ -5846,79 +5849,95 @@ message ListDashboardSafetyInspectionResp {
   int64 pageNumber = 4;
 }
 
-message ReportDashboardInvoiceYearReq {
-  int64 year = 1;
-  int64 managerId = 2;
-  int64 projectId = 3;
+message ReportDashboardYearReq {
+  int64 managerId = 1;
+  int64 projectId = 2;
+  int64 year = 3;
 }
 
-message DashboardReceivedInvoiceVo {
-  int64  year = 1;
-  int64  month = 2;
-  int64  totalAmoumt = 3;
-}
-
-message DashboardPaidInvoiceVo {
-  int64  year = 1;
-  int64  month = 2;
-  int64  totalAmoumt = 3;
-}
-
-message DashboardInvoiceYearCountVo {
-  int64  year = 1;
-  int64  month = 2;
-  int64  totalReceivedAmoumt = 3;
-  int64  totalPaidAmoumt = 4;
+message ReportDashboardMonthReq {
+  int64 managerId = 1;
+  int64 projectId = 2;
+  int64 year = 3;
+  int64 month = 4;
 }
 
 message ReportDashboardInvoiceYearResp {
-  repeated DashboardInvoiceYearCountVo list = 1;
-}
-
-message ReportDashboardInvoiceMonthReq {
-  int64 year = 1;
-  int64 month = 2;
-  int64 managerId = 3;
-  int64 projectId = 4;
-}
-
-message DashboardInvoiceMonthCountVo {
   int64  year = 1;
-  int64  month = 2;
-  int64  day = 3;
-  int64  totalReceivedAmoumt = 4;
-  int64  totalPaidAmoumt = 5;
+  int64  totalReceived = 2;
+  int64  totalPaid = 3;
+  repeated int64 listMonthReceived = 4;
+  repeated int64 listMonthPaid = 5;
 }
 
 message ReportDashboardInvoiceMonthResp {
-  repeated DashboardInvoiceMonthCountVo list = 1;
+  int64  year = 1;
+  int64  month = 2;
+  int64  totalReceived = 3;
+  int64  totalPaid = 4;
+  repeated int64 listDayReceived = 5;
+  repeated int64 listDayPaid = 6;
 }
 
-message ReportDashboardRankMaterialYearReq {
-  int64 year = 1;
-  int64 rankCount = 2;
-  int64 managerId = 3;
-  int64 projectId = 4;
+message ReportDashboardAttendanceYearResp {
+  int64  year = 1;
+  int64  totalWorkerman = 2;
+  int64  totalManager = 3;
+  repeated int64 listMonthWorkerman = 4;
+  repeated int64 listMonthManager = 5;
+}
+
+message ReportDashboardAttendanceMonthResp {
+  int64  year = 1;
+  int64  month = 2;
+  int64  totalWorkerman = 3;
+  int64  totalManager = 4;
+  repeated int64 listDayWorkerman = 5;
+  repeated int64 listDayManager = 6;
+}
+
+message ReportDashboardRankYearReq {
+  int64 managerId = 1;
+  int64 projectId = 2;
+  int64 top = 3;
+  int64 year = 4;
+}
+
+message ReportDashboardRankMonthReq {
+  int64 managerId = 1;
+  int64 projectId = 2;
+  int64 top = 3;
+  int64 year = 4;
+  int64 month = 5;
 }
 
 message DashboardRankMaterialYearVo {
-  int64  rank = 1;
-  int64  meterialId = 2;
-  string  meterialName = 3;
-  string  materialUnit = 4;  
-  int64  totalYearQuantity = 5;
-  repeated DashboardRankMaterialMonthVo list = 6;
+  int64  year = 1;
+  int64  rank = 2;
+  int64  meterialType = 3;
+  string meterialName = 4;
+  string materialUnit = 5;
+  int64  totalQuantity = 6;
+  repeated int64 listMonthQuantity = 7;
+}
+
+message ReportDashboardRankMaterialYearResp {
+  repeated DashboardRankMaterialYearVo list = 1;
 }
 
 message DashboardRankMaterialMonthVo {
   int64  year = 1;
   int64  month = 2;
-  int64  meterialId = 3;
-  int64  totalMonthQuantity = 4;
+  int64  rank = 3;
+  int64  meterialType = 4;
+  string meterialName = 5;
+  string materialUnit = 6;
+  int64  totalQuantity = 7;
+  repeated int64 listDayQuantity = 8;
 }
 
-message ReportDashboardRankMaterialYearResp {
-  repeated DashboardRankMaterialYearVo list = 1;
+message ReportDashboardRankMaterialMonthResp {
+  repeated DashboardRankMaterialMonthVo list = 1;
 }
 
 message ListDashboardProcessReq {
