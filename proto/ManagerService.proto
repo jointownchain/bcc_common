@@ -2845,6 +2845,8 @@ service DashboardService {
   rpc ReportDashboardQualityInspectionMonth(ReportDashboardMonthReq) returns (ReportDashboardInspectionMonthResp);
   rpc ReportDashboardSafetyInspectionYear(ReportDashboardYearReq) returns (ReportDashboardInspectionYearResp);
   rpc ReportDashboardSafetyInspectionMonth(ReportDashboardMonthReq) returns (ReportDashboardInspectionMonthResp);
+  rpc ReportDashboardProcessYear(ReportDashboardYearReq) returns (ReportDashboardProcessYearResp);
+  rpc ReportDashboardProcessMonth(ReportDashboardMonthReq) returns (ReportDashboardProcessMonthResp);
   rpc ReportDashboardAttendanceYear(ReportDashboardYearReq) returns (ReportDashboardAttendanceYearResp);
   rpc ReportDashboardAttendanceMonth(ReportDashboardMonthReq) returns (ReportDashboardAttendanceMonthResp);
   rpc ReportDashboardRankMaterialYear(ReportDashboardRankYearReq) returns (ReportDashboardRankMaterialYearResp);
@@ -5902,6 +5904,23 @@ message ReportDashboardInspectionMonthResp {
   int64  totalQualified = 4;
   repeated int64 listDayTotal = 5;
   repeated int64 listDayQualified = 6;
+}
+
+message ReportDashboardProcessYearResp {
+  int64  year = 1;
+  int64  totalApplied = 2;
+  int64  totalApproved = 3;
+  repeated int64 listMonthApplied = 4;
+  repeated int64 listMonthApproved = 5;
+}
+
+message ReportDashboardProcessMonthResp {
+  int64  year = 1;
+  int64  month = 2;
+  int64  totalApplied = 3;
+  int64  totalApproved = 4;
+  repeated int64 listDayApplied = 5;
+  repeated int64 listDayApproved = 6;
 }
 
 message ReportDashboardAttendanceYearResp {
