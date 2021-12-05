@@ -2841,6 +2841,10 @@ service DashboardService {
   rpc ListDashboardSafetyInspection(ListDashboardSafetyInspectionReq) returns (ListDashboardSafetyInspectionResp);
   rpc ReportDashboardInvoiceYear(ReportDashboardYearReq) returns (ReportDashboardInvoiceYearResp);
   rpc ReportDashboardInvoiceMonth(ReportDashboardMonthReq) returns (ReportDashboardInvoiceMonthResp);
+  rpc ReportDashboardQualityInspectionYear(ReportDashboardYearReq) returns (ReportDashboardInspectionYearResp); 
+  rpc ReportDashboardQualityInspectionMonth(ReportDashboardMonthReq) returns (ReportDashboardInspectionMonthResp);
+  rpc ReportDashboardSafetyInspectionYear(ReportDashboardYearReq) returns (ReportDashboardInspectionYearResp);
+  rpc ReportDashboardSafetyInspectionMonth(ReportDashboardMonthReq) returns (ReportDashboardInspectionMonthResp);
   rpc ReportDashboardAttendanceYear(ReportDashboardYearReq) returns (ReportDashboardAttendanceYearResp);
   rpc ReportDashboardAttendanceMonth(ReportDashboardMonthReq) returns (ReportDashboardAttendanceMonthResp);
   rpc ReportDashboardRankMaterialYear(ReportDashboardRankYearReq) returns (ReportDashboardRankMaterialYearResp);
@@ -5850,16 +5854,20 @@ message ListDashboardSafetyInspectionResp {
 }
 
 message ReportDashboardYearReq {
-  int64 managerId = 1;
-  int64 projectId = 2;
-  int64 year = 3;
+  int64  managerId = 1;
+  int64  organizationId = 2;
+  string platFormType = 3;
+  int64  projectId = 4;
+  int64  year = 5;
 }
 
 message ReportDashboardMonthReq {
-  int64 managerId = 1;
-  int64 projectId = 2;
-  int64 year = 3;
-  int64 month = 4;
+  int64  managerId = 1;
+  int64  organizationId = 2;
+  string platFormType = 3;
+  int64  projectId = 4;
+  int64  year = 5;
+  int64  month = 6;
 }
 
 message ReportDashboardInvoiceYearResp {
@@ -5877,6 +5885,23 @@ message ReportDashboardInvoiceMonthResp {
   int64  totalPaid = 4;
   repeated int64 listDayReceived = 5;
   repeated int64 listDayPaid = 6;
+}
+
+message ReportDashboardInspectionYearResp {
+  int64  year = 1;
+  int64  total = 2;
+  int64  totalQualified = 3;
+  repeated int64 listMonthTotal = 4;
+  repeated int64 listMonthQualified = 5;
+}
+
+message ReportDashboardInspectionMonthResp {
+  int64  year = 1;
+  int64  month = 2;
+  int64  total = 3;
+  int64  totalQualified = 4;
+  repeated int64 listDayTotal = 5;
+  repeated int64 listDayQualified = 6;
 }
 
 message ReportDashboardAttendanceYearResp {
