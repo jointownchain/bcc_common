@@ -141,7 +141,7 @@ message UploadChainProject {
   string activeStatus = 17;
   string projectDescription = 18;
   string memo = 19;
-  repeated UploadDocumentInfo uploadDocumnet = 20;
+  repeated UploadDocumentInfo uploadDocument = 20;
 }
 
 message UploadChainProgressPlans {
@@ -162,7 +162,7 @@ message UploadChainProgressPlan {
   int64  actualPercent = 11;
   string activeStatus = 12;
   string memo = 13;
-  repeated UploadDocumentInfo uploadDocumnet = 14;
+  repeated UploadDocumentInfo uploadDocument = 14;
 }
 
 message UploadChainProgressActuals {
@@ -181,7 +181,7 @@ message UploadChainProgressActual {
   string actualPerson = 9;
   string activeStatus = 10;
   string memo = 11;
-  repeated UploadDocumentInfo uploadDocumnet = 12;
+  repeated UploadDocumentInfo uploadDocument = 12;
 }
 
 
@@ -212,7 +212,7 @@ message UploadChainQualityInspection {
   string assignedDesc = 18;
   int64  duration = 19;
   string memo = 20;
-  repeated UploadDocumentInfo uploadDocumnet = 21;
+  repeated UploadDocumentInfo uploadDocument = 21;
 }
 
 message UploadChainQualityRectifies{
@@ -228,7 +228,7 @@ message UploadChainQualityRectify {
   google.protobuf.Timestamp rectifyDate = 6;
   string rectifyPerson = 7;
   string rectifyDesc = 8;
-  repeated UploadDocumentInfo uploadDocumnet = 9;
+  repeated UploadDocumentInfo uploadDocument = 9;
 }
 
 message UploadChainQualityReviews {
@@ -243,7 +243,7 @@ message UploadChainQualityReview {
   string reviewPerson = 5;
   string reviewDesc = 6;
   int64  reviewBy = 7;
-  repeated UploadDocumentInfo uploadDocumnet = 8;
+  repeated UploadDocumentInfo uploadDocument = 8;
 }
 
 message UploadChainProcessApplies {
@@ -260,7 +260,7 @@ message UploadChainProcessApply {
   google.protobuf.Timestamp applyDate = 7;
   int64 isParallel = 8;
   int64 estimatedApprovalDays = 9;
-  repeated DocumentInfoApply uploadDocumnet = 10;
+  repeated DocumentInfoApply uploadDocument = 10;
 }
 message DocumentInfoApply {
   string fileName = 1;
@@ -284,8 +284,8 @@ message UploadChainProcessApprove {
   google.protobuf.Timestamp applyDate = 9;
   google.protobuf.Timestamp approveAt = 10;
   string approveDesc = 11;
-  repeated DocumentInfoApply uploadDocumnetApply = 12;
-  repeated DocumentInfoApprove uploadDocumnetApprove = 13;
+  repeated DocumentInfoApply uploadDocumentApply = 12;
+  repeated DocumentInfoApprove uploadDocumentApprove = 13;
 }
 
 message DocumentInfoApprove {
@@ -310,7 +310,7 @@ message UploadChaincontract {
   google.protobuf.Timestamp start_at = 9;
   google.protobuf.Timestamp end_at = 10;
   string memo = 11;
-  repeated DocumentInfo uploadDocumnet = 12;
+  repeated DocumentInfo uploadDocument = 12;
 }
 
 message DocumentInfo {
