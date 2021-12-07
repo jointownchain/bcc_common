@@ -36,10 +36,10 @@ var (
 
 	RoleDuplicate = add(10232) // 重复的角色
 
-	InvalidMi       = add(10301) // 无效的医院信息
-	InvalidCompany  = add(10401) // 无效的企业信息
-	InvalidBank     = add(10501) // 无效的银行信息
-	InvalidMib      = add(10601) // 无效的医保局信息
+	InvalidBuild     = add(10301) // 无效的施工单位信息
+	InvalidSupervisor  = add(10401) // 无效的监理单位信息
+	InvalidGoverment     = add(10501) // 无效的监管单位信息
+	InvalidConstruction      = add(10601) // 无效的建设单位信息
 	InvalidContract = add(10701) // 无效的合同信息
 
 	BlockchainUploadError = add(20001) // 区块链上传错误
