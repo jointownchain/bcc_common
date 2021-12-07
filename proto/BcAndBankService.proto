@@ -52,10 +52,10 @@ service BcAndBankService {
   rpc BcUploadSafetyInspectionReviewed(UploadChainSafetyInspectionRevieweds) returns (BcResponses);  
 
   //安全日志上链
-  rpc BcUploadSafetyLog(UploadSafetyLogs) returns (BcResponses); 
+  rpc BcUploadSafetyLog(UploadChainSafetyLogs) returns (BcResponses); 
   
   //材料上链
-  rpc BcUploadMaterial(UploadMaterials) returns (BcResponses); 
+  rpc BcUploadMaterial(UploadChainMaterials) returns (BcResponses); 
 
   //施工人员上链
   rpc BcUploadWorkman(UploadWorkmans) returns (BcResponses); 
@@ -468,11 +468,11 @@ message UploadChainSafetyInspectionReviewed {
   repeated DocumentInfo uploadDocumentReview = 6;
 }
 
-message UploadSafetyLogs {
-   repeated UploadSafetyLog uploadChainSafetyLog = 1;
+message UploadChainSafetyLogs {
+   repeated UploadChainSafetyLog uploadChainSafetyLog = 1;
 }
 
-message UploadSafetyLog {
+message UploadChainSafetyLog {
   UploadChainType uploadChainType = 1;
   string safetyLogCode = 2;
   string projectName = 3;
@@ -486,14 +486,14 @@ message UploadSafetyLog {
   string safetyEducation = 11;
   string safetyMeeting = 12;
   string memo = 13;
-  repeated DocumentInfo uploadDocument = 14;
+  repeated UploadDocumentInfo uploadDocument = 14;
 }
 
-message UploadMaterials {
-   repeated UploadMaterial uploadChainMaterial = 1;
+message UploadChainMaterials {
+   repeated UploadChainMaterial uploadChainMaterial = 1;
 }
 
-message UploadMaterial {
+message UploadChainMaterial {
   UploadChainType uploadChainType = 1;
   string materialCode = 2;
   string projectName = 3;
@@ -508,7 +508,7 @@ message UploadMaterial {
   string receiveName = 12;
   google.protobuf.Timestamp receiveDate = 13;
   string memo = 14;  
-  repeated DocumentInfo uploadDocument = 15;
+  repeated UploadDocumentInfo uploadDocument = 15;
 }
 
 message UploadWorkmans {
