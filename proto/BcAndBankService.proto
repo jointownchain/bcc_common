@@ -25,7 +25,7 @@ service BcAndBankService {
   // 质量巡检信息上链
   rpc BcUploadQualityInspections(UploadChainQualityInspections) returns (BcResponses); 
   // 质量巡检整改信息上链
-  rpc BcUploadQualityRectifies(UploadChainQualityRectifies) returns (BcResponses);  
+  rpc BcUploadQualityRectifies(UploadChainQualityRectifys) returns (BcResponses);  
   // 质量巡检复检信息上链
   rpc BcUploadQualityReviews(UploadChainQualityReviews) returns (BcResponses);  
   
@@ -58,10 +58,10 @@ service BcAndBankService {
   rpc BcUploadMaterial(UploadChainMaterials) returns (BcResponses); 
 
   //施工人员上链
-  rpc BcUploadWorkman(UploadWorkmans) returns (BcResponses); 
+  rpc BcUploadWorkman(UploadChainWorkmans) returns (BcResponses); 
 
   //施工人员考勤疫情信息上链
-  rpc BcUploadWorkmanAttendance(UploadWorkmanAttendances) returns (BcResponses); 
+  rpc BcUploadWorkmanAttendance(UploadChainWorkmanAttendances) returns (BcResponses); 
 }
 
 message QueryTxIDReq {
@@ -215,7 +215,7 @@ message UploadChainQualityInspection {
   repeated UploadDocumentInfo uploadDocument = 21;
 }
 
-message UploadChainQualityRectifies{
+message UploadChainQualityRectifys{
   repeated UploadChainQualityRectify UploadChainQualityRectify = 1;
 }
 
@@ -295,10 +295,10 @@ message DocumentInfoApprove {
 }
 
 message UploadChainContracts {
-   repeated UploadChaincontract uploadChaincontract = 1;
+   repeated UploadChainContract uploadChainContract = 1;
 }
 
-message UploadChaincontract {
+message UploadChainContract {
   UploadChainType uploadChainType = 1;
   string contractCode = 2;
   string contractName = 3;
@@ -399,7 +399,7 @@ message UploadChainInvoicePaid {
 }
 
 message UploadChainSafetyInspectionQualifieds {
-   repeated UploadChainSafetyInspectionQualified uploadChainSafetyQualified = 1;
+   repeated UploadChainSafetyInspectionQualified uploadChainSafetyInspectionQualified = 1;
 }
 
 message UploadChainSafetyInspectionQualified {
@@ -419,7 +419,7 @@ message UploadChainSafetyInspectionQualified {
 }
 
 message UploadChainSafetyInspectionUnqualifieds {
-   repeated UploadChainSafetyInspectionUnqualified uploadChainSafetyUnqualified = 1;
+   repeated UploadChainSafetyInspectionUnqualified uploadChainSafetyInspectionUnqualified = 1;
 }
 
 message UploadChainSafetyInspectionUnqualified {
@@ -443,7 +443,7 @@ message UploadChainSafetyInspectionUnqualified {
 }
 
 message UploadChainSafetyInspectionRectifieds {
-   repeated UploadChainSafetyInspectionRectified uploadChainSafetyRectified = 1;
+   repeated UploadChainSafetyInspectionRectified uploadChainSafetyInspectionRectified = 1;
 }
 
 message UploadChainSafetyInspectionRectified {
@@ -456,7 +456,7 @@ message UploadChainSafetyInspectionRectified {
 }
 
 message UploadChainSafetyInspectionRevieweds {
-   repeated UploadChainSafetyInspectionReviewed uploadChainSafetyReviewed = 1;
+   repeated UploadChainSafetyInspectionReviewed uploadChainSafetyInspectionReviewed = 1;
 }
 
 message UploadChainSafetyInspectionReviewed {
@@ -511,11 +511,11 @@ message UploadChainMaterial {
   repeated UploadDocumentInfo uploadDocument = 15;
 }
 
-message UploadWorkmans {
-   repeated UploadWorkman uploadChainWorkman = 1;
+message UploadChainWorkmans {
+   repeated UploadChainWorkman uploadChainWorkman = 1;
 }
 
-message UploadWorkman {
+message UploadChainWorkman {
   UploadChainType uploadChainType = 1;
   string workmanCode = 2;
   string projectName = 3;
@@ -530,11 +530,11 @@ message UploadWorkman {
   repeated DocumentInfo uploadDocument = 12;
 }
 
-message UploadWorkmanAttendances {
-   repeated UploadWorkmanAttendance uploadChainWorkmanAttendance = 1;
+message UploadChainWorkmanAttendances {
+   repeated UploadChainWorkmanAttendance uploadChainWorkmanAttendance = 1;
 }
 
-message UploadWorkmanAttendance {
+message UploadChainWorkmanAttendance {
   UploadChainType uploadChainType = 1;
   string workmanAttendanceCode = 2;
   string projectName = 3;
