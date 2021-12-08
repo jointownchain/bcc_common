@@ -5061,6 +5061,7 @@ message ListContractReq {
   google.protobuf.Timestamp endAt = 9;
   Page page = 10;
   int64 managerId = 11;
+  string  projectName = 12;
 }
 
 message ListContractResp {
