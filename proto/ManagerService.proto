@@ -6110,6 +6110,8 @@ message ListSafetyInspectionReq {
   google.protobuf.Timestamp inspectionEndAt = 46;
   google.protobuf.Timestamp assignedStartAt = 47;
   google.protobuf.Timestamp assignedEndAt = 48;
+  google.protobuf.Timestamp rectifyDateStartAt = 49;
+  google.protobuf.Timestamp rectifyDateEndAt = 50;
 }
 
 message OperateIntegerResp {
