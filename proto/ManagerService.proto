@@ -5968,7 +5968,7 @@ message ReportDashboardRankMonthReq {
 message DashboardRankMaterialYearVo {
   int64  year = 1;
   int64  rank = 2;
-  int64  materialType = 3;
+  string materialType = 3;
   string materialName = 4;
   string materialUnit = 5;
   int64  totalQuantity = 6;
@@ -5983,7 +5983,7 @@ message DashboardRankMaterialMonthVo {
   int64  year = 1;
   int64  month = 2;
   int64  rank = 3;
-  int64  materialType = 4;
+  string materialType = 4;
   string materialName = 5;
   string materialUnit = 6;
   int64  totalQuantity = 7;
