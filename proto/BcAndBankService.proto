@@ -30,7 +30,7 @@ service BcAndBankService {
   rpc BcUploadQualityReviews(UploadChainQualityReviews) returns (BcResponses);  
   
   // 流程申请上链
-  rpc BcUploadProcessApply(UploadChainProcessApplies) returns (BcResponses);
+  rpc BcUploadProcessApply(UploadChainProcessApplys) returns (BcResponses);
   //流程审批上链
   rpc BcUploadProcessApprove(UploadChainProcessApproves) returns (BcResponses);
   //合同上链
@@ -246,7 +246,7 @@ message UploadChainQualityReview {
   repeated UploadDocumentInfo uploadDocument = 8;
 }
 
-message UploadChainProcessApplies {
+message UploadChainProcessApplys {
    repeated UploadChainProcessApply uploadChainProcessApply = 1;
 }
 

@@ -5024,6 +5024,21 @@ message ProcessInfoVo {
   string constructionName = 25;
   string govermentName = 26;
   string projectName = 27;
+  ProcessInfoHashVo processInfoHash = 28;
+}
+
+ message ProcessInfoHashVo {
+  int64  id = 1;
+  int64  processId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string applyHash = 5;
+  google.protobuf.Timestamp applyUploadAt = 6;
+  string approveHash = 7;
+  google.protobuf.Timestamp approveUploadAt = 8;
+  string msg = 9;
+  google.protobuf.Timestamp createdAt = 10;
+  google.protobuf.Timestamp updatedAt = 11;
 }
 
 message GetProcessInfoResp {
