@@ -44,6 +44,8 @@ var CM = map[int]map[string]string{
 	10212: {"EN": "illegal role", "CN": "无效的角色"},
 	10213: {"EN": "illegal role change", "CN": "无法跨平台变更角色"},
 	10214: {"EN": "email verify code error", "CN": "邮箱验证码错误"},
+	10232: {"EN": "role duplicate", "CN": "重复的角色"},
+	10233: {"EN": "code duplicate", "CN": "重复的编号"},
 	10301: {"EN": "Invalid Build", "CN": "无效的施工单位信息"},
 	10401: {"EN": "Invalid Supervisor", "CN": "无效的监理单位信息"},
 	10501: {"EN": "Invalid Goverment", "CN": "无效的监管单位信息"},

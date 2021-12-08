@@ -35,6 +35,7 @@ var (
 	EmailVerifyCodeError = add(10214) // 邮箱验证码错误
 
 	RoleDuplicate = add(10232) // 重复的角色
+	CodeDuplicate = add(10233) // 重复的编号
 
 	InvalidBuild     = add(10301) // 无效的施工单位信息
 	InvalidSupervisor  = add(10401) // 无效的监理单位信息
