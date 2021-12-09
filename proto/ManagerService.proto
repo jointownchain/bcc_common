@@ -4518,20 +4518,21 @@ message ProgressPlanReq {
   int64  progressPlanId = 1;
   string progressPlanCode = 2;
   int64  projectId = 3;
-  int64  buildId = 4;
-  string planName = 5;
-  google.protobuf.Timestamp startAt = 6;
-  google.protobuf.Timestamp endAt = 7;
-  string planPerson = 8;
-  string milestoneStatus = 9;
-  google.protobuf.Timestamp actualDate = 10;
-  int64  actualPercent = 11;
-  string activeStatus = 12;
-  string memo = 13;
-  repeated UploadDocumentInfo uploadDocument = 14;
-  string infoHash = 15;
-  Page   page = 16;
-  int64  managerId = 17;
+  string projectName = 4;
+  int64  buildId = 5;
+  string planName = 6;
+  google.protobuf.Timestamp startAt = 7;
+  google.protobuf.Timestamp endAt = 8;
+  string planPerson = 9;
+  string milestoneStatus = 10;
+  google.protobuf.Timestamp actualDate = 11;
+  int64  actualPercent = 12;
+  string activeStatus = 13;
+  string memo = 14;
+  repeated UploadDocumentInfo uploadDocument = 15;
+  string infoHash = 16;
+  Page   page = 17;
+  int64  managerId = 18;
 }
 
 message ProgressPlanVo {  
