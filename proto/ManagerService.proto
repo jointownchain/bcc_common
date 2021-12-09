@@ -5101,6 +5101,7 @@ message GetOneContractReq {
   int64 contractId = 1;
   int64 managerId = 2;
   Page page = 3;
+  string toPlatFormType = 4;
 }
 
 message GetOneContractResp {
@@ -5131,7 +5132,7 @@ message ContractInfoVo {
   google.protobuf.Timestamp updatedAt = 18;
   string projectName = 19;
   string toOrganizationName = 20;
-  repeated DocumentInfo documentInfo = 21;
+  repeated DocumentInfo uploadDocumentInfoContract = 21;
   string infoHash = 22;
 }
 
