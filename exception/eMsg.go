@@ -68,6 +68,9 @@ var CM = map[int]map[string]string{
 	30004: {"EN": "FactoringApplyAlreadyPaid", "CN": "部分货款已支付，无法申请保理"},
 	30005: {"EN": "FactoringApplyError", "CN": "保理申请信息异常"},
 	
+	31001: {"EN": "Invalid Actual Percent", "CN": "无效的实际完成百分比"},
+
+	
 	40001: {"EN": "ShipmentOrder InvoiceNo Is Used", "CN": "发票号已经被使用"},
 	40002: {"EN": "ShipmentOrder InvoiceAmount Should Be Equal OrderAmount", "CN": "发票金额应与订单总金额相等"},
 	40003: {"EN": "Invalid ShipmentPlan", "CN": "无效的配送计划"},

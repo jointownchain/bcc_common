@@ -56,6 +56,8 @@ var (
 	FactoringApplyAlreadyPaid     = add(30004) //部分货款已支付，无法申请保理
 	FactoringApplyError           = add(30005) //保理申请信息异常
 	
+	InvalidActualPercent       = add(31001) // 无效的实际完成百分比
+	
 	ShipmentInvoiceNoIsUsed                       = add(40001) //配送发票号已被使用
 	ShipmentInvoiceAmountShouldBeEqualOrderAmount = add(40002) //发票金额应与订单总金额相等
 	InvalidShipmentPlan                           = add(40003) //无效的配送计划
