@@ -4309,9 +4309,10 @@ message ListProcessReq {
   google.protobuf.Timestamp applyEndAt = 8;
   google.protobuf.Timestamp approveStartAt = 9;
   google.protobuf.Timestamp approveEndAt = 10;
- int64 organizationId = 11;
- int64 projectPhaseId = 12;
-  
+  int64 organizationId = 11;
+  int64 projectPhaseId = 12;
+  string fromPlatFormType = 13;
+  string activeStatus = 14;
 }
 
 message ListProcessResp {
