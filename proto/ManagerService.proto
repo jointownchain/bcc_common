@@ -4147,6 +4147,7 @@ message CreateOneProcessReq {
   repeated DocumentInfoApply uploadDocumentApply = 20;
   string processCode = 21;
   int64  applyBy = 22;  
+  string projectPhaseIds = 23;
 }
 
 message DocumentInfoApply {
@@ -4184,6 +4185,8 @@ message GetProcessCodeResp {
   string preProcessIds = 17;
   string activeStatus = 18;
   string processCode = 19;
+  string projectPhaseIds = 20;
+  string projectPhaseIdsDesc = 21;
 }
 
 
@@ -4211,6 +4214,7 @@ message CreateHashProcessReq {
   repeated DocumentInfoApply uploadDocumentApply = 21;
   string processCode = 22;
   int64  applyBy = 23;
+  string projectPhaseIds = 24;
 }
 
 message CreateHashProcessResp {
@@ -4242,6 +4246,7 @@ message UpdateProcessReq {
   repeated DocumentInfoApply uploadDocumentApply = 19;
   int64  managerId = 20;
   int64  applyBy = 21;
+  string projectPhaseIds = 22;
 }
 
 message UpdateProcessResp {
@@ -4271,6 +4276,7 @@ message UpdateHashProcessReq {
   repeated DocumentInfoApply uploadDocumentApply = 20;
   int64  managerId = 21;
   int64  applyBy = 22;
+  string projectPhaseIds = 23;
 }
 
 message UpdateHashProcessResp {
@@ -4313,6 +4319,8 @@ message ListProcessReq {
   int64 projectPhaseId = 12;
   string fromPlatFormType = 13;
   string activeStatus = 14;
+  string projectPhaseIds = 15;
+  int64  isParallel = 16;
 }
 
 message ListProcessResp {
@@ -4347,6 +4355,8 @@ message ListProcessVo {
   string constructionName = 22;
   string govermentName = 23;
   string projectName = 24;
+  string projectPhaseIds = 25;
+  string projectPhaseIdsDesc = 26;
 }
 
 
@@ -4376,6 +4386,8 @@ message CommonProcessResp {
   string approveDesc = 16;
   string preProcessIds = 17;
   string activeStatus = 18;
+  string projectPhaseIds = 19;
+  string projectPhaseIdsDesc = 20;
 }
 
 message UploadDocumentInfo {
