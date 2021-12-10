@@ -3432,6 +3432,7 @@ message UpdateHashConstructionReq {
   string memo = 9;
   string infoHash = 10;
   int64  managerId = 11;
+  string constructionCode = 12;
 }
 
 message UpdateHashConstructionResp {
@@ -3646,6 +3647,7 @@ message UpdateHashBuildReq {
   string memo = 9;
   string infoHash = 10;
   int64  managerId = 11;
+  string buildCode = 12;
 }
 
 message UpdateHashBuildResp {
@@ -3860,6 +3862,7 @@ message UpdateHashSupervisorReq {
   string memo = 9;
   string infoHash = 10;
   int64  managerId = 11;
+  string supervisorCode = 12;
 }
 
 message UpdateHashSupervisorResp {
@@ -4074,6 +4077,7 @@ message UpdateHashGovermentReq {
   string memo = 9;
   string infoHash = 10;
   int64  managerId = 11;
+  string govermentCode = 12;
 }
 
 message UpdateHashGovermentResp {
