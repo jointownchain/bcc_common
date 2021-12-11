@@ -2632,6 +2632,7 @@ service ManagerService {
   rpc CreateMaterialHash(MaterialReq) returns(OperateIntegerResp);
   rpc UpdateMaterialHash(MaterialReq) returns(OperateIntegerResp);
   rpc GetMaterialHash(MaterialIdsReq) returns(GetMaterialHashResp);
+  rpc ListMaterialDistinctName(ListMaterialDistinctNameReq) returns(ListMaterialDistinctNameResp);
   //===Material rpc end===  
 }
 
@@ -6632,6 +6633,8 @@ message ListMaterialReq {
   string fromOrganizationName = 24;
   int64  managerId = 25;
   Page page = 26;
+  google.protobuf.Timestamp startAt = 27;
+  google.protobuf.Timestamp endAt = 28;
 }
 
 message MaterialsResp {
@@ -6686,4 +6689,22 @@ message MaterialHashVo {
   google.protobuf.Timestamp createdAt = 6;
   google.protobuf.Timestamp updatedAt = 7;
 }
+
+message ListMaterialDistinctNameReq {
+  string materialName = 1;
+  int64  managerId = 2;
+  Page page = 3;
+}
+
+message MaterialDistinctNameVo {
+  string materialName = 1;
+}
+
+message ListMaterialDistinctNameResp {
+  repeated MaterialDistinctNameVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
 //===Material Proto end===
