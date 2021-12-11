@@ -5045,6 +5045,8 @@ message ProcessInfoVo {
   string govermentName = 26;
   string projectName = 27;
   ProcessInfoHashVo processInfoHash = 28;
+  string  projectPhaseIds = 29;
+  string  projectPhaseIdsDesc = 30;
 }
 
  message ProcessInfoHashVo {
