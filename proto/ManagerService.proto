@@ -5115,6 +5115,7 @@ message ListContractVo {
   string projectName = 19;
   string toOrganizationName = 20;
   string infoHash = 21;
+  string constructionName = 22;
 }
 
 
@@ -5156,6 +5157,7 @@ message ContractInfoVo {
   string toOrganizationName = 20;
   repeated DocumentInfo uploadDocumentInfoContract = 21;
   string infoHash = 22;
+  string constructionName = 23;
 }
 
 
