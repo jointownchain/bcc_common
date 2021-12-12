@@ -48,6 +48,8 @@ message UserPassLoginResp {
 message PermissionInfo {
   string permission = 1;
   string permissionUrl = 2;
+  string permissionType = 3;
+  int64 layer = 4;
 }
 
 message CreateUserReq {
