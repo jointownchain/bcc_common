@@ -5956,15 +5956,21 @@ message ReportDashboardProcessYearResp {
   int64  totalApproved = 3;
   repeated int64 listMonthApplied = 4;
   repeated int64 listMonthApproved = 5;
+  int64  totalProcessApplied = 6;			//流程申请总数
+  int64  totalProcessApproved = 7;			//流程审批总数  
+  int64  totalProcessApprovedOnTime = 8;	//流程按期审批总数   
 }
 
 message ReportDashboardProcessMonthResp {
   int64  year = 1;
   int64  month = 2;
-  int64  totalApplied = 3;
-  int64  totalApproved = 4;
+  int64  totalApplied = 3;					//申请文档数
+  int64  totalApproved = 4;					//审批文档数
   repeated int64 listDayApplied = 5;
   repeated int64 listDayApproved = 6;
+  int64  totalProcessApplied = 7;			//流程申请总数
+  int64  totalProcessApproved = 8;			//流程审批总数  
+  int64  totalProcessApprovedOnTime = 9;	//流程按期审批总数   
 }
 
 message ReportDashboardAttendanceYearResp {
