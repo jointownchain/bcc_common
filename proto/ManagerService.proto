@@ -6375,6 +6375,7 @@ message WorkmanReq {
   repeated UploadDocumentInfo uploadDocument = 19;
   string infoHash = 20;
   int64  managerId = 21;
+  string  organizationName = 22;
 }
 
 message WorkmanIdsReq {
@@ -6490,6 +6491,7 @@ message WorkmanAttendanceReq {
   repeated UploadDocumentInfo uploadDocument = 24;
   string infoHash = 25;
   int64  managerId = 26;
+  string  organizationName = 27;
 }
 
 message WorkmanAttendanceIdsReq {
