@@ -6543,6 +6543,8 @@ message ListWorkmanAttendanceReq {
   string organizationName = 25;
   int64  managerId = 26;
   Page page = 27;
+  google.protobuf.Timestamp fromDate = 28;
+  google.protobuf.Timestamp toDate = 29;
 }
 
 message WorkmanAttendancesResp {
