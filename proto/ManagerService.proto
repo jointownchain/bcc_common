@@ -6384,6 +6384,8 @@ message WorkmanReq {
   string infoHash = 20;
   int64  managerId = 21;
   string  organizationName = 22;
+  google.protobuf.Timestamp startDate = 23;
+  google.protobuf.Timestamp endDate = 24;
 }
 
 message WorkmanIdsReq {
@@ -6414,6 +6416,10 @@ message ListWorkmanReq {
   string organizationName = 20;
   int64  managerId = 21;
   Page page = 22;
+  google.protobuf.Timestamp startDate = 23;
+  google.protobuf.Timestamp endDate = 24;
+  google.protobuf.Timestamp fromDate = 25;
+  google.protobuf.Timestamp toDate = 26;
 }
 
 message WorkmansResp {
@@ -6453,6 +6459,8 @@ message WorkmanVo {
   string organizationName = 20;
   WorkmanHashVo workmanHash = 22;
   repeated UploadDocumentInfo uploadDocument = 23;  
+  google.protobuf.Timestamp startDate = 24;
+  google.protobuf.Timestamp endDate = 25;
 }
 
 message WorkmanHashVo {
