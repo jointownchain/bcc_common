@@ -11,8 +11,6 @@ message Page {
   int64 pageSize = 2;
 }
 
-
-//根据药品哈希查询药品交易请求信息
 message GetChainTransactionInfoReq {
   string  hashValue = 1;
   int64 managerId = 2;
@@ -20,10 +18,9 @@ message GetChainTransactionInfoReq {
 }
 
 message GetChainTransactionInfoResp {
-  string  transactionDetails = 2;
+  string  transactionDetails = 1;
 }
 
-//get hash info by hash and businessType
 message GetTxHashInfoReq {
   string  hashValue = 1;
   int64 managerId = 2;
@@ -43,13 +40,18 @@ message GetTxHashInfoResp {
   string  uploaderRoleName = 10;
 }
 
+message GetMaxBlockNumReq {
+  int64 managerId = 1;
+  string businessType  = 2;
+}
+
+message GetMaxBlockNumResp {
+  string  maxBlockNumber = 1;
+}
+
 service ChainBlockService {
-  //获取hash
- 
   rpc GetTransactionHash(GetChainTransactionInfoReq) returns(GetChainTransactionInfoResp);
-  
   rpc GetTxHashInfoByBusinessType(GetTxHashInfoReq) returns(GetTxHashInfoResp);
-
-
+  rpc GetMaxBlockNumber(GetMaxBlockNumReq) returns(GetMaxBlockNumResp);
 }
 
