@@ -40,18 +40,18 @@ message GetTxHashInfoResp {
   string  uploaderRoleName = 10;
 }
 
-message GetMaxBlockNumReq {
+message GetMaxBlockNumberReq {
   int64 managerId = 1;
   string businessType  = 2;
 }
 
-message GetMaxBlockNumResp {
+message GetMaxBlockNumberResp {
   string  maxBlockNumber = 1;
 }
 
 service ChainBlockService {
   rpc GetTransactionHash(GetChainTransactionInfoReq) returns(GetChainTransactionInfoResp);
   rpc GetTxHashInfoByBusinessType(GetTxHashInfoReq) returns(GetTxHashInfoResp);
-  rpc GetMaxBlockNumber(GetMaxBlockNumReq) returns(GetMaxBlockNumResp);
+  rpc GetMaxBlockNumber(GetMaxBlockNumberReq) returns(GetMaxBlockNumberResp);
 }
 
