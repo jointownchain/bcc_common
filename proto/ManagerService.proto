@@ -2634,6 +2634,18 @@ service ManagerService {
   rpc GetMaterialHash(MaterialIdsReq) returns(GetMaterialHashResp);
   rpc ListMaterialDistinctName(ListMaterialDistinctNameReq) returns(ListMaterialDistinctNameResp);
   //===Material rpc end===  
+  
+  
+  //===BuildLog rpc begin===
+  rpc CreateOneBuildLog(BuildLogReq) returns(OperateIntegerResp);
+  rpc UpdateOneBuildLog(BuildLogReq) returns(OperateIntegerResp);
+  rpc DeleteOneBuildLog(BuildLogIdsReq) returns(OperateIntegerResp);
+  rpc GetOneBuildLog(BuildLogIdsReq) returns(BuildLogsResp);
+  rpc ListBuildLog(ListBuildLogReq) returns(BuildLogsResp);
+  rpc CreateBuildLogHash(BuildLogReq) returns(OperateIntegerResp);
+  rpc UpdateBuildLogHash(BuildLogReq) returns(OperateIntegerResp);
+  rpc GetBuildLogHash(BuildLogIdsReq) returns(GetBuildLogHashResp);
+  //===BuildLog rpc end===
 }
 
 message StockSyncReq{
@@ -6508,6 +6520,13 @@ message WorkmanAttendanceReq {
   string infoHash = 25;
   int64  managerId = 26;
   string  organizationName = 27;
+  string groupName = 28;
+  string workType = 29;
+  string workHours = 30;
+  string isMorningClock = 31;
+  string morningClock = 32;
+  string isAfternoonClock = 33;
+  string afternoonClock = 34;
 }
 
 message WorkmanAttendanceIdsReq {
@@ -6545,6 +6564,13 @@ message ListWorkmanAttendanceReq {
   Page page = 27;
   google.protobuf.Timestamp fromDate = 28;
   google.protobuf.Timestamp toDate = 29;
+  string groupName = 30;
+  string workType = 31;
+  string workHours = 32;
+  string isMorningClock = 33;
+  string morningClock = 34;
+  string isAfternoonClock = 35;
+  string afternoonClock = 36;
 }
 
 message WorkmanAttendancesResp {
@@ -6589,6 +6615,13 @@ message WorkmanAttendanceVo {
   string organizationName = 25;
   WorkmanAttendanceHashVo workmanHash = 26;
   repeated UploadDocumentInfo uploadDocument = 27;  
+  string groupName = 28;
+  string workType = 29;
+  string workHours = 30;
+  string isMorningClock = 31;
+  string morningClock = 32;
+  string isAfternoonClock = 33;
+  string afternoonClock = 34;
 }
 
 message WorkmanAttendanceHashVo {
@@ -6740,3 +6773,116 @@ message ListMaterialDistinctNameResp {
 }
 
 //===Material Proto end===
+
+
+//===BuildLog Proto begin===
+
+message BuildLogReq {
+  int64  buildLogId = 1;
+  string buildLogCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  attendanceNumber = 6;
+  string recordPerson = 7;
+  google.protobuf.Timestamp recordDate = 8;
+  string recordDept = 9;
+  string constructionArea = 10;
+  string buildSituation = 11;
+  string buildEducation = 12;
+  string buildMeeting = 13;
+  string activeStatus = 14;
+  string memo = 15;
+  int64  createdBy = 16;
+  google.protobuf.Timestamp createdAt = 17;
+  int64  updatedBy = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  repeated UploadDocumentInfo uploadDocument = 20;
+  string infoHash = 21;
+  int64  managerId = 22;
+}
+
+message BuildLogIdsReq {
+  repeated int64 buildLogIds = 1;
+  int64  managerId = 2;
+}
+
+message ListBuildLogReq {
+  int64  buildLogId = 1;
+  string buildLogCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  attendanceNumber = 6;
+  string recordPerson = 7;
+  google.protobuf.Timestamp recordDate = 8;
+  string recordDept = 9;
+  string constructionArea = 10;
+  string buildSituation = 11;
+  string buildEducation = 12;
+  string buildMeeting = 13;
+  string activeStatus = 14;
+  string memo = 15;
+  int64  createdBy = 16;
+  google.protobuf.Timestamp createdAt = 17;
+  int64  updatedBy = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  string projectName = 20;
+  string fromOrganizationName = 21;
+  int64  managerId = 22;
+  Page page = 23;
+  google.protobuf.Timestamp startAt = 24;
+  google.protobuf.Timestamp endAt = 25;
+}
+
+message BuildLogsResp {
+  repeated BuildLogVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message GetBuildLogHashResp {
+  repeated BuildLogHashVo list = 1;
+  int64 total = 2;
+  int64 pageSize = 3;
+  int64 pageNumber = 4;
+}
+
+message BuildLogVo {
+  int64  buildLogId = 1;
+  string buildLogCode = 2;
+  int64  projectId = 3;
+  int64  fromOrganizationId = 4;
+  string fromPlatFormType = 5;
+  int64  attendanceNumber = 6;
+  string recordPerson = 7;
+  google.protobuf.Timestamp recordDate = 8;
+  string recordDept = 9;
+  string constructionArea = 10;
+  string buildSituation = 11;
+  string buildEducation = 12;
+  string buildMeeting = 13;
+  string activeStatus = 14;
+  string memo = 15;
+  int64  createdBy = 16;
+  google.protobuf.Timestamp createdAt = 17;
+  int64  updatedBy = 18;
+  google.protobuf.Timestamp updatedAt = 19;
+  string projectName = 20;
+  string fromOrganizationName = 21;
+  BuildLogHashVo buildLogHash = 22;
+  repeated UploadDocumentInfo uploadDocument = 23;  
+}
+
+message BuildLogHashVo {
+  int64  id = 1;
+  int64  buildLogId = 2;
+  string infoHash = 3;
+  google.protobuf.Timestamp infoUploadAt = 4;
+  string msg = 5;
+  google.protobuf.Timestamp createdAt = 6;
+  google.protobuf.Timestamp updatedAt = 7;
+}
+
+//===BuildLog Proto end===

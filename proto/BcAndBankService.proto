@@ -62,6 +62,9 @@ service BcAndBankService {
 
   //施工人员考勤疫情信息上链
   rpc BcUploadWorkmanAttendance(UploadChainWorkmanAttendances) returns (BcResponses); 
+ //施工日志上链
+  rpc BcUploadBuildLog(UploadChainBuildLogs) returns (BcResponses); 
+  
 }
 
 message QueryTxIDReq {
@@ -552,4 +555,33 @@ message UploadChainWorkmanAttendance {
   google.protobuf.Timestamp uploadDate = 15;
   string memo = 16;  
   repeated DocumentInfo uploadDocument = 17;
+  string groupName = 18;
+  string workType = 19;
+  string workHours = 20;
+  string isMorningClock = 21;
+  string morningClock = 22;
+  string isAfternoonClock = 23;
+  string afternoonClock = 24;
+  
+}
+
+message UploadChainBuildLogs {
+   repeated UploadChainBuildLog uploadChainBuildLog = 1;
+}
+
+message UploadChainBuildLog {
+  UploadChainType uploadChainType = 1;
+  string buildLogCode = 2;
+  string projectName = 3;
+  string fromOrganizationName = 4;
+  int64  attendanceNumber = 5;
+  string recordPerson = 6;
+  google.protobuf.Timestamp recordDate = 7;
+  string recordDept = 8;
+  string constructionArea = 9;
+  string buildSituation = 10;
+  string buildEducation = 11;
+  string buildMeeting = 12;
+  string memo = 13;
+  repeated UploadDocumentInfo uploadDocument = 14;
 }
