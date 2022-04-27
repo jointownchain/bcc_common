@@ -5839,6 +5839,9 @@ message DashboardWorkmanAttendanceStatisticsVo {
   int64 totalWorker = 2;
   int64 totalManager = 3;
   int64 totalAttendance = 4;
+  string workType = 5;
+  string groupName = 6;
+  int64  personNum = 7;
 }
 
 message CountDashboardWorkmanAttendanceStatisticsResp {
