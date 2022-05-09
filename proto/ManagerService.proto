@@ -6001,10 +6001,11 @@ message ReportDashboardAttendanceYearResp {
 message ReportDashboardAttendanceMonthResp {
   int64  year = 1;
   int64  month = 2;
-  int64  totalWorkerman = 3;
-  int64  totalManager = 4;
-  repeated int64 listDayWorkerman = 5;
-  repeated int64 listDayManager = 6;
+  //int64  totalWorkerman = 3;
+  //int64  totalManager = 4;
+  //repeated int64 listDayWorkerman = 5;
+  //repeated int64 listDayManager = 6;
+  repeated ListWorkmanAttendanceTop listTop = 3;
 }
 
 message ReportDashboardRankYearReq {
@@ -6891,3 +6892,9 @@ message BuildLogHashVo {
 }
 
 //===BuildLog Proto end===
+
+
+message ListWorkmanAttendanceTop {
+	 string  workType =1;
+	 string  wokTypeValue = 2;
+ }
