@@ -216,6 +216,9 @@ message UploadChainQualityInspection {
   int64  duration = 19;
   string memo = 20;
   repeated UploadDocumentInfo uploadDocument = 21;
+  string fromOrganizationName = 22;
+  string toOrganizationName = 23;
+  string projectName = 24;
 }
 
 message UploadChainQualityRectifys{
