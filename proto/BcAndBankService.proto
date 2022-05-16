@@ -166,6 +166,8 @@ message UploadChainProgressPlan {
   string activeStatus = 12;
   string memo = 13;
   repeated UploadDocumentInfo uploadDocument = 14;
+  string buildName = 15;
+  string projectName = 16;
 }
 
 message UploadChainProgressActuals {
@@ -185,6 +187,8 @@ message UploadChainProgressActual {
   string activeStatus = 10;
   string memo = 11;
   repeated UploadDocumentInfo uploadDocument = 12;
+  string buildName = 13;
+  string projectName = 14;
 }
 
 
