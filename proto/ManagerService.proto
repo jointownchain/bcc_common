@@ -2646,6 +2646,8 @@ service ManagerService {
   rpc UpdateBuildLogHash(BuildLogReq) returns(OperateIntegerResp);
   rpc GetBuildLogHash(BuildLogIdsReq) returns(GetBuildLogHashResp);
   //===BuildLog rpc end===
+  
+   rpc GetProjectPhaseNameById(GetProjectPhaseNameByIdReq) returns(GetProjectPhaseNameByIdResp);
 }
 
 message StockSyncReq{
@@ -6898,3 +6900,15 @@ message ListWorkmanAttendanceTop {
 	 string  workType =1;
 	 string  wokTypeValue = 2;
  }
+ 
+ 
+ 
+ message GetProjectPhaseNameByIdReq {
+  int64  projectPhaseId = 1;
+  int64 managerId = 2;
+}
+
+message GetProjectPhaseNameByIdResp {
+  string phaseName = 1;
+  string phaseDesc = 2;
+}
